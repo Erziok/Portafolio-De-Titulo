@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    {% load static %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Style sheets -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 </head>
 <body>
-    <nav class="">
-        
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a class="" href="model/home"><img src="{% static 'images/petsafe_logo.png' %}" class="logo-brand" alt=""></a>
+        </div>
     </nav>
+        
+
 </body>
 </html>
