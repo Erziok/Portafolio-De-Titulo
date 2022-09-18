@@ -6,3 +6,8 @@ def home(request):
     print("Ok, estamos en la vista home")
     context = {}
     return render(request, 'model/index.html',context)
+
+def form(request):
+    print("Ok, estamos en la vista formulario")
+    context = {}
+    return render(request, 'model/form.html', context)
