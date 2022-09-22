@@ -1,0 +1,31 @@
+/* html{
+    scroll-behavior: smooth;
+} */
+
+
+/* Navbar styles (If the changes don't show up in the browser, press CTRL + F5) */ 
+.navbar{
+    background-color: #208ffe;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0, .05);
+    min-height: 80px;
+}
+
+.logo-brand{
+    min-width: 110px;
+    max-width: 50px;
+}
+
+/* End of navbar styles */
+
+.warnings{
+    width: 200px;
+    text-align: center;
+    margin: auto;
+    color: darkred;
+    padding-top: 20px;
+}
+
+.error-text{
+    color: darkred;
+    visibility: hidden;
+}
