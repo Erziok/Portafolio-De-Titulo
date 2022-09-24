@@ -40,6 +40,9 @@
     
                       <button type="submit" class="btn btn-primary" id="submit-btn">Iniciar Sesión</button>
                       <p class="warnings" id="warnings"></p>
+                      @error('mensaje')
+                      <strong>{{ $message }}</strong>
+                      @enderror
                      
                       <p>¿No tiene una cuenta? <a href="{{ route('register') }}">Registrarse</a></p>
         
@@ -50,9 +53,7 @@
               </div>
             </div>
           </form>
-          @error('mensaje')
-            <strong>{{ $message }}</strong>
-          @enderror
+          
         </div>
       </section>
 

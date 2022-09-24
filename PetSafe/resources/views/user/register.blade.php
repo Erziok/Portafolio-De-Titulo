@@ -26,49 +26,64 @@
                     <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Datos de registro</h3>
         
         
-                      <div class="form-outline mb-4">
+                      <div class="form-outline mb-2 form-box">
                         <label class="form-label" for="form3Example1q">Nombre</label>
                         <input type="text" id="username" class="form-control" placeholder="Nombre" name="name"/>
+                        <small class="error-text">Introduce un nombre válido</small>
                         @error('name')
                           <strong>{{ $message }}</strong>
                         @enderror
                       </div>
     
-                      <div class="form-outline mb-4">
+                      <div class="form-outline mb-2 form-box">
                         <label class="form-label" for="form3Example1q">Apellido</label>
                         <input type="text" id="lastname" class="form-control" placeholder="Apellido" name="lastname"/>
+                        <small class="error-text">Introduce un apellido válido</small>
+                        @error('lastname')
+                          <strong>{{ $message }}</strong>
+                        @enderror
                       </div>
     
-                      <div class="form-outline mb-4">
+                      <div class="form-outline mb-2 form-box">
                         <label class="form-label" for="form3Example1q">Mail</label>
                         <input type="text" id="mail" class="form-control" placeholder="EJ: ejemplo@gmail.com" name="email"/>
+                        <small class="error-text">Introduce un email válido</small>
                         @error('email')
                           <strong>{{ $message }}</strong>
                         @enderror
                       </div>
     
-                      <div class="form-outline mb-4">
+                      <div class="form-outline mb-2 form-box">
                         <label class="form-label" for="form3Example1q">Rut</label>
                         <input type="text" id="rut" class="form-control" placeholder="EJ: 18234065-5" name="rut"/>
+                        <small class="error-text">Introduce un rut válido</small>
+                        @error('rut')
+                          <strong>{{ $message }}</strong>
+                        @enderror
                       </div>
     
-                      <div class="form-outline mb-4">
+                      <div class="form-outline mb-2 form-box">
                         <label class="form-label" for="form3Example1q">Contraseña</label>
                         <input type="password" id="password" class="form-control" placeholder="Contraseña" name="password"/>
+                        <small class="error-text">Introduce una contraseña válida</small>
                         @error('password')
                           <strong>{{ $message }}</strong>
                         @enderror
                       </div>
     
-                      <div class="form-outline mb-4">
+                      <div class="form-outline mb-2 form-box">
                         <label class="form-label" for="form3Example1q">Repita su contraseña</label>
                         <input type="password" id="password2" class="form-control" placeholder="Repita su contraseña"/ name="password2">
+                        <small class="error-text">Las contraseñas no coinciden</small>
+                        @error('password2')
+                          <strong>{{ $message }}</strong>
+                        @enderror
                       </div>
           
                       <!-- <button type="submit" class="btn btn-success btn-lg mb-1">Registrarse</button> -->
     
-                      <button type="submit" class="btn btn-primary" id="submit-btn">Registrarse</button>
-                     
+                      <button type="submit" class="btn btn-primary" id="submit-btn" disabled>Registrarse</button>
+                      <p class="warnings" id="warnings"></p>
                       <p>¿Ya tienes cuenta? <a href="{{ route('login') }}">Inicia sesión</a></p>
         
                     <div class="salida"></div>
@@ -80,6 +95,9 @@
           </form>
         </div>
       </section>
+
+      <script src="{{ asset('js/validateregister.js?v=').time() }}"></script>
+      <script src="{{ asset('js/validaterut.js?v=').time() }}"></script>
     
 </body>
 </html>
