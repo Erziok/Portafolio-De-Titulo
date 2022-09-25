@@ -29,7 +29,7 @@
                       <div class="form-outline mb-2 form-box">
                         <label class="form-label" for="form3Example1q">Nombre</label>
                         <input type="text" id="username" class="form-control" placeholder="Nombre" name="name"/>
-                        <small class="error-text">Introduce un nombre válido</small>
+                        <small class="error-text">Introduce un nombre válido (mínimo 3 carácteres)</small>
                         @error('name')
                           <strong>{{ $message }}</strong>
                         @enderror
@@ -38,14 +38,14 @@
                       <div class="form-outline mb-2 form-box">
                         <label class="form-label" for="form3Example1q">Apellido</label>
                         <input type="text" id="lastname" class="form-control" placeholder="Apellido" name="lastname"/>
-                        <small class="error-text">Introduce un apellido válido</small>
+                        <small class="error-text">Introduce un apellido válido (mínimo 3 carácteres)</small>
                         @error('lastname')
                           <strong>{{ $message }}</strong>
                         @enderror
                       </div>
     
                       <div class="form-outline mb-2 form-box">
-                        <label class="form-label" for="form3Example1q">Mail</label>
+                        <label class="form-label" for="form3Example1q">Correo electrónico</label>
                         <input type="text" id="mail" class="form-control" placeholder="EJ: ejemplo@gmail.com" name="email"/>
                         <small class="error-text">Introduce un email válido</small>
                         @error('email')
@@ -55,7 +55,7 @@
     
                       <div class="form-outline mb-2 form-box">
                         <label class="form-label" for="form3Example1q">Rut</label>
-                        <input type="text" id="rut" class="form-control" placeholder="EJ: 18234065-5" name="rut"/>
+                        <input type="text" id="rut" class="form-control" placeholder="EJ: 19844544-4" name="rut"/>
                         <small class="error-text">Introduce un rut válido</small>
                         @error('rut')
                           <strong>{{ $message }}</strong>
@@ -65,7 +65,7 @@
                       <div class="form-outline mb-2 form-box">
                         <label class="form-label" for="form3Example1q">Contraseña</label>
                         <input type="password" id="password" class="form-control" placeholder="Contraseña" name="password"/>
-                        <small class="error-text">Introduce una contraseña válida</small>
+                        <small class="error-text">Introduce una contraseña válida (mínimo 6 carácteres)</small>
                         @error('password')
                           <strong>{{ $message }}</strong>
                         @enderror

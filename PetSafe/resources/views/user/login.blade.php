@@ -23,10 +23,10 @@
                     <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Iniciar Sesión</h3>
         
                       <div class="form-outline mb-4">
-                        <label class="form-label" for="form3Example1q">Mail</label>
+                        <label class="form-label" for="form3Example1q">Correo electrónico</label>
                         <input type="text" id="mail" class="form-control" placeholder="EJ: ejemplo@gmail.com" name="email"/>
                         @error('email')
-                          <strong>{{ $message }}</strong>
+                          <small style="color: darkred">{{ $message }}</small>
                         @enderror
                       </div>
     
@@ -34,14 +34,14 @@
                         <label class="form-label" for="form3Example1q">Contraseña</label>
                         <input type="password" id="password" class="form-control" placeholder="Contraseña" name="password"/>
                         @error('password')
-                          <strong>{{ $message }}</strong>
+                          <small style="color: darkred">{{ $message }}</small>
                         @enderror
                       </div>
     
                       <button type="submit" class="btn btn-primary" id="submit-btn">Iniciar Sesión</button>
                       <p class="warnings" id="warnings"></p>
                       @error('mensaje')
-                      <strong>{{ $message }}</strong>
+                      <strong style="color: darkred">{{ $message }}</strong>
                       @enderror
                      
                       <p>¿No tiene una cuenta? <a href="{{ route('register') }}">Registrarse</a></p>
