@@ -4,11 +4,6 @@
 
 
 /* Navbar styles (If the changes don't show up in the browser, press CTRL + F5) */ 
-.navbar{
-    background-color: #208ffe;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0, .05);
-    min-height: 80px;
-}
 
 .logo-brand{
     min-width: 110px;
@@ -17,13 +12,7 @@
 
 /* End of navbar styles */
 
-.warnings{
-    width: 200px;
-    text-align: center;
-    margin: auto;
-    color: darkred;
-    padding-top: 20px;
-}
+/* Validation Form */
 
 .error-text{
     color: darkred;
@@ -41,3 +30,73 @@
 .form-box.form-success input {
     border-bottom: 2px solid #1e9ba3;
 }
+
+/* End of validation form */
+
+/* Carousel */ 
+
+/* .carousel {
+    z-index: 1;
+} */
+
+
+.carousel-inner > .carousel-item > img {
+    height: 250px;
+}
+
+
+.maps {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.menu {
+    padding: 30px;
+}
+
+.category-section {
+    display: flex;
+    justify-content: center;
+}
+
+.category-section .category-container {
+    width: 90%;
+    max-width: 1100px;
+}
+
+.category-section .category-container .item .category-box {
+    background-color: #7c20fe;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    padding: 15px 0;
+    transition: 0.7s;
+}
+
+.category-section .category-container .item .category-box img {
+    height: 80px;
+    width: 80px;
+    transition: 0.7s;
+}
+
+.category-section .category-container .item a {
+    text-decoration: none;
+    color: #fbfbfb;
+    font-weight: bold;
+}
+
+.category-section .category-container .item .category-box:hover {
+    transform: scale(1.05);
+}
+
+.category-section .category-container .item {
+    padding: 5px 10px;
+}
+
+
+
+
+

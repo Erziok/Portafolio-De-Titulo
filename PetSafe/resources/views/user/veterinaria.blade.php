@@ -6,7 +6,7 @@
         <div class="container px-lg-5">
             <div class="p-4 p-lg-5 bg-light rounded-3">
                 <div class="m-4 m-lg-5">
-                    <h1 class="display-6 fw-bold">Denuncia maltrato</h1><br>
+                    <h1 class="display-6 fw-bold">Veterinaria Municipal</h1><br>
                     <p class="fs-6">
                         Lorem Ipsum is simply dummy text of the printing and typesetting 
                         industry. Lorem Ipsum has been the industry's standard dummy text ever since the 
@@ -17,20 +17,22 @@
                         recently with desktop publishing software like Aldus PageMaker including versions 
                         of Lorem Ipsum.
                     </p><br>
-                    <h1 class="display-6 fw-bold">Para realizar una denuncia usted debe:</h1><br>
+                    <h1 class="display-6 fw-bold">Para reservar hora</h1><br>
                     <ul>
-                        <li><p>Ingresar a <a href="https://www.comisariavirtual.cl/" target="_blank">
-                            www.comisariavirtual.cl</a> con la Clave Única.
-                            Luego hay que rellenar el formulario con todos los datos del delito.</p>
-                        </li>
                         <li>
-                            <p>Una vez completada la denuncia, Carabineros enviará los datos a la Fiscalía,
-                                para que se de inicio a la investigación correspondiente.
+                            <p>
+                                Debes acercarte a la veterinaria de Lunes a Viernes, desde las 9:00 
+                                hasta las 16:30 hrs.
                             </p>
                         </li>
                         <li>
                             <p>
-                                PDI Mesa Central: +22 70 80 00
+                                Se el entregará un número de atención.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Si no puede ir, debe llamar al siguiente número +56987996512
                             </p>
                         </li>
                     </ul>

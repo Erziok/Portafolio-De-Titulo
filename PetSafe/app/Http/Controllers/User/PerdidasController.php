@@ -5,7 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class MascotasPerdidasController extends Controller
+class PerdidasController extends Controller
 {
     public function index()
     {

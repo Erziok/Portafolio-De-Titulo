@@ -57,6 +57,9 @@ Route::get('/crematorio', [\App\Http\Controllers\User\CrematorioController::clas
 Route::get('/curso-adiestramiento', [\App\Http\Controllers\User\CursoController::class, 'index'])
     ->name('curso-adiestramiento');
 
+Route::get('/operativos-veterinarios', [\App\Http\Controllers\User\OperativosController::class, 'index'])
+    ->name('operativos-veterinarios');
+
 
 // POST 
 
