@@ -1,0 +1,140 @@
+/*Detalle de la publicacion*/
+img{
+    width: 100%;
+    display: block;
+}
+.publication-section {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    background: #725cfa;
+    border-radius: 10px;
+    padding: 10px 15px;
+}
+.publication-section .section-title {
+    color: #fbfbfb;
+}
+.publication-section .section-title .hline{
+    height: 3px;
+    background: #fbfbfb;
+    width: 130px;
+}
+
+.publication-section .section-right, .section-left {
+    position: relative;
+}
+/*Comentarios*/
+.publication-section .comments-section {
+    min-height: 450px;
+    max-height: 450px;
+    overflow-y: auto;
+    padding: 0 10px;
+    background: #7f6bff;
+    border-radius: 4px;
+    position: relative;
+}
+/*scrollbar*/
+.publication-section .comments-section::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+.publication-section .comments-section::-webkit-scrollbar:vertical {
+    width:8px;
+}
+.publication-section .comments-section::-webkit-scrollbar-thumb {
+    background-color: #9d8eff;
+    border-radius: 20px;
+}
+.publication-section .comments-section::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+/*fin scrollbar*/
+
+.publication-section .comments-section .comment-container {
+    display: flex;
+}
+.publication-section .comments-section .comment-container .comment-box {
+    background: #fbfbfb;
+    padding: 10px 5px;
+    border-radius: 2px;
+    position: relative;
+    max-width: 60%;
+    font-size: .9rem;
+}
+.publication-section .comments-section .comment-left {
+    justify-content: flex-start;
+}
+.publication-section .comments-section .comment-right {
+    justify-content: flex-end;
+}
+.publication-section .comments-section .comment-container .comment-box::after {
+    position: absolute;
+    content: " ";
+	display: block;
+	background: transparent;
+	border-left: 11px solid transparent;
+	border-right: 11px solid transparent;
+	border-top: 11px solid #fbfbfb;
+	bottom: -11px;
+	left: 47%;
+}
+
+.input-message-section .input-box form input{
+    outline: none;
+    border: 1px solid #8a8a8a;
+    height: 40px;
+    width: 70%;
+    border-radius: 2px;
+    font-size: .9rem;
+}
+.input-message-section .input-box form button{
+    padding: 4px 8px;
+    background-color: #85a1fc;
+    color: #fbfbfb;
+    border: 2px solid #fbfbfb;
+    border-radius: 50%;
+    transition: .3s;
+    max-width: 370px;
+}
+.input-message-section .input-box form button:hover{
+    background-color: #758edd;
+}
+/*carril de imagenes*/
+.pet-imgs .img-display {
+    overflow: hidden;
+}
+.pet-imgs .img-display .img-showcase {
+    display: flex;
+    width: 100%;
+    transition: all 0.5s ease;
+}
+.pet-imgs .img-display .img-showcase img {
+    min-width: 100%;
+}
+.pet-imgs .img-select {
+    display: flex;
+}
+.pet-imgs .img-select .img-item {
+    margin-top: 3px;
+}
+.pet-imgs .img-select .img-item:nth-child(1),
+.pet-imgs .img-select .img-item:nth-child(2),
+.pet-imgs .img-select .img-item:nth-child(3) {
+    margin-right: 3px;
+}
+.pet-imgs .img-select .img-item:hover {
+    opacity: 0.8;
+}
+
+/*description section*/
+.publication-section .description-section {
+    background: #7f6bff;
+    margin-left: 1px;
+    margin-right: 1px;
+    border-radius: 4px;
+}
+.publication-section .description-section .pet-name h3{
+    margin: 20px 10px;
+}
+.publication-section .description-section .pet-name, .pet-description {
+    color: #fbfbfb;
+}

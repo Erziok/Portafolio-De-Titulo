@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//provisional
+
+Route::view('/detalle-publicacion', 'user.detalle-publicacion');
 
 // GET
 
