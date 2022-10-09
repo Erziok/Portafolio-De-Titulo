@@ -13,10 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('favourites', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('publications_id')->constrained()->nullable(true);
-            $table->foreignId('users_id')->constrained()->nullable(true);
+            $table->string('name');
+            $table->string('lastname');
+            $table->string('email')->unique();
+            $table->string('rut');
+            $table->string('password');
+            $table->foreignId('roles_id')->nullable(true)->constrained();
+            $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +34,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('favourites');
+        Schema::dropIfExists('users');
     }
 };
+

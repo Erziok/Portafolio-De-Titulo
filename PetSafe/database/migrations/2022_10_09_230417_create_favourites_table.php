@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('favourites', function (Blueprint $table) {
             $table->id();
-            $table->string('comment');
-            $table->foreignId('publications_id')->constrained()->nullable(true);
-            $table->foreignId('users_id')->constrained()->nullable(true);
+            $table->foreignId('publications_id')->nullable(true)->constrained();
+            $table->foreignId('users_id')->nullable(true)->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +29,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('favourites');
     }
 };
+

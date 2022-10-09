@@ -13,16 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('publications', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('address');
-            $table->string('phone');
-            $table->string('email');
+            $table->string('publication');
+            $table->dateTime('incidentDate');
             $table->string('description');
-            $table->string('schedule');
-            $table->foreignId('types_id')->constrained()->nullable(true);
-            $table->foreignId('users_id')->constrained()->nullable(true);
+            $table->tinyInteger('active');
+            $table->foreignId('users_id')->nullable(true)->constrained();
+            $table->foreignId('animals_id')->nullable(true)->constrained();
+            $table->foreignId('categories_id')->nullable(true)->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -35,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('publications');
     }
 };
