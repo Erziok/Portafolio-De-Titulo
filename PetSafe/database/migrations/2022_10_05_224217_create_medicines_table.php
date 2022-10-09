@@ -13,15 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('medicines', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('lastname');
-            $table->string('email')->unique();
-            $table->string('rut');
-            $table->string('password');
-            $table->foreignId('roles_id')->constrained()->nullable(true);
-            $table->rememberToken();
+            $table->string('activeSubstance');
+            $table->string('function');
+            $table->string('implementation');
+            $table->string('laboratory');
+            $table->string('specie');
+            $table->integer('price');
+            $table->string('discount');
+            $table->foreignId('services_id')->constrained()->nullable(true);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -34,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('medicines');
     }
 };

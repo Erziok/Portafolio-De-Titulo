@@ -1,7 +1,6 @@
-/* html{
+html{
     scroll-behavior: smooth;
-} */
-
+}
 
 /* Navbar styles (If the changes don't show up in the browser, press CTRL + F5) */ 
 
@@ -51,6 +50,40 @@
     display: flex;
     justify-content: center;
     padding: 20px 0;
+}
+
+.content {
+    background-color: rgb(238, 238, 238);
+}
+
+.price-list-section {
+    display: flex;
+    justify-content: center;
+}
+
+.price-list-section .price-list-container {
+    width: 100%;
+    max-width: 220px;
+}
+
+.price-list-section .price-list-container .price-list-item .price-list-box {
+    background-color: #7c20fe;
+    width: 100%;
+    height: 80%;
+    border-radius: 10px;
+    padding: 20px 0;
+    transition: 0.7s;
+    margin: 20px;
+}
+
+.price-list-section .price-list-container .price-list-item a {
+    text-decoration: none;
+    color: #fbfbfb;
+    font-weight: bold;
+}
+
+.price-list-section .price-list-container .price-list-item .price-list-box:hover {
+    transform: scale(1.05);
 }
 
 .menu {

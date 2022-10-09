@@ -4,46 +4,22 @@
 
     <header class="py-5">
         <div class="container px-lg-5">
-            <div class="p-4 p-lg-5 bg-light rounded-3">
+            <div class="p-4 p-lg-5 content rounded-3">
                 <div class="m-4 m-lg-5">
-                    <h1 class="display-6 fw-bold">Ordenanza Municipal</h1><br>
+                    <h1 class="display-6 fw-bold text-center">Ordenanza Municipal</h1><br>
                     <p class="fs-6">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting 
-                        industry. Lorem Ipsum has been the industry's standard dummy text ever since the 
-                        1500s, when an unknown printer took a galley of type and scrambled it to make a 
-                        type specimen book. It has survived not only five centuries, but also the leap into 
-                        electronic typesetting, remaining essentially unchanged. It was popularised in the 
-                        1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more 
-                        recently with desktop publishing software like Aldus PageMaker including versions 
-                        of Lorem Ipsum.
+                        Actualmente la Municipalidad de San Bernardo cuenta con esta página web para 
+                        cubrir en todo ámbito las necesidades, derechos u deberes que los vecinos deben 
+                        cumplir para el cuidado de sus mascotas. La ley 21.020 de tenencia responsable de 
+                        mascotas y animales de compañía, nos exige la promoción de la misma y con ello 
+                        realizar operativos en pro de las mascotas, el mantener el correcto funcionamiento 
+                        de la Veterinaria Municipal y la implementación de la Farmacia, además de entregar 
+                        nuevas formas de recreación, compañía, esparcimiento y acompañarlos hasta su despedida. 
+                        Con esto hemos solicitado el apoyo de las juntas de vecinos para la difusión de los 
+                        canales de comunicación y la inscripción de Pymes, tiendas y empresas que entreguen 
+                        servicios para mascotas. En futuro se subirá en este apartado un documento firmado 
+                        por los responsables de permitir que esto sea un decreto en nuestra comuna.
                     </p><br>
-                    <h1 class="display-6 fw-bold">Derechos y deberes</h1><br>
-                    <p class="fs-6">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting 
-                        industry. Lorem Ipsum has been the industry's standard dummy text ever since the 
-                        1500s, when an unknown printer took a galley of type and scrambled it to make a 
-                        type specimen book. It has survived not only five centuries, but also the leap into 
-                        electronic typesetting, remaining essentially unchanged. It was popularised in the 
-                        1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more 
-                        recently with desktop publishing software like Aldus PageMaker including versions 
-                        of Lorem Ipsum.
-                    </p><br>
-                    <ul>
-                        <li><p>Listado de puntos.</p>
-                        </li>
-                        <li><p>Listado de puntos.</p>
-                        </li>
-                        <li><p>Listado de puntos.</p>
-                        </li>
-                        <li><p>Listado de puntos.</p>
-                        </li>
-                        <li><p>Listado de puntos.</p>
-                        </li>
-                        <li><p>Listado de puntos.</p>
-                        </li>
-                        <li><p>Listado de puntos.</p>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>

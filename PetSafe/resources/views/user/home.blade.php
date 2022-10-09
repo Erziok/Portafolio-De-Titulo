@@ -1,8 +1,8 @@
   @extends('layouts.layout-user')
 
-    <!-- Carousel -->
-
     @section('content')
+
+    <!-- Carousel -->
 
     <div id="carouselExampleControls" class="carousel slide mt-2" data-ride="carousel">
         <div class="carousel-inner">
@@ -17,6 +17,9 @@
           </div>
           <div class="carousel-item">
             <img class="d-block w-100" src="{{ asset('images/banner4.png?v=') }}" alt="Fourth slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="{{ asset('images/banner5.png?v=') }}" alt="Fifth slide">
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
