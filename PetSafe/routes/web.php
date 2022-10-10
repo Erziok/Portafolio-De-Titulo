@@ -42,14 +42,8 @@ Route::get('/farmacia', [\App\Http\Controllers\User\FarmaciaController::class, '
 Route::get('/tiendas', [\App\Http\Controllers\User\TiendasController::class, 'index'])
     ->name('tiendas');
 
-Route::get('/mascotas-perdidas', [\App\Http\Controllers\User\PerdidasController::class, 'index'])
-    ->name('perdidas');
-
-Route::get('/mascotas-encontradas', [\App\Http\Controllers\User\EncontradasController::class, 'index'])
-    ->name('encontradas');
-
-Route::get('/adopcion', [\App\Http\Controllers\User\AdopcionController::class, 'index'])
-    ->name('adopcion');
+Route::get('/publicaciones', [\App\Http\Controllers\User\PublicacionController::class, 'index'])
+    ->name('publicaciones');
 
 Route::get('/zonas-caninas', [\App\Http\Controllers\User\ZonasController::class, 'index'])
     ->name('zonas-caninas');
@@ -65,7 +59,6 @@ Route::get('/operativos-veterinarios', [\App\Http\Controllers\User\OperativosCon
 
 
 // POST 
-
 Route::post('/register', [\App\Http\Controllers\User\RegisterController::class, 'registerUser'])
     ->name('register.create');
 

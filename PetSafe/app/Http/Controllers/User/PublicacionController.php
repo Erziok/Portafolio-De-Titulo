@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-class AdopcionController extends Controller
+class PublicacionController extends Controller
 {
     public function index()
     {
-        return view('user.adopcion');
+        return view('user.publicaciones');
     }
 }

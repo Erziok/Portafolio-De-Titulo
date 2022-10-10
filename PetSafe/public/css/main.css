@@ -231,22 +231,16 @@
     }
     .links-container-active {
         visibility: visible !important;
-        animation: fadeIn .4s;
+        animation: fadeIn .5s;
     }
     .dropdown-active-icon{
         transform: rotate(180deg);
     }
-    .dropdown-active-730 {
-        height: 580px !important;
+    .dropdown-active {
+        max-height: 100vh !important;
     }
-    .dropdown-active-220 {
-        height: 220px !important;
-    }
-    .dropdown-active-255 {
-        height: 255px !important;
-    }
-    .dropdown-active-80 {
-        height: 80px !important;
+    .remove-item {
+        display: none;
     }
     /*navbar*/
     .navbar-section .navbar .navbar-content {
@@ -286,10 +280,11 @@
         visibility: visible;
         transform: translateY(0);
         border-radius: 0;
-        overflow: hidden;
         background: #c2d6f8;
         border: none;
-        height: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .4s;
     }
     .navbar .navbar-content .links-container .navbar-link .navbar-item i{
         transition: .3s;
