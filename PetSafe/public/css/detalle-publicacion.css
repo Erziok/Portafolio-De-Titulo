@@ -1,102 +1,23 @@
-/*Detalle de la publicacion*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
 img{
     width: 100%;
     display: block;
+    object-fit: cover;
 }
-.publication-section {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-    background: #725cfa;
-    border-radius: 10px;
-    padding: 10px 15px;
-}
-.publication-section .section-title {
-    color: #fbfbfb;
-}
+/*Detalle de la publicacion*/
+
 .publication-section .section-title .hline{
     height: 3px;
-    background: #fbfbfb;
+    background: #725cfa;
     width: 130px;
 }
 
 .publication-section .section-right, .section-left {
     position: relative;
-}
-/*Comentarios*/
-.publication-section .comments-section {
-    min-height: 450px;
-    max-height: 450px;
-    overflow-y: auto;
-    padding: 0 10px;
-    background: #7f6bff;
-    border-radius: 4px;
-    position: relative;
-}
-/*scrollbar*/
-.publication-section .comments-section::-webkit-scrollbar {
-    -webkit-appearance: none;
-}
-.publication-section .comments-section::-webkit-scrollbar:vertical {
-    width:8px;
-}
-.publication-section .comments-section::-webkit-scrollbar-thumb {
-    background-color: #9d8eff;
-    border-radius: 20px;
-}
-.publication-section .comments-section::-webkit-scrollbar-track {
-    border-radius: 10px;  
-}
-/*fin scrollbar*/
-
-.publication-section .comments-section .comment-container {
-    display: flex;
-}
-.publication-section .comments-section .comment-container .comment-box {
-    background: #fbfbfb;
-    padding: 10px 5px;
-    border-radius: 2px;
-    position: relative;
-    max-width: 60%;
-    font-size: .9rem;
-}
-.publication-section .comments-section .comment-left {
-    justify-content: flex-start;
-}
-.publication-section .comments-section .comment-right {
-    justify-content: flex-end;
-}
-.publication-section .comments-section .comment-container .comment-box::after {
-    position: absolute;
-    content: " ";
-	display: block;
-	background: transparent;
-	border-left: 11px solid transparent;
-	border-right: 11px solid transparent;
-	border-top: 11px solid #fbfbfb;
-	bottom: -11px;
-	left: 47%;
-}
-
-.input-message-section .input-box form input{
-    outline: none;
-    border: 1px solid #8a8a8a;
-    height: 40px;
-    width: 70%;
-    border-radius: 2px;
-    font-size: .9rem;
-}
-.input-message-section .input-box form button{
-    padding: 4px 8px;
-    background-color: #85a1fc;
-    color: #fbfbfb;
-    border: 2px solid #fbfbfb;
-    border-radius: 50%;
-    transition: .3s;
-    max-width: 370px;
-}
-.input-message-section .input-box form button:hover{
-    background-color: #758edd;
 }
 /*carril de imagenes*/
 .pet-imgs .img-display {
@@ -127,14 +48,298 @@ img{
 
 /*description section*/
 .publication-section .description-section {
-    background: #7f6bff;
     margin-left: 1px;
     margin-right: 1px;
     border-radius: 4px;
+    position: relative;
 }
+.description-section .pet-description {
+    max-height: 100%;
+    overflow: hidden;
+    transition: max-height .5s;
+}
+.description-section .limited-height {
+    max-height: 400px;
+}
+
 .publication-section .description-section .pet-name h3{
     margin: 20px 10px;
 }
-.publication-section .description-section .pet-name, .pet-description {
-    color: #fbfbfb;
+.publication-section .description-section .show-more-box {
+    margin: 10px 10px;
+}
+.publication-section .description-section .show-more-box #show-more.active {
+    display: block;
+} 
+.publication-section .description-section .show-more-box #show-more {
+    border: none;
+    background: none;
+    color: #725cfa;
+    font-size: .9rem;
+    transition: .3s;
+    display: none;
+}
+.publication-section .description-section .show-more-box #show-more:hover {
+    color: #5a42f8;
+    background: none;
+}
+
+/*comentarios*/
+
+.contenedor-comentarios {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+}
+
+.comentarios-usuarios {
+    width: calc(100% - 2.5rem);
+}
+
+.contenedor-comentarios a {
+    text-decoration: none;
+}
+
+.comentar-publicacion .avatar,
+.publicacion-realizada .usuario-publico .avatar,
+.contenedor-comentarios .comentario-principal-usuario .avatar,
+.area-comentar .avatar {
+    display: flex;
+    width: 65px;
+    height: 65px;
+    background-color: #F4F4F4;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.comentarios-usuarios .nombre-usuario {
+    font-weight: bold;
+    margin-right: .5rem;
+    color: inherit;
+}
+/* botones comentar */
+.boton-enviar {
+    display: inline-block;
+    border: 0;
+    background-color: #725cfa;
+    padding: 7px 15px;
+    margin-right: .5rem;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color ease-in 200ms;
+}
+.boton-enviar:hover {
+    background-color: #5a42f8;
+}
+
+/* fin */
+.contenedor-comentarios .comentario-principal-usuario .comentario,
+.area-comentar .inputs-comentarios {
+    flex-grow: 1;
+    flex-basis: 0;
+    margin-left: .5rem;
+}
+
+.contenedor-comentarios .comentario-principal-usuario .texto{
+    border: 0;
+    background-color: #fff;
+    display: block;
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: .5rem;
+}
+
+.botones-comentario span.tiempo-comentario {
+    font-size: 0.8rem !important;
+    color: #9F9F9F;
+    margin-left: .25rem;
+}
+
+.area-comentar .inputs-comentarios .botones-comentar {
+    display: flex;
+}
+
+/* comentarios de usuario */
+.comentarios-usuarios .comentario-principal-usuario {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.comentarios-usuarios .usuario-comentario {
+    width: 100%;
+    display: block;
+    margin-bottom: 0.75rem;
+    position: relative;
+}
+.comentarios-usuarios .usuario-comentario .texto span {
+    background: #725cfa;
+    color: #fff;
+    padding: 1px 5px;
+    border-radius: 2px;
+    font-weight: 500;
+    margin-right: .2rem;
+}
+
+.menu-comentario {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #E9E9E9;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.comentarios-usuarios .usuario-comentario .menu-comentario {
+    top: -10px;
+    right: -10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .4);
+}
+
+.comentarios-usuarios .usuario-comentario .texto:hover .menu-comentario {
+    display: flex;
+}
+
+.publicacion-realizada .menu-comentario {
+    display: flex;
+    right: 0;
+}
+
+.menu-comentario .menu {
+    list-style: none;
+    position: absolute;
+    right: 100%;
+    background-color: #fff;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, .2);
+    border-radius: 8px;
+    padding: 7px 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all ease-in 200ms;
+}
+
+.menu-comentario:hover .menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-comentario .menu a {
+    display: block;
+    padding: 7px 15px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.menu-comentario .menu a:hover {
+    background-color: #E1E1E1;
+}
+
+.publicacion-realizada .usuario-publico .avatar,
+.comentarios-usuarios .comentario-principal-usuario .avatar {
+    width: 45px;
+    height: 45px;
+}
+
+.comentarios-usuarios .comentario-principal-usuario .texto {
+    padding: 10px 15px;
+    width: auto;
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: .25rem;
+    font-size: 0.9rem;
+    position: relative;
+    padding-right: 1.65rem;
+}
+
+.comentarios-usuarios .comentario-principal-usuario .comentar-comentario {
+    width: 100%;
+    display: flex;
+}
+
+.comentarios-usuarios .comentar-publicacion input[type="text"] {
+    border: 0;
+    background-color: #E1E1E1;
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 8px 10px;
+    font-size: .9rem;
+    border-radius: 8px;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.botones-comentario {
+    display: block;
+}
+
+.botones-comentario button {
+    display: inline-block;
+    border: 0;
+    padding: 3px 8px;
+    font-size: .8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    background: none;
+    transition: .2s;
+}
+
+.botones-comentario button i {
+    color: #464646;
+}
+
+.botones-comentario button:hover {
+    background-color: #e0e0e0;
+}
+
+.comentar-publicacion .avatar,
+.contenedor-sub-comentarios .comentario-principal-usuario .avatar {
+    width: 32px;
+    height: 32px;
+}
+
+.boton-enviar i,
+.boton-responder i {
+    margin-right: .5rem;
+}
+
+/* publicacion realizada */
+.publicacion-realizada {
+    margin-bottom: 1.5rem;
+}
+
+.publicacion-realizada .usuario-publico {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.publicacion-realizada .usuario-publico .contenido-publicacion {
+    margin-left: 1rem;
+}
+
+.comentar-publicacion {
+    display: flex;
+    width: 100%;
+}
+
+.comentar-publicacion .comentar-comentario {
+    flex-grow: 1;
+    flex-basis: 0;
+    display: flex;
+    align-items: center;
+}
+
+.publicacion-realizada p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9em;
+}
+
+.publicacion-realizada .contenido-publicacion ul {
+    list-style: none;
+    font-size: 0.8em;
+    color: #909090;
+    padding: 0;
 }

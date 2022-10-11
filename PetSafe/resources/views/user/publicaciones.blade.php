@@ -33,7 +33,7 @@
                     <!--publication item-->
                     <div class="publication-box row">
                         <div class="image-box col-lg-4">
-                            <a href="#"><img src="{{ asset('/images/placeholder-image.jpg') }}" alt=""></a>
+                            <a href="{{ route('detalle') }}"><img src="{{ asset('/images/placeholder-image.jpg') }}" alt=""></a>
                         </div>
                         <div class="content-box col-lg-8">
                             <div class="details mb-3">
@@ -58,7 +58,7 @@
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus sunt animi quo itaque reiciendis cupiditate unde sed veniam ex, aliquid, non, debitis dolor dicta. Vel?</p>
                             </div>
                             <div class="action mb-1 mt-lg-4 mb-lg-4">
-                                <a href="#" class="show-more"> Ver Más <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="{{ route('detalle') }}" class="show-more"> Ver Más <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                     <!--publication item-->
                     <div class="publication-box row">
                         <div class="image-box col-lg-4">
-                            <a href="#"><img src="{{ asset('/images/placeholder-image.jpg') }}" alt=""></a>
+                            <a href="{{ route('detalle') }}"><img src="{{ asset('/images/placeholder-image.jpg') }}" alt=""></a>
                         </div>
                         <div class="content-box col-lg-8">
                             <div class="details mb-3">
@@ -91,7 +91,7 @@
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus sunt animi quo itaque reiciendis cupiditate unde sed veniam ex, aliquid, non, debitis dolor dicta. Vel?</p>
                             </div>
                             <div class="action mb-1 mt-lg-4 mb-lg-4">
-                                <a href="#" class="show-more"> Ver Más <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="{{ route('detalle') }}" class="show-more"> Ver Más <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                     <!--publication item-->
                     <div class="publication-box row">
                         <div class="image-box col-lg-4">
-                            <a href="#"><img src="{{ asset('/images/placeholder-image.jpg') }}" alt=""></a>
+                            <a href="{{ route('detalle') }}"><img src="{{ asset('/images/placeholder-image.jpg') }}" alt=""></a>
                         </div>
                         <div class="content-box col-lg-8">
                             <div class="details mb-3">
@@ -124,7 +124,7 @@
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus sunt animi quo itaque reiciendis cupiditate unde sed veniam ex, aliquid, non, debitis dolor dicta. Vel?</p>
                             </div>
                             <div class="action mb-1 mt-lg-4 mb-lg-4">
-                                <a href="#" class="show-more"> Ver Más <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="{{ route('detalle') }}" class="show-more"> Ver Más <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
                     <!--publication item-->
                     <div class="publication-box row">
                         <div class="image-box col-lg-4">
-                            <a href="#"><img src="{{ asset('/images/placeholder-image.jpg') }}" alt=""></a>
+                            <a href="{{ route('detalle') }}"><img src="{{ asset('/images/placeholder-image.jpg') }}" alt=""></a>
                         </div>
                         <div class="content-box col-lg-8">
                             <div class="details mb-3">
@@ -157,7 +157,7 @@
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus sunt animi quo itaque reiciendis cupiditate unde sed veniam ex, aliquid, non, debitis dolor dicta. Vel?</p>
                             </div>
                             <div class="action mb-1 mt-lg-4 mb-lg-4">
-                                <a href="#" class="show-more"> Ver Más <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="{{ route('detalle') }}" class="show-more"> Ver Más <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
