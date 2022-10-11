@@ -12,9 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//provisional
-
-Route::view('/detalle-publicacion', 'user.detalle-publicacion');
 
 // GET
 
@@ -44,6 +41,9 @@ Route::get('/tiendas', [\App\Http\Controllers\User\TiendasController::class, 'in
 
 Route::get('/publicaciones', [\App\Http\Controllers\User\PublicacionController::class, 'index'])
     ->name('publicaciones');
+    
+Route::get('detalle-publicacion', [\App\Http\Controllers\User\DetallePublicacionController::class, 'index'])
+    ->name('detalle');
 
 Route::get('/zonas-caninas', [\App\Http\Controllers\User\ZonasController::class, 'index'])
     ->name('zonas-caninas');
