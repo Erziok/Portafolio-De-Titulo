@@ -22,6 +22,7 @@ class RegisterController extends Controller
             'email'=> $request->email,
             'rut'=> $request->rut,
             'password'=> $request->password,
+            'roles_id'=> $request->input('roles_id', 2),
         ]);
         return redirect()->route('login');
     }

@@ -22,6 +22,8 @@ let errors = {
 
 const mailformatRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
+const nameRegex = /^[a-zA-ZÀ-ÿ\s]{1,40}$/
+
 document.querySelectorAll('.form-box').forEach((box) => {
     const boxInput = box.querySelector('input');
 
@@ -31,7 +33,7 @@ document.querySelectorAll('.form-box').forEach((box) => {
 
         clearTimeout(timeout);
         timeout = setTimeout(() => {
-            console.log(`Input ${boxInput.name} value: `, boxInput.value);
+            // console.log(`Input ${boxInput.name} value: `, boxInput.value);
 
             validation(box, boxInput)
         },300);     
@@ -49,7 +51,11 @@ validation = (box, boxInput) => {
 
         if(boxInput.value.length < 3){
             showError(true, box, boxInput);
-        }else{
+        }
+        else if(!boxInput.value.match(nameRegex)){
+            showError(true, box, boxInput);
+        }
+        else{
             showError(false, box, boxInput);
         }
 
@@ -59,7 +65,11 @@ validation = (box, boxInput) => {
 
         if(boxInput.value.length < 3){
             showError(true, box, boxInput);
-        }else{
+        }
+        else if(!boxInput.value.match(nameRegex)){
+            showError(true, box, boxInput);
+        }
+        else{
             showError(false, box, boxInput);
         }
 
@@ -125,41 +135,4 @@ submitController = () => {
         submitButton.toggleAttribute('disabled', false)
     }
 }
-
-// form.addEventListener("submit", e=> {
-//     e.preventDefault()
-//     let warnings = ""
-//     let enter = false
-//     let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-//     let validatorRut = new ValidatorRut(rut.value)
-
-//     // Validations
-//     if(username.value.length < 3 || username.value.length > 45){
-//         warnings += `El nombre debe tener entre 3 y 45 caracteres <br>`
-//         enter = true
-//     }
-//     if(lastname.value.length < 3 || lastname.value.length > 45){
-//         warnings += `El apellido debe tener entre 3 y 45 caracteres <br>`
-//         enter = true
-//     }
-//     if(!regexEmail.test(mail.value)){
-//         warnings += `El email no es válido <br>`
-//         enter = true
-//     }
-//     if(!validatorRut.isValid){
-//         warnings += `Rut inválido <br>`
-//         enter = true
-//     }
-//     if(password.value.length < 3 || password.value.length > 45){
-//         warnings += `La contraseña debe tener entre 3 y 45 caracteres <br>`
-//         enter = true
-//     }
-//     if(password.value != password2.value){
-//         warnings += `Las contraseñas no coinciden <br>`
-//         enter = true
-//     }
-//     if(enter){
-//         paragraph.innerHTML = warnings
-//     }
-// })
 

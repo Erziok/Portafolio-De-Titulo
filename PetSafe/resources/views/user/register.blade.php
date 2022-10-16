@@ -29,7 +29,7 @@
                       <div class="form-outline mb-2 form-box">
                         <label class="form-label" for="form3Example1q">Nombre</label>
                         <input type="text" id="username" class="form-control" placeholder="Nombre" name="name"/>
-                        <small class="error-text">Introduce un nombre válido (mínimo 3 carácteres)</small>
+                        <small class="error-text">Introduce un nombre válido (mínimo 3 carácteres / solo letras)</small>
                         @error('name')
                           <strong>{{ $message }}</strong>
                         @enderror
@@ -38,7 +38,7 @@
                       <div class="form-outline mb-2 form-box">
                         <label class="form-label" for="form3Example1q">Apellido</label>
                         <input type="text" id="lastname" class="form-control" placeholder="Apellido" name="lastname"/>
-                        <small class="error-text">Introduce un apellido válido (mínimo 3 carácteres)</small>
+                        <small class="error-text">Introduce un apellido válido (mínimo 3 carácteres / solo letras)</small>
                         @error('lastname')
                           <strong>{{ $message }}</strong>
                         @enderror
