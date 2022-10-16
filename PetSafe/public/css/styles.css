@@ -13,7 +13,7 @@ html{
 
 /* Validation Form */
 
-.error-text{
+.form-box .error-text{
     color: darkred;
     visibility: hidden;
 }
@@ -54,6 +54,9 @@ html{
 
 .content {
     background-color: rgb(238, 238, 238);
+    -webkit-box-shadow: 1px 1px 17px -3px rgba(0,0,0,0.8);
+    -moz-box-shadow: 1px 1px 17px -3px rgba(0,0,0,0.8);
+    box-shadow: 1px 1px 17px -3px rgba(0,0,0,0.15);
 }
 
 .price-list-section {

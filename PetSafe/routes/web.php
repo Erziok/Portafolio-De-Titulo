@@ -58,9 +58,24 @@ Route::get('/operativos-veterinarios', [\App\Http\Controllers\User\OperativosCon
     ->name('operativos-veterinarios');
 
 
+// Routes that need authentication
+Route::group(['middleware'=>'auth'] , function(){
+    Route::get('/formulario-mascota', [\App\Http\Controllers\User\FormularioMascotaController::class, 'index'])
+    ->name('formulario-mascota');
+
+    Route::get('/formulario-servicio', [\App\Http\Controllers\User\FormularioServicioController::class, 'index'])
+    ->name('formulario-servicio');
+});
+
 // POST 
 Route::post('/register', [\App\Http\Controllers\User\RegisterController::class, 'registerUser'])
     ->name('register.create');
 
 Route::post('/login', [\App\Http\Controllers\User\LoginController::class, 'loginUser'])
     ->name('login.create');
+
+Route::post('/formulario-mascota', [\App\Http\Controllers\User\FormularioMascotaController::class, 'registerPet'])
+    ->name('formulario-mascota.create');
+
+Route::post('/formulario-servicio', [\App\Http\Controllers\User\FormularioServicioController::class, 'registerService'])
+    ->name('formulario-servicio.create');

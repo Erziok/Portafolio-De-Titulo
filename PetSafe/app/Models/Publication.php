@@ -10,9 +10,13 @@ class Publication extends Model
     use HasFactory;
 
     protected $fillable = [
-        'publicationDate',
+        'title',
         'incidentDate',
         'description',
         'active',
+        'image',
+        'users_id',
+        'animals_id',
+        'categories_id',
     ];
 }

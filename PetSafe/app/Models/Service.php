@@ -16,5 +16,7 @@ class Service extends Model
         'email',
         'description',
         'schedule',
+        'types_id',
+        'users_id',
     ];
 }
