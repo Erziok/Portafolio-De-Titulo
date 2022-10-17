@@ -57,6 +57,8 @@ Route::get('/curso-adiestramiento', [\App\Http\Controllers\User\CursoController:
 Route::get('/operativos-veterinarios', [\App\Http\Controllers\User\OperativosController::class, 'index'])
     ->name('operativos-veterinarios');
 
+Route::get('/logout', [\App\Http\Controllers\User\LogoutController::class, 'logoutUser'])
+    ->name('logout');
 
 // POST 
 Route::post('/register', [\App\Http\Controllers\User\RegisterController::class, 'registerUser'])
