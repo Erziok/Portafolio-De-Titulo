@@ -22,11 +22,27 @@ html{
     border-bottom: 2px solid red;
 }
 
+.form-box.form-error select{
+    border-bottom: 2px solid red;
+}
+
+.form-box.form-error textarea{
+    border-bottom: 2px solid red;
+}
+
 .form-box.form-error .error-text {
     visibility: visible;
 }
 
 .form-box.form-success input {
+    border-bottom: 2px solid #1e9ba3;
+}
+
+.form-box.form-success select {
+    border-bottom: 2px solid #1e9ba3;
+}
+
+.form-box.form-success textarea {
     border-bottom: 2px solid #1e9ba3;
 }
 

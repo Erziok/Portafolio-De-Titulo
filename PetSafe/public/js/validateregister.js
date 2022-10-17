@@ -1,12 +1,5 @@
 
-const username = document.getElementById("username")
-const lastname = document.getElementById("lastname")
-const mail = document.getElementById("mail")
-const rut = document.getElementById("rut")
-const password = document.getElementById("password")
-const password2 = document.getElementById("password2")
 const form = document.getElementById("form")
-const paragraph = document.getElementById("warnings")
 const submitButton = document.getElementById("submit-btn")
 
 let timeout = null;
@@ -26,8 +19,6 @@ const nameRegex = /^[a-zA-ZÀ-ÿ\s]{1,40}$/
 
 document.querySelectorAll('.form-box').forEach((box) => {
     const boxInput = box.querySelector('input');
-
-    // let validatorRut = new ValidatorRut(rut.boxInput)
 
     boxInput.addEventListener('keydown', (event) => {
 
