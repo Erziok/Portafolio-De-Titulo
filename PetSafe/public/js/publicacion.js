@@ -27,3 +27,14 @@ for (item of options) {
         selectText.innerHTML = this.innerHTML;
     });
 }
+
+for (let i = 0; i < options.length; i++) {
+    options[i].addEventListener('click', function () {
+        if (options[i].value === 1 || options[i].value === 2 || options[i].value === 3) {
+            let form = document.getElementById('filter-form');
+            document.getElementById('filter-input').value = options[i].value;
+            form.submit();   
+        }     
+    });
+};
+

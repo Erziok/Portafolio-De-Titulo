@@ -57,9 +57,6 @@ Route::get('/curso-adiestramiento', [\App\Http\Controllers\User\CursoController:
 Route::get('/operativos-veterinarios', [\App\Http\Controllers\User\OperativosController::class, 'index'])
     ->name('operativos-veterinarios');
 
-Route::get('/logout', [\App\Http\Controllers\User\LogoutController::class, 'logoutUser'])
-    ->name('logout');
-
 // Routes that need authentication
 Route::group(['middleware'=>'auth'] , function(){
     Route::get('/formulario-mascota', [\App\Http\Controllers\User\FormularioMascotaController::class, 'index'])
@@ -67,8 +64,13 @@ Route::group(['middleware'=>'auth'] , function(){
 
     Route::get('/formulario-servicio', [\App\Http\Controllers\User\FormularioServicioController::class, 'index'])
     ->name('formulario-servicio');
-});
 
+    Route::get('/logout', [\App\Http\Controllers\User\LogoutController::class, 'logoutUser'])
+    ->name('logout');
+});
+Route::get('/search', function(){
+    return redirect()->route('publicaciones');
+});
 // POST 
 Route::post('/register', [\App\Http\Controllers\User\RegisterController::class, 'registerUser'])
     ->name('register.create');
@@ -81,3 +83,9 @@ Route::post('/formulario-mascota', [\App\Http\Controllers\User\FormularioMascota
 
 Route::post('/formulario-servicio', [\App\Http\Controllers\User\FormularioServicioController::class, 'registerService'])
     ->name('formulario-servicio.create');
+
+Route::post('/search', [\App\Http\Controllers\User\PublicacionController::class, 'search'])
+    ->name('search');
+
+Route::post('/filter', [\App\Http\Controllers\User\PublicacionController::class, 'filter'])
+    ->name('filter');
