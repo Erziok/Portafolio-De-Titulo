@@ -194,10 +194,19 @@
                         <span><i class="fa-sharp fa-solid fa-user"></i></span>
                     </div>
                     <div class="dropdown-user">
-                        <ul>
+                        <ul>    
+                            @if (auth()->user())
+                                <li><a href="">Mi Perfil</a></li>
+                                <li><a href="{{ route('logout') }}">Cerrar Sesión</a></li>
+                            @else
+                                <li><a href="{{ route('login') }}">Iniciar Sesión</a></li>
+                                <li><a href="{{ route('register') }}">Registrarse</a></li>
+                            @endif
+                            <!--
                             <li><a href="{{ route('login') }}">Iniciar Sesión</a></li>
                             <li><a href="{{ route('register') }}">Registrarse</a></li>
                             <li><a href="">Cerrar Sesión</a></li>
+                            -->
                         </ul>
                     </div>
                 </div>
