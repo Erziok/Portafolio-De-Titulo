@@ -4,8 +4,25 @@
     @endsection
     @section('content')
 
+    
+
     <header class="my-5 mb-5">
         <div class="container px-lg-5">
+            
+            {{-- New Publication button --}}
+            <div class="new-publication-section ">
+                <div class="new-publication-container">
+                    <div class="new-publication-item">
+                        <a href="{{ route('formulario-mascota') }}">
+                            <div class="new-publication-box text-center">
+                                <i class="fa-solid fa-plus"></i> Nueva Publicación
+                            </div>  
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="p-1 bg-light rounded-3 text-center">
                 <div class="m-2 m-lg-3">
                     <div class="search-bar">
