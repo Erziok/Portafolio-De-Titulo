@@ -6,12 +6,16 @@
     border-radius: 4px;
     height: 40px;
 }
-.search-bar input {
-    padding: 10px 25px;
+.search-bar .input-box input {
+    padding: 4px 25px;
     width: 100%;
     border: none;
     outline: none;
     font-size: 18px;
+}
+.search-bar .input-box {
+    position: relative;
+    width: 100%;
 }
 .select-box { 
     background: #725cfa;
@@ -52,6 +56,15 @@
 
 .select-box ul.active {
     max-height: 500px;
+}
+.search-bar .input-box button {
+    background: none;
+    border: none;
+    position: absolute;
+    right: 10px;
+    top: 10%;
+    color: #725cfa;
+    font-size: 1.1rem;
 }
 
 /*publicaciones*/
