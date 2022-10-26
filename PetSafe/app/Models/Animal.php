@@ -10,9 +10,16 @@ class Animal extends Model
     use HasFactory;
 
     protected $fillable = [
-        'breed',
-        'specie',
+        'breed_id',
         'gender',
         'name'
     ];
+
+    public function breed() {
+        return $this->belongsTo(Breed::class, 'breed_id');
+    }    
+
+    public function publication() {
+        return $this->hasOne(Publication::class, 'animal_id', 'id');
+    }
 }

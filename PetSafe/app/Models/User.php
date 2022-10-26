@@ -49,4 +49,19 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = bcrypt($value);
     }
+    public function publication() {
+        return $this->hasMany(Publication::class, 'user_id', 'id');
+    }
+    public function comment() {
+        return $this->hasMany(Comment::class, 'user_id', 'id');
+    }
+    public function favourite() {
+        return $this->hasMany(Favourite::class, 'user_id', 'id');
+    }
+    public function role() {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
+    public function service() {
+        return $this->hasMany(Service::class, 'user_id', 'id');
+    }
 }

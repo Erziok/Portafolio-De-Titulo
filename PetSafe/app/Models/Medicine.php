@@ -18,5 +18,10 @@ class Medicine extends Model
         'specie',
         'price',
         'discount',
+        'service_id',
     ];
+
+    public function service() {
+        return $this->belongsTo(Service::class, 'service_id');
+    }
 }
