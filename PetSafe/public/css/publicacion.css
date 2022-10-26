@@ -2,16 +2,19 @@
 .search-bar {
     background: #fbfbfb;
     display: flex;
-    padding: 2px;
     border-radius: 4px;
     height: 40px;
 }
 .search-bar .input-box input {
-    padding: 4px 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 70px;
+    padding-left: 15px;
     width: 100%;
     border: none;
     outline: none;
     font-size: 18px;
+    background: none;
 }
 .search-bar .input-box {
     position: relative;
@@ -27,7 +30,8 @@
     white-space: nowrap;
     cursor: pointer;
     position: relative;
-    border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
     padding: 0 10px;
 }
 .select-box ul {
@@ -53,7 +57,9 @@
     padding: 10px 20px;
     cursor: pointer;
 }
-
+.select-box i {
+    font-size: .8rem;
+}
 .select-box ul.active {
     max-height: 500px;
 }
@@ -62,9 +68,21 @@
     border: none;
     position: absolute;
     right: 10px;
-    top: 10%;
+    top: 6px;
     color: #725cfa;
     font-size: 1.1rem;
+}
+
+.search-bar .input-box .remove-search-field {
+    position: absolute;
+    right: 45px;
+    top: 11px;
+    color: #725cfa;
+    cursor: pointer;
+    display: none;
+}
+.search-bar .input-box .remove-search-field.active {
+    display: block;
 }
 
 /*publicaciones*/
@@ -123,6 +141,10 @@
     background: #725cfa;
     border-radius: 4px;
     color: #fff;
+}
+
+.search-wrapper i {
+
 }
 
 /* New publication button */

@@ -68,9 +68,6 @@ Route::group(['middleware'=>'auth'] , function(){
     Route::get('/logout', [\App\Http\Controllers\User\LogoutController::class, 'logoutUser'])
     ->name('logout');
 });
-Route::get('/search', function(){
-    return redirect()->route('publicaciones');
-});
 // POST 
 Route::post('/register', [\App\Http\Controllers\User\RegisterController::class, 'registerUser'])
     ->name('register.create');
@@ -84,8 +81,8 @@ Route::post('/formulario-mascota', [\App\Http\Controllers\User\FormularioMascota
 Route::post('/formulario-servicio', [\App\Http\Controllers\User\FormularioServicioController::class, 'registerService'])
     ->name('formulario-servicio.create');
 
-Route::post('/search', [\App\Http\Controllers\User\PublicacionController::class, 'search'])
+Route::get('/search', [\App\Http\Controllers\User\PublicacionController::class, 'search'])
     ->name('search');
 
-Route::post('/filter', [\App\Http\Controllers\User\PublicacionController::class, 'filter'])
+Route::get('/category', [\App\Http\Controllers\User\PublicacionController::class, 'filter'])
     ->name('filter');
