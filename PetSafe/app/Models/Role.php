@@ -13,4 +13,8 @@ class Role extends Model
         'role',
     ];
 
+    public function user() {
+        return $this->hasMany(User::class, 'role_id', 'id');
+    }
+
 }

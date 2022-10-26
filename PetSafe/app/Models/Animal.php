@@ -14,4 +14,12 @@ class Animal extends Model
         'name',
         'breed_id',
     ];
+
+    public function breed() {
+        return $this->belongsTo(Breed::class, 'breed_id');
+    }    
+
+    public function publication() {
+        return $this->hasOne(Publication::class, 'animal_id', 'id');
+    }
 }
