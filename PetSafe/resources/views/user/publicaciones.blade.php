@@ -21,8 +21,6 @@
                     </div>
                 </div>
             </div>
-
-
             <div class="p-1 rounded-3 text-center">
                 <div class="m-2 m-lg-3 search-bar-container">
                     <div class="search-bar">

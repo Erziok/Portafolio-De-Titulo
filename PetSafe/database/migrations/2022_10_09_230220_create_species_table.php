@@ -14,17 +14,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('species', function (Blueprint $table) {
             $table->id();
-            $table->string('category');
+            $table->string('specie');
             $table->timestamps();
-            $table->softDeletes();
         });
 
-        DB::table('categories')->insert([     
-            ['category' => 'Adopción'],     
-            ['category' => 'Perdido'], 
-            ['category' => 'Encontrado'],
+        DB::table('species')->insert([     
+            ['specie' => 'Perro'],     
+            ['specie' => 'Gato'], 
         ]);
     }
 
@@ -35,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('species');
     }
 };

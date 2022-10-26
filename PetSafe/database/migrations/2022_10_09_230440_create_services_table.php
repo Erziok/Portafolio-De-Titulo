@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('email');
             $table->string('description');
             $table->string('schedule');
-            $table->foreignId('types_id')->nullable(true)->constrained();
-            $table->foreignId('users_id')->nullable(true)->constrained();
+            $table->foreignId('type_id')->nullable(true)->constrained();
+            $table->foreignId('user_id')->nullable(true)->constrained();
             $table->timestamps();
             $table->softDeletes();
         });

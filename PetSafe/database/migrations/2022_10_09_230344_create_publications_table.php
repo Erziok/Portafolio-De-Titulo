@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('publications', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->dateTime('incidentDate');
+            $table->date('incidentDate');
             $table->string('description');
-            $table->string('image');
+            $table->string('photo');
             $table->tinyInteger('active');
-            $table->foreignId('users_id')->nullable(true)->constrained();
-            $table->foreignId('animals_id')->nullable(true)->constrained();
-            $table->foreignId('categories_id')->nullable(true)->constrained();
+            $table->foreignId('user_id')->nullable(true)->constrained();
+            $table->foreignId('animal_id')->nullable(true)->constrained();
+            $table->foreignId('category_id')->nullable(true)->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
