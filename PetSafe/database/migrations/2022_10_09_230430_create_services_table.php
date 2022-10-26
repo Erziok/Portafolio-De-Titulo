@@ -13,10 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('saved', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('publication_id')->nullable(true)->constrained();
+            $table->string('name');
+            $table->string('address');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('description');
+            $table->string('schedule');
             $table->foreignId('user_id')->nullable(true)->constrained();
+            $table->foreignId('type_id')->nullable(true)->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,7 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('saved');
+        Schema::dropIfExists('services');
     }
 };
-

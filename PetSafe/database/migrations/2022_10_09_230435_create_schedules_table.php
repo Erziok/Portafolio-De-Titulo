@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
             $table->string('startDay');
-            $table->string('EndDay');
+            $table->string('endDay');
             $table->string('startHour');
             $table->string('endHour');
             $table->foreignId('service_id')->nullable(true)->constrained();

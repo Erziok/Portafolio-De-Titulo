@@ -17,12 +17,12 @@ class RegisterController extends Controller
     public function registerUser(RegisterRequest $request)
     {
         User::create([
-            'firstname'=> $request->name,
+            'firstname'=> $request->firstname,
             'lastname'=> $request->lastname,
             'email'=> $request->email,
-            'run'=> $request->rut,
+            'run'=> $request->run,
             'password'=> $request->password,
-            'role_id'=> $request->input('roles_id', 2),
+            'role_id'=> $request->input('role_id', 2),
         ]);
         return redirect()->route('login');
     }

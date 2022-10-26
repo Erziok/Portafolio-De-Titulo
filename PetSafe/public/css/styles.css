@@ -148,6 +148,38 @@ html{
     padding: 5px 10px;
 }
 
+.register-btn {
+    width: 100px;
+    height: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #725cfa;
+    border: #725cfa;
+    border-radius: 10px;
+    color: #fbfbfbfb;
+}
+
+.register-btn:hover {
+    background-color: #604fd3;
+    transition: 0.5s;
+}
+
+.login-btn {
+    width: 120px;
+    height: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #725cfa;
+    border: #725cfa;
+    border-radius: 10px;
+    color: #fbfbfbfb;
+}
+
+.login-btn:hover {
+    background-color: #604fd3;
+    transition: 0.5s;
+}
+
 
 
 

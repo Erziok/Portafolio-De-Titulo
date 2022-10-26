@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Specie extends Model
 {
     use HasFactory;
-
+    protected $fillable = [
+        'specie'
+    ];
     public function breed() {
         return $this->hasMany(Breed::class, 'specie_id', 'id');
     }

@@ -38,7 +38,8 @@
                         @enderror
                       </div>
     
-                      <button type="submit" class="btn btn-primary" id="submit-btn">Iniciar Sesión</button>
+                      {{-- <button type="submit" class="btn btn-primary" id="submit-btn">Iniciar Sesión</button> --}}
+                      <button type="submit" class="login-btn" id="submit-btn">Iniciar Sesión</button>
                       <p class="warnings" id="warnings"></p>
                       @error('mensaje')
                       <strong style="color: darkred">{{ $message }}</strong>

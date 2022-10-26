@@ -68,7 +68,7 @@
                                 <div class="details mb-3">
                                     <div class="left">
                                         <div class="item date"><i class="fa-solid fa-calendar"></i> {{ $dato->incidentDate }}</div>
-                                        <div class="item author"><i class="fa-solid fa-user"></i> {{ $dato->users_id }} (momentaneo) </div>
+                                        <div class="item author"><i class="fa-solid fa-user"></i> {{ $dato->user_id }} (momentaneo) </div>
                                         <div class="item comments"><i class="fa-solid fa-message"></i> 10</div>
                                         <div class="item favs"><i class="fa-solid fa-heart"></i> 5</div>
                                     </div>
