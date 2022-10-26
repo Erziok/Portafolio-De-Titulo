@@ -20,31 +20,44 @@ const nameRegex = /^[a-zA-ZÀ-ÿ\s]{1,40}$/
 document.querySelectorAll('.form-box').forEach((box) => {
     const boxInput = box.querySelector('input');
 
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+    
+        validateInput(box, boxInput) === 0 ? form.submit():false;
+
+    })
+
     boxInput.addEventListener('keydown', (event) => {
 
         clearTimeout(timeout);
         timeout = setTimeout(() => {
             // console.log(`Input ${boxInput.name} value: `, boxInput.value);
 
-            validation(box, boxInput)
+            validateInput(box, boxInput)
         },300);     
     });
 });
 
-validation = (box, boxInput) => {
+
+function validateInput(box, boxInput) {
+    let counter = 0;
+
     if(boxInput.value == ''){
         showError(true, box, boxInput);
+        counter++;
     }else{
         showError(false, box, boxInput);
     }
 
-    if(boxInput.name == 'name'){
+    if(boxInput.name == 'firstname'){
 
         if(boxInput.value.length < 3){
             showError(true, box, boxInput);
+            counter++;
         }
         else if(!boxInput.value.match(nameRegex)){
             showError(true, box, boxInput);
+            counter++;
         }
         else{
             showError(false, box, boxInput);
@@ -56,9 +69,11 @@ validation = (box, boxInput) => {
 
         if(boxInput.value.length < 3){
             showError(true, box, boxInput);
+            counter++;
         }
         else if(!boxInput.value.match(nameRegex)){
             showError(true, box, boxInput);
+            counter++;
         }
         else{
             showError(false, box, boxInput);
@@ -70,6 +85,7 @@ validation = (box, boxInput) => {
 
         if(!boxInput.value.match(mailformatRegex)){
             showError(true, box, boxInput);
+            counter++;
         }else{
             showError(false, box, boxInput);
         }
@@ -80,6 +96,7 @@ validation = (box, boxInput) => {
         let validatorRut = new ValidatorRut(boxInput.value)
         if(!validatorRut.isValid){
             showError(true, box, boxInput);
+            counter++;
         }else{
             showError(false, box, boxInput);
         }
@@ -88,6 +105,7 @@ validation = (box, boxInput) => {
     if(boxInput.name == 'password'){
         if(boxInput.value.length < 6){
             showError(true, box, boxInput);
+            counter++;
         }else{
             showError(false, box, boxInput);
         }
@@ -96,14 +114,17 @@ validation = (box, boxInput) => {
     if(boxInput.name == 'password2'){
         if(boxInput.value.length < 6){
             showError(true, box, boxInput);
-        }if(boxInput.value != password.value){
+            counter++;
+        }else if(boxInput.value != password.value){
             showError(true, box, boxInput);
+            counter++;
         }else{
             showError(false, box, boxInput);
         }
     }
 
-    submitController()
+    return counter;
+
 }
 
 showError = (check, box, boxInput) => {

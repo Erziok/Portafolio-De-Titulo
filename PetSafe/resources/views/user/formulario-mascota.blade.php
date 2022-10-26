@@ -39,9 +39,9 @@
                         <label class="form-label" for="form3Example1q">Especie</label>
                         <select class="form-select" name="specie" id="specie">
                             <option value="" disabled selected>Seleccione una especie</option>
-                            <option value="Perro">Perro</option>
-                            <option value="Gato">Gato</option>
-                            <option value="Otro">Otro</option>
+                            @foreach ($species as $specie)
+                                <option value="{{ $specie->id }}">{{ $specie->specie }}</option>
+                            @endforeach
                         </select>
                         <small class="error-text">Seleccione una opción válida</small>
                         @error('specie')
@@ -49,10 +49,12 @@
                         @enderror
                     </div>
 
-                    <div class="col-lg-4 col-md-6 col-sm-12 form-box form-box-text">
+                    <div class="col-lg-4 col-md-6 col-sm-12 form-box form-box-select">
                         <label class="form-label" for="form3Example1q">Raza</label>
-                        <input type="text" id="breed" class="form-control" placeholder="Raza" name="breed"/>
-                        <small class="error-text">Ingrese al menos 3 carácteres</small>
+                        <select class="form-select" name="breed" id="breed">
+                            <option value="" disabled selected>Seleccione una especie primero</option> 
+                        </select>
+                        <small class="error-text">Seleccione una opción válida</small>
                         @error('breed')
                           <strong style="color: darkred">{{ $message }}</strong>
                         @enderror
@@ -90,7 +92,7 @@
                         <textarea type="textarea" id="description" 
                         class="form-control descripcion" placeholder="Ingrese aquí los detalles de su publicación" 
                         name="description" rows="5"></textarea>
-                        <small class="error-text">Ingrese una descripicón correcta (mínimo 10 carácteres)</small>
+                        <small class="error-text">Ingrese una descripción correcta (mínimo 10 carácteres)</small>
                         @error('description')
                           <strong style="color: darkred">{{ $message }}</strong>
                         @enderror
@@ -108,16 +110,16 @@
 
                     <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-file">
                         <label class="form-label" for="form3Example1q">Ingrese una fotografía</label><br>
-                        <input type="file" id="image" class="form-control" 
-                        placeholder="" name="image"/>
+                        <input type="file" id="photo" class="form-control" 
+                        placeholder="" name="photo"/>
                         <small class="error-text">Ingrese un archivo válido</small>
-                        @error('image')
+                        @error('photo')
                           <strong style="color: darkred">{{ $message }}</strong>
                         @enderror
                     </div>
 
                 </div>
-                <button type="submit" class="publication-btn" id="submit-btn" disabled>Publicar</button>
+                <button type="submit" class="publication-btn" id="submit-btn">Publicar</button>
             </form>
             
             
@@ -128,4 +130,5 @@
 
 @section('JS')
 <script src="{{ asset('js/validate-publication.js?v=').time() }}"></script>
+<script src="{{ asset('js/select-publication.js?v=').time() }}"></script>
 @endsection

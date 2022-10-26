@@ -62,12 +62,15 @@ Route::group(['middleware'=>'auth'] , function(){
     Route::get('/formulario-mascota', [\App\Http\Controllers\User\FormularioMascotaController::class, 'index'])
     ->name('formulario-mascota');
 
+    Route::get('/formulario-mascota/{id}', [\App\Http\Controllers\User\FormularioMascotaController::class, 'getBreeds']);
+
     Route::get('/formulario-servicio', [\App\Http\Controllers\User\FormularioServicioController::class, 'index'])
     ->name('formulario-servicio');
 
     Route::get('/logout', [\App\Http\Controllers\User\LogoutController::class, 'logoutUser'])
     ->name('logout');
 });
+
 // POST 
 Route::post('/register', [\App\Http\Controllers\User\RegisterController::class, 'registerUser'])
     ->name('register.create');

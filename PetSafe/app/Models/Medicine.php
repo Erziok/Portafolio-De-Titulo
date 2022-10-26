@@ -18,5 +18,6 @@ class Medicine extends Model
         'specie',
         'price',
         'discount',
+        'service_id',
     ];
 }

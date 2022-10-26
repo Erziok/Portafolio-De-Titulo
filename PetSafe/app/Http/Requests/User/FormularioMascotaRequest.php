@@ -32,7 +32,7 @@ class FormularioMascotaRequest extends FormRequest
             'category' => 'required',
             'description' => 'required',
             'incidentDate' => 'required',
-            'image' => 'required',
+            'photo' => 'required',
         ];
     }
 }

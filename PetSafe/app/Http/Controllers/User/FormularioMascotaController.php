@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\FormularioMascotaRequest;
 use App\Models\Animal;
+use App\Models\Specie;
+use App\Models\Breed;
 use App\Models\Category;
 use App\Models\Publication;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +21,14 @@ class FormularioMascotaController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('user.formulario-mascota')->with(compact('categories'));
+        $species = Specie::all();
+        return view('user.formulario-mascota')->with(compact('categories', 'species'));
+    }
+
+    public function getBreeds($id)
+    {
+        $data = Breed::where('specie_id', $id)->get();
+        return response()->json($data);
     }
 
     public function registerPet(FormularioMascotaRequest $request)
@@ -34,7 +43,7 @@ class FormularioMascotaController extends Controller
 
         //this is the variable for the route of photos
         $fileRoute = "images/publications/";
-        $publicationImage = $request -> file('image');
+        $publicationImage = $request -> file('photo');
 
         //the name for the images
         $imageName = time().'-'.$publicationImage->getClientOriginalName();
@@ -57,11 +66,11 @@ class FormularioMascotaController extends Controller
             'incidentDate'=> $request->incidentDate,
             'description'=> $request->description,
             'active'=> $request->input('active', 1),
-            'image'=> $imageUpload.$imageName,
+            'photo'=> $imageUpload.$imageName,
             // 'image'=> $request->image,
-            'users_id' => Auth::user()->id,
-            'animals_id' => $animal->id,
-            'categories_id'=> $request->category,
+            'user_id' => Auth::user()->id,
+            'animal_id' => $animal->id,
+            'category_id'=> $request->category,
         ]);
         return redirect()->route('publicaciones');
     }

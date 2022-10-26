@@ -13,10 +13,10 @@ class Publication extends Model
         'title',
         'incidentDate',
         'description',
+        'photo',
         'active',
-        'image',
-        'users_id',
-        'animals_id',
-        'categories_id',
+        'user_id',
+        'animal_id',
+        'category_id',
     ];
 }

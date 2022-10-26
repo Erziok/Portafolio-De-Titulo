@@ -10,9 +10,8 @@ class Animal extends Model
     use HasFactory;
 
     protected $fillable = [
-        'breed',
-        'specie',
         'gender',
-        'name'
+        'name',
+        'breed_id',
     ];
 }

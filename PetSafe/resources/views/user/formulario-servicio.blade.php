@@ -87,7 +87,7 @@
                     </div>                    
 
                 </div>
-                <button type="submit" class="publication-btn" id="submit-btn" disabled>Publicar</button>
+                <button type="submit" class="publication-btn" id="submit-btn">Publicar</button>
             </form>
             
             

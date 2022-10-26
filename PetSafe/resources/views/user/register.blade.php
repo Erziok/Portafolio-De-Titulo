@@ -28,7 +28,7 @@
         
                       <div class="form-outline mb-2 form-box">
                         <label class="form-label" for="form3Example1q">Nombre</label>
-                        <input type="text" id="username" class="form-control" placeholder="Nombre" name="name"/>
+                        <input type="text" id="firstname" class="form-control" placeholder="Nombre" name="firstname"/>
                         <small class="error-text">Introduce un nombre válido (mínimo 3 carácteres / solo letras)</small>
                         @error('name')
                           <strong>{{ $message }}</strong>
@@ -55,7 +55,7 @@
     
                       <div class="form-outline mb-2 form-box">
                         <label class="form-label" for="form3Example1q">Rut</label>
-                        <input type="text" id="rut" class="form-control" placeholder="EJ: 19844544-4" name="rut"/>
+                        <input type="text" id="run" class="form-control" placeholder="EJ: 19844544-4" name="run"/>
                         <small class="error-text">Introduce un rut válido</small>
                         @error('rut')
                           <strong>{{ $message }}</strong>
@@ -80,9 +80,8 @@
                         @enderror
                       </div>
           
-                      <!-- <button type="submit" class="btn btn-success btn-lg mb-1">Registrarse</button> -->
-    
-                      <button type="submit" class="btn btn-primary" id="submit-btn" disabled>Registrarse</button>
+                      {{-- <button type="submit" class="btn btn-primary" id="submit-btn" >Registrarse</button> --}}
+                      <button type="submit" class="register-btn" id="submit-btn">Registrarse</button>
                       <p class="warnings" id="warnings"></p>
                       <p>¿Ya tienes cuenta? <a href="{{ route('login') }}">Inicia sesión</a></p>
         

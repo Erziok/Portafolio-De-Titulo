@@ -24,7 +24,12 @@ const phoneRegex = /^(\+?56)?(\s?)(0?9)(\s?)[98765432]\d{7}$/ // Chilean number 
 document.querySelectorAll('.form-box-text').forEach((box) => {
     const boxInput = box.querySelector('input');
 
-    // let validatorRut = new ValidatorRut(rut.boxInput)
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+    
+        validateInput(box, boxInput) === 0 ? form.submit():false;
+
+    })
 
     boxInput.addEventListener('keydown', (event) => {
 
@@ -32,7 +37,7 @@ document.querySelectorAll('.form-box-text').forEach((box) => {
         timeout = setTimeout(() => {
             // console.log(`Input ${boxInput.name} value: `, boxInput.value);
 
-            validation(box, boxInput)
+            validateInput(box, boxInput)
         },300);     
     });
 });
@@ -40,7 +45,12 @@ document.querySelectorAll('.form-box-text').forEach((box) => {
 document.querySelectorAll('.form-box-textarea').forEach((box) => {
     const boxInput = box.querySelector('textarea');
 
-    // let validatorRut = new ValidatorRut(rut.boxInput)
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+    
+        validateInput(box, boxInput) === 0 ? form.submit():false;
+
+    })
 
     boxInput.addEventListener('keydown', (event) => {
 
@@ -48,7 +58,7 @@ document.querySelectorAll('.form-box-textarea').forEach((box) => {
         timeout = setTimeout(() => {
             // console.log(`Input ${boxInput.name} value: `, boxInput.value);
 
-            validation(box, boxInput)
+            validateInput(box, boxInput)
         },300);     
     });
 });
@@ -56,7 +66,12 @@ document.querySelectorAll('.form-box-textarea').forEach((box) => {
 document.querySelectorAll('.form-box-select').forEach((box) => {
     const boxInput = box.querySelector('select');
 
-    // let validatorRut = new ValidatorRut(rut.boxInput)
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+    
+        validateInput(box, boxInput) === 0 ? form.submit():false;
+
+    })
 
     boxInput.addEventListener('change', (event) => {
 
@@ -64,14 +79,17 @@ document.querySelectorAll('.form-box-select').forEach((box) => {
         timeout = setTimeout(() => {
             // console.log(`Input ${boxInput.name} value: `, boxInput.value);
 
-            validation(box, boxInput)
+            validateInput(box, boxInput)
         },300);     
     });
 });
 
-validation = (box, boxInput) => {
+function validateInput(box, boxInput) {
+    let counter = 0;
+
     if(boxInput.value == ''){
         showError(true, box, boxInput);
+        counter++;
     }else{
         showError(false, box, boxInput);
     }
@@ -80,9 +98,11 @@ validation = (box, boxInput) => {
 
         if(boxInput.value.length < 3){
             showError(true, box, boxInput);
+            counter++;
         }
         else if(!boxInput.value.match(nameRegex)){
             showError(true, box, boxInput);
+            counter++;
         }
         else{
             showError(false, box, boxInput);
@@ -94,6 +114,7 @@ validation = (box, boxInput) => {
 
         if(boxInput.value.length < 5){
             showError(true, box, boxInput);
+            counter++;
         }
         else{
             showError(false, box, boxInput);
@@ -105,6 +126,7 @@ validation = (box, boxInput) => {
 
         if(!boxInput.value.match(phoneRegex)){
             showError(true, box, boxInput);
+            counter++;
         }else{
             showError(false, box, boxInput);
         }
@@ -115,6 +137,7 @@ validation = (box, boxInput) => {
 
         if(!boxInput.value.match(mailformatRegex)){
             showError(true, box, boxInput);
+            counter++;
         }else{
             showError(false, box, boxInput);
         }
@@ -125,6 +148,7 @@ validation = (box, boxInput) => {
 
         if(boxInput.value.length < 10){
             showError(true, box, boxInput);
+            counter++;
         }
         else{
             showError(false, box, boxInput);
@@ -136,6 +160,7 @@ validation = (box, boxInput) => {
 
         if(boxInput.value.length < 5){
             showError(true, box, boxInput);
+            counter++;
         }
         else{
             showError(false, box, boxInput);
@@ -147,15 +172,102 @@ validation = (box, boxInput) => {
 
         if(boxInput.value == ''){
             showError(true, box, boxInput);
+            counter++;
         }
         else{
             showError(false, box, boxInput);
         }
 
     }
-
-    submitController()
 }
+
+// validation = (box, boxInput) => {
+//     if(boxInput.value == ''){
+//         showError(true, box, boxInput);
+//     }else{
+//         showError(false, box, boxInput);
+//     }
+
+//     if(boxInput.name == 'name'){
+
+//         if(boxInput.value.length < 3){
+//             showError(true, box, boxInput);
+//         }
+//         else if(!boxInput.value.match(nameRegex)){
+//             showError(true, box, boxInput);
+//         }
+//         else{
+//             showError(false, box, boxInput);
+//         }
+
+//     }
+
+//     if(boxInput.name == 'address'){
+
+//         if(boxInput.value.length < 5){
+//             showError(true, box, boxInput);
+//         }
+//         else{
+//             showError(false, box, boxInput);
+//         }
+
+//     }
+
+//     if(boxInput.name == 'phone'){
+
+//         if(!boxInput.value.match(phoneRegex)){
+//             showError(true, box, boxInput);
+//         }else{
+//             showError(false, box, boxInput);
+//         }
+
+//     }
+
+//     if(boxInput.name == 'email'){
+
+//         if(!boxInput.value.match(mailformatRegex)){
+//             showError(true, box, boxInput);
+//         }else{
+//             showError(false, box, boxInput);
+//         }
+
+//     }
+
+//     if(boxInput.name == 'description'){
+
+//         if(boxInput.value.length < 10){
+//             showError(true, box, boxInput);
+//         }
+//         else{
+//             showError(false, box, boxInput);
+//         }
+
+//     }
+
+//     if(boxInput.name == 'schedule'){
+
+//         if(boxInput.value.length < 5){
+//             showError(true, box, boxInput);
+//         }
+//         else{
+//             showError(false, box, boxInput);
+//         }
+
+//     }
+
+//     if(boxInput.name == 'type'){
+
+//         if(boxInput.value == ''){
+//             showError(true, box, boxInput);
+//         }
+//         else{
+//             showError(false, box, boxInput);
+//         }
+
+//     }
+
+//     submitController()
+// }
 
 showError = (check, box, boxInput) => {
     if(check){
