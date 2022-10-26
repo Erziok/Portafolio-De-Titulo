@@ -19,15 +19,25 @@ class PublicacionController extends Controller
     }
     public function search(SearchRequest $request) {
         $valor = preg_replace("/[^A-Za-z0-9 ]/", '', $request->field);
-        $datos = DB::table('publications')
+        if (isset($_GET['field'])) {
+            $datos = DB::table('publications')
             ->where('description', 'like', '%' . e($valor) . '%')
             ->orWhere('title', 'like', '%' . e($valor) . '%')->paginate(1);
-        return view('user.publicaciones', compact('datos', 'valor'));
+            $datos->appends($request->all());
+            return view('user.publicaciones', compact('datos', 'valor'));
+        } else {
+            return redirect()->route('publicaciones'); 
+        }
     }
     public function filter(FilterRequest $request) {
-        $datos = DB::table('publications')
+        if (isset($_GET['filter'])) {
+            $datos = DB::table('publications')
             ->where('categories_id', e($request->filter))
             ->paginate(1);
-        return view('user.publicaciones', compact('datos'));
+            $datos->appends($request->all());
+            return view('user.publicaciones', compact('datos'));
+        }else {
+            return redirect()->route('publicaciones'); 
+        }
     }
 }

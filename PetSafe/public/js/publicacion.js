@@ -5,7 +5,12 @@ const select = document.getElementById('select'),
     input = document.getElementById('search-input'),
     favBtn = document.getElementsByClassName('add-favorite-btn'),
     favorite = document.getElementsByClassName('favorite'),
-    noFavorite = document.getElementsByClassName('no-favorite');
+    noFavorite = document.getElementsByClassName('no-favorite'),
+    searchIpt = document.getElementById('search-inpt'),
+    removeSearch = document.getElementById('remove-search-field'),
+    searchForm = document.getElementById('search-form');
+
+checkSearchInput();
 
 for (let i = 0; i < favBtn.length; i++) {
     favBtn[i].addEventListener('click', function() {
@@ -38,3 +43,28 @@ for (let i = 0; i < options.length; i++) {
     });
 };
 
+function checkSearchInput() {
+    if (searchIpt.value) {
+        removeSearch.classList.add('active');
+    }else {
+        removeSearch.classList.remove('active');
+    }
+}
+
+searchIpt.addEventListener('keyup', function (){
+    checkSearchInput();
+});
+
+removeSearch.addEventListener('click', function(){
+    searchIpt.value = "";
+    checkSearchInput();
+});
+
+searchForm.addEventListener('submit', (event)=>{
+    event.preventDefault();
+    if(!searchIpt.value) {
+        window.location.href = "publicaciones";
+    }else {
+        searchForm.submit();
+    }
+});

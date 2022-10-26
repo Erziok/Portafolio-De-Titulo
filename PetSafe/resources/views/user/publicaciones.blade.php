@@ -23,17 +23,16 @@
             </div>
 
 
-            <div class="p-1 bg-light rounded-3 text-center">
-                <div class="m-2 m-lg-3">
+            <div class="p-1 rounded-3 text-center">
+                <div class="m-2 m-lg-3 search-bar-container">
                     <div class="search-bar">
                         <div class="select-box" id="select">
                             <div class="search-wrapper">
                                 <span id="select-text">Buscar Por</span>
-                                <i class="fa-solid fa-caret-down"></i>
+                                <i class="fa-solid fa-chevron-down"></i>
                             </div>
                             <ul id="list">
-                                <form action="{{ route('filter') }}" method="post" id="filter-form">
-                                    @csrf
+                                <form action="{{ route('filter') }}" method="GET" id="filter-form">
                                     <input type="text" id="filter-input" class="d-none" name="filter">
                                 </form>
                                 <li class="options" value="2">Mascotas Perdidas</li>
@@ -42,13 +41,13 @@
                             </ul>
                         </div>
                         <div class="input-box">
-                            <form action="{{ route('search') }}" method="POST">
-                                @csrf
+                            <form action="{{ route('search') }}" method="GET" id="search-form">
                                 @if (!empty($valor))
-                                    <input type="text" placeholder="" value="{{ $valor }}" name="field">
+                                    <input type="text" placeholder="" id="search-inpt" value="{{ $valor }}" name="field">
                                 @else
-                                    <input type="text" placeholder="" name="field">
+                                    <input type="text" placeholder="" id="search-inpt" name="field">
                                 @endif
+                                <i class="fa-solid fa-xmark remove-search-field" id="remove-search-field"></i>
                                 <button><i class="fa-solid fa-magnifying-glass"></i></button>
                             </form>
                         </div>
@@ -58,7 +57,7 @@
         </div>
     </header>
     <div class="container px-lg-5">
-        <div class="p-2 p-lg-3 bg-light rounded-3 text-center">
+        <div class="p-2 p-lg-3 rounded-3 text-center">
             <div class="m-2 m-lg-3">
                 <div class="publications-list">
                     @forelse ($datos as $dato)
