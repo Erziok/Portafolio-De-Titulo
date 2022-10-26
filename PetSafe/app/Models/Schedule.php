@@ -5,14 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Type extends Model
+class Schedule extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'type',
+        'startDay',
+        'endDay',
+        'startHour',
+        'endHour',
+        'service_id',
     ];
+
     public function service() {
-        return $this->hasMany(Service::class, 'type_id');
+        return $this->belongsTo(Service::class, 'service_id');
     }
 }

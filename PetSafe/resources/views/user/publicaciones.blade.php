@@ -62,7 +62,7 @@
                         <!--publication item-->
                         <div class="publication-box row">
                             <div class="image-box col-lg-4">
-                                <a href="{{ route('detalle') }}"><img src="{{ asset($dato->image) }}" alt=""></a>
+                                <a href="{{ route('detalle') }}"><img src="{{ asset($dato->photo) }}" alt=""></a>
                             </div>
                             <div class="content-box col-lg-8">
                                 <div class="details mb-3">
