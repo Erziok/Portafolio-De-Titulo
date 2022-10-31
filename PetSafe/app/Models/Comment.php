@@ -16,10 +16,13 @@ class Comment extends Model
         'comment_id'
     ];
 
-    public function publication() {
+    public function publication () {
         return $this->belongsTo(Publication::class, 'publication_id');
     }
-    public function user() {
+    public function user () {
         return $this->belongsTo(User::class, 'user_id');
+    }
+    public function child () {
+        return $this->hasMany(Comment::class, 'comment_id', 'id');
     }
 }

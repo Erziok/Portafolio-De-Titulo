@@ -39,7 +39,7 @@
         <div class="row category-container mt-3 g-0">
 
           <div class="col-lg-3 col-md-6 col-sm-12 item">
-            <a href="{{ route('publicaciones') }}">
+            <a href="{{ route('filter','filter=2') }}">
               <div class="category-box text-center">
                 <img src="{{ asset('images/mascotas-perdidas.ico') }}" alt="">
                 <p>Mascotas Perdidas</p>
@@ -57,7 +57,7 @@
           </div>
           
           <div class="col-lg-6 col-md-12 col-sm-12 item">
-            <a href="{{ route('publicaciones') }}">
+            <a href="{{ route('filter','filter=3') }}">
               <div class="category-box text-center">
                 <img src="{{ asset('images/mascotas-encontradas.ico') }}" alt="">
                 <p>Mascotas Encontradas</p>
@@ -112,7 +112,7 @@
           </div>
           
           <div class="col-lg-3 col-md-6 col-sm-12 item">
-            <a href="{{ route('publicaciones') }}">
+            <a href="{{ route('filter','filter=1') }}">
               <div class="category-box text-center">
                 <img src="{{ asset('images/adoptar.ico') }}" alt="">
                 <p>Adopta una mascota</p>

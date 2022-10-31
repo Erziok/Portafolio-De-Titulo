@@ -99,7 +99,7 @@
 }
 .publication-box .image-box img{
     width: 100%;
-    height: 100%;
+    height: 281px;
     object-fit: cover;
 }
 .publication-box .content-box {
@@ -129,6 +129,13 @@
     cursor: pointer;
     display: none;
 }
+.publication-box .content-box .details .right .add-fav .disable-favorite  {
+    color: #85a1fc;
+    cursor: default;
+    opacity: .25;
+    display: block;
+}
+
 .publication-box .content-box .details .right .add-fav i.active {
     display: block !important;
 }

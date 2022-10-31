@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('phone');
             $table->string('email');
-            $table->string('description');
+            $table->longText('description');
             $table->string('schedule');
             $table->foreignId('user_id')->nullable(true)->constrained();
             $table->foreignId('type_id')->nullable(true)->constrained();
