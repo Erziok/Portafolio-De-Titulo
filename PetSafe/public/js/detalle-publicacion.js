@@ -5,11 +5,11 @@ const btnShowMore = document.getElementById('show-more'),
       replyBoxes = document.getElementsByClassName('reply-box');
 
 
-if (petDesc.clientHeight > 360) {
+if (petDesc.clientHeight > 490) {
     btnShowMore.classList.add('active');
     petDesc.classList.add('limited-height');
 }
-if (petDesc.clientHeight < 360) {
+if (petDesc.clientHeight < 490) {
     btnShowMore.classList.remove('active');
 }
 
