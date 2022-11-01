@@ -48,53 +48,6 @@ html{
 
 /* End of validation form */
 
-/* validation form 2 */
-
-/* .form-box {
-	margin-bottom: 10px;
-	padding-bottom: 20px;
-	position: relative;
-}
-
-.form-box label {
-	display: inline-block;
-	margin-bottom: 5px;
-}
-
-.form-box input {
-	border: 2px solid #f0f0f0;
-	border-radius: 4px;
-	display: block;
-	font-family: inherit;
-	font-size: 14px;
-	padding: 10px;
-	width: 100%;
-}
-
-.form-box input:focus {
-	outline: 0;
-	border-color: #777;
-}
-
-.form-box.success input {
-	border-color: #2ecc71;
-}
-
-.form-box.error input {
-	border-color: #e74c3c;
-}
-
-.form-box small {
-	color: #e74c3c;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	visibility: hidden;
-}
-
-.form-box.error small {
-	visibility: visible;
-} */
 
 /* Carousel */ 
 
