@@ -14,7 +14,7 @@
                     <h3>{{ $object->title }}</h3>
                     <div class="hline"></div>
                 </div>
-                @can('publication.user-tasks', $object)
+                @can('publication.tasks', $object)
                 <div class="menu-publicacion">
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                     <ul class="menu">
@@ -129,7 +129,11 @@
                                     <div class="comentar-publicacion responder-comentario mt-3">
                                         @if (auth()->check())
                                             <div class="avatar">
-                                                <img src="{{ asset('images/placeholder-image.jpg') }}" alt="img">
+                                                @if (empty($reply->user->avatar))
+                                                    <img src="{{ asset('images/placeholder-user.jpg') }}" alt="img">
+                                                @else
+                                                    <img src="{{ asset($reply->user->avatar) }}" alt="img">
+                                                @endif
                                             </div>
                                             <form action="{{ route('detalle.responder', ['object'=> $object, 'comment'=> $comment]) }}" method="post" class="comentar-comentario">
                                                 @csrf
@@ -151,7 +155,11 @@
                     <div class="comentar-publicacion mt-3">
                         @if (auth()->check())
                             <div class="avatar">
-                                <img src="{{ asset('images/placeholder-image.jpg') }}" alt="img">
+                                @if (empty($reply->user->avatar))
+                                    <img src="{{ asset('images/placeholder-user.jpg') }}" alt="img">
+                                @else
+                                    <img src="{{ asset($reply->user->avatar) }}" alt="img">
+                                @endif
                             </div>
                             <form action="{{ route('detalle.comentar', $object) }}" method="post" class="comentar-comentario">
                                 @csrf
