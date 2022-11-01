@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->date('incidentDate');
-            $table->string('description');
+            $table->longText('description');
             $table->string('photo');
             $table->tinyInteger('active');
             $table->foreignId('user_id')->nullable(true)->constrained();

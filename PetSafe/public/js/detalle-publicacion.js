@@ -1,32 +1,15 @@
-//Imagenes preview
-const imgs = document.querySelectorAll('.img-select a'),
-      imgBtns = [...imgs],
-      btnShowMore = document.getElementById('show-more'),
-      petDesc = document.getElementById('pet-description');
-let imgId = 1;
 
-imgBtns.forEach((imgItem) => {
-    imgItem.addEventListener('click', (event) => {
-        event.preventDefault();
-        imgId = imgItem.dataset.id;
-        slideImage();
-    });
-});
+const btnShowMore = document.getElementById('show-more'),
+      petDesc = document.getElementById('pet-description'),
+      replyBtns = document.getElementsByClassName('btn-reply'),
+      replyBoxes = document.getElementsByClassName('reply-box');
 
-function slideImage(){
-    const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
 
-    document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
-}
-
-window.addEventListener('resize', slideImage);
-//Imagenes preview
-
-if (petDesc.clientHeight > 360) {
+if (petDesc.clientHeight > 490) {
     btnShowMore.classList.add('active');
     petDesc.classList.add('limited-height');
 }
-if (petDesc.clientHeight < 360) {
+if (petDesc.clientHeight < 490) {
     btnShowMore.classList.remove('active');
 }
 
@@ -41,3 +24,13 @@ btnShowMore.addEventListener('click', function () {
     }
     
 });
+
+for (let i = 0; i < replyBtns.length; i++) {
+    replyBtns[i].addEventListener('click', function () {
+        for (let j = 0; j < replyBoxes.length; j++) {
+            replyBoxes[j].classList.remove('active');
+        }
+        replyBoxes[i].classList.toggle('active');
+    });        
+}
+

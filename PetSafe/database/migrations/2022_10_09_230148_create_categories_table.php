@@ -23,8 +23,8 @@ return new class extends Migration
 
         DB::table('categories')->insert([     
             ['category' => 'Adopción'],     
-            ['category' => 'Perdido'], 
-            ['category' => 'Encontrado'],
+            ['category' => 'Perdida'], 
+            ['category' => 'Encontrada'],
         ]);
     }
 
