@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Favourite extends Model
 {
@@ -12,6 +13,7 @@ class Favourite extends Model
         'user_id',
     ];
     use HasFactory;
+    use SoftDeletes;
     public function publication() {
         return $this->belongsTo(Publication::class, 'publication_id');
     }

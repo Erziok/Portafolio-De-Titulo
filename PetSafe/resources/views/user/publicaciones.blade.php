@@ -67,18 +67,28 @@
                             <div class="content-box col-lg-8">
                                 <div class="details mb-3">
                                     <div class="left">
-                                        <div class="item date"><i class="fa-solid fa-calendar"></i> {{ $dato->incidentDate }}</div>
-                                        <div class="item author"><i class="fa-solid fa-user"></i> {{ $dato->user->firstname }}</div>
-                                        <div class="item comments"><i class="fa-solid fa-message"></i> {{ $dato->comment_count}}</div>
-                                        <div class="item favs"><i class="fa-solid fa-heart"></i> 5 (por agregar)</div>
+                                        <div class="item date"><i class="fa-solid fa-calendar"></i> {{ $dato->incidentDate }} </div>
+                                        <div class="item author"><i class="fa-solid fa-user"></i> {{ $dato->user->firstname }} </div>
+                                        <div class="item comments"><i class="fa-solid fa-message"></i> {{ $dato->comment_count }} </div>
+                                        <div class="item favs"><i class="fa-solid fa-heart"></i> {{ $dato->favourite_count }} </div>
                                     </div>
                                     <div class="right">
                                         <div class="add-fav">
                                             <label>
                                                 <input type="checkbox" class="add-favorite-btn" name="" style="display: none;">
                                                 @if (auth()->check())
-                                                    <i class="fa-regular fa-heart active favorite fav-icon"></i>
-                                                    <i class="fa-solid fa-heart no-favorite fav-icon"></i>
+                                                    @forelse($dato->favourite as $favourite)
+                                                        @if (auth() -> id() == $favourite -> user_id && $favourite -> publication_id == $dato -> id)
+                                                            <i class="fa-solid fa-heart active no-favorite fav-icon" data-fav='{{$dato->id}}'></i>
+                                                            <i class="fa-regular fa-heart favorite fav-icon" data-fav='{{$dato->id}}'></i>
+                                                        @else
+                                                            <i class="fa-regular fa-heart active favorite fav-icon" data-fav='{{$dato->id}}'></i>
+                                                            <i class="fa-solid fa-heart no-favorite fav-icon" data-fav='{{$dato->id}}'></i>
+                                                        @endif
+                                                    @empty
+                                                        <i class="fa-regular fa-heart active favorite fav-icon" data-fav='{{$dato->id}}'></i>
+                                                        <i class="fa-solid fa-heart no-favorite fav-icon" data-fav='{{$dato->id}}'></i>
+                                                    @endforelse
                                                 @else
                                                     <i class="fa-regular fa-heart disable-favorite fav-icon"></i>
                                                 @endif

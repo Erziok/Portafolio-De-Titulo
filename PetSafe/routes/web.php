@@ -81,6 +81,12 @@ Route::group(['middleware'=>'auth'] , function(){
 
     Route::post('/formulario-responder/{object}/{comment}', [\App\Http\Controllers\User\DetallePublicacionController::class, 'storeReply'])
         ->name('detalle.responder');
+
+    Route::post('/agregar-favorito/{id}', [\App\Http\Controllers\User\PublicacionController::class, 'favourite'])
+        ->name('favourite');
+    
+    Route::post('/quitar-favorito/{id}', [\App\Http\Controllers\User\PublicacionController::class, 'noFavourite'])
+        ->name('noFavourite');
     /*Validacion de que no se pongan a jugar con las ruta comment y para evitar el error "This route not suppor method GET"*/
     Route::get('/formulario-responder/{object}/{comment}', function () {
         return redirect()->route('home');
