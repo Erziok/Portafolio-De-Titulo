@@ -67,6 +67,12 @@ Route::group(['middleware'=>'auth'] , function(){
     Route::get('/formulario-servicio', [\App\Http\Controllers\User\FormularioServicioController::class, 'index'])
     ->name('formulario-servicio');
 
+    Route::get('/editar-usuario', [\App\Http\Controllers\User\EditarUsuarioController::class, 'index'])
+    ->name('editar-usuario');
+
+    Route::get('/cambiar-contraseña', [\App\Http\Controllers\User\CambiarContraseñaController::class, 'index'])
+    ->name('cambiar-contraseña');
+
     Route::get('/logout', [\App\Http\Controllers\User\LogoutController::class, 'logoutUser'])
     ->name('logout');
 });
@@ -89,3 +95,10 @@ Route::get('/search', [\App\Http\Controllers\User\PublicacionController::class, 
 
 Route::get('/category', [\App\Http\Controllers\User\PublicacionController::class, 'filter'])
     ->name('filter');
+
+// PUT
+Route::put('/editar-usuario', [\App\Http\Controllers\User\EditarUsuarioController::class, 'updateUser'])
+    ->name('editar-usuario.update');
+
+Route::put('/cambiar-contraseña', [\App\Http\Controllers\User\CambiarContraseñaController::class, 'changePassword'])
+    ->name('cambiar-contraseña.update');

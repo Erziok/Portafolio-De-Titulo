@@ -52,7 +52,7 @@
                         @enderror
                     </div>                    
 
-                    <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-textarea">
+                    <div class="col-lg-8 col-md-12 col-sm-12 form-box form-box-textarea">
                         <label class="form-label" for="form3Example1q">Descripción</label>
                         <textarea type="textarea" id="description" 
                         class="form-control descripcion" placeholder="Ingrese aquí los detalles de su publicación" 
@@ -63,16 +63,7 @@
                         @enderror
                     </div>
 
-                    <div class="col-lg-6 col-md-6 col-sm-12 form-box form-box-text">
-                        <label class="form-label" for="form3Example1q">Atención</label>
-                        <input type="text" id="schedule" class="form-control" placeholder="Horarios de atención" name="schedule"/>
-                        <small class="error-text">Ingrese al menos 5 carácteres</small>
-                        @error('schedule')
-                          <strong style="color: darkred">{{ $message }}</strong>
-                        @enderror
-                    </div>  
-
-                    <div class="col-lg-6 col-md-6 col-sm-12 form-box form-box-select">
+                    <div class="col-lg-4 col-md-6 col-sm-12 form-box form-box-select">
                         <label class="form-label" for="form3Example1q">Tipo</label>
                         <select class="form-select" name="type" id="type">
                             <option value="" disabled selected>Seleccione un tipo</option>
@@ -84,7 +75,71 @@
                         @error('type')
                           <strong style="color: darkred">{{ $message }}</strong>
                         @enderror
-                    </div>                    
+                    </div>        
+
+                    <div class="col-lg-3 col-md-6 col-sm-12 form-box form-box-select">
+                        <label class="form-label" for="form3Example1q">Día de inicio</label>
+                        <select class="form-select" name="startDay" id="startDay">
+                            <option value="" disabled selected>Seleccione un día</option>
+                            <option value="Lunes">Lunes</option>
+                            <option value="Martes">Martes</option>
+                            <option value="Miercoles">Miercoles</option>
+                            <option value="Jueves">Jueves</option>
+                            <option value="Viernes">Viernes</option>
+                        </select>
+                        <small class="error-text">Seleccione una opción válida</small>
+                        @error('startDay')
+                          <strong style="color: darkred">{{ $message }}</strong>
+                        @enderror
+                    </div>         
+
+                    <div class="col-lg-3 col-md-6 col-sm-12 form-box form-box-select">
+                        <label class="form-label" for="form3Example1q">Día de Termino</label>
+                        <select class="form-select" name="endDay" id="endDay">
+                            <option value="" disabled selected>Seleccione un día</option>
+                            <option value="Lunes">Lunes</option>
+                            <option value="Martes">Martes</option>
+                            <option value="Miercoles">Miercoles</option>
+                            <option value="Jueves">Jueves</option>
+                            <option value="Viernes">Viernes</option>
+                        </select>
+                        <small class="error-text">Seleccione una opción válida</small>
+                        @error('startDay')
+                          <strong style="color: darkred">{{ $message }}</strong>
+                        @enderror
+                    </div>   
+                    
+                    <div class="col-lg-3 col-md-6 col-sm-12 form-box form-box-select">
+                        <label class="form-label" for="form3Example1q">Hora de inicio</label>
+                        <select class="form-select" name="startHour" id="startHour">
+                            <option value="" disabled selected>Seleccione un día</option>
+                            <option value="Lunes">Lunes</option>
+                            <option value="Martes">Martes</option>
+                            <option value="Miercoles">Miercoles</option>
+                            <option value="Jueves">Jueves</option>
+                            <option value="Viernes">Viernes</option>
+                        </select>
+                        <small class="error-text">Seleccione una opción válida</small>
+                        @error('startDay')
+                          <strong style="color: darkred">{{ $message }}</strong>
+                        @enderror
+                    </div>   
+
+                    <div class="col-lg-3 col-md-6 col-sm-12 form-box form-box-select">
+                        <label class="form-label" for="form3Example1q">Hora de termino</label>
+                        <select class="form-select" name="endHour" id="endHour">
+                            <option value="" disabled selected>Seleccione un día</option>
+                            <option value="Lunes">Lunes</option>
+                            <option value="Martes">Martes</option>
+                            <option value="Miercoles">Miercoles</option>
+                            <option value="Jueves">Jueves</option>
+                            <option value="Viernes">Viernes</option>
+                        </select>
+                        <small class="error-text">Seleccione una opción válida</small>
+                        @error('startDay')
+                          <strong style="color: darkred">{{ $message }}</strong>
+                        @enderror
+                    </div>   
 
                 </div>
                 <button type="submit" class="publication-btn" id="submit-btn">Publicar</button>

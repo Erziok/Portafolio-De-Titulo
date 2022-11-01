@@ -11,7 +11,10 @@ let errors = {
     phone: true,
     email: true,
     description: true,
-    schedule: true,
+    startDay: true,
+    endDay: true,
+    startHour: true,
+    endHour: true,
     type: true,
 }
 
@@ -156,18 +159,6 @@ function validateInput(box, boxInput) {
 
     }
 
-    if(boxInput.name == 'schedule'){
-
-        if(boxInput.value.length < 5){
-            showError(true, box, boxInput);
-            counter++;
-        }
-        else{
-            showError(false, box, boxInput);
-        }
-
-    }
-
     if(boxInput.name == 'type'){
 
         if(boxInput.value == ''){
@@ -179,95 +170,59 @@ function validateInput(box, boxInput) {
         }
 
     }
+
+    if(boxInput.name == 'startDay'){
+
+        if(boxInput.value == ''){
+            showError(true, box, boxInput);
+            counter++;
+        }
+        else{
+            showError(false, box, boxInput);
+        }
+
+    }
+
+    if(boxInput.name == 'endDay'){
+
+        if(boxInput.value == ''){
+            showError(true, box, boxInput);
+            counter++;
+        }
+        else{
+            showError(false, box, boxInput);
+        }
+
+    }
+
+    if(boxInput.name == 'startHour'){
+
+        if(boxInput.value == ''){
+            showError(true, box, boxInput);
+            counter++;
+        }
+        else{
+            showError(false, box, boxInput);
+        }
+
+    }
+
+    if(boxInput.name == 'endHour'){
+
+        if(boxInput.value == ''){
+            showError(true, box, boxInput);
+            counter++;
+        }
+        else{
+            showError(false, box, boxInput);
+        }
+
+    }
+
+
+
+    return counter;
 }
-
-// validation = (box, boxInput) => {
-//     if(boxInput.value == ''){
-//         showError(true, box, boxInput);
-//     }else{
-//         showError(false, box, boxInput);
-//     }
-
-//     if(boxInput.name == 'name'){
-
-//         if(boxInput.value.length < 3){
-//             showError(true, box, boxInput);
-//         }
-//         else if(!boxInput.value.match(nameRegex)){
-//             showError(true, box, boxInput);
-//         }
-//         else{
-//             showError(false, box, boxInput);
-//         }
-
-//     }
-
-//     if(boxInput.name == 'address'){
-
-//         if(boxInput.value.length < 5){
-//             showError(true, box, boxInput);
-//         }
-//         else{
-//             showError(false, box, boxInput);
-//         }
-
-//     }
-
-//     if(boxInput.name == 'phone'){
-
-//         if(!boxInput.value.match(phoneRegex)){
-//             showError(true, box, boxInput);
-//         }else{
-//             showError(false, box, boxInput);
-//         }
-
-//     }
-
-//     if(boxInput.name == 'email'){
-
-//         if(!boxInput.value.match(mailformatRegex)){
-//             showError(true, box, boxInput);
-//         }else{
-//             showError(false, box, boxInput);
-//         }
-
-//     }
-
-//     if(boxInput.name == 'description'){
-
-//         if(boxInput.value.length < 10){
-//             showError(true, box, boxInput);
-//         }
-//         else{
-//             showError(false, box, boxInput);
-//         }
-
-//     }
-
-//     if(boxInput.name == 'schedule'){
-
-//         if(boxInput.value.length < 5){
-//             showError(true, box, boxInput);
-//         }
-//         else{
-//             showError(false, box, boxInput);
-//         }
-
-//     }
-
-//     if(boxInput.name == 'type'){
-
-//         if(boxInput.value == ''){
-//             showError(true, box, boxInput);
-//         }
-//         else{
-//             showError(false, box, boxInput);
-//         }
-
-//     }
-
-//     submitController()
-// }
 
 showError = (check, box, boxInput) => {
     if(check){
@@ -281,12 +236,5 @@ showError = (check, box, boxInput) => {
     }
 }
 
-submitController = () => {
-    if(errors.name || errors.address || errors.phone || errors.email || errors.description || errors.schedule || errors.type){
-        submitButton.toggleAttribute('disabled', true)
-    }
-    else{
-        submitButton.toggleAttribute('disabled', false)
-    }
-}
+
 
