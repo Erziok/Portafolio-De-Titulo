@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\FilterRequest;
 use App\Http\Requests\User\SearchRequest;
+use App\Models\Favourite;
 use App\Models\Publication;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -13,7 +14,7 @@ class PublicacionController extends Controller
 {
     public function index()
     {
-        $datos = Publication::with('user')->withCount('comment')->get()->paginate(10); 
+        $datos = Publication::with(['user', 'favourite'])->withCount(['comment', 'favourite'])->get()->paginate(10); 
         return view('user.publicaciones', compact('datos'));
     }
     public function search(SearchRequest $request) {
@@ -44,5 +45,16 @@ class PublicacionController extends Controller
         }else {
             return redirect()->route('publicaciones'); 
         }
+    }
+    public function favourite($id) {
+        Favourite::create([
+            'publication_id' => $id,
+            'user_id' => auth() -> id()
+        ]);
+    }
+
+    public function noFavourite($id) {
+        $favorito = Favourite::where('publication_id', $id) -> where('user_id', auth() -> id())
+        ->delete();
     }
 }

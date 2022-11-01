@@ -10,6 +10,14 @@ const select = document.getElementById('select'),
     removeSearch = document.getElementById('remove-search-field'),
     searchForm = document.getElementById('search-form');
 
+let csfr_token = document.getElementsByName('csrf-token')[0].getAttribute('content');
+
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': csfr_token
+    }
+});
+
 checkSearchInput();
 
 for (let i = 0; i < favBtn.length; i++) {
@@ -68,3 +76,26 @@ searchForm.addEventListener('submit', (event)=>{
         searchForm.submit();
     }
 });
+
+// Add/Remove favourite
+
+for (let i = 0; i < favBtn.length; i++) {
+    favorite[i].addEventListener('click', function(){
+        $.ajax({
+            url:'agregar-favorito/'+ this.dataset.fav,
+            type:'post',
+            success:function(response){
+                console.log(response);
+            }
+        })
+    })
+    noFavorite[i].addEventListener('click', function(){
+        $.ajax({
+            url:'quitar-favorito/'+ this.dataset.fav,
+            type:'post',
+            success:function(response){
+                console.log(response);
+            }
+        })
+    })
+}
