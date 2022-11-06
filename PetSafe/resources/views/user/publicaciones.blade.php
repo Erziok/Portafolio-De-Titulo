@@ -5,7 +5,7 @@
     @section('content')
 
     
-
+<body>
     <header class="my-5 mb-5">
         <div class="container px-lg-5">
             
@@ -131,3 +131,5 @@
     @section('JS')
         <script src="{{ asset('/js/publicacion.js') }}"></script>
     @endsection
+
+</body>

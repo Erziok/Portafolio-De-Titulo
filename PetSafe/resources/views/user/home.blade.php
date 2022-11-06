@@ -7,7 +7,8 @@
     @section('content')
 
     <!-- Carousel -->
-
+<body>
+  
     <div id="carouselExampleControls" class="carousel slide mt-2" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -167,6 +168,8 @@
         </div>
       </div>
     </header>
+    
+</body>
       
 
     @endsection

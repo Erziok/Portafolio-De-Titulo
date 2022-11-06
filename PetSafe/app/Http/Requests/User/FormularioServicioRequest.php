@@ -29,7 +29,6 @@ class FormularioServicioRequest extends FormRequest
             'phone' => 'required',
             'email' => 'required | email',
             'description' => 'required',
-            'schedule' => 'required',
             'type' => 'required',
         ];
     }

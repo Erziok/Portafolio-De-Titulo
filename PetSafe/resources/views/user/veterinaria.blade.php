@@ -2,6 +2,7 @@
 
     @section('content')
 
+<body>
     <header class="py-5">
         <div class="container px-lg-5">
             <div class="p-4 p-lg-5 content rounded-3">
@@ -71,5 +72,6 @@
             </div>
         </div>
     </header>
+</body>
 
     @endsection
