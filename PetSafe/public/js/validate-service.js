@@ -1,6 +1,6 @@
 
 
-const form = document.getElementById("form")
+const form = document.getElementById("general")
 const submitButton = document.getElementById("submit-btn")
 
 let timeout = null;
@@ -11,10 +11,6 @@ let errors = {
     phone: true,
     email: true,
     description: true,
-    startDay: true,
-    endDay: true,
-    startHour: true,
-    endHour: true,
     type: true,
 }
 
@@ -30,19 +26,10 @@ document.querySelectorAll('.form-box-text').forEach((box) => {
     form.addEventListener('submit', (event) => {
         event.preventDefault();
     
-        validateInput(box, boxInput) === 0 ? form.submit():false;
+        validateInput(box, boxInput)
 
     })
 
-    boxInput.addEventListener('keydown', (event) => {
-
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            // console.log(`Input ${boxInput.name} value: `, boxInput.value);
-
-            validateInput(box, boxInput)
-        },300);     
-    });
 });
 
 document.querySelectorAll('.form-box-textarea').forEach((box) => {
@@ -51,19 +38,10 @@ document.querySelectorAll('.form-box-textarea').forEach((box) => {
     form.addEventListener('submit', (event) => {
         event.preventDefault();
     
-        validateInput(box, boxInput) === 0 ? form.submit():false;
+        validateInput(box, boxInput) 
 
     })
 
-    boxInput.addEventListener('keydown', (event) => {
-
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            // console.log(`Input ${boxInput.name} value: `, boxInput.value);
-
-            validateInput(box, boxInput)
-        },300);     
-    });
 });
 
 document.querySelectorAll('.form-box-select').forEach((box) => {
@@ -72,27 +50,16 @@ document.querySelectorAll('.form-box-select').forEach((box) => {
     form.addEventListener('submit', (event) => {
         event.preventDefault();
     
-        validateInput(box, boxInput) === 0 ? form.submit():false;
+        validateInput(box, boxInput) 
 
     })
 
-    boxInput.addEventListener('change', (event) => {
-
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            // console.log(`Input ${boxInput.name} value: `, boxInput.value);
-
-            validateInput(box, boxInput)
-        },300);     
-    });
 });
 
-function validateInput(box, boxInput) {
-    let counter = 0;
+validateInput = (box, boxInput) => {
 
     if(boxInput.value == ''){
         showError(true, box, boxInput);
-        counter++;
     }else{
         showError(false, box, boxInput);
     }
@@ -101,11 +68,9 @@ function validateInput(box, boxInput) {
 
         if(boxInput.value.length < 3){
             showError(true, box, boxInput);
-            counter++;
         }
         else if(!boxInput.value.match(nameRegex)){
             showError(true, box, boxInput);
-            counter++;
         }
         else{
             showError(false, box, boxInput);
@@ -117,7 +82,6 @@ function validateInput(box, boxInput) {
 
         if(boxInput.value.length < 5){
             showError(true, box, boxInput);
-            counter++;
         }
         else{
             showError(false, box, boxInput);
@@ -129,7 +93,6 @@ function validateInput(box, boxInput) {
 
         if(!boxInput.value.match(phoneRegex)){
             showError(true, box, boxInput);
-            counter++;
         }else{
             showError(false, box, boxInput);
         }
@@ -140,7 +103,6 @@ function validateInput(box, boxInput) {
 
         if(!boxInput.value.match(mailformatRegex)){
             showError(true, box, boxInput);
-            counter++;
         }else{
             showError(false, box, boxInput);
         }
@@ -151,7 +113,6 @@ function validateInput(box, boxInput) {
 
         if(boxInput.value.length < 10){
             showError(true, box, boxInput);
-            counter++;
         }
         else{
             showError(false, box, boxInput);
@@ -163,7 +124,6 @@ function validateInput(box, boxInput) {
 
         if(boxInput.value == ''){
             showError(true, box, boxInput);
-            counter++;
         }
         else{
             showError(false, box, boxInput);
@@ -171,57 +131,8 @@ function validateInput(box, boxInput) {
 
     }
 
-    if(boxInput.name == 'startDay'){
+    submitController();
 
-        if(boxInput.value == ''){
-            showError(true, box, boxInput);
-            counter++;
-        }
-        else{
-            showError(false, box, boxInput);
-        }
-
-    }
-
-    if(boxInput.name == 'endDay'){
-
-        if(boxInput.value == ''){
-            showError(true, box, boxInput);
-            counter++;
-        }
-        else{
-            showError(false, box, boxInput);
-        }
-
-    }
-
-    if(boxInput.name == 'startHour'){
-
-        if(boxInput.value == ''){
-            showError(true, box, boxInput);
-            counter++;
-        }
-        else{
-            showError(false, box, boxInput);
-        }
-
-    }
-
-    if(boxInput.name == 'endHour'){
-
-        if(boxInput.value == ''){
-            showError(true, box, boxInput);
-            counter++;
-        }
-        else{
-            showError(false, box, boxInput);
-        }
-
-    }
-
-
-
-    return counter;
 }
 
 showError = (check, box, boxInput) => {
@@ -235,6 +146,17 @@ showError = (check, box, boxInput) => {
         errors[boxInput.name] = false
     }
 }
+
+submitController = () => {
+    if(errors.name || errors.address || errors.phone || errors.email || errors.description || errors.type ){
+        // console.log("Hay un error")
+    }
+    else{
+        // console.log("Todo ok")
+        form.submit();
+    }
+}
+
 
 
 

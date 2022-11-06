@@ -2,6 +2,10 @@ html{
     scroll-behavior: smooth;
 }
 
+body, body * {
+    font-family: 'Roboto', sans-serif;
+}
+
 /* Navbar styles (If the changes don't show up in the browser, press CTRL + F5) */ 
 
 .logo-brand{
@@ -176,6 +180,20 @@ html{
     background-color: #604fd3;
     transition: 0.5s;
 }
+
+/* Preloader */
+
+#preloader{
+    background: #fbfbfb;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+
+
+
 
 
 

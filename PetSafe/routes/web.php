@@ -80,7 +80,6 @@ Route::group(['middleware'=>'auth'] , function(){
     Route::post('/formulario-servicio', [\App\Http\Controllers\User\FormularioServicioController::class, 'registerService'])
         ->name('formulario-servicio.create');
 
-
     Route::get('/logout', [\App\Http\Controllers\User\LogoutController::class, 'logoutUser'])
     ->name('logout');
 

@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('phone');
             $table->string('email');
             $table->longText('description');
-            $table->string('schedule');
             $table->foreignId('user_id')->nullable(true)->constrained();
             $table->foreignId('type_id')->nullable(true)->constrained();
             $table->timestamps();
