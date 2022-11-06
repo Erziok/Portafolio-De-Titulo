@@ -219,16 +219,14 @@
                         <ul>    
                             @if (auth()->user())
                                 <li><a href="">Mi Perfil</a></li>
+                                @if (auth()->user()->role_id == 1)
+                                    <li><a href="{{ route('admin.home') }}">Administración</a></li>
+                                @endif
                                 <li><a href="{{ route('logout') }}">Cerrar Sesión</a></li>
                             @else
                                 <li><a href="{{ route('login') }}">Iniciar Sesión</a></li>
                                 <li><a href="{{ route('register') }}">Registrarse</a></li>
                             @endif
-                            <!--
-                            <li><a href="{{ route('login') }}">Iniciar Sesión</a></li>
-                            <li><a href="{{ route('register') }}">Registrarse</a></li>
-                            <li><a href="">Cerrar Sesión</a></li>
-                            -->
                         </ul>
                     </div>
                 </div>
@@ -242,8 +240,6 @@
     <footer class="py-5 bg-dark">
         <div class="container"><p class="m-0 text-center text-white">Copyright &copy; PetSafe 2022</p></div>
     </footer>
-
-     <!-- JavaScript Bundle with Popper -->
      @yield('JS')
      <script src="{{ asset('js/app.js') }}"></script>
      <script src="{{ asset('js/preloader.js') }}"></script>
@@ -252,6 +248,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/b98e68faf3.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
 </body>
 </html>
