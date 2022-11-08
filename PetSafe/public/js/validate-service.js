@@ -1,6 +1,6 @@
 
 
-const form = document.getElementById("general")
+const form = document.getElementById("form")
 const submitButton = document.getElementById("submit-btn")
 
 let timeout = null;
@@ -22,12 +22,9 @@ const phoneRegex = /^(\+?56)?(\s?)(0?9)(\s?)[98765432]\d{7}$/ // Chilean number 
 
 document.querySelectorAll('.form-box-text').forEach((box) => {
     const boxInput = box.querySelector('input');
-
     form.addEventListener('submit', (event) => {
         event.preventDefault();
-    
         validateInput(box, boxInput)
-
     })
 
 });

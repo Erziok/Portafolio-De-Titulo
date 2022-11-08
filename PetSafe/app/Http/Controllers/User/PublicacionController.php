@@ -14,7 +14,8 @@ class PublicacionController extends Controller
 {
     public function index()
     {
-        $datos = Publication::with(['user', 'favourite'])->withCount(['comment', 'favourite'])->get()->paginate(10); 
+        $datos = Publication::with(['user', 'favourite'])->withCount(['comment', 'favourite'])->get()->paginate(10);
+        //dd($datos->toArray());
         return view('user.publicaciones', compact('datos'));
     }
     public function search(SearchRequest $request) {
