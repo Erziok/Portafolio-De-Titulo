@@ -28,17 +28,11 @@
             </div>
             <div class="app-header-navigation">
                 <div class="tabs">
-                    <a href="#" class="active">
+                    <a href="{{ route('admin.home') }}" class="{{ Request::is('admin') ? 'active' : '' }}">
                         Metricas
                     </a>
-                    <a href="#">
-                        Tab 1
-                    </a>
-                    <a href="#">
-                        Tab 2
-                    </a>
-                    <a href="#">
-                        Tab 3
+                    <a href="{{ route('admin.dashboard') }}" class="{{ Request::is('admin/dashboard') ? 'active' : '' }}">
+                        Dashboard
                     </a>
                 </div>
             </div>
@@ -62,7 +56,52 @@
             </div>
 
         </header>
-        @yield('content')
+        <div class="app-body">
+            <div class="app-body-navigation">
+                <nav class="navigation">
+                    <a href="{{ route('admin.usuario.index') }}" class="{{ Request::is('admin/usuario') ? 'active' : '' }}">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Usuarios</span>
+                    </a>
+                    <a href="{{ route('admin.publicacion.index') }}" class="{{ Request::is('admin/publicacion') ? 'active' : '' }}">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <span>Publicaciones</span>
+                    </a>
+                    <a href="{{ route('admin.servicio.index') }}" class="{{ Request::is('admin/servicio') ? 'active' : '' }}">
+                        <i class="fa-solid fa-shop"></i>
+                        <span>Servicios</span>
+                    </a>
+                    <a href="{{ route('admin.veterinaria.index') }}" class="{{ Request::is('admin/veterinaria') ? 'active' : '' }}">
+                        <i class="fa-solid fa-stethoscope"></i>
+                        <span>Veterinaria</span>
+                    </a>
+                    <a href="{{ route('admin.farmacia.index') }}" class="{{ Request::is('admin/farmacia') ? 'active' : '' }}">
+                        <i class="fa-solid fa-flask"></i>
+                        <span>Farmacia</span>
+                    </a>
+                    <a href="{{ route('admin.curso.index') }}" class="{{ Request::is('admin/curso') ? 'active' : '' }}">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Cursos</span>
+                    </a>
+                    <a href="{{ route('admin.zona.index') }}" class="{{ Request::is('admin/zona') ? 'active' : '' }}">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <span>Zonas</span>
+                    </a>
+                    <a href="{{ route('admin.web.index') }}" class="{{ Request::is('admin/web') ? 'active' : '' }}">
+                        <i class="fa-solid fa-earth-americas"></i>
+                        <span>Web</span>
+                    </a>
+                </nav>
+                <footer class="footer">
+                    <h1>PetSafe<small>©</small></h1>
+                    <div>
+                        PetSafe ©<br />
+                        Derechos reservados 2022
+                    </div>
+                </footer>
+            </div>
+            @yield('content')
+        </div>
     </div>
     @yield('JS')
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>

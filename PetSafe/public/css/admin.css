@@ -236,7 +236,12 @@ a {
   margin-top: 1.25rem;
 }
 .navigation a:hover, .navigation a:focus {
-  transform: translateX(4px);
+  transform: translateX(10px) scale(1.05);
+  color: var(--c-purple-200);
+}
+
+.navigation a.active {
+  transform: translateX(10px) scale(1.05);
   color: var(--c-purple-200);
 }
 

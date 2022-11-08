@@ -8,7 +8,6 @@
     @section('content')
 
 <body>
-        
     <section>
         <div class="publication-section">
             <div class="section-title mb-4 mt-2">
