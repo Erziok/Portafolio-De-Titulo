@@ -1,6 +1,6 @@
 
 
-const form = document.getElementById("general")
+const form = document.getElementById("form")
 const submitButton = document.getElementById("submit-btn")
 
 let timeout = null;
@@ -46,6 +46,18 @@ document.querySelectorAll('.form-box-textarea').forEach((box) => {
 
 document.querySelectorAll('.form-box-select').forEach((box) => {
     const boxInput = box.querySelector('select');
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+    
+        validateInput(box, boxInput) 
+
+    })
+
+});
+
+document.querySelectorAll('.select-checkbox').forEach((box) => {
+    const boxInput = box.querySelector('checkbox');
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -148,7 +160,7 @@ showError = (check, box, boxInput) => {
 }
 
 submitController = () => {
-    if(errors.name || errors.address || errors.phone || errors.email || errors.description || errors.type ){
+    if(errors.name || errors.address || errors.phone || errors.email || errors.description || errors.type){
         // console.log("Hay un error")
     }
     else{
