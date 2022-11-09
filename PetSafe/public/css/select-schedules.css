@@ -1,0 +1,90 @@
+.select-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.select-container .horario-estandar {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.select-container .horario-estandar .hora-estandar {
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: rgb(204, 204, 204); 
+    padding: 5px;
+}
+
+.select-container .form-select {
+    width: 15%;
+    margin: 10px auto;
+}
+
+.select-container .select-item {
+    width: 50%;
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #f8f8f8;
+    margin: 10px auto;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: rgb(204, 204, 204); 
+    position: relative;
+    cursor: pointer;
+    transition: .3s;
+}
+.select-container .select-item .titulo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 15px;
+}
+.select-container .select-item .titulo.active {
+    background: #1e9ba3;
+    border-radius: 5px;
+    color: #fbfbfb;
+}
+.select-container .select-item .pivote {
+    width: 13%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.select-container .select-item .pivote button{
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.select-container .select-item .accion {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    background: #f8f8f8;
+    z-index: 100;
+    padding: 10px 10px;
+    border: 1px solid #000;
+    border-radius: 2px;
+    width: 130px;
+    display: none;
+}
+.select-container .select-item .accion.active {
+    display: block;
+} 
+
+.select-container .select-item .accion select:first-of-type {
+    margin-bottom: 15px;
+}
+.select-container .select-item .select-checkbox {
+    display: none;
+}
+
+.select-container .select-item .select-checkbox:checked ~ .pivote {
+    display: flex;
+}

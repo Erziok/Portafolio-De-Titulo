@@ -54,7 +54,7 @@
                       </div>
     
                       <div class="form-outline mb-2 form-box">
-                        <label class="form-label" for="form3Example1q">Rut</label>
+                        <label class="form-label" for="form3Example1q">Run</label>
                         <input type="text" id="run" class="form-control" placeholder="EJ: 19844544-4" name="run"/>
                         <small class="error-text">Introduce un rut válido</small>
                         @error('rut')

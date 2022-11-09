@@ -5,7 +5,7 @@
     @section('content')
 
     
-
+<body>
     <header class="my-5 mb-5">
         <div class="container px-lg-5">
             
@@ -77,18 +77,19 @@
                                             <label>
                                                 <input type="checkbox" class="add-favorite-btn" name="" style="display: none;">
                                                 @if (auth()->check())
-                                                    @forelse($dato->favourite as $favourite)
-                                                        @if (auth() -> id() == $favourite -> user_id && $favourite -> publication_id == $dato -> id)
+                                                    @php $find = false; @endphp
+                                                    @foreach($dato->favourite as $favourite)
+                                                        @if (auth()->id() == $favourite->user_id && $favourite->publication_id == $dato->id)
                                                             <i class="fa-solid fa-heart active no-favorite fav-icon" data-fav='{{$dato->id}}'></i>
                                                             <i class="fa-regular fa-heart favorite fav-icon" data-fav='{{$dato->id}}'></i>
-                                                        @else
-                                                            <i class="fa-regular fa-heart active favorite fav-icon" data-fav='{{$dato->id}}'></i>
-                                                            <i class="fa-solid fa-heart no-favorite fav-icon" data-fav='{{$dato->id}}'></i>
+                                                            @php $find = true; @endphp
+                                                            @break
                                                         @endif
-                                                    @empty
+                                                    @endforeach
+                                                    @if ($find == false)
                                                         <i class="fa-regular fa-heart active favorite fav-icon" data-fav='{{$dato->id}}'></i>
                                                         <i class="fa-solid fa-heart no-favorite fav-icon" data-fav='{{$dato->id}}'></i>
-                                                    @endforelse
+                                                    @endif
                                                 @else
                                                     <i class="fa-regular fa-heart disable-favorite fav-icon"></i>
                                                 @endif
@@ -131,3 +132,5 @@
     @section('JS')
         <script src="{{ asset('/js/publicacion.js') }}"></script>
     @endsection
+
+</body>

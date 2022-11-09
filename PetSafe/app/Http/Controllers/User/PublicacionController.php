@@ -14,7 +14,8 @@ class PublicacionController extends Controller
 {
     public function index()
     {
-        $datos = Publication::with(['user', 'favourite'])->withCount(['comment', 'favourite'])->get()->paginate(10); 
+        $datos = Publication::with(['user', 'favourite'])->withCount(['comment', 'favourite'])->get()->paginate(10);
+        //dd($datos->toArray());
         return view('user.publicaciones', compact('datos'));
     }
     public function search(SearchRequest $request) {
@@ -22,7 +23,7 @@ class PublicacionController extends Controller
         if (isset($_GET['field'])) {
             $datos = Publication::where('description', 'like','%'.e($valor).'%')
             ->orWhere('title', 'like', '%' . e($valor) . '%')
-            ->with('user')->withCount('comment')
+            ->with('user')->withCount(['comment', 'favourite'])
             ->get()
             ->paginate(10); 
 
@@ -36,7 +37,7 @@ class PublicacionController extends Controller
         if (isset($_GET['filter'])) {
             $datos = Publication::where('category_id', e($request->filter))
             ->with('user')
-            ->withCount('comment')
+            ->withCount(['comment', 'favourite'])
             ->get()
             ->paginate(10);
 

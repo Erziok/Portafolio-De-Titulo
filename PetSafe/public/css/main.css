@@ -3,6 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
 /*header*/
 .header {
     background-repeat: no-repeat;
@@ -45,6 +50,7 @@
     background-color: #725cfa;
     box-shadow: 2px 2px 2px #aaaaaa;
     min-height: 113px;
+    font-family: 'Roboto', sans-serif;
 }
 .mobile-menu {
     color: #fbfbfb;
@@ -53,6 +59,7 @@
     cursor: pointer;
     padding: 2px 6px;
     border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
 }
 .mobile-menu:hover {
     background: #fbfbfb;
