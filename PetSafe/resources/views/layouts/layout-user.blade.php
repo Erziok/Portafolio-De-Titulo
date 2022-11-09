@@ -219,7 +219,6 @@
                         <ul>    
                             @if (auth()->user())
                                 <li><a href="{{ route('perfil') }}">Mi Perfil</a></li>
-                                <li><a href="">Mi Perfil</a></li>
                                 @if (auth()->user()->role_id == 1)
                                     <li><a href="{{ route('admin.home') }}">Administración</a></li>
                                 @endif
