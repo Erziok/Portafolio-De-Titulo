@@ -12,12 +12,6 @@ const select = document.getElementById('select'),
 
 let csfr_token = document.getElementsByName('csrf-token')[0].getAttribute('content');
 
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': csfr_token
-    }
-});
-
 checkSearchInput();
 
 for (let i = 0; i < favBtn.length; i++) {
@@ -84,6 +78,9 @@ for (let i = 0; i < favBtn.length; i++) {
         $.ajax({
             url:'agregar-favorito/'+ this.dataset.fav,
             type:'post',
+            data: {
+                "_token": csfr_token
+            },
             success:function(response){
                 console.log(response);
             }
@@ -93,6 +90,9 @@ for (let i = 0; i < favBtn.length; i++) {
         $.ajax({
             url:'quitar-favorito/'+ this.dataset.fav,
             type:'post',
+            data: {
+                "_token": csfr_token
+            },
             success:function(response){
                 console.log(response);
             }

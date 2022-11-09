@@ -76,6 +76,13 @@ Route::group(['middleware'=>'auth'] , function(){
     Route::get('/formulario-servicio', [\App\Http\Controllers\User\FormularioServicioController::class, 'index'])
     ->name('formulario-servicio');
 
+
+    Route::get('/editar-usuario', [\App\Http\Controllers\User\EditarUsuarioController::class, 'index'])
+    ->name('editar-usuario');
+
+    Route::get('/cambiar-contraseña', [\App\Http\Controllers\User\CambiarContraseñaController::class, 'index'])
+    ->name('cambiar-contraseña');
+
     Route::post('/formulario-mascota', [\App\Http\Controllers\User\FormularioMascotaController::class, 'registerPet'])
     ->name('formulario-mascota.create');
 
@@ -111,10 +118,18 @@ Route::get('/search', [\App\Http\Controllers\User\PublicacionController::class, 
 
 Route::get('/category', [\App\Http\Controllers\User\PublicacionController::class, 'filter'])
     ->name('filter');
+// PUT
+Route::put('/editar-usuario', [\App\Http\Controllers\User\EditarUsuarioController::class, 'updateUser'])
+    ->name('editar-usuario.update');
+
+Route::put('/cambiar-contraseña', [\App\Http\Controllers\User\CambiarContraseñaController::class, 'changePassword'])
+    ->name('cambiar-contraseña.update');
+
 // POST 
 Route::post('/register', [\App\Http\Controllers\User\RegisterController::class, 'registerUser'])
     ->name('register.create');
 
 Route::post('/login', [\App\Http\Controllers\User\LoginController::class, 'loginUser'])
     ->name('login.create');
+
 

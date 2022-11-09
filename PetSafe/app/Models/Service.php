@@ -16,7 +16,6 @@ class Service extends Model
         'phone',
         'email',
         'description',
-        'schedule',
         'type_id',
         'user_id',
     ];

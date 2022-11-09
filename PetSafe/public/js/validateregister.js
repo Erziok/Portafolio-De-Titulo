@@ -5,9 +5,9 @@ const submitButton = document.getElementById("submit-btn")
 let timeout = null;
 
 let errors = {
-    name: true,
+    firstname: true,
     lastname: true,
-    rut: true,
+    run: true,
     email: true,
     password: true,
     password2: true,
@@ -23,28 +23,17 @@ document.querySelectorAll('.form-box').forEach((box) => {
     form.addEventListener('submit', (event) => {
         event.preventDefault();
     
-        validateInput(box, boxInput) === 0 ? form.submit():false;
+        validateInput(box, boxInput) 
 
     })
 
-    boxInput.addEventListener('keydown', (event) => {
-
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            // console.log(`Input ${boxInput.name} value: `, boxInput.value);
-
-            validateInput(box, boxInput)
-        },300);     
-    });
 });
 
 
-function validateInput(box, boxInput) {
-    let counter = 0;
+validateInput = (box, boxInput) => {
 
     if(boxInput.value == ''){
         showError(true, box, boxInput);
-        counter++;
     }else{
         showError(false, box, boxInput);
     }
@@ -53,11 +42,9 @@ function validateInput(box, boxInput) {
 
         if(boxInput.value.length < 3){
             showError(true, box, boxInput);
-            counter++;
         }
         else if(!boxInput.value.match(nameRegex)){
             showError(true, box, boxInput);
-            counter++;
         }
         else{
             showError(false, box, boxInput);
@@ -69,11 +56,9 @@ function validateInput(box, boxInput) {
 
         if(boxInput.value.length < 3){
             showError(true, box, boxInput);
-            counter++;
         }
         else if(!boxInput.value.match(nameRegex)){
             showError(true, box, boxInput);
-            counter++;
         }
         else{
             showError(false, box, boxInput);
@@ -85,18 +70,16 @@ function validateInput(box, boxInput) {
 
         if(!boxInput.value.match(mailformatRegex)){
             showError(true, box, boxInput);
-            counter++;
         }else{
             showError(false, box, boxInput);
         }
 
     }
 
-    if(boxInput.name == 'rut'){
+    if(boxInput.name == 'run'){
         let validatorRut = new ValidatorRut(boxInput.value)
         if(!validatorRut.isValid){
             showError(true, box, boxInput);
-            counter++;
         }else{
             showError(false, box, boxInput);
         }
@@ -105,7 +88,6 @@ function validateInput(box, boxInput) {
     if(boxInput.name == 'password'){
         if(boxInput.value.length < 6){
             showError(true, box, boxInput);
-            counter++;
         }else{
             showError(false, box, boxInput);
         }
@@ -114,16 +96,14 @@ function validateInput(box, boxInput) {
     if(boxInput.name == 'password2'){
         if(boxInput.value.length < 6){
             showError(true, box, boxInput);
-            counter++;
         }else if(boxInput.value != password.value){
             showError(true, box, boxInput);
-            counter++;
         }else{
             showError(false, box, boxInput);
         }
     }
 
-    return counter;
+    submitController();
 
 }
 
@@ -140,11 +120,12 @@ showError = (check, box, boxInput) => {
 }
 
 submitController = () => {
-    if(errors.name || errors.lastname || errors.email || errors.rut || errors.password || errors.password2){
-        submitButton.toggleAttribute('disabled', true)
+    if(errors.firstname || errors.lastname || errors.email || errors.rut || errors.password || errors.password2){
+        console.log("Hay un error")
     }
     else{
-        submitButton.toggleAttribute('disabled', false)
+        // console.log("Todo ok")
+        form.submit();
     }
 }
 

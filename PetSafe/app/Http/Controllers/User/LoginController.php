@@ -17,7 +17,10 @@ class LoginController extends Controller
     public function loginUser(LoginRequest $request)
     {
         if (Auth::attempt(['email'=>$request->email, 'password'=>$request->password], false)) {
-            return redirect()->route('home');
+            if (auth()->user()->role_id != 1) {
+                return redirect()->route('home');
+            }
+            return redirect()->route('admin.home');
         }
         return back()->withErrors(['mensaje'=>'Inicio de sesión incorrecto']);
     }
