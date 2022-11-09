@@ -199,7 +199,7 @@
                     <div class="dropdown-user">
                         <ul>    
                             @if (auth()->user())
-                                <li><a href="">Mi Perfil</a></li>
+                                <li><a href="{{ route('perfil') }}">Mi Perfil</a></li>
                                 <li><a href="{{ route('logout') }}">Cerrar Sesión</a></li>
                             @else
                                 <li><a href="{{ route('login') }}">Iniciar Sesión</a></li>
