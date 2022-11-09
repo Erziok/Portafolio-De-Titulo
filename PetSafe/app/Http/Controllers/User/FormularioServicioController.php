@@ -56,6 +56,6 @@ class FormularioServicioController extends Controller
                 'service_id' => $service->id,
             ]);
         }
-        return redirect()->route('tiendas');
+        return redirect()->route('servicios');
     }
 }
