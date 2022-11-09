@@ -23,7 +23,8 @@
                                 <ul class="list-unstyled mb-1-9">
                                     <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Run:</span> {{$datos[0]->run}}</li>
                                     <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Email:</span> {{$datos[0]->email}}</li>
-                                    <a href="" class="btn btn-primary btn-lg" role="button">Editar</a>
+                                    <a href="" class="btn btn-primary btn-lg" role="button">Editar perfil</a>
+                                    <a href="#" class="btn btn-secondary btn-lg" role="button">Cambiar contraseña</a>
                                     {{--
                                     <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Website:</span> www.example.com</li>
                                     <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Phone:</span> 507 - 541 - 4567</li>
