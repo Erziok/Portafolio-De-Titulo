@@ -53,6 +53,18 @@ document.querySelectorAll('.form-box-select').forEach((box) => {
 
 });
 
+document.querySelectorAll('.select-checkbox').forEach((box) => {
+    const boxInput = box.querySelector('checkbox');
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+    
+        validateInput(box, boxInput) 
+
+    })
+
+});
+
 validateInput = (box, boxInput) => {
 
     if(boxInput.value == ''){
@@ -145,7 +157,7 @@ showError = (check, box, boxInput) => {
 }
 
 submitController = () => {
-    if(errors.name || errors.address || errors.phone || errors.email || errors.description || errors.type ){
+    if(errors.name || errors.address || errors.phone || errors.email || errors.description || errors.type){
         // console.log("Hay un error")
     }
     else{
