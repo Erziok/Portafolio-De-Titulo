@@ -76,10 +76,10 @@
         <div class="row category-container mt-3 g-0">
 
           <div class="col-lg-6 col-md-12 col-sm-12 item">
-            <a href="{{ route('tiendas') }}">
+            <a href="{{ route('servicios') }}">
               <div class="category-box text-center">
                 <img src="{{ asset('images/tiendas.ico') }}" alt="">
-                <p>Tiendas en tu sector</p>
+                <p>Servicios en tu sector</p>
               </div>
             </a>
           </div>

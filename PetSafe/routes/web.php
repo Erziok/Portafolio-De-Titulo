@@ -36,8 +36,8 @@ Route::get('/veterinaria', [\App\Http\Controllers\User\VeterinariaController::cl
 Route::get('/farmacia', [\App\Http\Controllers\User\FarmaciaController::class, 'index'])
     ->name('farmacia');
 
-Route::get('/tiendas', [\App\Http\Controllers\User\TiendasController::class, 'index'])
-    ->name('tiendas');
+Route::get('/servicios', [\App\Http\Controllers\User\ServicioController::class, 'index'])
+    ->name('servicios');
 
 Route::get('/publicaciones', [\App\Http\Controllers\User\PublicacionController::class, 'index'])
     ->name('publicaciones');
@@ -118,6 +118,12 @@ Route::get('/search', [\App\Http\Controllers\User\PublicacionController::class, 
 
 Route::get('/category', [\App\Http\Controllers\User\PublicacionController::class, 'filter'])
     ->name('filter');
+
+Route::get('/service-search', [\App\Http\Controllers\User\ServicioController::class, 'serviceSearch'])
+    ->name('service-search');
+
+Route::get('/service-type', [\App\Http\Controllers\User\ServicioController::class, 'serviceFilter'])
+    ->name('service-filter');
 // PUT
 Route::put('/editar-usuario', [\App\Http\Controllers\User\EditarUsuarioController::class, 'updateUser'])
     ->name('editar-usuario.update');
