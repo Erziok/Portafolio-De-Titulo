@@ -14,7 +14,7 @@
                 <h2 class="text-center">Publicita tu servicio</h2>
                 <div class="hline"></div>
             </div>
-            <form action="{{ route('formulario-servicio.create') }}" method="POST" id="form">
+            <form action="{{ route('formulario-servicio.create') }}" method="POST" id="form" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
 
@@ -78,6 +78,16 @@
                           <strong style="color: darkred">{{ $message }}</strong>
                         @enderror
                     </div>        
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 form-box form-box-file">
+                        <label class="form-label" for="form3Example1q">Ingrese una fotografía</label><br>
+                        <input type="file" id="photo" class="form-control" 
+                        placeholder="" name="photo"/>
+                        <small class="error-text">Ingrese un archivo válido</small>
+                        @error('photo')
+                          <strong style="color: darkred">{{ $message }}</strong>
+                        @enderror
+                    </div>
 
                 </div>
                 {{-- <button type="submit" class="publication-btn" id="submit-btn">Publicar</button> --}}

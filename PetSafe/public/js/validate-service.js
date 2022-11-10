@@ -12,6 +12,7 @@ let errors = {
     email: true,
     description: true,
     type: true,
+    photo: true,
 }
 
 const mailformatRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ // Mail format XXX@XXX.XX
@@ -20,6 +21,7 @@ const nameRegex = /^[a-zA-ZÀ-ÿ\s]{1,40}$/ // Name format, only letters
 
 const phoneRegex = /^(\+?56)?(\s?)(0?9)(\s?)[98765432]\d{7}$/ // Chilean number format +569XXXXXXXX
 
+// Input text
 document.querySelectorAll('.form-box-text').forEach((box) => {
     const boxInput = box.querySelector('input');
     
@@ -30,6 +32,7 @@ document.querySelectorAll('.form-box-text').forEach((box) => {
 
 });
 
+// Textarea
 document.querySelectorAll('.form-box-textarea').forEach((box) => {
     const boxInput = box.querySelector('textarea');
 
@@ -42,6 +45,7 @@ document.querySelectorAll('.form-box-textarea').forEach((box) => {
 
 });
 
+// Select
 document.querySelectorAll('.form-box-select').forEach((box) => {
     const boxInput = box.querySelector('select');
 
@@ -54,6 +58,7 @@ document.querySelectorAll('.form-box-select').forEach((box) => {
 
 });
 
+// Checkbox
 document.querySelectorAll('.select-checkbox').forEach((box) => {
     const boxInput = box.querySelector('checkbox');
 
@@ -65,6 +70,20 @@ document.querySelectorAll('.select-checkbox').forEach((box) => {
     })
 
 });
+
+// Input file
+document.querySelectorAll('.form-box-file').forEach((box) => {
+    const boxInput = box.querySelector('input');
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+    
+        validateInput(box, boxInput) 
+
+    })
+
+});
+
 
 validateInput = (box, boxInput) => {
 
@@ -141,6 +160,17 @@ validateInput = (box, boxInput) => {
 
     }
 
+    if(boxInput.name == 'photo'){
+
+        if(boxInput.value == ''){
+            showError(true, box, boxInput);
+        }
+        else{
+            showError(false, box, boxInput);
+        }
+
+    }
+
     submitController();
 
 }
@@ -158,7 +188,7 @@ showError = (check, box, boxInput) => {
 }
 
 submitController = () => {
-    if(errors.name || errors.address || errors.phone || errors.email || errors.description || errors.type){
+    if(errors.name || errors.address || errors.phone || errors.email || errors.description || errors.type || errors.photo){
         // console.log("Hay un error")
     }
     else{
