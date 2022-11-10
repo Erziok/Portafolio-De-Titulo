@@ -18,14 +18,7 @@ class EditarUsuarioController extends Controller
 
     public function updateUser(EditarUsuarioRequest $request)
     {
-        // $fileRoute = 'images/avatars/';
-        // $userImage = $request -> file('avatar');
-
-        // $imageName = time().'-'.$userImage->getClientOriginalName();
-        // $imageUpload = $fileRoute;
-
-        // $userImage->move($imageUpload, $imageName);
-
+        
         $user = Auth::user();
 
         DB::table('users')
@@ -33,9 +26,8 @@ class EditarUsuarioController extends Controller
             ->update([
                 'firstname' => $request -> firstname,
                 'lastname' => $request -> lastname,
-                // 'avatar' => $imageUpload.$imageName,
             ]);
 
-        return redirect()->route('home'); //Cambiar cuando se haya creado la vista perfil
+        return redirect()->route('perfil'); 
     }
 }

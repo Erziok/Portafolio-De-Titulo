@@ -124,12 +124,16 @@ Route::get('/service-search', [\App\Http\Controllers\User\ServicioController::cl
 
 Route::get('/service-type', [\App\Http\Controllers\User\ServicioController::class, 'serviceFilter'])
     ->name('service-filter');
+
 // PUT
 Route::put('/editar-usuario', [\App\Http\Controllers\User\EditarUsuarioController::class, 'updateUser'])
     ->name('editar-usuario.update');
 
 Route::put('/cambiar-contraseña', [\App\Http\Controllers\User\CambiarContraseñaController::class, 'changePassword'])
     ->name('cambiar-contraseña.update');
+
+Route::put('/cambiar-avatar', [\App\Http\Controllers\User\CambiarAvatarController::class, 'changeAvatar'])
+    ->name('cambiar-avatar.update');
 
 // POST 
 Route::post('/register', [\App\Http\Controllers\User\RegisterController::class, 'registerUser'])

@@ -13,7 +13,26 @@
                     <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
                         <div class="row align-items-center">
                             <div class="col-lg-6 mb-4 mb-lg-0">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="...">
+                                @if ($datos[0]->avatar == null)
+                                    <div class="image-box">
+                                        <img src="{{ asset('images/placeholder-user.jpg') }}" alt="...">
+                                    </div>
+                                @else
+                                    <div class="image-box">
+                                        <img src="{{ asset($datos[0]->avatar) }}" alt="...">
+                                    </div>
+                                @endif
+                                {{-- Change avatar form --}}
+                                <form action="{{ route('cambiar-avatar.update') }}" method="POST" id="form" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="d-flex justify-content-center change-avatar">
+                                        <div class="btn btn-rounded change-avatar-btn">
+                                            <label class="form-label text-white m-1" for="customFile2">Cambiar avatar</label>
+                                            <input type="file" class="form-control d-none" id="customFile2" name="avatar"/>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                             <div class="col-lg-6 px-xl-10">
                                 <div class="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
@@ -23,8 +42,8 @@
                                 <ul class="list-unstyled mb-1-9">
                                     <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Run:</span> {{$datos[0]->run}}</li>
                                     <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Email:</span> {{$datos[0]->email}}</li>
-                                    <a href="" class="btn btn-primary btn-lg" role="button">Editar perfil</a>
-                                    <a href="#" class="btn btn-secondary btn-lg" role="button">Cambiar contraseña</a>
+                                    <a href="{{ route('editar-usuario') }}" class="btn edit-profile-btn btn-lg" role="button">Editar perfil</a>
+                                    <a href="{{ route('cambiar-contraseña') }}" class="btn btn-secondary btn-lg" role="button">Cambiar contraseña</a>
                                     {{--
                                     <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Website:</span> www.example.com</li>
                                     <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Phone:</span> 507 - 541 - 4567</li>
@@ -50,9 +69,9 @@
                           <h6 class="card-subtitle mb-2 text-muted">{{$datos[0]->publication_count}} realizadas</h6>
                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                           @if (($datos[0]->publication_count) != 0)
-                            <a href="{{ route('mis-publicaciones')}}" class="btn btn-primary btn-sm" role="button" aria-disabled="true">Ver publicaciones</a>
+                            <a href="{{ route('mis-publicaciones')}}" class="btn publications-btn btn-sm" role="button" aria-disabled="true">Ver publicaciones</a>
                           @else
-                            <a href="#" class="btn btn-primary btn-sm disabled" role="button" aria-disabled="true">Ver publicaciones</a>
+                            <a href="#" class="btn publications-btn btn-sm disabled" role="button" aria-disabled="true">Ver publicaciones</a>
                           @endif
                           <a href="{{ route('formulario-mascota') }}" class="btn btn-secondary btn-sm" role="button" aria-disabled="true">Crear publicación</a>
                         </div>
@@ -63,9 +82,9 @@
                           <h6 class="card-subtitle mb-2 text-muted">{{$datos[0]->favourite_count}} guardadas</h6>
                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                           @if (($datos[0]->favourite_count) != 0)
-                            <a href="{{ route('mis-favoritos')}}" class="btn btn-primary btn-sm" role="button" aria-disabled="true">Ver favoritos</a>
+                            <a href="{{ route('mis-favoritos')}}" class="btn favourites-btn btn-sm" role="button" aria-disabled="true">Ver favoritos</a>
                           @else
-                            <a href="#" class="btn btn-primary btn-sm disabled" role="button" aria-disabled="true">Ver favoritos</a>
+                            <a href="#" class="btn favourites-btn btn-sm disabled" role="button" aria-disabled="true">Ver favoritos</a>
                           @endif
                         </div>
                     </div>
@@ -74,4 +93,8 @@
         </div>
     </div>
 </section>
+@endsection
+
+@section('JS')
+<script src="{{ asset('js/change-avatar.js') }}"></script>
 @endsection

@@ -105,3 +105,66 @@ section {
 .rounded {
     border-radius: 0.25rem!important;
 }
+
+.change-avatar {
+    margin: 10px;
+}
+
+/* Edit profile button */
+
+.edit-profile-btn {
+    background-color: #725cfa;
+    color: white;
+}
+
+.edit-profile-btn:hover {
+    background-color: #604fd3;
+    color: white;
+}
+
+/* Publications button */
+
+.publications-btn {
+    background-color: #725cfa;
+    color: white;
+}
+
+.publications-btn:hover {
+    background-color: #604fd3;
+    color: white;
+}
+
+/* Favourites button */
+
+.favourites-btn {
+    background-color: #725cfa;
+    color: white;
+}
+
+.favourites-btn:hover {
+    background-color: #604fd3;
+    color: white;
+}
+
+/* Change avatar button */
+
+.change-avatar-btn {
+    display: flex;
+    justify-content: center;
+    background-color: #725cfa;
+}
+
+.change-avatar-btn:hover {
+    background-color: #604fd3;
+}
+
+.image-box {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+.image-box img{
+    width: 50%;
+    height: 281px;
+    object-fit: cover;
+}
