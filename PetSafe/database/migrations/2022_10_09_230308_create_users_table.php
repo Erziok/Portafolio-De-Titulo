@@ -18,9 +18,10 @@ return new class extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('avatar')->nullable(true);
-            $table->string('email')->unique();
             $table->string('run');
             $table->string('password');
+            $table->string('email')->unique();
+            $table->tinyInteger('active');
             $table->foreignId('role_id')->nullable(true)->constrained();
             $table->rememberToken();
             $table->timestamps();
