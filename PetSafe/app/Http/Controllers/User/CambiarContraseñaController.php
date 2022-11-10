@@ -31,7 +31,7 @@ class CambiarContraseñaController extends Controller
                         'password' => Hash::make($request -> password),
                     ]);
 
-                return redirect()->route('home'); //Cambiar cuando se cree la vista perfil
+                return redirect()->route('perfil'); 
             }
             return back()->withErrors(['mensaje'=>'La contraseña es incorrecta']);
         }
