@@ -26,6 +26,7 @@ return new class extends Migration
             $table->foreignId('service_id')->nullable(true)->constrained();
             $table->timestamps();
             $table->softDeletes();
+            
         });
     }
 

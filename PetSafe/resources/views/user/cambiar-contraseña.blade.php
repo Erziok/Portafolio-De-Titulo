@@ -12,7 +12,7 @@
                 <h2 class="text-center">Cambiar Contraseña</h2>
                 <div class="hline"></div>
             </div>
-            <form action="" method="POST" id="form" enctype="multipart/form-data">
+            <form action="{{ route('cambiar-contraseña.update') }}" method="POST" id="form" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="row">

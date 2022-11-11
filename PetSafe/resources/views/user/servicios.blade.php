@@ -62,7 +62,10 @@
                     @forelse ($datos as $dato)
                         <!--publication item-->
                         <div class="publication-box row">
-                            <div class="content-box col-lg-12">
+                            <div class="image-box col-lg-4">
+                                <a href="{{ route('detalle', $dato->id) }}"><img src="{{ asset($dato->photo) }}" alt=""></a>
+                            </div>
+                            <div class="content-box col-lg-8">
                                 <div class="details mb-3">
                                     <div class="left">
                                         <div class="item date"><i class="fa-solid fa-calendar"></i> {{ $dato->created_at->toDateString() }} </div>
