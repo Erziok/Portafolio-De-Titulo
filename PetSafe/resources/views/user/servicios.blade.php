@@ -68,7 +68,7 @@
                             <div class="content-box col-lg-8">
                                 <div class="details mb-3">
                                     <div class="left">
-                                        <div class="item date"><i class="fa-solid fa-calendar"></i> {{ $dato->created_at }} </div>
+                                        <div class="item date"><i class="fa-solid fa-calendar"></i> {{ $dato->created_at->toDateString() }} </div>
                                         <div class="item author"><i class="fa-solid fa-user"></i> {{ $dato->user->firstname }} </div>
                                         <div class="item email"><i class="fa-solid fa-envelope"></i> {{ $dato->email }} </div>
                                     </div>
@@ -78,7 +78,7 @@
                                     <p>{{ Str::limit($dato->description, 300) }}</p>
                                 </div>
                                 <div class="action mb-1 mt-lg-4 mb-lg-4">
-                                        <a href="" class="show-more"> Ver Más <i class="fa-solid fa-arrow-right"></i></a>
+                                  <a href="{{ route('detalle-servicio', $dato->id) }}" class="show-more"> Ver Más <i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
