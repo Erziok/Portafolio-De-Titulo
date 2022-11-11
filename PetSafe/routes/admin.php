@@ -17,13 +17,13 @@ Route::group(['middleware' => 'validateAdmin', 'prefix' => '/admin', 'as' => 'ad
     Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])
         ->name('home'); 
     Route::resource('web', App\Http\Controllers\Admin\WebController::class);
-    Route::resource('curso', App\Http\Controllers\Admin\CursoController::class);
-    Route::resource('farmacia', App\Http\Controllers\Admin\FarmaciaController::class);
-    Route::resource('publicacion', App\Http\Controllers\Admin\PublicacionController::class);
-    Route::resource('servicio', App\Http\Controllers\Admin\ServicioController::class);
-    Route::resource('usuario', App\Http\Controllers\Admin\UserController::class);
-    Route::resource('veterinaria', App\Http\Controllers\Admin\VeterinariaController::class);
-    Route::resource('zona', App\Http\Controllers\Admin\ZonaController::class);
+    Route::resource('course', App\Http\Controllers\Admin\CursoController::class);
+    Route::resource('medicine', App\Http\Controllers\Admin\FarmaciaController::class);
+    Route::resource('publication', App\Http\Controllers\Admin\PublicacionController::class);
+    Route::resource('service', App\Http\Controllers\Admin\ServicioController::class);
+    Route::resource('user', App\Http\Controllers\Admin\UserController::class);
+    Route::resource('veterinary', App\Http\Controllers\Admin\VeterinariaController::class);
+    Route::resource('zone', App\Http\Controllers\Admin\ZonaController::class);
 
     Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
 });
