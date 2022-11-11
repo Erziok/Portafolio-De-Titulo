@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Service\ActualizarServicioRequest;
+use App\Http\Requests\Admin\Service\GuardarServicioRequest;
 use App\Models\Service;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class ServicioController extends Controller
@@ -15,7 +18,8 @@ class ServicioController extends Controller
      */
     public function index()
     {
-        return view('admin.servicios.index');
+        $services = Service::with(['user', 'type'])->get();
+        return view('admin.servicios.index', compact('services'));
     }
 
     /**
@@ -25,7 +29,8 @@ class ServicioController extends Controller
      */
     public function create()
     {
-        //
+        $types = Type::all();
+        return view('admin.servicios.create', compact('types'));
     }
 
     /**
@@ -34,9 +39,10 @@ class ServicioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GuardarServicioRequest $request)
     {
-        //
+        Service::create($request->validated());
+        return redirect()->route('admin.service.index');
     }
 
     /**
@@ -58,7 +64,8 @@ class ServicioController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+        $types = Type::all();
+        return view('admin.servicios.edit', compact('service','types'));
     }
 
     /**
@@ -68,9 +75,10 @@ class ServicioController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Service $service)
+    public function update(ActualizarServicioRequest $request, Service $service)
     {
-        //
+        $service->update($request->validated());
+        return redirect()->route('admin.service.index');
     }
 
     /**
@@ -81,6 +89,7 @@ class ServicioController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        $service->delete();
+        return redirect()->route('admin.service.index');
     }
 }
