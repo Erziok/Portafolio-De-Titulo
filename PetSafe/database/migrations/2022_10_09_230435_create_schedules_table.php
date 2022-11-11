@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('endHour')->nullable(true); //quitar nullable luego
             $table->foreignId('service_id')->nullable(true)->constrained();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

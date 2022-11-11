@@ -21,6 +21,14 @@ class FormularioServicioController extends Controller
     public function registerService(FormularioServicioRequest $request)
     {
 
+        $fileRoute = 'images/services_img/';
+        $userImage = $request -> file('photo');
+
+        $imageName = time().'-'.$userImage->getClientOriginalName();
+        $imageUpload = $fileRoute;
+
+        $userImage->move($imageUpload, $imageName);
+
         // Creating a new service in DB        
         $service = Service::create([
             'name' => $request->name,
@@ -28,6 +36,8 @@ class FormularioServicioController extends Controller
             'phone' => $request->phone,
             'email' => $request->email,
             'description' => $request->description,
+            'photo'=> $imageUpload.$imageName,
+            'active'=> $request->input('active', 1),
             'type_id' => $request->type,
             'user_id' => Auth::user()->id,
         ]);
