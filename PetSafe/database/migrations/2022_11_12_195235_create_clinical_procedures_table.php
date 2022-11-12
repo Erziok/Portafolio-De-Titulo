@@ -13,17 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('clinical_procedures', function (Blueprint $table) {
             $table->id();
             $table->string('name', 45);
-            $table->string('address', 45);
-            $table->string('phone', 45);
+            $table->string('description', 45);
             $table->string('email', 45);
-            $table->longText('description', 45);
-            $table->tinyInteger('active');
-            $table->string('photo', 45);
-            $table->foreignId('user_id')->nullable(true)->constrained();
-            $table->foreignId('type_id')->nullable(true)->constrained();
+            $table->string('phone', 45);
+            $table->foreignId('benefit_id')->nullable(true)->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -36,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('clinical_procedures');
     }
 };

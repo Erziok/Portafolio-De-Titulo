@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
             $table->string('day');
-            $table->string('startHour')->nullable(true); //quitar nullable luego
-            $table->string('endHour')->nullable(true); //quitar nullable luego
+            $table->string('startHour')->nullable(true);
+            $table->string('endHour')->nullable(true); 
             $table->foreignId('service_id')->nullable(true)->constrained();
             $table->timestamps();
             $table->softDeletes();

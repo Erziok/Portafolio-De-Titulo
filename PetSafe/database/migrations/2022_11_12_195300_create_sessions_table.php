@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('animals', function (Blueprint $table) {
+        Schema::create('sessions', function (Blueprint $table) {
             $table->id();
-            $table->string('gender', 45);
-            $table->string('name', 45);
-            $table->foreignId('breed_id')->nullable(true)->constrained();
+            $table->string('date', 45);
+            $table->string('startHour', 45);
+            $table->string('endHour', 45);
+            $table->foreignId('course_id')->nullable(true)->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('animals');
+        Schema::dropIfExists('sessions');
     }
 };
