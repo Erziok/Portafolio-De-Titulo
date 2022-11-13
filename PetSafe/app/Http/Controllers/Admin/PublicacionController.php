@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Publication\ActualizarPublicacionRequest;
+use App\Http\Requests\Admin\Publication\GuardarPublicacionRequest;
+use App\Models\Category;
 use App\Models\Publication;
 use Illuminate\Http\Request;
 
@@ -15,7 +18,8 @@ class PublicacionController extends Controller
      */
     public function index()
     {
-        return view('admin.publicaciones.index');
+        $publications = Publication::with(['user', 'category'])->get();
+        return view('admin.publicaciones.index', compact('publications'));
         
     }
 
@@ -26,7 +30,8 @@ class PublicacionController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('admin.publicaciones.create', compact('categories'));
     }
 
     /**
@@ -35,9 +40,9 @@ class PublicacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GuardarPublicacionRequest $request)
     {
-        //
+        Publication::create($request->validated());
     }
 
     /**
@@ -59,7 +64,8 @@ class PublicacionController extends Controller
      */
     public function edit(Publication $publication)
     {
-        //
+        $categories = Category::all();
+        return view('admin.publicaciones.edit', compact('publication', 'categories'));
     }
 
     /**
@@ -69,9 +75,10 @@ class PublicacionController extends Controller
      * @param  \App\Models\Publication  $publication
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Publication $publication)
+    public function update(ActualizarPublicacionRequest $request, Publication $publication)
     {
-        //
+        $publication->update($request->validated());
+        return redirect()->route('admin.publication.index');
     }
 
     /**
@@ -82,6 +89,7 @@ class PublicacionController extends Controller
      */
     public function destroy(Publication $publication)
     {
-        //
+        $publication->delete();
+        return redirect()->route('admin.publication.index');
     }
 }

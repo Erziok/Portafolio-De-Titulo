@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Medicine;
 use Illuminate\Http\Request;
 
 class FarmaciaController extends Controller
@@ -14,7 +15,8 @@ class FarmaciaController extends Controller
      */
     public function index()
     {
-        return view('admin.farmacia.index');
+        $medicamentos = Medicine::all();
+        return view('admin.farmacia.index', compact('medicamentos'));
     }
 
     /**

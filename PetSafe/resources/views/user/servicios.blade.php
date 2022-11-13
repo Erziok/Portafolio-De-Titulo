@@ -78,7 +78,7 @@
                                     <p>{{ Str::limit($dato->description, 300) }}</p>
                                 </div>
                                 <div class="action mb-1 mt-lg-4 mb-lg-4">
-                                    <a href="{{ route('detalle-servicio', $dato->id) }}" class="show-more"> Ver Más <i class="fa-solid fa-arrow-right"></i></a>
+                                  <a href="{{ route('detalle-servicio', $dato->id) }}" class="show-more"> Ver Más <i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
