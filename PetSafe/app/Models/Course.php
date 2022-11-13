@@ -17,4 +17,12 @@ class Course extends Model
         'materials',
         'benefit_id',
     ];
+
+    public function benefit() {
+        return $this->belongsTo(Benefit::class, 'benefit_id');
+    }
+
+    public function session() {
+        return $this->hasMany(Session::class, 'course_id', 'id');
+    }
 }
