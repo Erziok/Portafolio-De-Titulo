@@ -15,8 +15,8 @@ class DetalleServicioController extends Controller
 {
     public function index ($id) 
     {
-        $objects = Service::with(['user', 'type'])->where('id', $id)->get();
-        $schedule = Schedule::with(['service'])->where('service_id', $id)->get();
-        return view('user.detalle-servicio', compact('objects', 'schedule'));
+        $services = Service::with(['user', 'type', 'schedule'])->where('id', $id)->get();
+        //dd($services->toArray());
+        return view('user.detalle-servicio', compact('services'));
     }
 }
