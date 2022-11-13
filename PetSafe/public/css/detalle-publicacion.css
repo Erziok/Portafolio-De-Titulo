@@ -8,6 +8,19 @@ img{
     display: block;
     object-fit: cover;
 }
+h1 {
+    font-size: 2rem !important;
+}
+h2 {
+    font-size: 1.4rem !important;
+}
+h3 {
+    font-size: 1.1rem !important;
+}
+p {
+    font-size: .95rem !important;
+    margin: 3px 0;
+}
 /*Detalle de la publicacion*/
 
 .publication-section .section-title .hline{
@@ -20,15 +33,15 @@ img{
     position: relative;
 }
 /*carril de imagenes*/
-.pet-imgs .img-display {
+.detail-imgs .img-display {
     overflow: hidden;
 }
-.pet-imgs .img-display .img-showcase {
+.detail-imgs .img-display .img-showcase {
     display: flex;
     width: 100%;
     transition: all 0.5s ease;
 }
-.pet-imgs .img-display .img-showcase img {
+.detail-imgs .img-display .img-showcase img {
     width: 100%;
     object-fit: cover;
     height: 490px;
@@ -41,17 +54,21 @@ img{
     border-radius: 4px;
     position: relative;
 }
-.description-section .pet-description {
+.description-section .detail-description {
     max-height: 100%;
     overflow: hidden;
     transition: max-height .5s;
+}
+
+.description-section .detail-description .description-item {
+    margin-bottom: 3px;
 }
 .description-section .limited-height {
     max-height: 290px;
 }
 
-.publication-section .description-section .pet-name h3{
-    margin: 20px 10px;
+.publication-section .description-section .detail-subtitle h3{
+    margin: 20px 0;
 }
 .publication-section .description-section .show-more-box {
     margin: 10px 10px;
@@ -357,3 +374,41 @@ img{
 .reply-box.active {
     display: block;
 }
+
+/*reting area*/
+/****** Style Star Rating Widget *****/
+
+.rating { 
+  border: none;
+  display: initial;
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label { 
+  color: #ddd; 
+ float: right; 
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 

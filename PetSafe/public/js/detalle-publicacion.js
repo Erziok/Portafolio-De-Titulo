@@ -1,6 +1,6 @@
 
 const btnShowMore = document.getElementById('show-more'),
-      petDesc = document.getElementById('pet-description'),
+      petDesc = document.getElementById('detail-description'),
       replyBtns = document.getElementsByClassName('btn-reply'),
       replyBoxes = document.getElementsByClassName('reply-box');
 

@@ -11,7 +11,7 @@
             @foreach ($objects as $object)
             <div class="header-publication">
                 <div class="section-title mb-5 mt-2">    
-                    <h3>{{ $object->title }}</h3>
+                    <h1>{{ $object->title }}</h1>
                     <div class="hline"></div>
                 </div>
                 @can('publication.tasks', $object)
@@ -34,7 +34,7 @@
                         @endif
                     </div>
                     <div class="contenido-publicacion">
-                        <h4>{{ $object->user->firstname.' '.$object->user->lastname }}</h4>
+                        <h2>{{ $object->user->firstname.' '.$object->user->lastname }}</h2>
                         <ul>
                             <li>{{ $object->created_at->diffForHumans() }}</li>
                         </ul>
@@ -43,7 +43,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-6 section-right">
-                    <div class = "pet-imgs">
+                    <div class = "detail-imgs">
                         <div class = "img-display">
                             <div class = "img-showcase">
                                 <img src = "{{ asset($object->photo) }}" alt = "shoe image">
@@ -52,10 +52,10 @@
                     </div>
                 </div>
                 <div class="description-section col-lg-4">
-                    <div class="pet-name">
-                        <h3>{{ $object->animal->name }}</h3>
+                    <div class="detail-subtitle">
+                        <h2>{{ $object->animal->name }}</h2>
                     </div>
-                    <div class="pet-description" id="pet-description">
+                    <div class="detail-description" id="detail-description">
                         {{ $object->description }}
                     </div>
                     <div class="show-more-box">
