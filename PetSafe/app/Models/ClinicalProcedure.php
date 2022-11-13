@@ -16,4 +16,8 @@ class ClinicalProcedure extends Model
         'phone',
         'benefit_id',
     ];
+
+    public function benefit(){
+        return $this->belongsTo(Benefit::class, 'benefit_id');
+    }
 }

@@ -15,4 +15,20 @@ class Benefit extends Model
         'active',
         'user_id',
     ];
+
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function clinicalProcedure() {
+        return $this->hasMany(ClinicalProcedure::class, 'benefit_id', 'id');
+    }
+
+    public function course() {
+        return $this->hasMany(Course::class, 'benefit_id', 'id');
+    }
+
+    public function medicine() {
+        return $this->hasMany(Medicine::class, 'benefit_id', 'id');
+    }
 }
