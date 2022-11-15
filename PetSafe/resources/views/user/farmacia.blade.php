@@ -27,7 +27,7 @@
                     <div class="price-list-section ">
                         <div class="price-list-container mt-3 g-0">
                             <div class="price-list-item">
-                                <a href="{{ asset('documents/precio-medicamentos.pdf') }}" target="_blank">
+                                <a href="{{ route('medicamentos') }}">
                                     <div class="price-list-box text-center">
                                         <p>Obtener lista de precios</p>
                                     </div>  

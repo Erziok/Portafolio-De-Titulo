@@ -69,6 +69,9 @@ Route::get('/mis-favoritos', [\App\Http\Controllers\User\PerfilController::class
 Route::get('/detalle-servicio/{id}', [\App\Http\Controllers\User\DetalleServicioController::class, 'index'])
     ->name('detalle-servicio');
 
+Route::get('/medicamentos', [\App\Http\Controllers\User\MedicamentosController::class, 'index'])
+    ->name('medicamentos');
+
 // Routes that need authentication
 Route::group(['middleware'=>'auth'] , function(){
     Route::get('/formulario-mascota', [\App\Http\Controllers\User\FormularioMascotaController::class, 'index'])
