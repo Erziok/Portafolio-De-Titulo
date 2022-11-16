@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('breed', 45);
             $table->foreignId('specie_id')->nullable(true)->constrained();
             $table->timestamps();
+            $table->softDeletes();
         });
 
         DB::table('breeds')->insert([     

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id();
             $table->string('specie', 45);
             $table->timestamps();
+            $table->softDeletes();
         });
 
         DB::table('species')->insert([     

@@ -10,51 +10,56 @@
 @section('content')
 <div class="app-body-main-content">
     <div class="box-agregar mt-3">
-        <a href=""><button>Añadir Nuevo <i class="fa-solid fa-plus"></i></button></a>
+        <a href="{{ route('admin.course.create') }}"><button>Añadir Nuevo <i class="fa-solid fa-plus"></i></button></a>
     </div>
     <table id="tabla-cursos" class="table table-striped" style="width:100%">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Run</th>
                 <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Email</th>
-                <th>Avatar</th>
-                <th>Rol</th>
+                <th>Teléfono</th>
+                <th>Descripción</th>
+                <th>Objetivos</th>
+                <th>Materiales</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011-04-25</td>
-                <td>$320,800</td>
-                <td>2011-04-25</td>
-                <td>
-                    <div class="acciones-box">
-                        <div class="box-editar">
-                            <a href=""><button><i class="fa-solid fa-pencil"></i></button></a>
+            @forelse ($courses as $course)
+                <tr>
+                    <td>{{ $course->id }}</td>
+                    <td>{{ $course->name }}</td>
+                    <td>{{ $course->phone }}</td>
+                    <td>{{ Str::limit($course->description, 75) }}</td>
+                    <td>{{ Str::limit($course->objectives, 75) }}</td>
+                    <td>{{ $course->materials }}</td>
+                    <td>
+                        <div class="acciones-box">
+                            <div class="box-editar">
+                                <a href="{{ route('admin.course.edit', $course) }}"><button><i class="fa-solid fa-pencil"></i></button></a>
+                            </div>
+                            <div class="box-eliminar">
+                                <form action="{{ route('admin.course.destroy', $course) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" onclick="return confirm('Are you sure?')"><i class="fa-solid fa-trash"></i></button>
+                                </form>
+                            </div>
                         </div>
-                        <div class="box-eliminar">
-                            <a href=""><button><i class="fa-solid fa-trash"></i></button></a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
+                    </td>
+                </tr>
+            @empty
+                
+            @endforelse
         </tbody>
         <tfoot>
             <tr>
                 <th>ID</th>
-                <th>Run</th>
                 <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Email</th>
-                <th>Avatar</th>
-                <th>Rol</th>
+                <th>Teléfono</th>
+                <th>Descripción</th>
+                <th>Objetivos</th>
+                <th>Materiales</th>
                 <th>Acciones</th>
             </tr>
         </tfoot>

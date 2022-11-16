@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('avatar', 255)->nullable(true);
             $table->string('email', 45)->unique();
             $table->string('run', 45);
-            $table->string('password', 45);
+            $table->string('password');
             $table->tinyInteger('active');
             $table->foreignId('role_id')->nullable(true)->constrained();
             $table->rememberToken();

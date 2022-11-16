@@ -87,5 +87,6 @@
                 autoWidth: false,
             });
         });
+
     </script>
 @endsection

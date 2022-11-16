@@ -8,11 +8,16 @@
             <div class="form-group mt-3">
                 <label for="">Titulo</label>
                 <input type="text" name="title" id="" class="form-control">
-                
+                @error('title')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
             </div>
             <div class="form-group mt-3">
                 <label for="">Descripción</label>
                 <textarea class="form-control" name="description" id="" cols="30" rows="10"></textarea>
+                @error('description')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
             </div>
             <div class="form-group mt-3">
                 <label for="">Rol</label>
@@ -20,14 +25,23 @@
                     <option value="1">Activo</option>
                     <option value="2">Inactiva</option>
                 </select>
+                @error('active')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
             </div>
             <div class="form-group mt-3">
                 <label for="">Fecha del Incidente</label>
                 <input type="date" name="incidentDate" id="" class="form-control">
+                @error('incidentDate')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
             </div>
             <div class="form-group mt-3">
                 <label for="">Foto Portada</label>
                 <input type="file" name="photo" id="" class="form-control">
+                @error('photo')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
             </div>
             <div class="form-group mt-3">
                 <label for="">Rol</label>
@@ -38,6 +52,9 @@
                         <option selected disabled>No hay categorias disponibles.</option>
                     @endforelse
                 </select>
+                @error('categoy_id')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
             </div>
             <div class="form-group mt-3">
                 <input type="submit" class="form-control btn btn-primary">

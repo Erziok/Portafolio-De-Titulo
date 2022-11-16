@@ -24,7 +24,12 @@ class GuardarServicioRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'=>'required',
+            'address'=>'required',
+            'phone'=>'required',
+            'email'=>'required',
+            'description'=>'required',
+            'type_id'=>'required',
         ];
     }
 }
