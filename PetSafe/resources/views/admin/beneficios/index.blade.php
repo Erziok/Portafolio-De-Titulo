@@ -10,41 +10,41 @@
 @section('content')
 <div class="app-body-main-content">
     <div class="box-agregar mt-3">
-        <a href="{{ route('admin.medicine.create') }}"><button>Añadir Nuevo <i class="fa-solid fa-plus"></i></button></a>
+        <a href="{{ route('admin.benefit.create') }}"><button>Añadir Nuevo <i class="fa-solid fa-plus"></i></button></a>
     </div>
-    <table id="tabla-farmacia" class="table table-striped" style="width:100%">
+    <table id="tabla-publicaciones" class="table table-striped" style="width:100%">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
-                <th>Principio Activo</th>
-                <th>Función</th>
-                <th>Aplicación</th>
-                <th>Laboratorio</th>
-                {{-- <th>Especie</th> --}}
-                <th>Valor con descuento</th>
-                <th>Descuento</th>
-                <th>Acciones</th>
+                <th>Descripción</th>
+                <th>Activo</th>
+                <th>Usuario</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($medicines as $medicine)
+            @foreach ($benefits as $benefit)
                 <tr>
-                    <td>{{ $medicine->id }}</td>
-                    <td>{{ $medicine->name }}</td>
-                    <td>{{ $medicine->activeSubstance }}</td>
-                    <td>{{ $medicine->function }}</td>
-                    <td>{{ $medicine->implementation }}</td>
-                    <td>{{ $medicine->laboratory }}</td>
-                    <td>{{ $medicine->price }}</td>
-                    <td>{{ $medicine->discount }}</td>
+                    <td>{{ $benefit->id }}</td>
+                    <td>{{ $benefit->name }}</td>
+                    <td>{{ Str::limit($benefit->description, 75) }}</td>
+                    @if ($benefit->active == 1)
+                        <td>Sí</td>
+                    @elseif ($benefit->active == 2)
+                        <td>No</td>
+                    @endif  
+                    @if ($benefit->user_id == null )
+                        <td>No asignado</td>
+                    @else
+                        <td>{{ $benefit->user->firstname.' '. $benefit->user->lastname}}</td>
+                    @endif
                     <td>
                         <div class="acciones-box">
                             <div class="box-editar">
-                                <a href="{{ route('admin.medicine.edit', $medicine) }}"><button><i class="fa-solid fa-pencil"></i></button></a>
+                                <a href=" {{ route('admin.benefit.edit', $benefit) }} "><button><i class="fa-solid fa-pencil"></i></button></a>
                             </div>
                             <div class="box-eliminar">
-                                <form action="{{ route('admin.medicine.destroy', $medicine) }}" method="POST">
+                                <form action="{{ route('admin.benefit.destroy', $benefit) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" onclick="return confirm('Are you sure?')"><i class="fa-solid fa-trash"></i></button>
@@ -59,14 +59,9 @@
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
-                <th>Principio Activo</th>
-                <th>Función</th>
-                <th>Aplicación</th>
-                <th>Laboratorio</th>
-                {{-- <th>Especie</th> --}}
-                <th>Valor con descuento</th>
-                <th>Descuento</th>
-                <th>Acciones</th>
+                <th>Descripción</th>
+                <th>Activo</th>
+                <th>Usuario</th>
             </tr>
         </tfoot>
     </table>
@@ -83,7 +78,7 @@
 
     <script>
         $(document).ready(function () {
-            $('#tabla-farmacia').DataTable({
+            $('#tabla-publicaciones').DataTable({
                 responsive: true,
                 autoWidth: false,
             });
