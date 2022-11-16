@@ -10,6 +10,9 @@
     <!--JQuery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href=" {{ asset('css/admin.css?v='.time()) }} ">
+    <!-- Select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     @yield('CSS')
 </head>
 <body>
@@ -59,35 +62,36 @@
         <div class="app-body">
             <div class="app-body-navigation">
                 <nav class="navigation">
-                    <a href="{{ route('admin.user.index') }}" class="{{ Request::is('admin/usuario') ? 'active' : '' }}">
+                    <a href="{{ route('admin.user.index') }}" class="{{ Request::is('admin/user') ? 'active' : '' }}">
                         <i class="fa-solid fa-user"></i>
                         <span>Usuarios</span>
                     </a>
-                    <a href="{{ route('admin.publication.index') }}" class="{{ Request::is('admin/publicacion') ? 'active' : '' }}">
+                    <a href="{{ route('admin.publication.index') }}" class="{{ Request::is('admin/publication') ? 'active' : '' }}">
                         <i class="fa-solid fa-folder-open"></i>
                         <span>Publicaciones</span>
                     </a>
-                    <a href="{{ route('admin.service.index') }}" class="{{ Request::is('admin/servicio') ? 'active' : '' }}">
+                    <a href="{{ route('admin.service.index') }}" class="{{ Request::is('admin/service') ? 'active' : '' }}">
                         <i class="fa-solid fa-shop"></i>
                         <span>Servicios</span>
                     </a>
-                    <a href="{{ route('admin.veterinary.index') }}" class="{{ Request::is('admin/veterinaria') ? 'active' : '' }}">
+                    <a href="{{ route('admin.veterinary.index') }}" class="{{ Request::is('admin/veterinary') ? 'active' : '' }}">
                         <i class="fa-solid fa-stethoscope"></i>
                         <span>Veterinaria</span>
                     </a>
-                    <a href="{{ route('admin.medicine.index') }}" class="{{ Request::is('admin/farmacia') ? 'active' : '' }}">
+                    <a href="{{ route('admin.medicine.index') }}" class="{{ Request::is('admin/medicine') ? 'active' : '' }}">
                         <i class="fa-solid fa-flask"></i>
                         <span>Farmacia</span>
+                    </a>
+                    <a href="{{ route('admin.course.index') }}" class="{{ Request::is('admin/course') ? 'active' : '' }}">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Cursos</span>
                     </a>
                     <a href="{{ route('admin.benefit.index') }}" class="{{ Request::is('admin/beneficio') ? 'active' : '' }}">
                         <i class="fa-solid fa-hand-holding-heart"></i>
                         <span>Beneficios</span>
                     </a>
-                    <a href="{{ route('admin.course.index') }}" class="{{ Request::is('admin/curso') ? 'active' : '' }}">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                        <span>Cursos</span>
-                    </a>
-                    <a href="{{ route('admin.zone.index') }}" class="{{ Request::is('admin/zona') ? 'active' : '' }}">
+                    
+                    <a href="{{ route('admin.zone.index') }}" class="{{ Request::is('admin/zone') ? 'active' : '' }}">
                         <i class="fa-solid fa-map-location-dot"></i>
                         <span>Zonas</span>
                     </a>
