@@ -86,7 +86,7 @@
                         <i class="fa-solid fa-graduation-cap"></i>
                         <span>Cursos</span>
                     </a>
-                    <a href="{{ route('admin.benefit.index') }}" class="{{ Request::is('admin/beneficio') ? 'active' : '' }}">
+                    <a href="{{ route('admin.benefit.index') }}" class="{{ Request::is('admin/benefit') ? 'active' : '' }}">
                         <i class="fa-solid fa-hand-holding-heart"></i>
                         <span>Beneficios</span>
                     </a>
