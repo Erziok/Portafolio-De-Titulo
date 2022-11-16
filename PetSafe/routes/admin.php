@@ -24,6 +24,7 @@ Route::group(['middleware' => 'validateAdmin', 'prefix' => '/admin', 'as' => 'ad
     Route::resource('user', App\Http\Controllers\Admin\UserController::class);
     Route::resource('veterinary', App\Http\Controllers\Admin\VeterinariaController::class);
     Route::resource('zone', App\Http\Controllers\Admin\ZonaController::class);
+    Route::resource('benefit', App\Http\Controllers\Admin\BenefitController::class);
 
     Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
 });

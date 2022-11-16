@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('specie', 45);
             $table->integer('price');
             $table->string('discount', 5);
-            $table->foreignId('service_id')->nullable(true)->constrained();
+            $table->foreignId('benefit_id')->nullable(true)->constrained();
             $table->timestamps();
             $table->softDeletes();
             
