@@ -38,7 +38,7 @@
             </div>
             <div class="app-header-actions">
                 <button class="user-profile">
-                    <span>Matheo Peterson</span>
+                    <span>{{Auth::user()->firstname}} {{Auth::user()->lastname}}</span>
                     <span>
                         <img src="https://assets.codepen.io/285131/almeria-avatar.jpeg" />
                     </span>
@@ -79,6 +79,10 @@
                         <i class="fa-solid fa-flask"></i>
                         <span>Farmacia</span>
                     </a>
+                    <a href="{{ route('admin.benefit.index') }}" class="{{ Request::is('admin/beneficio') ? 'active' : '' }}">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                        <span>Beneficios</span>
+                    </a>
                     <a href="{{ route('admin.course.index') }}" class="{{ Request::is('admin/curso') ? 'active' : '' }}">
                         <i class="fa-solid fa-graduation-cap"></i>
                         <span>Cursos</span>
@@ -92,7 +96,7 @@
                         <span>Web</span>
                     </a>
                 </nav>
-                <footer class="footer">
+                <footer class="footer"><br>
                     <h1>PetSafe<small>©</small></h1>
                     <div>
                         PetSafe ©<br />

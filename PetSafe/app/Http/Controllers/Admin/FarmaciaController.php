@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Medicine\ActualizarMedicinaRequest;
+use App\Http\Requests\Admin\Medicine\GuardarMedicinaRequest;
+use App\Models\Benefit;
 use App\Models\Medicine;
+use App\Models\Specie;
+use Faker\Provider\Medical;
 use Illuminate\Http\Request;
 
 class FarmaciaController extends Controller
@@ -15,8 +20,8 @@ class FarmaciaController extends Controller
      */
     public function index()
     {
-        $medicamentos = Medicine::all();
-        return view('admin.farmacia.index', compact('medicamentos'));
+        $medicines = Medicine::all();
+        return view('admin.farmacia.index', compact('medicines'));
     }
 
     /**
@@ -26,7 +31,9 @@ class FarmaciaController extends Controller
      */
     public function create()
     {
-        //
+        $benefits = Benefit::all();
+        $species = Specie::all();
+        return view('admin.farmacia.create', compact('benefits', 'species'));
     }
 
     /**
@@ -35,9 +42,10 @@ class FarmaciaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GuardarMedicinaRequest $request)
     {
-        //
+        Medicine::create($request->validated());
+        return redirect()->route('admin.medicine.index');
     }
 
     /**
@@ -57,9 +65,11 @@ class FarmaciaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Medicine $medicine)
     {
-        //
+        $species = Specie::all();
+        $benefits = Benefit::all();
+        return view('admin.farmacia.edit', compact('medicine', 'species', 'benefits'));
     }
 
     /**
@@ -69,9 +79,10 @@ class FarmaciaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ActualizarMedicinaRequest $request, Medicine $medicine)
     {
-        //
+        $medicine->update($request->validated());
+        return redirect()->route('admin.medicine.index');
     }
 
     /**
@@ -80,8 +91,9 @@ class FarmaciaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Medicine $medicine)
     {
-        //
+        $medicine->delete();
+        return redirect()->route('admin.medicine.index');
     }
 }
