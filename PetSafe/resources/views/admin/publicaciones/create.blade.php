@@ -1,6 +1,11 @@
 @extends('layouts.layout-admin')
 
 @section('content')
+
+<!-- Select2 -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 <div class="app-body-main-content">
     <div class="form-box">
         <form action="{{ route('admin.publication.store') }}" method="POST">
@@ -21,7 +26,7 @@
             </div>
             <div class="form-group mt-3">
                 <label for="">Rol</label>
-                <select name="active" class="form-control" aria-label="Default select example">
+                <select name="active" class="form-control active" aria-label="Default select example">
                     <option value="1">Activo</option>
                     <option value="2">Inactiva</option>
                 </select>
@@ -45,7 +50,7 @@
             </div>
             <div class="form-group mt-3">
                 <label for="">Rol</label>
-                <select name="category_id" id="" class="form-control" aria-label="Default select example">
+                <select name="category_id" id="" class="form-control category_id" aria-label="Default select example">
                     @forelse ($categories as $category)
                         <option value="{{ $category->id }}"> {{ $category->category }} </option>
                     @empty
@@ -62,4 +67,12 @@
         </form>
     </div>
 </div>
+@endsection
+
+@section('JS')
+    <script>
+        $(document).ready(function() {
+        $('.active, .category_id').select2();
+        });
+    </script>
 @endsection
