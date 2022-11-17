@@ -16,7 +16,7 @@ return new class extends Migration
     {
         Schema::create('breeds', function (Blueprint $table) {
             $table->id();
-            $table->string('breed', 45);
+            $table->string('breed');
             $table->foreignId('specie_id')->nullable(true)->constrained();
             $table->timestamps();
             $table->softDeletes();

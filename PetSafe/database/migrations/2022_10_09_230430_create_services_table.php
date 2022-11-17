@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 45);
-            $table->string('address', 45);
+            $table->string('name');
+            $table->string('address', 150);
             $table->string('phone', 45);
-            $table->string('email', 45);
-            $table->longText('description', 45);
+            $table->string('email', 150);
+            $table->longText('description');
             $table->tinyInteger('active');
-            $table->string('photo', 45);
+            $table->string('photo');
             $table->foreignId('user_id')->nullable(true)->constrained();
             $table->foreignId('type_id')->nullable(true)->constrained();
             $table->timestamps();

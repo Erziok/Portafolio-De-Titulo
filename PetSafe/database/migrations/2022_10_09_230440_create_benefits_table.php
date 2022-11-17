@@ -16,8 +16,8 @@ return new class extends Migration
     {
         Schema::create('benefits', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 45);
-            $table->string('description', 250);
+            $table->string('name');
+            $table->longText('description');
             $table->tinyInteger('active');
             $table->foreignId('user_id')->nullable(true)->constrained();
             $table->timestamps();

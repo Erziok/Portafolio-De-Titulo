@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 45);
+            $table->string('name');
             $table->string('phone', 45);
-            $table->string('description', 250);
-            $table->string('objectives', 500);
-            $table->string('materials', 500);
+            $table->longText('description');
+            $table->longText('objectives');
+            $table->longText('materials');
             $table->foreignId('benefit_id')->nullable(true)->constrained();
             $table->timestamps();
             $table->softDeletes();
