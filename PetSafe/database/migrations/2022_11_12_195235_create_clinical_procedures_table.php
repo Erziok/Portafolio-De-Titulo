@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('clinical_procedures', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 45);
-            $table->string('description', 45);
-            $table->string('email', 45);
+            $table->string('name');
+            $table->longText('description');
+            $table->string('email', 150);
             $table->string('phone', 45);
             $table->foreignId('benefit_id')->nullable(true)->constrained();
             $table->timestamps();

@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('publications', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 45);
+            $table->string('title', 150);
             $table->date('incidentDate');
-            $table->longText('description', 250);
-            $table->string('photo', 250);
+            $table->longText('description');
+            $table->string('photo');
             $table->tinyInteger('active');
             $table->foreignId('user_id')->nullable(true)->constrained();
             $table->foreignId('animal_id')->nullable(true)->constrained();
