@@ -1,6 +1,8 @@
 @extends('layouts.layout-user')
 
-    @section('content')
+@section('title') Veterinaria @endsection
+
+@section('content')
 
 <body>
     <header class="py-5">

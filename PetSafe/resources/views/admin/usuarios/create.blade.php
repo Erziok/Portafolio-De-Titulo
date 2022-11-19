@@ -1,5 +1,5 @@
 @extends('layouts.layout-admin')
-
+@section('title') Crear Usuario @endsection
 @section('content')
 
 <!-- Select2 -->

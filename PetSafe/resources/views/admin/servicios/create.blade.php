@@ -1,5 +1,5 @@
 @extends('layouts.layout-admin')
-
+@section('title') Crear Servicio @endsection
 @section('content')
 
 <!-- Select2 -->

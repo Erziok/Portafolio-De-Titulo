@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Web\GuardarConfiguracionRequest;
 use Illuminate\Http\Request;
+
+use function PHPUnit\Framework\fileExists;
 
 class WebController extends Controller
 {
@@ -16,6 +19,8 @@ class WebController extends Controller
     {
         return view('admin.web.index');
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -33,9 +38,23 @@ class WebController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GuardarConfiguracionRequest $request)
     {
-        //
+        if (!fileExists(config_path().'/petsafe-web-config.php')) {
+            fopen(config_path().'/petsafe-web-config.php', 'w');
+        }
+        $file = fopen(config_path().'/petsafe-web-config.php', 'w');
+        fwrite($file,'<?php '.PHP_EOL);
+        fwrite($file,'return ['.PHP_EOL);
+        foreach ($request -> except(['_token']) as $key => $value){
+            if(is_null($value)){
+                $value = null;
+            }   
+            fwrite($file,"'".$key."' =>"."'".$value."',".PHP_EOL);
+        }
+        fwrite($file,'];'.PHP_EOL);
+        fclose($file);
+        return redirect()->back();
     }
 
     /**

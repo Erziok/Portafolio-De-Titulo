@@ -1,5 +1,7 @@
 @extends('layouts.layout-user')
 
+@section('title') Formulario Mascota @endsection
+
 @section('CSS')
 <link rel="stylesheet" href="{{ asset('css/formulario-mascota.css?v=').time() }}">
 @endsection

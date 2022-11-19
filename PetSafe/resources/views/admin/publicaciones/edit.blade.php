@@ -1,5 +1,5 @@
 @extends('layouts.layout-admin')
-
+@section('title') Editar Publicación @endsection
 @section('content')
 
 <!-- Select2 -->

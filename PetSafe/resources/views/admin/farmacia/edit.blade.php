@@ -1,5 +1,5 @@
 @extends('layouts.layout-admin')
-
+@section('title') Editar Farmacia @endsection
 @section('content')
 
 <!-- Select2 -->

@@ -1,6 +1,6 @@
 @extends('layouts.layout-admin')
 
-
+@section('title') Editar Beneficio @endsection
 
 @section('content')
 
