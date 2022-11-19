@@ -1,5 +1,5 @@
 @extends('layouts.layout-admin')
-
+@section('title') Crear Publicación @endsection
 @section('content')
 <div class="app-body-main-content">
     <div class="form-box">

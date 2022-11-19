@@ -1,5 +1,7 @@
 @extends('layouts.layout-user')
 
+@section('title') Formulario Servicio @endsection
+
 @section('CSS')
 <link rel="stylesheet" href="{{ asset('css/formulario-mascota.css?v=').time() }}">
 <link rel="stylesheet" href="{{ asset('css/select-schedules.css?v=').time() }}">

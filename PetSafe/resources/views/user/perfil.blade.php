@@ -1,5 +1,5 @@
 @extends('layouts.layout-user')
-
+@section('title') Mi Perfil @endsection
 @section('CSS')
     <link rel="stylesheet" href="{{ asset('css/perfil.css?v=').time() }}">
 @endsection

@@ -1,8 +1,11 @@
 @extends('layouts.layout-user')
 
+@section('title') Detalle Publicación @endsection
+
 @section('CSS')
 <link rel="stylesheet" href="{{ asset('css/detalle-publicacion.css?v=').time() }}">
 @endsection
+
 
 @section('content')
 <div class="container px-lg-5 my-5">

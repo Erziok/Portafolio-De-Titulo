@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Iniciar Sesión</title>
+    <title>{{ Config::get('petsafe-web-config.pageName') }} | Iniciar Sesión</title>
     <!-- Style sheets -->
     <link href="{{ asset('css/styles.css?v=').time() }}" rel="stylesheet" >
     <!-- Bootstrap CDN (CSS only) -->

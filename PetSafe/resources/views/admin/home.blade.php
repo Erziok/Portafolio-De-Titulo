@@ -1,4 +1,5 @@
 @extends('layouts.layout-admin')
+@section('title') Administración @endsection
 @section('content')
 <div class="app-body-main-content">
     <section class="service-section">

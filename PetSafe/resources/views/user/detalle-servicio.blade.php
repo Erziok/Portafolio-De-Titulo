@@ -1,5 +1,7 @@
 @extends('layouts.layout-user')
 
+@section('title') Detalle Servicio @endsection
+
 @section('CSS')
 <link rel="stylesheet" href="{{ asset('css/detalle-publicacion.css?v=').time() }}">
 @endsection

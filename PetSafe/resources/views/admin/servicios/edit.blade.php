@@ -1,5 +1,5 @@
 @extends('layouts.layout-admin')
-
+@section('title') Editar Servicio @endsection
 @section('content')
 <div class="app-body-main-content">
     <div class="form-box">
