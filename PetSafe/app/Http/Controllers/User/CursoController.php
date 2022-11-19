@@ -4,11 +4,13 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 
 class CursoController extends Controller
 {
     public function index()
     {
-        return view('user.curso');
+        $cursos = Course::with(['benefit'])->get()->paginate(10);
+        return view('user.curso', compact('cursos'));
     }
 }

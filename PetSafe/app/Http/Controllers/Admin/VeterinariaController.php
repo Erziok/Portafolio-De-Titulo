@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Veterinary\ActualizarVeterinariaRequest;
+use App\Http\Requests\Admin\Veterinary\GuardarVeterinariaRequest;
+use App\Models\Benefit;
+use App\Models\ClinicalProcedure;
 use Illuminate\Http\Request;
 
 class VeterinariaController extends Controller
@@ -14,7 +18,8 @@ class VeterinariaController extends Controller
      */
     public function index()
     {
-        return view('admin.veterinaria.index');
+        $clinicalProcedures = ClinicalProcedure::with(['benefit'])->get();
+        return view('admin.veterinaria.index', compact('clinicalProcedures'));
     }
 
     /**
@@ -24,7 +29,8 @@ class VeterinariaController extends Controller
      */
     public function create()
     {
-        //
+        $benefits = Benefit::all();
+        return view('admin.veterinaria.create', compact('benefits'));
     }
 
     /**
@@ -33,9 +39,10 @@ class VeterinariaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GuardarVeterinariaRequest $request)
     {
-        //
+        ClinicalProcedure::create($request->validated());
+        return redirect()->route('admin.veterinary.index');
     }
 
     /**
@@ -55,9 +62,10 @@ class VeterinariaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(ClinicalProcedure $clinicalProcedure)
     {
-        //
+        $benefits = Benefit::all();
+        return view('admin.veterinaria.edit', compact('clinicalProcedure', 'benefits'));
     }
 
     /**
@@ -67,9 +75,10 @@ class VeterinariaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ActualizarVeterinariaRequest $request, ClinicalProcedure $clinicalProcedure)
     {
-        //
+        $clinicalProcedure->update($request->validated());
+        return redirect()->route('admin.veterinaria.index');
     }
 
     /**
@@ -78,8 +87,9 @@ class VeterinariaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(ClinicalProcedure $clinicalProcedure)
     {
-        //
+        $clinicalProcedure->delete();
+        return redirect()->route('admin.veterinaria.index');
     }
 }
