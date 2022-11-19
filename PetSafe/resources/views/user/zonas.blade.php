@@ -1,6 +1,8 @@
 @extends('layouts.layout-user')
 
-    @section('content')
+@section('title') Zonas Caninas @endsection
+
+@section('content')
 
     <header class="py-5">
         <div class="container px-lg-5">

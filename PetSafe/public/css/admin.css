@@ -19,6 +19,19 @@
   --c-text-tertiary: var(--c-gray-500);
 }
 
+.f-size-sm {
+  font-size: .9rem !important;
+}
+.f-size-md {
+  font-size: 1.2rem !important;
+}
+.f-size-lg {
+  font-size: 1.5rem !important;
+}
+.f-size-xl {
+  font-size: 1.9rem !important;
+}
+
 body {
   min-height: 100vh;
   font-family: "Be Vietnam Pro", sans-serif;
@@ -832,3 +845,14 @@ a {
   width: 100% !important;
   height: 100% !important;
 }   
+
+.header-publication {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.header-publication .section-title .hline{
+  height: 3px;
+  background: #725cfa;
+  width: 130px;
+}

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\Publication;
+namespace App\Http\Requests\Admin\Course;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GuardarPublicacionRequest extends FormRequest
+class GuardarCursoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,12 @@ class GuardarPublicacionRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=>'required',
-            'incidentDate'=>'required',
+            'name'=>'required',
+            'phone'=>'required',
             'description'=>'required',
-            'active'=>'required',
-            'category_id'=>'required',
+            'objectives'=>'required',
+            'materials'=>'required',
+            'benefit_id'=>'required',
         ];
     }
 }

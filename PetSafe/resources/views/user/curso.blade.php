@@ -1,4 +1,5 @@
 @extends('layouts.layout-user')
+  @section('title') Curso @endsection
     @section('CSS')
         <link rel="stylesheet" href="{{ asset('/css/publicacion.css') }}">
     @endsection
@@ -39,9 +40,6 @@
                     </div>
 
                 </div>
-            </div>
-        </div>
-    </header>
 
     <!--
     <p class="fs-6">

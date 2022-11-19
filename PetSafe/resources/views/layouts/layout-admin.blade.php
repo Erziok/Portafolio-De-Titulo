@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
     <meta charset="UTF-8">
-    <title>Admin | PetSafe</title>
+    <title>{{ Config::get('petsafe-web-config.pageName') }} | @yield('title')</title>
     <!--CSS Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- Font Awesome -->
@@ -59,15 +59,15 @@
         <div class="app-body">
             <div class="app-body-navigation">
                 <nav class="navigation">
-                    <a href="{{ route('admin.user.index') }}" class="{{ Request::is('admin/usuario') ? 'active' : '' }}">
+                    <a href="{{ route('admin.user.index') }}" class="{{ Request::is('admin/user') ? 'active' : '' }}">
                         <i class="fa-solid fa-user"></i>
                         <span>Usuarios</span>
                     </a>
-                    <a href="{{ route('admin.publication.index') }}" class="{{ Request::is('admin/publicacion') ? 'active' : '' }}">
+                    <a href="{{ route('admin.publication.index') }}" class="{{ Request::is('admin/publication') ? 'active' : '' }}">
                         <i class="fa-solid fa-folder-open"></i>
                         <span>Publicaciones</span>
                     </a>
-                    <a href="{{ route('admin.service.index') }}" class="{{ Request::is('admin/servicio') ? 'active' : '' }}">
+                    <a href="{{ route('admin.service.index') }}" class="{{ Request::is('admin/service') ? 'active' : '' }}">
                         <i class="fa-solid fa-shop"></i>
                         <span>Servicios</span>
                     </a>
@@ -75,19 +75,20 @@
                         <i class="fa-solid fa-stethoscope"></i>
                         <span>Veterinaria</span>
                     </a>
-                    <a href="{{ route('admin.medicine.index') }}" class="{{ Request::is('admin/farmacia') ? 'active' : '' }}">
+                    <a href="{{ route('admin.medicine.index') }}" class="{{ Request::is('admin/medicine') ? 'active' : '' }}">
                         <i class="fa-solid fa-flask"></i>
                         <span>Farmacia</span>
                     </a>
-                    <a href="{{ route('admin.benefit.index') }}" class="{{ Request::is('admin/beneficio') ? 'active' : '' }}">
-                        <i class="fa-solid fa-hand-holding-heart"></i>
-                        <span>Beneficios</span>
-                    </a>
-                    <a href="{{ route('admin.course.index') }}" class="{{ Request::is('admin/curso') ? 'active' : '' }}">
+                    <a href="{{ route('admin.course.index') }}" class="{{ Request::is('admin/course') ? 'active' : '' }}">
                         <i class="fa-solid fa-graduation-cap"></i>
                         <span>Cursos</span>
                     </a>
-                    <a href="{{ route('admin.zone.index') }}" class="{{ Request::is('admin/zona') ? 'active' : '' }}">
+                    <a href="{{ route('admin.benefit.index') }}" class="{{ Request::is('admin/benefit') ? 'active' : '' }}">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                        <span>Beneficios</span>
+                    </a>
+                    
+                    <a href="{{ route('admin.zone.index') }}" class="{{ Request::is('admin/zone') ? 'active' : '' }}">
                         <i class="fa-solid fa-map-location-dot"></i>
                         <span>Zonas</span>
                     </a>

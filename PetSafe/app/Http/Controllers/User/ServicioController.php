@@ -9,12 +9,13 @@ use App\Http\Requests\User\RegisterRequest;
 use App\Http\Requests\User\SearchRequest;
 use App\Models\Service;
 use App\Models\User;
+use Illuminate\Support\Facades\Config;
 
 class ServicioController extends Controller
 {
     public function index()
     {
-        $datos = Service::with(['user'])->get()->paginate(10);
+        $datos = Service::with(['user'])->get()->paginate(Config::get('petsafe-web-config.paginateServicesBy'));
         return view('user.servicios', compact('datos'));
     }
 
@@ -25,7 +26,7 @@ class ServicioController extends Controller
             ->orWhere('name', 'like', '%' . e($valor) . '%')
             ->with('user')
             ->get()
-            ->paginate(10); 
+            ->paginate(Config::get('petsafe-web-config.paginateServicesBy')); 
 
             $datos->appends($request->all());
             return view('user.servicios', compact('datos', 'valor'));
@@ -39,7 +40,7 @@ class ServicioController extends Controller
             $datos = Service::where('type_id', e($request->filter))
             ->with('user')
             ->get()
-            ->paginate(10);
+            ->paginate(Config::get('petsafe-web-config.paginateServicesBy'));
 
             $datos->appends($request->all());
             return view('user.servicios', compact('datos'));

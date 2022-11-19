@@ -3,7 +3,9 @@
         <link rel="stylesheet" href="{{ asset('/css/publicacion.css') }}">
     @endsection
 
-    @section('content')
+@section('title') Operativos @endsection
+
+@section('content')
 
     <header class="py-5">
         <div class="container px-lg-5">

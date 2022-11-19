@@ -1,5 +1,7 @@
 @extends('layouts.layout-user')
 
+@section('title') Editar Usuario @endsection
+
 @section('CSS')
 <link rel="stylesheet" href="{{ asset('css/editar-usuario.css?v=').time() }}">
 @endsection

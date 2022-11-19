@@ -16,8 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'validateAdmin', 'prefix' => '/admin', 'as' => 'admin.'], function() {
     Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])
         ->name('home'); 
-    Route::resource('web', App\Http\Controllers\Admin\WebController::class);
-    Route::resource('course', App\Http\Controllers\Admin\CursoController::class);
+    Route::resource('course', App\Http\Controllers\Admin\CourseController::class);//admin.course.metodo
     Route::resource('medicine', App\Http\Controllers\Admin\FarmaciaController::class);
     Route::resource('publication', App\Http\Controllers\Admin\PublicacionController::class);
     Route::resource('service', App\Http\Controllers\Admin\ServicioController::class);
@@ -27,4 +26,10 @@ Route::group(['middleware' => 'validateAdmin', 'prefix' => '/admin', 'as' => 'ad
     Route::resource('benefit', App\Http\Controllers\Admin\BenefitController::class);
 
     Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
+
+    //Configuración Web
+    Route::get('/web', [App\Http\Controllers\Admin\WebController::class, 'index'])
+        ->name('web.index'); 
+    Route::post('/web', [App\Http\Controllers\Admin\WebController::class, 'store'])
+        ->name('web.index.store'); 
 });

@@ -8,12 +8,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Favourite extends Model
 {
+    use HasFactory;
+    use SoftDeletes;
+    
     protected $fillable = [
         'publication_id',
         'user_id',
     ];
-    use HasFactory;
-    use SoftDeletes;
+    
     public function publication() {
         return $this->belongsTo(Publication::class, 'publication_id');
     }

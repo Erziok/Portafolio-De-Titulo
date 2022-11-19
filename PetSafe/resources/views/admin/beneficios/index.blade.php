@@ -1,5 +1,5 @@
 @extends('layouts.layout-admin')
-
+@section('title') Beneficios @endsection
 @section('CSS')
 <!--DataTables-->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">

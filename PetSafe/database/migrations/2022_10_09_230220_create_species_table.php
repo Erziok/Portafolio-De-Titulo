@@ -16,8 +16,9 @@ return new class extends Migration
     {
         Schema::create('species', function (Blueprint $table) {
             $table->id();
-            $table->string('specie', 45);
+            $table->string('specie');
             $table->timestamps();
+            $table->softDeletes();
         });
 
         DB::table('species')->insert([     

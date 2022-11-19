@@ -9,12 +9,13 @@ use App\Models\Favourite;
 use App\Models\Publication;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Config;
 
 class PublicacionController extends Controller
 {
     public function index()
     {
-        $datos = Publication::with(['user', 'favourite'])->withCount(['comment', 'favourite'])->get()->paginate(10);
+        $datos = Publication::with(['user', 'favourite'])->withCount(['comment', 'favourite'])->get()->paginate(Config::get('petsafe-web-config.paginatePublicationsBy'));
         return view('user.publicaciones', compact('datos'));
     }
     public function search(SearchRequest $request) {
@@ -24,7 +25,7 @@ class PublicacionController extends Controller
             ->orWhere('title', 'like', '%' . e($valor) . '%')
             ->with('user')->withCount(['comment', 'favourite'])
             ->get()
-            ->paginate(10); 
+            ->paginate(Config::get('petsafe-web-config.paginatePublicationsBy')); 
 
             $datos->appends($request->all());
             return view('user.publicaciones', compact('datos', 'valor'));
@@ -38,7 +39,7 @@ class PublicacionController extends Controller
             ->with('user')
             ->withCount(['comment', 'favourite'])
             ->get()
-            ->paginate(10);
+            ->paginate(Config::get('petsafe-web-config.paginatePublicationsBy'));
 
             $datos->appends($request->all());
             return view('user.publicaciones', compact('datos'));

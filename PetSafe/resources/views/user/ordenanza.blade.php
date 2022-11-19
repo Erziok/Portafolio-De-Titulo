@@ -1,5 +1,5 @@
 @extends('layouts.layout-user')
-
+@section('title') Ordenanza @endsection
     @section('content')
 
     <header class="py-5">
