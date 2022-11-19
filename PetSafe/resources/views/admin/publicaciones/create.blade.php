@@ -6,7 +6,7 @@
         <form action="{{ route('admin.publication.store') }}" method="POST">
             @csrf
             <div class="form-group mt-3">
-                <label for="">Titulo</label>
+                <label for="">Título</label>
                 <input type="text" name="title" id="" class="form-control">
                 
             </div>

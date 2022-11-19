@@ -71,7 +71,7 @@
                         <i class="fa-solid fa-shop"></i>
                         <span>Servicios</span>
                     </a>
-                    <a href="{{ route('admin.veterinary.index') }}" class="{{ Request::is('admin/veterinaria') ? 'active' : '' }}">
+                    <a href="{{ route('admin.clinicalProcedure.index') }}" class="{{ Request::is('admin/veterinaria') ? 'active' : '' }}">
                         <i class="fa-solid fa-stethoscope"></i>
                         <span>Veterinaria</span>
                     </a>

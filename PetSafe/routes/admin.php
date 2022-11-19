@@ -22,7 +22,7 @@ Route::group(['middleware' => 'validateAdmin', 'prefix' => '/admin', 'as' => 'ad
     Route::resource('publication', App\Http\Controllers\Admin\PublicacionController::class);
     Route::resource('service', App\Http\Controllers\Admin\ServicioController::class);
     Route::resource('user', App\Http\Controllers\Admin\UserController::class);
-    Route::resource('veterinary', App\Http\Controllers\Admin\VeterinariaController::class);
+    Route::resource('clinicalProcedure', App\Http\Controllers\Admin\VeterinariaController::class);
     Route::resource('zone', App\Http\Controllers\Admin\ZonaController::class);
     Route::resource('benefit', App\Http\Controllers\Admin\BenefitController::class);
 
