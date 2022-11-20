@@ -21,6 +21,7 @@
                 <th>Beneficio</th>
                 <th>Email</th>
                 <th>Número</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -57,6 +58,7 @@
                 <th>Beneficio</th>
                 <th>Email</th>
                 <th>Número</th>
+                <th>Acciones</th>
             </tr>
         </tfoot>
     </table>
