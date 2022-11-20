@@ -20,6 +20,7 @@
                 <th>Descripción</th>
                 <th>Activo</th>
                 <th>Usuario</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -62,6 +63,7 @@
                 <th>Descripción</th>
                 <th>Activo</th>
                 <th>Usuario</th>
+                <th>Acciones</th>
             </tr>
         </tfoot>
     </table>
