@@ -42,7 +42,12 @@ class PublicacionController extends Controller
      */
     public function store(GuardarPublicacionRequest $request)
     {
-        Publication::create($request->validated());
+        if (Publication::create($request->validated())) {
+            toastr()->success('Publicación creada exitosamente', '¡Perfecto!');
+        }else {
+            toastr()->error('La publicación no se ha podido guardar', 'Oops...');    
+        }
+        return redirect()->route('admin.publication.index');
     }
 
     /**
@@ -77,7 +82,11 @@ class PublicacionController extends Controller
      */
     public function update(ActualizarPublicacionRequest $request, Publication $publication)
     {
-        $publication->update($request->validated());
+        if ($publication->update($request->validated())) {
+            toastr()->success('Publicación Actualizada exitosamente', '¡Perfecto!');
+        } else {
+            toastr()->error('La publicación no se ha podido Actualizar', 'Oops...');    
+        }
         return redirect()->route('admin.publication.index');
     }
 
@@ -89,7 +98,11 @@ class PublicacionController extends Controller
      */
     public function destroy(Publication $publication)
     {
-        $publication->delete();
+        if ($publication->delete()) {
+            toastr()->success('Publicación eliminada exitosamente', '¡Perfecto!');
+        } else {
+            toastr()->error('La publicación no se ha podido eliminar', 'Oops...');    
+        }
         return redirect()->route('admin.publication.index');
     }
 }

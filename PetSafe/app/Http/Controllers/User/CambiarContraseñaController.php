@@ -30,7 +30,7 @@ class CambiarContraseñaController extends Controller
                     ->update([
                         'password' => Hash::make($request -> password),
                     ]);
-
+                toastr()->success('Contraseña actualizada exitosamente', '¡Perfecto!');
                 return redirect()->route('perfil'); 
             }
             return back()->withErrors(['mensaje'=>'La contraseña es incorrecta']);

@@ -41,7 +41,11 @@ class VeterinariaController extends Controller
      */
     public function store(GuardarVeterinariaRequest $request)
     {
-        ClinicalProcedure::create($request->validated());
+        if (ClinicalProcedure::create($request->validated())) {
+            toastr()->success('Procedimiento creado exitosamente', '¡Perfecto!');    
+        } else {
+            toastr()->error('El procedimiento no se ha podido guardar', 'Oops...');
+        }
         return redirect()->route('admin.veterinary.index');
     }
 
@@ -77,7 +81,11 @@ class VeterinariaController extends Controller
      */
     public function update(ActualizarVeterinariaRequest $request, ClinicalProcedure $clinicalProcedure)
     {
-        $clinicalProcedure->update($request->validated());
+        if ($clinicalProcedure->update($request->validated())) {
+            toastr()->success('Procedimiento actualizado exitosamente', '¡Perfecto!');
+        } else {
+            toastr()->error('El procedimiento no se ha podido actualizar', 'Oops...');    
+        }
         return redirect()->route('admin.veterinaria.index');
     }
 
@@ -89,7 +97,11 @@ class VeterinariaController extends Controller
      */
     public function destroy(ClinicalProcedure $clinicalProcedure)
     {
-        $clinicalProcedure->delete();
+        if ($clinicalProcedure->delete()) {
+            toastr()->success('Procedimiento eliminado exitosamente', '¡Perfecto!');
+        } else {
+            toastr()->error('El procedimiento no se ha podido eliminar', 'Oops...');    
+        }
         return redirect()->route('admin.veterinaria.index');
     }
 }

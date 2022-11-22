@@ -41,7 +41,11 @@ class ServicioController extends Controller
      */
     public function store(GuardarServicioRequest $request)
     {
-        Service::create($request->validated());
+        if (Service::create($request->validated())) {
+            toastr()->success('Servicio creado exitosamente', '¡Perfecto!');    
+        } else {
+            toastr()->error('El Servicio no se ha podido guardar', 'Oops...');
+        }
         return redirect()->route('admin.service.index');
     }
 
@@ -77,7 +81,11 @@ class ServicioController extends Controller
      */
     public function update(ActualizarServicioRequest $request, Service $service)
     {
-        $service->update($request->validated());
+        if ($service->update($request->validated())) {
+            toastr()->success('Servicio actualizado exitosamente', '¡Perfecto!');    
+        } else {
+            toastr()->error('El Servicio no se ha podido actualizar', 'Oops...');
+        }
         return redirect()->route('admin.service.index');
     }
 
@@ -89,7 +97,11 @@ class ServicioController extends Controller
      */
     public function destroy(Service $service)
     {
-        $service->delete();
+        if ($service->delete()) {
+            toastr()->success('Servicio eliminado exitosamente', '¡Perfecto!');
+        } else {
+            toastr()->error('El Servicio no se ha eliminar guardar', 'Oops...');    
+        }
         return redirect()->route('admin.service.index');
     }
 }

@@ -66,6 +66,7 @@ class FormularioServicioController extends Controller
                 'service_id' => $service->id,
             ]);
         }
+        toastr()->success('Servicio creado exitosamente', '¡Perfecto!');
         return redirect()->route('servicios');
     }
 }

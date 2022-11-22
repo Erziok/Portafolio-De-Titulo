@@ -72,6 +72,7 @@ class FormularioMascotaController extends Controller
             'animal_id' => $animal->id,
             'category_id'=> $request->category,
         ]);
+        toastr()->success('Publicación creada exitosamente', '¡Perfecto!');
         return redirect()->route('publicaciones');
     }
 }

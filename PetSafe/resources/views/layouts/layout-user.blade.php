@@ -240,7 +240,6 @@
     <footer class="py-5 bg-dark">
         <div class="container"><p class="m-0 text-center text-white">Copyright &copy; PetSafe 2022</p></div>
     </footer>
-     @yield('JS')
      <script src="{{ asset('js/app.js') }}"></script>
      <script src="{{ asset('js/preloader.js') }}"></script>
     <!--JS Bootstrap (primero popper y luego boostrap)-->

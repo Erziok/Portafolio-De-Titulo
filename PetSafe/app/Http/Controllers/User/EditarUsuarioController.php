@@ -27,7 +27,7 @@ class EditarUsuarioController extends Controller
                 'firstname' => $request -> firstname,
                 'lastname' => $request -> lastname,
             ]);
-
+        toastr()->success('Perfil actualizado correctamente', '¡Perfecto!');
         return redirect()->route('perfil'); 
     }
 }

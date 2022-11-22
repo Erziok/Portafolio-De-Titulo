@@ -41,7 +41,11 @@ class UserController extends Controller
      */
     public function store(GuardarUsuarioRequest $request)
     {
-        User::create($request->validated());
+        if(User::create($request->validated())) {
+            toastr()->success('Usuario creado exitosamente', '¡Perfecto!');
+        }else {
+            toastr()->error('El usuario no se ha podido guardar', 'Oops...');
+        }
         return redirect()->route('admin.user.index');
     }
 
@@ -77,7 +81,11 @@ class UserController extends Controller
      */
     public function update(ActualizarUsuarioRequest $request, User $user)
     {
-        $user->update($request->validated());
+        if ($user->update($request->validated())) {
+            toastr()->success('Usuario actualizado exitosamente', '¡Perfecto!');
+        } else {
+            toastr()->error('El usuario no se ha podido actualizar', 'Oops...');
+        }
         return redirect()->route('admin.user.index');
     }
 
@@ -89,7 +97,11 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-            $user->delete();
-            return redirect()->route('admin.user.index');
+        if ($user->delete()) {
+            toastr()->success('Usuario eliminado exitosamente', '¡Perfecto!');         
+        } else {
+            toastr()->error('El usuario no se ha podido eliminar', 'Oops...');     
+        }
+        return redirect()->route('admin.user.index');
     }
 }

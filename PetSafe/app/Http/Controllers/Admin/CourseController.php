@@ -41,7 +41,11 @@ class CourseController extends Controller
      */
     public function store(GuardarCursoRequest $request)
     {
-        Course::create($request->validated());
+        if (Course::create($request->validated())) {
+            toastr()->success('Curso creado exitosamente', '¡Perfecto!');
+        } else { 
+            toastr()->error('El Curso no se ha podido guardar', 'Oops...');
+        }
         return redirect()->route('admin.course.index');
     }
 
@@ -77,7 +81,11 @@ class CourseController extends Controller
      */
     public function update(ActualizarCursoRequest $request, Course $course)
     {
-        $course->update($request->validated());
+        if ($course->update($request->validated())) {
+            toastr()->success('Curso actualizado exitosamente', '¡Perfecto!');    
+        } else {
+            toastr()->error('El Curso no se ha podido actualizar', 'Oops...');
+        }
         return redirect()->route('admin.course.index');
     }
 
@@ -89,7 +97,11 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-        $course->delete();
+        if ($course->delete()) {
+            toastr()->success('Curso eliminado exitosamente', '¡Perfecto!');
+        } else {
+            toastr()->error('El Curso no se ha podido eliminar', 'Oops...');    
+        }
         return redirect()->route('admin.user.index');
     }
 }

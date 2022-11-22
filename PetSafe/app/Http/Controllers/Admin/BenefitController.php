@@ -42,7 +42,11 @@ class BenefitController extends Controller
      */
     public function store(GuardarBeneficioRequest $request)
     {
-        Benefit::create($request->validated());
+        if (Benefit::create($request->validated())) {
+            toastr()->success('Beneficio creado exitosamente', '¡Perfecto!');
+        } else {
+            toastr()->error('El beneficio no se ha podido guardar', 'Oops...');    
+        }
         return redirect()->route('admin.benefit.index');
     }
 
@@ -78,7 +82,11 @@ class BenefitController extends Controller
      */
     public function update(ActualizarBeneficioRequest $request, Benefit $benefit)
     {
-        $benefit->update($request->validated());
+        if ($benefit->update($request->validated())) {
+            toastr()->success('Beneficio actualizado exitosamente', '¡Perfecto!');
+        } else {
+            toastr()->error('El beneficio no se ha podido actualizar', 'Oops...');    
+        }
         return redirect()->route('admin.benefit.index');
     }
 
@@ -90,7 +98,11 @@ class BenefitController extends Controller
      */
     public function destroy(Benefit $benefit)
     {
-        $benefit->delete();
+        if ($benefit->delete()) {
+            toastr()->success('Beneficio eliminado exitosamente', '¡Perfecto!'); 
+        } else {
+            toastr()->error('El beneficio no se ha podido eliminar', 'Oops...');
+        }
         return redirect()->route('admin.benefit.index');
     }
 }

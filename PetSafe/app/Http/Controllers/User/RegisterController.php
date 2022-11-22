@@ -25,6 +25,7 @@ class RegisterController extends Controller
             'active'=> $request->input('active', 1),
             'role_id'=> $request->input('role_id', 2),
         ]);
+        
         return redirect()->route('login');
     }
 }
