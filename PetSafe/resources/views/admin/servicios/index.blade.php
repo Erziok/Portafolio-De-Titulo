@@ -23,6 +23,7 @@
                 <th>Descripción</th>
                 <th>Usuario</th>
                 <th>Tipo</th>
+                <th>Estado</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -37,6 +38,7 @@
                     <td>{{ Str::limit($service->description, 75) }}</td>
                     <td>{{ $service->User->firstname.' '.$service->User->lastname }}</td>
                     <td>{{ $service->Type->type }}</td>
+                    {{ displayStatus($service->active) }}
                     <td>
                         <div class="acciones-box">
                             <div class="box-editar">
@@ -64,6 +66,7 @@
                 <th>Descripción</th>
                 <th>Usuario</th>
                 <th>Tipo</th>
+                <th>Estado</th>
                 <th>Acciones</th>
             </tr>
         </tfoot>

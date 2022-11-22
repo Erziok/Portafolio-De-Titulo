@@ -19,10 +19,10 @@
                 <th>Titulo</th>
                 <th>Incidente</th>
                 <th>Descripción</th>
-                <th>Activo</th>
                 <th>Foto</th>
                 <th>Usuario</th>
                 <th>Categoría</th>
+                <th>Estado</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -33,10 +33,10 @@
                     <td>{{ $publication->title }}</td>
                     <td>{{ $publication->incidentDate }}</td>
                     <td>{{ Str::limit($publication->description, 75) }}</td>
-                    <td>{{ $publication->active }}</td>
                     <td><div class="img-box"><img src="{{ asset($publication->photo) }}"></div></td>
                     <td>{{ $publication->user->firstname.' '. $publication->user->lastname}}</td>
                     <td>{{ $publication->category->category }}</td>
+                    {{ displayStatus($publication->active) }}
                     <td>
                         <div class="acciones-box">
                             <div class="box-editar">
@@ -60,10 +60,10 @@
                 <th>Ditulo</th>
                 <th>Incidente</th>
                 <th>Descripción</th>
-                <th>Activo</th>
                 <th>Foto</th>
                 <th>Usuario</th>
                 <th>Categoría</th>
+                <th>Estado</th>
                 <th>Acciones</th>
             </tr>
         </tfoot>

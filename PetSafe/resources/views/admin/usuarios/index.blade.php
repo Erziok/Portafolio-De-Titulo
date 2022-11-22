@@ -22,6 +22,7 @@
                 <th>Email</th>
                 <th>Avatar</th>
                 <th>Rol</th>
+                <th>Estado</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -39,6 +40,7 @@
                         <td><div class="img-box"><img src="{{ asset($user->avatar) }}"></div></td>
                     @endif
                     <td>{{ $user->Role->role }}</td>
+                    {{ displayStatus($user->active) }}
                     <td>
                         <div class="acciones-box">
                             <div class="box-editar">
@@ -65,6 +67,7 @@
                 <th>Email</th>
                 <th>Avatar</th>
                 <th>Rol</th>
+                <th>Estado</th>
                 <th>Acciones</th>
             </tr>
         </tfoot>
