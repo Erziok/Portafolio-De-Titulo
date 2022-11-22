@@ -44,7 +44,11 @@ class FarmaciaController extends Controller
      */
     public function store(GuardarMedicinaRequest $request)
     {
-        Medicine::create($request->validated());
+        if(Medicine::create($request->validated())) {
+            toastr()->success('Medicamento creado exitosamente', '¡Perfecto!');
+        } else {
+            toastr()->error('El medicamento no se ha podido guardar', 'Oops...');    
+        }
         return redirect()->route('admin.medicine.index');
     }
 
@@ -81,7 +85,11 @@ class FarmaciaController extends Controller
      */
     public function update(ActualizarMedicinaRequest $request, Medicine $medicine)
     {
-        $medicine->update($request->validated());
+        if ($medicine->update($request->validated())) {
+            toastr()->success('Medicamento actualizado exitosamente', '¡Perfecto!');    
+        } else {
+            toastr()->error('El medicamento no se ha podido actualizar', 'Oops...');
+        }
         return redirect()->route('admin.medicine.index');
     }
 
@@ -93,7 +101,11 @@ class FarmaciaController extends Controller
      */
     public function destroy(Medicine $medicine)
     {
-        $medicine->delete();
+        if ($medicine->delete()) {
+            toastr()->success('Medicamento eliminado exitosamente', '¡Perfecto!');
+        } else {
+            toastr()->error('El medicamento no se ha podido eliminar', 'Oops...');    
+        }
         return redirect()->route('admin.medicine.index');
     }
 }

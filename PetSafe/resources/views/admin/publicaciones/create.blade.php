@@ -25,7 +25,7 @@
                 @enderror
             </div>
             <div class="form-group mt-3">
-                <label for="">Rol</label>
+                <label for="">Estado</label>
                 <select name="active" class="form-control active" aria-label="Default select example">
                     <option value="1">Activo</option>
                     <option value="2">Inactiva</option>

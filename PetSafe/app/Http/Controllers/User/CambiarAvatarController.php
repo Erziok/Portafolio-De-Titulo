@@ -27,7 +27,7 @@ class CambiarAvatarController extends Controller
             ->update([
                 'avatar' => $imageUpload.$imageName,
             ]);
-        
+        toastr()->success('Avatar actualizado exitosamente', '¡Perfecto!');
         return redirect()->route('perfil');
     }
 }

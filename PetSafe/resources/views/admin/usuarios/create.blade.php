@@ -38,6 +38,13 @@
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
+            <div class="form-outline mb-2 form-box">
+                <label class="form-label" for="">Contraseña</label>
+                <input type="password" id="password" class="form-control" placeholder="Contraseña" name="password"/>
+                @error('password')
+                  <strong>{{ $message }}</strong>
+                @enderror
+              </div>
             <div class="form-group mt-3">
                 <label for="">Avatar</label>
                 <input type="file" name="avatar" id="" class="form-control">
@@ -52,6 +59,16 @@
                     @endforelse
                 </select>
                 @error('role_id')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
+            </div>
+            <div class="form-group mt-3">
+                <label for="">Estado</label>
+                <select name="active" class="form-control active" aria-label="Default select example">
+                    <option value="1">Activo</option>
+                    <option value="2">Inactiva</option>
+                </select>
+                @error('active')
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>

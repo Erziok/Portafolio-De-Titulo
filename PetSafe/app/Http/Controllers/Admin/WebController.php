@@ -54,6 +54,8 @@ class WebController extends Controller
         }
         fwrite($file,'];'.PHP_EOL);
         fclose($file);
+
+        toastr()->success('Configuración web guardada exitosamente', '¡Perfecto!');
         return redirect()->back();
     }
 

@@ -28,6 +28,8 @@ class GuardarUsuarioRequest extends FormRequest
             'firstname'=>'required',
             'lastname'=>'required',
             'email'=>'required',
+            'active'=>'required',
+            'password'=>'required',
             'role_id'=>'required',
         ];
     }
