@@ -29,7 +29,7 @@ class ActualizarMedicinaRequest extends FormRequest
             'function' => 'required',
             'implementation' => 'required',
             'laboratory' => 'required',
-            'specie' => 'required',
+            'specie' => 'required | alpha',
             'price' => 'required',
             'discount' => 'required',
             'benefit_id' => 'required',

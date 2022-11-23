@@ -18,11 +18,11 @@ body, body * {
 /* Validation Form */
 
 .form-box .error-text{
-    color: darkred;
+    color: rgb(199, 11, 11);
     visibility: hidden;
 }
 
-.form-box.form-error input{
+/* .form-box.form-error input{
     border-bottom: 2px solid red;
 }
 
@@ -32,13 +32,13 @@ body, body * {
 
 .form-box.form-error textarea{
     border-bottom: 2px solid red;
-}
+} */
 
 .form-box.form-error .error-text {
     visibility: visible;
 }
 
-.form-box.form-success input {
+/* .form-box.form-success input {
     border-bottom: 2px solid #1e9ba3;
 }
 
@@ -48,7 +48,7 @@ body, body * {
 
 .form-box.form-success textarea {
     border-bottom: 2px solid #1e9ba3;
-}
+} */
 
 /* End of validation form */
 
