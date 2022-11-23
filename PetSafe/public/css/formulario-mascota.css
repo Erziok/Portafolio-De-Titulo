@@ -18,6 +18,16 @@
     margin-bottom: 10px;
 }
 
+.publication-section .form-box .form-control {
+    border: 1px solid;
+    border-color: rgb(170, 170, 170); 
+}
+
+.publication-section .form-box .form-select {
+    border: 1px solid;
+    border-color: rgb(170, 170, 170); 
+}
+
 .publication-btn {
     width: 100px;
     height: 50px;

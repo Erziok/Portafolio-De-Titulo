@@ -8,6 +8,9 @@
 
     @section('content')
 
+    <!-- Select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
     <section>
         <div class="publication-section">
             <div class="section-title mb-4 mt-2">
@@ -39,7 +42,7 @@
                     
                     <div class="col-lg-6 col-md-6 col-sm-12 form-box form-box-select">
                         <label class="form-label" for="form3Example1q">Especie</label>
-                        <select class="form-select" name="specie" id="specie">
+                        <select class="form-select specie" name="specie" id="specie">
                             <option value="" disabled selected>Seleccione una especie</option>
                             @foreach ($species as $specie)
                                 <option value="{{ $specie->id }}">{{ $specie->specie }}</option>
@@ -53,7 +56,7 @@
 
                     <div class="col-lg-4 col-md-6 col-sm-12 form-box form-box-select">
                         <label class="form-label" for="form3Example1q">Raza</label>
-                        <select class="form-select" name="breed" id="breed">
+                        <select class="form-select breed" name="breed" id="breed">
                             <option value="" disabled selected>Seleccione una especie primero</option> 
                         </select>
                         <small class="error-text">Seleccione una opción válida</small>
@@ -64,7 +67,7 @@
 
                     <div class="col-lg-4 col-md-6 col-sm-12 form-box form-box-select">
                         <label class="form-label" for="form3Example1q">Sexo</label>
-                        <select class="form-select" name="gender" id="gender">
+                        <select class="form-select gender" name="gender" id="gender">
                             <option value="" disabled selected>Seleccione un genero</option>
                             <option value="Macho">Macho</option>
                             <option value="Hembra">Hembra</option>
@@ -77,7 +80,7 @@
 
                     <div class="col-lg-4 col-md-6 col-sm-12 form-box form-box-select">
                         <label class="form-label" for="form3Example1q">Categoría</label>
-                        <select class="form-select" name="category" id="category">
+                        <select class="form-select category" name="category" id="category">
                             <option value="" disabled selected>Selecciona una categoría</option>
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->category }}</option>
@@ -131,6 +134,15 @@
     @endsection
 
 @section('JS')
-<script src="{{ asset('js/validate-publication.js?v=').time() }}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+    $(document).ready(function() {
+    $('.breed, .gender, .category').select2();
+    });
+</script>
 <script src="{{ asset('js/select-publication.js?v=').time() }}"></script>
+<script src="{{ asset('js/validate-publication.js?v=').time() }}"></script>
+
 @endsection

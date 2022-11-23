@@ -25,8 +25,8 @@ class GuardarUsuarioRequest extends FormRequest
     {
         return [
             'run'=>'required',
-            'firstname'=>'required',
-            'lastname'=>'required',
+            'firstname'=>'required | alpha',
+            'lastname'=>'required | alpha',
             'email'=>'required',
             'active'=>'required',
             'password'=>'required',

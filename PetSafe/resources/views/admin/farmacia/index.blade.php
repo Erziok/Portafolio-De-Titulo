@@ -37,7 +37,7 @@
                     <td>{{ $medicine->implementation }}</td>
                     <td>{{ $medicine->laboratory }}</td>
                     <td>{{ $medicine->price }}</td>
-                    <td>{{ $medicine->discount }}</td>
+                    <td>{{ $medicine->discount }}%</td>
                     <td>
                         <div class="acciones-box">
                             <div class="box-editar">

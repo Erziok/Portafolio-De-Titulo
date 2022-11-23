@@ -25,8 +25,8 @@ class ActualizarUsuarioRequest extends FormRequest
     {
         return [
             'run'=>'required',
-            'firstname'=>'required',
-            'lastname'=>'required',
+            'firstname'=>'required | alpha',
+            'lastname'=>'required | alpha',
             'email'=>'required',
             'role_id'=>'required',
         ];

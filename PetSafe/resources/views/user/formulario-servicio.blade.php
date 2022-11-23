@@ -9,6 +9,9 @@
 
     @section('content')
 
+    <!-- Select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
 <body>
     <section>
         <div class="publication-section">
@@ -69,7 +72,7 @@
 
                     <div class="col-lg-4 col-md-6 col-sm-12 form-box form-box-select">
                         <label class="form-label" for="form3Example1q">Tipo</label>
-                        <select class="form-select" name="type" id="type">
+                        <select class="form-select type" name="type" id="type">
                             <option value="" disabled selected>Seleccione un tipo</option>
                             @foreach ($types as $type)
                                 <option value="{{ $type->id }}">{{ $type->type }}</option>
@@ -504,6 +507,12 @@
     @endsection
 
 @section('JS')
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+    $(document).ready(function() {
+    $('.type, .hora-estandar').select2();
+    });
+</script>
 <script src="{{ asset('js/validate-service.js') }}"></script>
 <script src="{{ asset('js/select-schedules.js') }}"></script>
 <script src="{{ asset('js/select-hours.js') }}"></script>
