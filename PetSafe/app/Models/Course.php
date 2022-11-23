@@ -17,6 +17,7 @@ class Course extends Model
         'description',
         'objectives',
         'materials',
+        'active',
         'benefit_id',
     ];
 
