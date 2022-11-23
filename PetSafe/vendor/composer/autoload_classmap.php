@@ -86,6 +86,7 @@ return array(
     'App\\Models\\Favourite' => $baseDir . '/app/Models/Favourite.php',
     'App\\Models\\Medicine' => $baseDir . '/app/Models/Medicine.php',
     'App\\Models\\Publication' => $baseDir . '/app/Models/Publication.php',
+    'App\\Models\\Rating' => $baseDir . '/app/Models/Rating.php',
     'App\\Models\\Role' => $baseDir . '/app/Models/Role.php',
     'App\\Models\\Schedule' => $baseDir . '/app/Models/Schedule.php',
     'App\\Models\\Service' => $baseDir . '/app/Models/Service.php',

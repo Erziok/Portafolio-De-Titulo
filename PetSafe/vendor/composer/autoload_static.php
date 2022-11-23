@@ -623,6 +623,7 @@ class ComposerStaticInita448aa85606bec998049df7325f731c3
         'App\\Models\\Favourite' => __DIR__ . '/../..' . '/app/Models/Favourite.php',
         'App\\Models\\Medicine' => __DIR__ . '/../..' . '/app/Models/Medicine.php',
         'App\\Models\\Publication' => __DIR__ . '/../..' . '/app/Models/Publication.php',
+        'App\\Models\\Rating' => __DIR__ . '/../..' . '/app/Models/Rating.php',
         'App\\Models\\Role' => __DIR__ . '/../..' . '/app/Models/Role.php',
         'App\\Models\\Schedule' => __DIR__ . '/../..' . '/app/Models/Schedule.php',
         'App\\Models\\Service' => __DIR__ . '/../..' . '/app/Models/Service.php',
