@@ -7,7 +7,7 @@ use App\Http\Requests\Admin\User\ActualizarUsuarioRequest;
 use App\Http\Requests\Admin\User\GuardarUsuarioRequest;
 use App\Models\Role;
 use App\Models\User;
-use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -42,9 +42,9 @@ class UserController extends Controller
     public function store(GuardarUsuarioRequest $request)
     {
         if(User::create($request->validated())) {
-            toastr()->success('Usuario creado exitosamente', '¡Perfecto!');
+            Alert::toast('Usuario creado correctamente', 'success');
         }else {
-            toastr()->error('El usuario no se ha podido guardar', 'Oops...');
+            Alert::toast('Oops... No se ha podido guardar el usuario', 'error'); 
         }
         return redirect()->route('admin.user.index');
     }
@@ -82,9 +82,9 @@ class UserController extends Controller
     public function update(ActualizarUsuarioRequest $request, User $user)
     {
         if ($user->update($request->validated())) {
-            toastr()->success('Usuario actualizado exitosamente', '¡Perfecto!');
+            Alert::toast('Usuario actualizado correctamente', 'success');
         } else {
-            toastr()->error('El usuario no se ha podido actualizar', 'Oops...');
+            Alert::toast('Oops... No se ha podido actualizar el usuario', 'error'); 
         }
         return redirect()->route('admin.user.index');
     }
@@ -98,9 +98,9 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         if ($user->delete()) {
-            toastr()->success('Usuario eliminado exitosamente', '¡Perfecto!');         
+            Alert::toast('Usuario eliminado correctamente', 'success');         
         } else {
-            toastr()->error('El usuario no se ha podido eliminar', 'Oops...');     
+            Alert::toast('Oops... No se ha podido eliminar el usuario', 'error');     
         }
         return redirect()->route('admin.user.index');
     }

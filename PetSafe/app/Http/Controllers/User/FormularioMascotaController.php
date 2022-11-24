@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\FormularioMascotaRequest;
 use App\Models\Animal;
@@ -11,9 +10,7 @@ use App\Models\Breed;
 use App\Models\Category;
 use App\Models\Publication;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Symfony\Component\Console\Input\Input;
-use Spatie\Backtrace\File;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class FormularioMascotaController extends Controller
 {
@@ -72,7 +69,7 @@ class FormularioMascotaController extends Controller
             'animal_id' => $animal->id,
             'category_id'=> $request->category,
         ]);
-        toastr()->success('Publicación creada exitosamente', '¡Perfecto!');
+        Alert::toast('Publicación creada correctamente', 'success');
         return redirect()->route('publicaciones');
     }
 }

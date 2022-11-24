@@ -7,7 +7,7 @@ use App\Http\Requests\Admin\Publication\ActualizarPublicacionRequest;
 use App\Http\Requests\Admin\Publication\GuardarPublicacionRequest;
 use App\Models\Category;
 use App\Models\Publication;
-use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PublicacionController extends Controller
 {
@@ -43,9 +43,9 @@ class PublicacionController extends Controller
     public function store(GuardarPublicacionRequest $request)
     {
         if (Publication::create($request->validated())) {
-            toastr()->success('Publicación creada exitosamente', '¡Perfecto!');
+            Alert::toast('Publicación creada correctamente', 'success');
         }else {
-            toastr()->error('La publicación no se ha podido guardar', 'Oops...');    
+            Alert::toast('Oops... No se ha podido guardar la publicación', 'error');    
         }
         return redirect()->route('admin.publication.index');
     }
@@ -83,9 +83,9 @@ class PublicacionController extends Controller
     public function update(ActualizarPublicacionRequest $request, Publication $publication)
     {
         if ($publication->update($request->validated())) {
-            toastr()->success('Publicación Actualizada exitosamente', '¡Perfecto!');
+            Alert::toast('Publicación actualizada correctamente', 'success');
         } else {
-            toastr()->error('La publicación no se ha podido Actualizar', 'Oops...');    
+            Alert::toast('Oops... No se ha podido actualizar la publicación', 'error');    
         }
         return redirect()->route('admin.publication.index');
     }
@@ -99,9 +99,9 @@ class PublicacionController extends Controller
     public function destroy(Publication $publication)
     {
         if ($publication->delete()) {
-            toastr()->success('Publicación eliminada exitosamente', '¡Perfecto!');
+            Alert::toast('Publicación eliminada correctamente', 'success');
         } else {
-            toastr()->error('La publicación no se ha podido eliminar', 'Oops...');    
+            Alert::toast('Oops... No se ha podido eliminar la publicación', 'error');    
         }
         return redirect()->route('admin.publication.index');
     }

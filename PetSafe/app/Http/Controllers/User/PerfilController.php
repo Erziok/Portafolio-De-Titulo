@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\SearchRequest;
-use App\Models\Favourite;
 use App\Models\Publication;
-use App\Models\Role;
 use App\Models\User;
 
 class PerfilController extends Controller

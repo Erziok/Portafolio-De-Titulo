@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\User\CambiarAvatarRequest;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CambiarAvatarController extends Controller
 {
@@ -27,7 +27,7 @@ class CambiarAvatarController extends Controller
             ->update([
                 'avatar' => $imageUpload.$imageName,
             ]);
-        toastr()->success('Avatar actualizado exitosamente', '¡Perfecto!');
+        Alert::toast('Avatar actualizado correctamente', 'success');
         return redirect()->route('perfil');
     }
 }

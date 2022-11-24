@@ -4,11 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
 use App\Models\Benefit;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Benefit\ActualizarBeneficioRequest;
 use App\Http\Requests\Admin\Benefit\GuardarBeneficioRequest;
-use App\Http\Requests\Admin\Benefit\GuardarBeneficioController;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BenefitController extends Controller
 {
@@ -43,9 +42,9 @@ class BenefitController extends Controller
     public function store(GuardarBeneficioRequest $request)
     {
         if (Benefit::create($request->validated())) {
-            toastr()->success('Beneficio creado exitosamente', '¡Perfecto!');
+            Alert::toast('Beneficio creado correctamente', 'success');
         } else {
-            toastr()->error('El beneficio no se ha podido guardar', 'Oops...');    
+            Alert::toast('Oops... No se ha podido guardar el beneficio', 'error');
         }
         return redirect()->route('admin.benefit.index');
     }
@@ -83,9 +82,9 @@ class BenefitController extends Controller
     public function update(ActualizarBeneficioRequest $request, Benefit $benefit)
     {
         if ($benefit->update($request->validated())) {
-            toastr()->success('Beneficio actualizado exitosamente', '¡Perfecto!');
+            Alert::toast('Beneficio actualizado correctamente', 'success');
         } else {
-            toastr()->error('El beneficio no se ha podido actualizar', 'Oops...');    
+            Alert::toast('Oops... No se ha podido actualizar el beneficio', 'error');    
         }
         return redirect()->route('admin.benefit.index');
     }
@@ -99,9 +98,9 @@ class BenefitController extends Controller
     public function destroy(Benefit $benefit)
     {
         if ($benefit->delete()) {
-            toastr()->success('Beneficio eliminado exitosamente', '¡Perfecto!'); 
+            Alert::toast('Beneficio eliminado correctamente', 'success');
         } else {
-            toastr()->error('El beneficio no se ha podido eliminar', 'Oops...');
+            Alert::toast('Oops... No se ha podido eliminar el beneficio', 'error');
         }
         return redirect()->route('admin.benefit.index');
     }
