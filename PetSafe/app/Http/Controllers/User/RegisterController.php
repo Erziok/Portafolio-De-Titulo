@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\RegisterRequest;
 use App\Models\User;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class RegisterController extends Controller
 {
@@ -25,7 +25,7 @@ class RegisterController extends Controller
             'active'=> $request->input('active', 1),
             'role_id'=> $request->input('role_id', 2),
         ]);
-        toastr()->success('Te has registrado exitosamente', '¡Perfecto!');
+        Alert::toast('Te has registrado correctamente', 'success');
         return redirect()->route('login');
     }
 }

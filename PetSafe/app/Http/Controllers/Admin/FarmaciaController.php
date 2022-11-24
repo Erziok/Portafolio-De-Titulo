@@ -8,8 +8,7 @@ use App\Http\Requests\Admin\Medicine\GuardarMedicinaRequest;
 use App\Models\Benefit;
 use App\Models\Medicine;
 use App\Models\Specie;
-use Faker\Provider\Medical;
-use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class FarmaciaController extends Controller
 {
@@ -45,9 +44,9 @@ class FarmaciaController extends Controller
     public function store(GuardarMedicinaRequest $request)
     {
         if(Medicine::create($request->validated())) {
-            toastr()->success('Medicamento creado exitosamente', '¡Perfecto!');
+            Alert::toast('Medicamento creado correctamente', 'success');
         } else {
-            toastr()->error('El medicamento no se ha podido guardar', 'Oops...');    
+            Alert::toast('Oops... No se ha podido guardar el medicamento', 'error');   
         }
         return redirect()->route('admin.medicine.index');
     }
@@ -86,9 +85,9 @@ class FarmaciaController extends Controller
     public function update(ActualizarMedicinaRequest $request, Medicine $medicine)
     {
         if ($medicine->update($request->validated())) {
-            toastr()->success('Medicamento actualizado exitosamente', '¡Perfecto!');    
+            Alert::toast('Medicamento actualizado correctamente', 'success');    
         } else {
-            toastr()->error('El medicamento no se ha podido actualizar', 'Oops...');
+            Alert::toast('Oops... No se ha podido actualizar el medicamento', 'error');
         }
         return redirect()->route('admin.medicine.index');
     }
@@ -102,9 +101,9 @@ class FarmaciaController extends Controller
     public function destroy(Medicine $medicine)
     {
         if ($medicine->delete()) {
-            toastr()->success('Medicamento eliminado exitosamente', '¡Perfecto!');
+            Alert::toast('Medicamento eliminado correctamente', 'success');
         } else {
-            toastr()->error('El medicamento no se ha podido eliminar', 'Oops...');    
+            Alert::toast('Oops... No se ha podido eliminar el medicamento', 'error');    
         }
         return redirect()->route('admin.medicine.index');
     }

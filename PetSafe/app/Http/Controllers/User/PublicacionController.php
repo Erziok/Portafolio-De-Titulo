@@ -7,8 +7,6 @@ use App\Http\Requests\User\FilterRequest;
 use App\Http\Requests\User\SearchRequest;
 use App\Models\Favourite;
 use App\Models\Publication;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Config;
 
 class PublicacionController extends Controller

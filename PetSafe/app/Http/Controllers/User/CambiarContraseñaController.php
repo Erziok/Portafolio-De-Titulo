@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\User\CambiarContraseñaRequest;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CambiarContraseñaController extends Controller
 {
@@ -30,9 +30,10 @@ class CambiarContraseñaController extends Controller
                     ->update([
                         'password' => Hash::make($request -> password),
                     ]);
-                toastr()->success('Contraseña actualizada exitosamente', '¡Perfecto!');
+                    Alert::toast('Contraseña actualizada correctamente', 'success');
                 return redirect()->route('perfil'); 
             }
+            Alert::toast('Las contraseñas no coinciden', 'error');
             return back()->withErrors(['mensaje'=>'La contraseña es incorrecta']);
         }
 

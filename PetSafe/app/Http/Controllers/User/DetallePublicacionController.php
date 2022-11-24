@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\User\ComentarioRequest;
 use App\Models\Comment;
 use App\Models\Publication;
-use Illuminate\Http\Request;
 
 class DetallePublicacionController extends Controller
 {
