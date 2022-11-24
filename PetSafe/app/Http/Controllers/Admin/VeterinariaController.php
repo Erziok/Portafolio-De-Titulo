@@ -7,7 +7,7 @@ use App\Http\Requests\Admin\Veterinary\ActualizarVeterinariaRequest;
 use App\Http\Requests\Admin\Veterinary\GuardarVeterinariaRequest;
 use App\Models\Benefit;
 use App\Models\ClinicalProcedure;
-use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class VeterinariaController extends Controller
 {
@@ -42,9 +42,9 @@ class VeterinariaController extends Controller
     public function store(GuardarVeterinariaRequest $request)
     {
         if (ClinicalProcedure::create($request->validated())) {
-            toastr()->success('Procedimiento creado exitosamente', '¡Perfecto!');    
+            Alert::toast('Procedimiento creado correctamente', 'success');    
         } else {
-            toastr()->error('El procedimiento no se ha podido guardar', 'Oops...');
+            Alert::toast('Oops... No se ha podido guardar el procedimiento', 'error'); 
         }
         return redirect()->route('admin.veterinary.index');
     }
@@ -82,9 +82,9 @@ class VeterinariaController extends Controller
     public function update(ActualizarVeterinariaRequest $request, ClinicalProcedure $clinicalProcedure)
     {
         if ($clinicalProcedure->update($request->validated())) {
-            toastr()->success('Procedimiento actualizado exitosamente', '¡Perfecto!');
+            Alert::toast('Procedimiento actualizado correctamente', 'success');
         } else {
-            toastr()->error('El procedimiento no se ha podido actualizar', 'Oops...');    
+            Alert::toast('Oops... No se ha podido actualizar el procedimiento', 'error');    
         }
         return redirect()->route('admin.veterinaria.index');
     }
@@ -98,9 +98,9 @@ class VeterinariaController extends Controller
     public function destroy(ClinicalProcedure $clinicalProcedure)
     {
         if ($clinicalProcedure->delete()) {
-            toastr()->success('Procedimiento eliminado exitosamente', '¡Perfecto!');
+            Alert::toast('Procedimiento eliminado correctamente', 'success');
         } else {
-            toastr()->error('El procedimiento no se ha podido eliminar', 'Oops...');    
+            Alert::toast('Oops... No se ha podido eliminar el procedimiento', 'error');   
         }
         return redirect()->route('admin.veterinaria.index');
     }

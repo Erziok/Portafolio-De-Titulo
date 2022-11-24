@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\LoginRequest;
 use Illuminate\Support\Facades\Auth;
-use Brian2694\Toastr\Facades\Toastr;
+use RealRashid\SweetAlert\Facades\Alert;
+
 class LoginController extends Controller
 {
     public function index()
@@ -18,14 +18,14 @@ class LoginController extends Controller
     {
         if (Auth::attempt(['email'=>$request->email, 'password'=>$request->password], false)) {
             if (auth()->user()->role_id != 1) {
-                toastr()->success('Se ha iniciado sesión correctamente', '¡Perfecto!');
+                Alert::toast('Has iniciado sesión correctamente', 'success');
                 return redirect()->route('home');
             }
-            toastr()->success('Se ha iniciado sesión correctamente', '¡Perfecto!');
+            Alert::toast('Has iniciado sesión correctamente', 'success');
             return redirect()->route('admin.home');
         }
 
-        toastr()->error('Los datos ingresados no coinciden con nuestros registros', 'Oops...');
+        Alert::toast('Oops... No se ha podido iniciar sesión, intentelo de nuevo', 'error');
         return back()->withInput($request->input());
     }
 }

@@ -7,7 +7,7 @@ use App\Http\Requests\Admin\Course\ActualizarCursoRequest;
 use App\Http\Requests\Admin\Course\GuardarCursoRequest;
 use App\Models\Benefit;
 use App\Models\Course;
-use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CourseController extends Controller
 {
@@ -42,9 +42,9 @@ class CourseController extends Controller
     public function store(GuardarCursoRequest $request)
     {
         if (Course::create($request->validated())) {
-            toastr()->success('Curso creado exitosamente', '¡Perfecto!');
+            Alert::toast('Curso creado correctamente', 'success');
         } else { 
-            toastr()->error('El Curso no se ha podido guardar', 'Oops...');
+            Alert::toast('Oops... No se ha podido guardar el curso', 'error');
         }
         return redirect()->route('admin.course.index');
     }
@@ -82,9 +82,9 @@ class CourseController extends Controller
     public function update(ActualizarCursoRequest $request, Course $course)
     {
         if ($course->update($request->validated())) {
-            toastr()->success('Curso actualizado exitosamente', '¡Perfecto!');    
+            Alert::toast('Curso actualizado correctamente', 'success');    
         } else {
-            toastr()->error('El Curso no se ha podido actualizar', 'Oops...');
+            Alert::toast('Oops... No se ha podido actualizar el curso', 'error');
         }
         return redirect()->route('admin.course.index');
     }
@@ -98,9 +98,9 @@ class CourseController extends Controller
     public function destroy(Course $course)
     {
         if ($course->delete()) {
-            toastr()->success('Curso eliminado exitosamente', '¡Perfecto!');
+            Alert::toast('Curso eliminado correctamente', 'success');
         } else {
-            toastr()->error('El Curso no se ha podido eliminar', 'Oops...');    
+            Alert::toast('Oops... No se ha podido eliminar el curso', 'error');    
         }
         return redirect()->route('admin.user.index');
     }

@@ -5,10 +5,10 @@ namespace App\Http\Controllers\User;
 use App\Models\Type;
 use App\Models\Service;
 use App\Models\Schedule;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\User\FormularioServicioRequest;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class FormularioServicioController extends Controller
 {
@@ -66,7 +66,7 @@ class FormularioServicioController extends Controller
                 'service_id' => $service->id,
             ]);
         }
-        toastr()->success('Servicio creado exitosamente', '¡Perfecto!');
+        Alert::toast('Contraseña actualizada correctamente', 'success');
         return redirect()->route('servicios');
     }
 }

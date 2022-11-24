@@ -96,5 +96,6 @@
       </section>
       <script src="{{ asset('js/validateregister.js?v=').time() }}"></script>
       <script src="{{ asset('js/validaterut.js?v=').time() }}"></script>
+      @include('sweetalert::alert')
 </body>
 </html>

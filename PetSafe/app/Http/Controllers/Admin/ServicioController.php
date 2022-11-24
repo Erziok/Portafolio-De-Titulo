@@ -7,7 +7,7 @@ use App\Http\Requests\Admin\Service\ActualizarServicioRequest;
 use App\Http\Requests\Admin\Service\GuardarServicioRequest;
 use App\Models\Service;
 use App\Models\Type;
-use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ServicioController extends Controller
 {
@@ -42,9 +42,9 @@ class ServicioController extends Controller
     public function store(GuardarServicioRequest $request)
     {
         if (Service::create($request->validated())) {
-            toastr()->success('Servicio creado exitosamente', '¡Perfecto!');    
+            Alert::toast('Servicio creado correctamente', 'success');    
         } else {
-            toastr()->error('El Servicio no se ha podido guardar', 'Oops...');
+            Alert::toast('Oops... No se ha podido guardar el servicio', 'error');
         }
         return redirect()->route('admin.service.index');
     }
@@ -82,9 +82,9 @@ class ServicioController extends Controller
     public function update(ActualizarServicioRequest $request, Service $service)
     {
         if ($service->update($request->validated())) {
-            toastr()->success('Servicio actualizado exitosamente', '¡Perfecto!');    
+            Alert::toast('Servicio actualizado correctamente', 'success');    
         } else {
-            toastr()->error('El Servicio no se ha podido actualizar', 'Oops...');
+            Alert::toast('Oops... No se ha podido actualizar el servicio', 'error');
         }
         return redirect()->route('admin.service.index');
     }
@@ -98,9 +98,9 @@ class ServicioController extends Controller
     public function destroy(Service $service)
     {
         if ($service->delete()) {
-            toastr()->success('Servicio eliminado exitosamente', '¡Perfecto!');
+            Alert::toast('Servicio eliminado correctamente', 'success');
         } else {
-            toastr()->error('El Servicio no se ha eliminar guardar', 'Oops...');    
+            Alert::toast('Oops... No se ha podido eliminar el servicio', 'error');   
         }
         return redirect()->route('admin.service.index');
     }

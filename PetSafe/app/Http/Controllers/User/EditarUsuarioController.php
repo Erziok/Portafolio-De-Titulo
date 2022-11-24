@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\User\EditarUsuarioRequest;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class EditarUsuarioController extends Controller
 {
@@ -27,7 +26,7 @@ class EditarUsuarioController extends Controller
                 'firstname' => $request -> firstname,
                 'lastname' => $request -> lastname,
             ]);
-        toastr()->success('Perfil actualizado correctamente', '¡Perfecto!');
+        Alert::toast('Perfil actualizado correctamente', 'success');
         return redirect()->route('perfil'); 
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Web\GuardarConfiguracionRequest;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 use function PHPUnit\Framework\fileExists;
 
@@ -55,7 +56,7 @@ class WebController extends Controller
         fwrite($file,'];'.PHP_EOL);
         fclose($file);
 
-        toastr()->success('Configuración web guardada exitosamente', '¡Perfecto!');
+        Alert::toast('Procedimiento creado correctamente', 'success');    
         return redirect()->back();
     }
 

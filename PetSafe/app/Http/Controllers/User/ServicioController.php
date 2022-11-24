@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\FilterRequest;
 use App\Http\Requests\User\RegisterRequest;
 use App\Http\Requests\User\SearchRequest;
 use App\Models\Service;
-use App\Models\User;
 use Illuminate\Support\Facades\Config;
 
 class ServicioController extends Controller
