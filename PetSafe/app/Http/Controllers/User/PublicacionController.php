@@ -15,7 +15,7 @@ class PublicacionController extends Controller
 {
     public function index()
     {
-        $datos = Publication::with(['user', 'favourite'])->withCount(['comment', 'favourite'])->get()->paginate(Config::get('petsafe-web-config.paginatePublicationsBy'));
+        $datos = Publication::with(['user', 'favourite'])->withCount(['comment', 'favourite'])->latest()->get()->paginate(Config::get('petsafe-web-config.paginatePublicationsBy'));
         return view('user.publicaciones', compact('datos'));
     }
     public function search(SearchRequest $request) {

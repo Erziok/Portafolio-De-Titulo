@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div class="col-lg-12 mb-4 mb-sm-5">
-                <div>
+                <div class="row">
                     <span class="section-title text-primary mb-3 mb-sm-4">Información adicional</span>
                     <div class="card" style="width: 20rem;">
                         <div class="card-body">

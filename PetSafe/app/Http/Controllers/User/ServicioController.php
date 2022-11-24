@@ -15,7 +15,7 @@ class ServicioController extends Controller
 {
     public function index()
     {
-        $datos = Service::with(['user'])->get()->paginate(Config::get('petsafe-web-config.paginateServicesBy'));
+        $datos = Service::with(['user'])->latest()->get()->paginate(Config::get('petsafe-web-config.paginateServicesBy'));
         return view('user.servicios', compact('datos'));
     }
 

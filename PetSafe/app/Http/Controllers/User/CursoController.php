@@ -10,7 +10,7 @@ class CursoController extends Controller
 {
     public function index()
     {
-        $cursos = Course::with(['benefit'])->get()->paginate(10);
+        $cursos = Course::with(['benefit'])->latest()->get()->paginate(10);
         return view('user.curso', compact('cursos'));
     }
 }
