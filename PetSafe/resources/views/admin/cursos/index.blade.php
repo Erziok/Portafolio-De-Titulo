@@ -21,6 +21,8 @@
                 <th>Descripción</th>
                 <th>Objetivos</th>
                 <th>Materiales</th>
+                <th>Estado</th>
+                <th>Horario</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -33,6 +35,21 @@
                     <td>{{ Str::limit($course->description, 75) }}</td>
                     <td>{{ Str::limit($course->objectives, 75) }}</td>
                     <td>{{ $course->materials }}</td>
+                    {{ displayStatus($course->active) }}
+                    @if (count($course->session) == 0)
+                        <td>
+                            <a href="{{ route('admin.course.create-sessions', $course->id) }}" class="btn btn-primary">
+                                Añadir Agenda
+                            </a>
+                        </td>
+                    @else
+                        <td>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-con-sesiones" data-course="{{ $course->id }}" id="ver-detalles-agenda">
+                                ver detalles
+                            </button>
+                            <a href="{{ route('admin.course.edit-sessions', $course->id) }}" class="btn btn-warning text-light"><i class="fa-regular fa-pen-to-square"></i></a>
+                        </td>
+                    @endif
                     <td>
                         <div class="acciones-box">
                             <div class="box-editar">
@@ -60,10 +77,29 @@
                 <th>Descripción</th>
                 <th>Objetivos</th>
                 <th>Materiales</th>
+                <th>Estado</th>
+                <th>Horario</th>
                 <th>Acciones</th>
             </tr>
         </tfoot>
     </table>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modal-con-sesiones" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sesiones del Curso</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="body-modal-sesiones">
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
 
@@ -74,7 +110,7 @@
     <!--responsive-->
     <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap5.min.js"></script>
-
+    <script src="{{ asset('js/sessions-list.js') }}"></script>
     <script>
         $(document).ready(function () {
             $('#tabla-cursos').DataTable({

@@ -56,7 +56,7 @@
             </div>
             <div class="form-group mt-3">
                 <input type="submit" class="form-control btn btn-primary">
-            </div>
+            </div>  
         </form>
     </div>
 </div>

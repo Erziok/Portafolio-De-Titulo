@@ -861,3 +861,53 @@ a {
   width: 130px;
 }
 
+/*course calendar*/
+
+.box-calendar .calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.box-calendar .calendar-header .btn-calendar-month {
+  border: none;
+  padding: 13px 13px;
+  transition: .2s;
+}
+.box-calendar .calendar-header .btn-calendar-month:hover {
+  opacity: .3;
+}
+#calendar #calendar-body tr {
+  border-style: hidden;
+}
+
+#calendar #calendar-body .item-day{
+  cursor: pointer;
+}
+#calendar #calendar-body .item-day.active-date {
+  background: slateblue;
+  color: #fff;
+}
+.error-label {
+  color: red;
+  font-size: .90rem;
+  display: none;
+}
+
+.error-label.active {
+  display: block;
+}
+
+.horario-item{
+  position: relative;
+  background: #f8f8f8;
+  padding: 5px 10px;
+  border-radius: 4px;
+  max-width: 420px;
+}
+.horario-item .remove-horario-item {
+  position: absolute;
+  right: 10px;
+  top: 9px;
+  cursor: pointer;
+}
