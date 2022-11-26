@@ -20,6 +20,7 @@ return new class extends Migration
             $table->longText('description');
             $table->longText('objectives');
             $table->longText('materials');
+            $table->tinyInteger('active')->default('2');
             $table->foreignId('benefit_id')->nullable(true)->constrained();
             $table->timestamps();
             $table->softDeletes();
