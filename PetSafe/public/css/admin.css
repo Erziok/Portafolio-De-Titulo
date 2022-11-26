@@ -164,6 +164,10 @@ a {
 .app-header-navigation {
   font-size: .90rem;
 }
+
+.app-header-actions a {
+  text-decoration: none;
+}
 @media (max-width: 1200px) {
   .app-body-navigation {
     display: none;

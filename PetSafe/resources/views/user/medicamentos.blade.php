@@ -29,7 +29,7 @@
                                     <td>{{$medicamento->laboratory}}</td>
                                     <td>{{$medicamento->specie}}</td>
                                     <td>{{$medicamento->price}}</td>
-                                    <td>{{$medicamento->discount}}</td>
+                                    <td>{{$medicamento->discount}}%</td>
                                 </tr>
                             @endforeach
                         </table>

@@ -13,9 +13,9 @@
                     </h3>
                 </div>
                 <div class="quantity">
-                    <h3>12</h3>
+                    <h3>{{ $countPublications }}</h3>
                 </div>
-                <a href="#">
+                <a href="{{ route('admin.publication.index') }}">
                     <span>Ver Más</span>
                     <span class="icon-button">
                         <i class="fa-solid fa-chevron-right"></i>
@@ -31,9 +31,9 @@
                     </h3>
                 </div>
                 <div class="quantity">
-                    <h3>12</h3>
+                    <h3>{{ $countServices }}</h3>
                 </div>
-                <a href="#">
+                <a href="{{ route('admin.service.index') }}">
                     <span>Ver Más</span>
                     <span class="icon-button">
                         <i class="fa-solid fa-chevron-right"></i>
@@ -49,9 +49,9 @@
                     </h3>
                 </div>
                 <div class="quantity">
-                    <h3>12</h3>
+                    <h3>{{ $countUsers }}</h3>
                 </div>
-                <a href="#">
+                <a href="{{ route('admin.user.index') }}">
                     <span>Ver Más</span>
                     <span class="icon-button">
                         <i class="fa-solid fa-chevron-right"></i>

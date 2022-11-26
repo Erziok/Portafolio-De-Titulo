@@ -38,12 +38,16 @@
                 </div>
             </div>
             <div class="app-header-actions">
-                <button class="user-profile">
+                <a href="{{ route('perfil') }}" class="user-profile">
                     <span>{{Auth::user()->firstname}} {{Auth::user()->lastname}}</span>
                     <span>
-                        <img src="https://assets.codepen.io/285131/almeria-avatar.jpeg" />
+                        @if (Auth::user()->avatar == null)
+                            <img src="{{ asset('images/placeholder-user.jpg') }}" alt="...">
+                        @else  
+                            <img src="{{ asset(Auth::user()->avatar) }}" alt="...">
+                        @endif
                     </span>
-                </button>
+                </a>
                 <div class="app-header-actions-buttons">
                     <button class="icon-button large">
                         <i class="fa-solid fa-bell"></i>

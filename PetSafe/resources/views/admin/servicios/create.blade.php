@@ -1,10 +1,9 @@
 @extends('layouts.layout-admin')
 @section('title') Crear Servicio @endsection
+@section('CSS')
+<link rel="stylesheet" href="{{ asset('css/select-schedules.css?v=').time() }}">
+@endsection
 @section('content')
-
-<!-- Select2 -->
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <div class="app-body-main-content">
     <div class="form-box">
@@ -58,18 +57,17 @@
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
+        
             <div class="form-group mt-3">
                 <input type="submit" class="form-control btn btn-primary">
             </div>
+        
         </form>
     </div>
 </div>
 @endsection
 
 @section('JS')
-    <script>
-        $(document).ready(function() {
-        $('.type_id').select2();
-        });
-    </script>
+<script src="{{ asset('js/select-schedules.js') }}"></script>
+<script src="{{ asset('js/select-hours.js') }}"></script>
 @endsection

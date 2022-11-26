@@ -1,13 +1,11 @@
 @extends('layouts.layout-user')
 
 @section('title') Publicaciones @endsection
-
 @section('CSS')
     <link rel="stylesheet" href="{{ asset('/css/publicacion.css') }}">
 @endsection
 @section('content')
 
-    
 <body>
     <header class="my-5 mb-5">
         <div class="container px-lg-5">
