@@ -44,7 +44,7 @@
                         </td>
                     @else
                         <td>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-con-sesiones" data-course="{{ $course->id }}" id="ver-detalles-agenda">
+                            <button type="button" class="btn btn-primary ver-detalles-agenda" data-bs-toggle="modal" data-bs-target="#modal-con-sesiones" data-course="{{ $course->id }}">
                                 ver detalles
                             </button>
                             <a href="{{ route('admin.course.edit-sessions', $course->id) }}" class="btn btn-warning text-light"><i class="fa-regular fa-pen-to-square"></i></a>
