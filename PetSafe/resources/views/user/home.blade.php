@@ -96,7 +96,7 @@
           </div>
           
           <div class="col-lg-3 col-md-6 col-sm-12 item">
-            <a href="{{ route('farmacia') }}">
+            <a href="{{ route('medicamentos') }}">
               <div class="category-box text-center">
                 <img src="{{ asset('images/farmacia.ico') }}" alt="">
                 <p>Farmacia Municipal</p>

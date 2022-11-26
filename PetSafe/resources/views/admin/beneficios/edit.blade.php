@@ -71,7 +71,7 @@
 @section('JS')
     <script>
         $(document).ready(function() {
-        $('.user_id, .active').select2();
+        $('.user_id').select2();
         });
     </script>
 @endsection

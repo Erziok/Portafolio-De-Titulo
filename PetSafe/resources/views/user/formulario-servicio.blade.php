@@ -510,7 +510,7 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
     $(document).ready(function() {
-    $('.type, .hora-estandar').select2();
+    $('.hora-estandar').select2();
     });
 </script>
 <script src="{{ asset('js/validate-service.js') }}"></script>

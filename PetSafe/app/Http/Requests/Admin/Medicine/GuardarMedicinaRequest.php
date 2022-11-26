@@ -29,7 +29,7 @@ class GuardarMedicinaRequest extends FormRequest
             'function' => 'required',
             'implementation' => 'required',
             'laboratory' => 'required',
-            'specie' => 'required | alpha',
+            'specie' => 'required',
             'price' => 'required',
             'discount' => 'required',
             'benefit_id' => 'required',
