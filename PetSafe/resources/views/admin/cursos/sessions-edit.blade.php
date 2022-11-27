@@ -1,5 +1,5 @@
 @extends('layouts.layout-admin')
-@section('title') Crear Beneficio @endsection
+@section('title') Editar Sesiones @endsection
 @section('content')
 
 <!-- Select2 -->

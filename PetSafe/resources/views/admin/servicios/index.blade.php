@@ -1,7 +1,7 @@
 @extends('layouts.layout-admin')
 @section('title') Servicios @endsection
 @section('CSS')
-<!--DataTables-->
+    <!--DataTables-->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
     <!--Responsive-->
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap5.min.css">
@@ -17,13 +17,12 @@
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
-                <th>Dirección</th>
                 <th>Teléfono</th>
                 <th>Email</th>
                 <th>Descripción</th>
-                <th>Usuario</th>
                 <th>Tipo</th>
                 <th>Estado</th>
+                <th>Horario</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -32,13 +31,25 @@
                 <tr>
                     <td>{{ $service->id }}</td>
                     <td>{{ $service->name }}</td>
-                    <td>{{ $service->address }}</td>
                     <td>{{ $service->phone }}</td>
                     <td>{{ $service->email }}</td>
                     <td>{{ Str::limit($service->description, 75) }}</td>
-                    <td>{{ $service->User->firstname.' '.$service->User->lastname }}</td>
                     <td>{{ $service->Type->type }}</td>
                     {{ displayStatus($service->active) }}
+                    @if (count($service->schedule) == 0)
+                        <td>
+                            <a href="{{ route('admin.service.create-schedules', $service->id) }}" class="btn btn-primary">
+                                Añadir Horario
+                            </a>
+                        </td>
+                    @else
+                        <td>
+                            <button type="button" class="btn btn-primary ver-detalles-horario" data-bs-toggle="modal" data-bs-target="#modal-con-horarios" data-service="{{ $service->id }}">
+                                Ver Detalles
+                            </button>
+                            <a href="{{ route('admin.service.edit-schedules', $service->id) }}" class="btn btn-warning text-light"><i class="fa-regular fa-pen-to-square"></i></a>
+                        </td>
+                    @endif
                     <td>
                         <div class="acciones-box">
                             <div class="box-editar">
@@ -60,27 +71,45 @@
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
-                <th>Dirección</th>
                 <th>Teléfono</th>
                 <th>Email</th>
                 <th>Descripción</th>
-                <th>Usuario</th>
                 <th>Tipo</th>
                 <th>Estado</th>
+                <th>Horario</th>
                 <th>Acciones</th>
             </tr>
         </tfoot>
     </table>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal-con-horarios" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Horarios del Servicio</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="body-modal-horarios">
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('JS')
-<!--DataTables-->
+    <!--DataTables-->
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
     <!--responsive-->
     <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap5.min.js"></script>
+    <script src="{{ asset('js/schedules-list.js') }}"></script>
 
     <script>
         $(document).ready(function () {

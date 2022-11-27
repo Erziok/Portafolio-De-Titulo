@@ -1,105 +1,21 @@
-@extends('layouts.layout-user')
-
-@section('title') Formulario Servicio @endsection
-
+@extends('layouts.layout-admin')
+@section('title') Agregar Horario @endsection
 @section('CSS')
-<link rel="stylesheet" href="{{ asset('css/formulario-mascota.css?v=').time() }}">
 <link rel="stylesheet" href="{{ asset('css/select-schedules.css?v=').time() }}">
 @endsection
+@section('content')
 
-    @section('content')
+<!-- Select2 -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-    <!-- Select2 -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-<body>
-    <section>
-        <div class="publication-section">
-            <div class="section-title mb-4 mt-2">
-                <h2 class="text-center">Publicita tu servicio</h2>
-                <div class="hline"></div>
-            </div>
-            <form action="{{ route('formulario-servicio.create') }}" method="POST" id="form" enctype="multipart/form-data">
-                @csrf
-                <div class="row">
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 form-box form-box-text">
-                        <label class="form-label" for="form3Example1q">Nombre</label>
-                        <input type="text" id="petname" class="form-control" placeholder="Nombre" name="name"/>
-                        <small class="error-text">Ingrese un nombre correcto (mínimo 3 carácteres / solo letras)</small>
-                        @error('name')
-                          <strong style="color: darkred">{{ $message }}</strong>
-                        @enderror
-                    </div>
-                    
-                    <div class="col-lg-6 col-md-12 col-sm-12 form-box form-box-text">
-                        <label class="form-label" for="form3Example1q">Dirección</label>
-                        <input type="text" id="address" class="form-control" placeholder="Dirección" name="address"/>
-                        <small class="error-text">Ingrese al menos 5 carácteres</small>
-                        @error('address')
-                          <strong style="color: darkred">{{ $message }}</strong>
-                        @enderror
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-sm-12 form-box form-box-text">
-                        <label class="form-label" for="form3Example1q">Número de Teléfono</label>
-                        <input type="text" id="phone" class="form-control" placeholder="EJ: +56912345678" name="phone"/>
-                        <small class="error-text">Ingrese un número válido</small>
-                        @error('phone')
-                          <strong style="color: darkred">{{ $message }}</strong>
-                        @enderror
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-sm-12 form-box form-box-text">
-                        <label class="form-label" for="form3Example1q">Email</label>
-                        <input type="text" id="email" class="form-control" placeholder="EJ: ejemplo@gmail.com" name="email"/>
-                        <small class="error-text">Ingrese un email válido</small>
-                        @error('email')
-                          <strong style="color: darkred">{{ $message }}</strong>
-                        @enderror
-                    </div>                    
-
-                    <div class="col-lg-8 col-md-12 col-sm-12 form-box form-box-textarea">
-                        <label class="form-label" for="form3Example1q">Descripción</label>
-                        <textarea type="textarea" id="description" 
-                        class="form-control descripcion" placeholder="Ingrese aquí los detalles de su publicación" 
-                        name="description" rows="5"></textarea>
-                        <small class="error-text">Ingrese al menos 10 carácteres</small>
-                        @error('description')
-                          <strong style="color: darkred">{{ $message }}</strong>
-                        @enderror
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-sm-12 form-box form-box-select">
-                        <label class="form-label" for="form3Example1q">Tipo</label>
-                        <select class="form-select type" name="type" id="type">
-                            <option value="" disabled selected>Seleccione un tipo</option>
-                            @foreach ($types as $type)
-                                <option value="{{ $type->id }}">{{ $type->type }}</option>
-                            @endforeach
-                        </select>
-                        <small class="error-text">Seleccione una opción válida</small>
-                        @error('type')
-                          <strong style="color: darkred">{{ $message }}</strong>
-                        @enderror
-                    </div>        
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 form-box form-box-file">
-                        <label class="form-label" for="form3Example1q">Ingrese una fotografía</label><br>
-                        <input type="file" id="photo" class="form-control" 
-                        placeholder="" name="photo"/>
-                        <small class="error-text">Ingrese un archivo válido</small>
-                        @error('photo')
-                          <strong style="color: darkred">{{ $message }}</strong>
-                        @enderror
-                    </div>
-
-                </div>
-                {{-- <button type="submit" class="publication-btn" id="submit-btn">Publicar</button> --}}
-            <hr>
-
+<div class="app-body-main-content">
+    <div class="form-box">
+        <form action="{{ route('admin.service.store-schedules') }}" method="POST" id="form-store-schedules">
+            @csrf
+            
             {{-- Schedules --}}
-
+            <input type="hidden" name="service_id" value="{{ $service_id }}">
             <div class="select-container">
                 <h3 class="text-center">Seleccione un horario estandar:</h3>
                 <div class="horario-estandar text-center">
@@ -119,6 +35,12 @@
                         <option value="11:30">11:30</option>
                         <option value="12:00">12:00</option>
                     </select><br>
+                    @error('startHour')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                    @error('endHour')
+                            <small class="text-danger">{{ $message }}</small>
+                    @enderror
                     {{-- <p>Hora Final</p> --}}
                     <label class="form-label" for="form3Example1q">Hora Final</label>
                     <select class="hora-estandar" id="hora-fin" name="hora-fin">
@@ -498,23 +420,29 @@
                             </select>
                         </div>
                     </div>
-                    <button type="submit" class="publication-btn" id="submit-btn">Publicar</button>    
-                </form>              
-            </div>          
-        </div>
-    </section>
+                    @error('day')
+                            <small class="text-danger">{{ $message }}</small>
+                    @enderror
 
-    @endsection
+                    <div class="form-group mt-3">
+                        <input type="submit" class="form-control btn btn-primary">
+                    </div>
+
+                    </form>
+                </div>
+            </div>
+@endsection
 
 @section('JS')
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<script>
-    $(document).ready(function() {
-    $('.hora-estandar').select2();
-    });
-</script>
-<script src="{{ asset('js/validate-service.js') }}"></script>
-<script src="{{ asset('js/select-schedules.js') }}"></script>
-<script src="{{ asset('js/select-hours.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+        $('.hora-estandar').select2();
+        });
+    </script>
+    <script src="{{ asset('js/select-schedules.js') }}"></script>
+    <script src="{{ asset('js/select-hours.js') }}"></script>
 @endsection
-</body>
+
+
+

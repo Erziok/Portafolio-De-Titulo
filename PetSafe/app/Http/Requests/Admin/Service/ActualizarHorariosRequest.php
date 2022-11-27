@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\Service;
+namespace App\Http\Requests\admin\service;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ActualizarServicioRequest extends FormRequest
+class ActualizarHorariosRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,7 @@ class ActualizarServicioRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required',
-            'address'=>'required',
-            'phone'=>'required',
-            'email'=>'required',
-            'description'=>'required',
-            'active' => 'required',
-            'photo' => 'required',
-            'type_id'=>'required',
+            //
         ];
     }
 }

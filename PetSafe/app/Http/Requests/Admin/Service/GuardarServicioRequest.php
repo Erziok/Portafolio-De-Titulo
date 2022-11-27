@@ -13,7 +13,7 @@ class GuardarServicioRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -29,6 +29,7 @@ class GuardarServicioRequest extends FormRequest
             'phone'=>'required',
             'email'=>'required',
             'description'=>'required',
+            'photo' => 'required',
             'type_id'=>'required',
         ];
     }
