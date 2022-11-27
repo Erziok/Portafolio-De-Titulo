@@ -9,7 +9,7 @@
                     <i class="fa-solid fa-folder-open"></i>
                     <h3>
                         <span>Publicaciones</span>
-                        <span>Cuenta Activas.</span>
+                        <span>Activas</span>
                     </h3>
                 </div>
                 <div class="quantity">
@@ -27,7 +27,7 @@
                     <i class="fa-sharp fa-solid fa-shop"></i>
                     <h3>
                         <span>Servicios</span>
-                        <span>Cuenta Activos</span>
+                        <span>Activos</span>
                     </h3>
                 </div>
                 <div class="quantity">
@@ -45,7 +45,7 @@
                     <i class="fa-solid fa-user"></i>
                     <h3>
                         <span>Usuarios</span>
-                        <span>Cuentas activas</span>
+                        <span>Activos</span>
                     </h3>
                 </div>
                 <div class="quantity">

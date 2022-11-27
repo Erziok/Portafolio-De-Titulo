@@ -1,5 +1,5 @@
 @extends('layouts.layout-admin')
-@section('title') Crear Beneficio @endsection
+@section('title') Crear Curso @endsection
 @section('content')
 
 <div class="app-body-main-content">

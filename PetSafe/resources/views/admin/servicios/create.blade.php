@@ -7,7 +7,7 @@
 
 <div class="app-body-main-content">
     <div class="form-box">
-        <form action="{{ route('admin.service.store') }}" method="POST">
+        <form action="{{ route('admin.service.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group mt-3">
                 <label for="">Nombre</label>
@@ -57,7 +57,14 @@
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
-        
+            <div class="form-group mt-3">
+                <label for="">Foto Portada</label>
+                <input type="file" name="photo" id="" class="form-control">
+                @error('photo')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
+            </div>
+
             <div class="form-group mt-3">
                 <input type="submit" class="form-control btn btn-primary">
             </div>

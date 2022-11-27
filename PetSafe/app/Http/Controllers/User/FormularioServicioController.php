@@ -38,7 +38,7 @@ class FormularioServicioController extends Controller
             'description' => $request->description,
             'photo'=> $imageUpload.$imageName,
             'active'=> $request->input('active', 1),
-            'type_id' => $request->type,
+            'type_id' => $request->type_id,
             'user_id' => Auth::user()->id,
         ]);
 
@@ -66,7 +66,7 @@ class FormularioServicioController extends Controller
                 'service_id' => $service->id,
             ]);
         }
-        Alert::toast('Contraseña actualizada correctamente', 'success');
+        Alert::toast('Servicio creado correctamente', 'success');
         return redirect()->route('servicios');
     }
 }
