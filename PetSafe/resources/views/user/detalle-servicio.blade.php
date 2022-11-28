@@ -62,8 +62,8 @@
                     <div class = "detail-imgs">
                         <div class = "img-display">
                             <div class = "img-showcase">
-                                <img src="{{ asset('images/placeholder-image.jpg') }}" alt="">
-                                {{--<img src = "{{ asset($service->photo) }}" alt = "shoe image">--}}
+                                {{-- <img src="{{ asset('images/placeholder-image.jpg') }}" alt=""> --}}
+                                <img src = "{{ asset($service->photo) }}" alt = "shoe image">
                             </div>
                         </div>
                     </div>

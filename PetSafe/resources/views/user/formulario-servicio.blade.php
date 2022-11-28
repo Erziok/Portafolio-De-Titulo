@@ -72,14 +72,14 @@
 
                     <div class="col-lg-4 col-md-6 col-sm-12 form-box form-box-select">
                         <label class="form-label" for="form3Example1q">Tipo</label>
-                        <select class="form-select type" name="type" id="type">
+                        <select class="form-select type" name="type_id" id="type_id">
                             <option value="" disabled selected>Seleccione un tipo</option>
                             @foreach ($types as $type)
                                 <option value="{{ $type->id }}">{{ $type->type }}</option>
                             @endforeach
                         </select>
                         <small class="error-text">Seleccione una opción válida</small>
-                        @error('type')
+                        @error('type_id')
                           <strong style="color: darkred">{{ $message }}</strong>
                         @enderror
                     </div>        
