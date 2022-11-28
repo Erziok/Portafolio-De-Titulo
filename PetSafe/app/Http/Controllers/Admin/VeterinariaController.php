@@ -46,7 +46,7 @@ class VeterinariaController extends Controller
         } else {
             Alert::toast('Oops... No se ha podido guardar el procedimiento', 'error'); 
         }
-        return redirect()->route('admin.veterinary.index');
+        return redirect()->route('admin.clinicalProcedure.index');
     }
 
     /**
@@ -86,7 +86,7 @@ class VeterinariaController extends Controller
         } else {
             Alert::toast('Oops... No se ha podido actualizar el procedimiento', 'error');    
         }
-        return redirect()->route('admin.veterinaria.index');
+        return redirect()->route('admin.clinicalProcedure.index');
     }
 
     /**
@@ -102,6 +102,6 @@ class VeterinariaController extends Controller
         } else {
             Alert::toast('Oops... No se ha podido eliminar el procedimiento', 'error');   
         }
-        return redirect()->route('admin.veterinaria.index');
+        return redirect()->route('admin.clinicalProcedure.index');
     }
 }

@@ -40,6 +40,11 @@
                     </div>
 
                 </div>
+            </div>
+        </div>
+    </header>
+    
+    @endsection
 
     <!--
     <p class="fs-6">
@@ -78,4 +83,4 @@
     </p>
     -->
 
-    @endsection
+    
