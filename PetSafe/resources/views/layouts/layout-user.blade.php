@@ -238,7 +238,7 @@
 
     <!-- Footer-->
     <footer class="py-5 bg-dark">
-        <div class="container"><p class="m-0 text-center text-white">Copyright &copy; PetSafe 2022</p></div>
+        <div class="container"><p class="m-0 text-center text-white">Copyright &copy; <a class="credits" href="{{ route('creditos') }}">PetSafe 2022</a></p></div>
     </footer>
     @yield('JS')
      <script src="{{ asset('js/app.js') }}"></script>

@@ -1,0 +1,16 @@
+.credits-logo {
+    display: flex;
+    justify-content: center;
+}
+
+.credits-logo img {
+    width: 20%;
+}
+
+.roles {
+    margin-bottom: 30px;
+}
+
+.h4 {
+    color: #7c20fe;
+}
