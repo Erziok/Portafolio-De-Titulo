@@ -191,6 +191,14 @@ body, body * {
     z-index: 100;
 }
 
+.credits {
+    text-decoration: none;
+    color: #fbfbfb;
+    background-color: none;
+}
+
+
+
 
 
 

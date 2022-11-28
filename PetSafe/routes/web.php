@@ -33,8 +33,8 @@ Route::get('/ordenanza', [\App\Http\Controllers\User\OrdenanzaController::class,
 Route::get('/veterinaria', [\App\Http\Controllers\User\VeterinariaController::class, 'index'])
     ->name('veterinaria');
 
-Route::get('/farmacia', [\App\Http\Controllers\User\FarmaciaController::class, 'index'])
-    ->name('farmacia');
+Route::get('/creditos', [\App\Http\Controllers\User\CreditosController::class, 'index'])
+    ->name('creditos');
 
 Route::get('/servicios', [\App\Http\Controllers\User\ServicioController::class, 'index'])
     ->name('servicios');
@@ -71,6 +71,7 @@ Route::get('/detalle-servicio/{id}', [\App\Http\Controllers\User\DetalleServicio
 
 Route::get('/medicamentos', [\App\Http\Controllers\User\MedicamentosController::class, 'index'])
     ->name('medicamentos');
+    
 
 // Routes that need authentication
 Route::group(['middleware'=>'auth'] , function(){
@@ -147,5 +148,14 @@ Route::post('/register', [\App\Http\Controllers\User\RegisterController::class, 
 
 Route::post('/login', [\App\Http\Controllers\User\LoginController::class, 'loginUser'])
     ->name('login.create');
+
+
+
+
+
+
+
+
+
 
 
