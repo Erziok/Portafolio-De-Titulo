@@ -40,7 +40,7 @@
                     <td>
                         <div class="acciones-box">
                             <div class="box-editar">
-                                <a href=" {{ route('admin.publication.edit', $publication) }} "><button><i class="fa-solid fa-pencil"></i></button></a>
+                                <a href=" {{ route('admin.publication.edit', ['publication'=>$publication,'animal'=> $publication->animal]) }} "><button><i class="fa-solid fa-pencil"></i></button></a>
                             </div>
                             <div class="box-eliminar">
                                 <form action="{{ route('admin.publication.destroy', $publication) }}" method="POST">

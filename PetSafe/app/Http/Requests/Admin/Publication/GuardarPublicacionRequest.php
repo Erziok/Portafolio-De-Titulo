@@ -29,6 +29,12 @@ class GuardarPublicacionRequest extends FormRequest
             'description'=>'required',
             'active'=>'required',
             'category_id'=>'required',
+            'photo'=>'required',
+
+            'name'=>'required',
+            'breed_id'=>'required',
+            'gender'=>'required',
+            
         ];
     }
 }

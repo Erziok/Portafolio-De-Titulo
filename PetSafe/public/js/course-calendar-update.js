@@ -1,4 +1,6 @@
 let csfr_token = document.getElementsByName('csrf-token')[0].getAttribute('content');
+const base_url = document.getElementsByName('base-url')[0].getAttribute('content');
+
 
 let months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
 
@@ -184,7 +186,7 @@ btnGuardarAgenda.addEventListener('click', function(event) {
 
 $(document).ready(function(){
     $.ajax({
-        url:'../get-sessions/' + course_id,
+        url: base_url+'/admin/get-sessions/' + course_id,
         method:'post',
         data: {
             "_token": csfr_token

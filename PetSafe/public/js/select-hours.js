@@ -15,7 +15,7 @@ for (let i = 0; i < selectCheckbox.length; i++) {
             selectHourEnd[i].value = null
         }
     })
-    horaInicio.addEventListener('change', function () {
+    /*horaInicio.addEventListener('change', function () {
         if(selectCheckbox[i].checked == true){
             selectHourStart[i].value = horaInicio.value
             selectHourEnd[i].value = horaFin.value
@@ -32,8 +32,35 @@ for (let i = 0; i < selectCheckbox.length; i++) {
             selectHourStart[i].value = null
             selectHourEnd[i].value = null
         }
-    })
+    })*/
 }
+horaInicio.addEventListener('change', function () {
+    console.log('change');
+    for (let i = 0; i < selectCheckbox.length; i++) {
+        if(selectCheckbox[i].checked == true){
+            selectHourStart[i].value = horaInicio.value
+            selectHourEnd[i].value = horaFin.value
+            console.log('checked');
+        } else {
+            selectHourStart[i].value = null
+            selectHourEnd[i].value = null
+            console.log('unchecked');
+
+        }
+    }
+})
+horaFin.addEventListener('change', function () {
+    console.log('change');
+    for (let i = 0; i < selectCheckbox.length; i++) {
+        if(selectCheckbox[i].checked == true){
+            selectHourStart[i].value = horaInicio.value
+            selectHourEnd[i].value = horaFin.value
+        } else {
+            selectHourStart[i].value = null
+            selectHourEnd[i].value = null
+        }
+    }
+})
 
 
 

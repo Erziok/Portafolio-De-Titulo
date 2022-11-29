@@ -33,4 +33,7 @@ class Benefit extends Model
     public function medicine() {
         return $this->hasMany(Medicine::class, 'benefit_id', 'id');
     }
+    public function canineArea() {
+        return $this->hasMany(CanineArea::class, 'benefit_id', 'id');
+    }
 }

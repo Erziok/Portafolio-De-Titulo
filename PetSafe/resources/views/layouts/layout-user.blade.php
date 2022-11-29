@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{csrf_token()}}">
+    <meta name="base-url" content="{{ url('') }}">
     <title>{{ Config::get('petsafe-web-config.pageName') }} | @yield('title')</title>
     <link href="{{ asset('css/styles.css?v=').time() }}" rel="stylesheet" >
     <link href="{{ asset('css/main.css?v=').time() }}" rel="stylesheet" >

@@ -7,10 +7,7 @@
 <link rel="stylesheet" href="{{ asset('css/select-schedules.css?v=').time() }}">
 @endsection
 
-    @section('content')
-
-    <!-- Select2 -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+@section('content')
 
 <body>
     <section>
@@ -507,12 +504,6 @@
     @endsection
 
 @section('JS')
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<script>
-    $(document).ready(function() {
-    $('.hora-estandar').select2();
-    });
-</script>
 <script src="{{ asset('js/validate-service.js') }}"></script>
 <script src="{{ asset('js/select-schedules.js') }}"></script>
 <script src="{{ asset('js/select-hours.js') }}"></script>

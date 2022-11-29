@@ -4,7 +4,7 @@
 
 <div class="app-body-main-content">
     <div class="form-box">
-        <form action="{{ route('admin.service.update', $service) }}" method="POST">
+        <form action="{{ route('admin.service.update', $service) }}" method="POST" enctype="multipart/form-data"> 
             @csrf
             @method('PUT')
             <div class="form-group mt-3">
@@ -56,6 +56,13 @@
                     @endforelse
                 </select>
                 @error('type_id')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
+            </div>
+            <div class="form-group mt-3">
+                <label for="">Foto Portada</label>
+                <input type="file" name="photo" id="" class="form-control">
+                @error('photo')
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>

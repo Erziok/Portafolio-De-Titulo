@@ -11,6 +11,7 @@ const select = document.getElementById('select'),
     searchForm = document.getElementById('search-form');
 
 let csfr_token = document.getElementsByName('csrf-token')[0].getAttribute('content');
+const base_url = document.getElementsByName('base-url')[0].getAttribute('content');
 
 checkSearchInput();
 

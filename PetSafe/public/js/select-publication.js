@@ -1,9 +1,10 @@
+const base_url = document.getElementsByName('base-url')[0].getAttribute('content');
 const specie = document.getElementById('specie');
 const breed = document.getElementById('breed');
 
 specie.addEventListener('change', function() {
     $.ajax({
-        url:'formulario-mascota/'+specie.value,
+        url: base_url+'/formulario-mascota/'+specie.value,
         method:'GET',
         data:'',
         success:function(data){

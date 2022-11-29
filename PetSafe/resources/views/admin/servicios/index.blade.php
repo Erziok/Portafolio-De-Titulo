@@ -9,6 +9,12 @@
 
 @section('content')
 <div class="app-body-main-content">
+    @if (Session::has('message'))
+        <div class="alert alert-warning alert-dismissible fade show mt-4 mb-1" role="alert">
+            <strong>Recuerde</strong>, {{ Session::get('message') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <div class="box-agregar mt-3">
         <a href="{{ route('admin.service.create') }}"><button>Añadir Nuevo <i class="fa-solid fa-plus"></i></button></a>
     </div>
@@ -20,6 +26,7 @@
                 <th>Teléfono</th>
                 <th>Email</th>
                 <th>Descripción</th>
+                <th>Foto</th>
                 <th>Tipo</th>
                 <th>Estado</th>
                 <th>Horario</th>
@@ -34,6 +41,7 @@
                     <td>{{ $service->phone }}</td>
                     <td>{{ $service->email }}</td>
                     <td>{{ Str::limit($service->description, 75) }}</td>
+                    <td><div class="img-box"><img src="{{ asset($service->photo) }}"></div></td>
                     <td>{{ $service->Type->type }}</td>
                     {{ displayStatus($service->active) }}
                     @if (count($service->schedule) == 0)
@@ -74,6 +82,7 @@
                 <th>Teléfono</th>
                 <th>Email</th>
                 <th>Descripción</th>
+                <th>Foto</th>
                 <th>Tipo</th>
                 <th>Estado</th>
                 <th>Horario</th>

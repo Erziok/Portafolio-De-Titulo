@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\Service;
+namespace App\Http\Requests\Admin\CanineZones;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ActualizarServicioRequest extends FormRequest
+class ActualizarZonaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,12 @@ class ActualizarServicioRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required',
-            'address'=>'required',
-            'phone'=>'required',
-            'email'=>'required',
-            'description'=>'required',
-            'type_id'=>'required',
+            'title'=>'required',
+            'comment'=>'required',
+            'url'=>'required',
+            'photo'=>'required',
+            'benefit_id'=>'required',
+            'active'=>'required',
         ];
     }
 }

@@ -77,7 +77,8 @@ Route::group(['middleware'=>'auth'] , function(){
     Route::get('/formulario-mascota', [\App\Http\Controllers\User\FormularioMascotaController::class, 'index'])
     ->name('formulario-mascota');
 
-    Route::get('/formulario-mascota/{id}', [\App\Http\Controllers\User\FormularioMascotaController::class, 'getBreeds']);
+    Route::get('/formulario-mascota/{id}', [\App\Http\Controllers\User\FormularioMascotaController::class, 'getBreeds'])
+        ->name('formulario-mascota.breeds');
 
     Route::get('/formulario-servicio', [\App\Http\Controllers\User\FormularioServicioController::class, 'index'])
     ->name('formulario-servicio');
