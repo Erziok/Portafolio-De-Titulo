@@ -56,11 +56,25 @@
                 </div>
                 <div class="description-section col-lg-4">
                     <div class="detail-subtitle">
-                        <h2>{{ $object->animal->name }}</h2>
+                        <h2><b>{{ $object->animal->name }}</b></h2>
                     </div>
+                    <hr>
                     <div class="detail-description" id="detail-description">
                         {{ $object->description }}
+                    </div><br>
+                    <hr>
+                    <h2><b>Datos</b></h2>
+                    <div class="detail-breed" id="detail-breed">
+                        <b>Raza:</b> {{ $object->animal->breed->breed }}
                     </div>
+                    <div class="detail-gender" id="detail-gender">
+                        <b>Genero:</b> {{ $object->animal->gender }}
+                    </div>
+                    @if ($object->category_id == 2 || $object->category_id == 3)
+                        <div class="detail-date" id="detail-date">
+                            <b>Fecha del suceso:</b> {{ $object->incidentDate }}
+                        </div>
+                    @endif
                     <div class="show-more-box">
                         <button class="" id="show-more">Mostrar Más <i class="fa-solid fa-chevron-down"></i></button>
                     </div>
