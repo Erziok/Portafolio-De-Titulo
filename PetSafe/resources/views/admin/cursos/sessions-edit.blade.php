@@ -9,6 +9,7 @@
 <div class="app-body-main-content">
     <div class="form-box">
         <form action="{{ route('admin.course.update-sessions') }}" method="POST" id="form-store-sessions">
+            @method('PUT')
             @csrf
             <input type="hidden" name="course_id" value="{{ $course_id }}">
             <div class="row">

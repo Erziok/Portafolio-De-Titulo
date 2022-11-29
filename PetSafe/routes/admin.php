@@ -23,14 +23,20 @@ Route::group(['middleware' => 'validateAdmin', 'prefix' => '/admin', 'as' => 'ad
         ->name('course.store-sessions');
     Route::get('/edit-sessions/{course_id}', [App\Http\Controllers\Admin\CourseController::class, 'editSessions'])
         ->name('course.edit-sessions');
-    Route::post('/update-sessions', [App\Http\Controllers\Admin\CourseController::class, 'updateSessions'])
+    Route::put('/update-sessions', [App\Http\Controllers\Admin\CourseController::class, 'updateSessions'])
         ->name('course.update-sessions');
     Route::post('/get-sessions/{id}', [App\Http\Controllers\Admin\CourseController::class, 'getSessions'])
         ->name('course.get-sessions');
 
 
     Route::resource('medicine', App\Http\Controllers\Admin\FarmaciaController::class);
-    Route::resource('publication', App\Http\Controllers\Admin\PublicacionController::class);
+
+    Route::resource('publication', App\Http\Controllers\Admin\PublicacionController::class, ['except' => ['edit', 'update']]);
+    Route::get('/publication/edit/{publication}/{animal}', [App\Http\Controllers\Admin\PublicacionController::class, 'edit'])
+        ->name('publication.edit');
+    Route::put('/publication/update/{publication}/{animal}', [App\Http\Controllers\Admin\PublicacionController::class, 'update'])
+        ->name('publication.update');
+
     Route::resource('service', App\Http\Controllers\Admin\ServicioController::class);
     Route::get('/create-schedules/{service_id}', [App\Http\Controllers\Admin\ServicioController::class, 'createSchedules'])
         ->name('service.create-schedules');
@@ -38,11 +44,17 @@ Route::group(['middleware' => 'validateAdmin', 'prefix' => '/admin', 'as' => 'ad
         ->name('service.store-schedules');
     Route::get('/edit-schedules/{service_id}', [App\Http\Controllers\Admin\ServicioController::class, 'editSchedules'])
         ->name('service.edit-schedules');
+    Route::put('/update-schedule', [App\Http\Controllers\Admin\ServicioController::class, 'updateSchedules'])
+        ->name('service.update-schedule');
     Route::post('/get-schedules/{id}', [App\Http\Controllers\Admin\ServicioController::class, 'getSchedules'])
         ->name('service.get-schedules');
+
     Route::resource('user', App\Http\Controllers\Admin\UserController::class);
+
     Route::resource('clinicalProcedure', App\Http\Controllers\Admin\VeterinariaController::class);
-    Route::resource('zone', App\Http\Controllers\Admin\ZonaController::class);
+
+    Route::resource('canineArea', \App\Http\Controllers\Admin\CanineAreas::class);
+
     Route::resource('benefit', App\Http\Controllers\Admin\BenefitController::class);
 
     Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
@@ -50,6 +62,7 @@ Route::group(['middleware' => 'validateAdmin', 'prefix' => '/admin', 'as' => 'ad
     //Configuración Web
     Route::get('/web', [App\Http\Controllers\Admin\WebController::class, 'index'])
         ->name('web.index'); 
+
     Route::post('/web', [App\Http\Controllers\Admin\WebController::class, 'store'])
         ->name('web.index.store'); 
 });

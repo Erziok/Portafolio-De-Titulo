@@ -9,6 +9,12 @@
 
 @section('content')
 <div class="app-body-main-content">
+    @if (Session::has('message'))
+        <div class="alert alert-warning alert-dismissible fade show mt-4 mb-1" role="alert">
+            <strong>Recuerde</strong>, {{ Session::get('message') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <div class="box-agregar mt-3">
         <a href="{{ route('admin.course.create') }}"><button>Añadir Nuevo <i class="fa-solid fa-plus"></i></button></a>
     </div>

@@ -11,6 +11,7 @@ const select = document.getElementById('select'),
     searchForm = document.getElementById('search-form');
 
 let csfr_token = document.getElementsByName('csrf-token')[0].getAttribute('content');
+const base_url = document.getElementsByName('base-url')[0].getAttribute('content');
 
 checkSearchInput();
 
@@ -76,7 +77,7 @@ searchForm.addEventListener('submit', (event)=>{
 for (let i = 0; i < favBtn.length; i++) {
     favorite[i].addEventListener('click', function(){
         $.ajax({
-            url:'agregar-favorito/'+ this.dataset.fav,
+            url:base_url+'/agregar-favorito/'+ this.dataset.fav,
             type:'post',
             data: {
                 "_token": csfr_token
@@ -88,7 +89,7 @@ for (let i = 0; i < favBtn.length; i++) {
     })
     noFavorite[i].addEventListener('click', function(){
         $.ajax({
-            url:'quitar-favorito/'+ this.dataset.fav,
+            url:base_url+'/quitar-favorito/'+ this.dataset.fav,
             type:'post',
             data: {
                 "_token": csfr_token

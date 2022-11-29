@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Publication\ActualizarPublicacionRequest;
 use App\Http\Requests\Admin\Publication\GuardarPublicacionRequest;
+use App\Models\Animal;
 use App\Models\Category;
 use App\Models\Publication;
+use App\Models\Specie;
+use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PublicacionController extends Controller
@@ -18,7 +21,7 @@ class PublicacionController extends Controller
      */
     public function index()
     {
-        $publications = Publication::with(['user', 'category'])->get();
+        $publications = Publication::with(['user', 'category', 'animal'])->get();
         return view('admin.publicaciones.index', compact('publications'));
         
     }
@@ -30,8 +33,9 @@ class PublicacionController extends Controller
      */
     public function create()
     {
+        $species = Specie::all();
         $categories = Category::all();
-        return view('admin.publicaciones.create', compact('categories'));
+        return view('admin.publicaciones.create', compact('categories', 'species'));
     }
 
     /**
@@ -42,11 +46,16 @@ class PublicacionController extends Controller
      */
     public function store(GuardarPublicacionRequest $request)
     {
-        if (Publication::create($request->validated())) {
-            Alert::toast('Publicación creada correctamente', 'success');
-        }else {
-            Alert::toast('Oops... No se ha podido guardar la publicación', 'error');    
-        }
+        $fileRoute = "images/publications/";
+        $publicationImage = $request->file('photo');
+        $imageName = time().'-'.$publicationImage->getClientOriginalName();
+        $imageUpload = $fileRoute;
+        $publicationImage->move($imageUpload, $imageName);
+
+        $animal = Animal::create($request->only(['name','breed_id', 'gender']));
+        $publication = Publication::create($request->only(['title', 'category_id', 'incidentDate', 'description', 'active']) + ['photo'=> $imageUpload.$imageName, 'user_id'=>auth()->id(), 'animal_id'=>$animal->id]);
+        
+        Alert::toast('Publicación creada correctamente', 'success');
         return redirect()->route('admin.publication.index');
     }
 
@@ -67,10 +76,11 @@ class PublicacionController extends Controller
      * @param  \App\Models\Publication  $publication
      * @return \Illuminate\Http\Response
      */
-    public function edit(Publication $publication)
+    public function edit(Publication $publication, Animal $animal)
     {
         $categories = Category::all();
-        return view('admin.publicaciones.edit', compact('publication', 'categories'));
+        $species = Specie::all();
+        return view('admin.publicaciones.edit', compact('publication', 'categories', 'animal', 'species'));
     }
 
     /**
@@ -80,13 +90,25 @@ class PublicacionController extends Controller
      * @param  \App\Models\Publication  $publication
      * @return \Illuminate\Http\Response
      */
-    public function update(ActualizarPublicacionRequest $request, Publication $publication)
+    public function update(ActualizarPublicacionRequest $request, Publication $publication, Animal $animal)
     {
-        if ($publication->update($request->validated())) {
-            Alert::toast('Publicación actualizada correctamente', 'success');
-        } else {
-            Alert::toast('Oops... No se ha podido actualizar la publicación', 'error');    
+        if ($request->hasFile('photo')) {
+            $fileRoute = "images/publications/";
+            $publicationImage = $request->file('photo');
+            $imageName = time().'-'.$publicationImage->getClientOriginalName();
+            //Eliminacion e inserción
+            File::delete($publication->photo);
+
+            $imageUpload = $fileRoute;
+            $publicationImage->move($imageUpload, $imageName);
+
+            $animal->update($request->only(['name','breed_id', 'gender']));
+            $publication->update($request->only(['title', 'category_id', 'incidentDate', 'description', 'active']) + ['photo'=> $imageUpload.$imageName, 'user_id'=>auth()->id(), 'animal_id'=>$animal->id]);
         }
+        $animal->update($request->only(['name','breed_id', 'gender']));
+        $publication->update($request->only(['title', 'category_id', 'incidentDate', 'description', 'active']) + ['user_id'=>auth()->id(), 'animal_id'=>$animal->id]);
+        
+        Alert::toast('Publicación actualizada correctamente', 'success');
         return redirect()->route('admin.publication.index');
     }
 

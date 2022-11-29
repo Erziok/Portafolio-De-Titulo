@@ -1,10 +1,11 @@
 let csfr_token = document.getElementsByName('csrf-token')[0].getAttribute('content');
+const base_url = document.getElementsByName('base-url')[0].getAttribute('content');
 let btnVerDetalles = document.getElementsByClassName('ver-detalles-agenda');
 
 for (let i = 0; i < btnVerDetalles.length; i++) {
     btnVerDetalles[i].addEventListener('click', (evento)=>{
         $.ajax({
-            url:'get-sessions/' + btnVerDetalles[i].dataset.course,
+            url:base_url+'/admin/get-sessions/' + btnVerDetalles[i].dataset.course,
             method:'post',
             data: {
                 "_token": csfr_token

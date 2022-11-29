@@ -4,13 +4,11 @@
 
 @section('CSS')
 <link rel="stylesheet" href="{{ asset('css/formulario-mascota.css?v=').time() }}">
+<!-- Select2 -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 @endsection
 
     @section('content')
-
-    <!-- Select2 -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-
     <section>
         <div class="publication-section">
             <div class="section-title mb-4 mt-2">
@@ -126,8 +124,6 @@
                 </div>
                 <button type="submit" class="publication-btn" id="submit-btn">Publicar</button>
             </form>
-            
-            
         </div>
     </section>
 
@@ -139,7 +135,7 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
     $(document).ready(function() {
-    $('.breed').select2();
+        $('.breed').select2();
     });
 </script>
 <script src="{{ asset('js/select-publication.js?v=').time() }}"></script>

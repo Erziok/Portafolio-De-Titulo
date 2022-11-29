@@ -47,6 +47,7 @@ class CourseController extends Controller
     {
         if (Course::create($request->validated())) {
             Alert::toast('Curso creado correctamente', 'success');
+            return redirect()->route('admin.course.index')->with('message', 'El curso se activará automaticamente cuando se añada una agenda.');
         } else { 
             Alert::toast('Oops... No se ha podido guardar el curso', 'error');
         }
@@ -128,17 +129,19 @@ class CourseController extends Controller
         return view('admin.cursos.sessions-edit', compact('course_id'));
     }
     public function updateSessions(ActualizarSesionesRequest $request) {
-        Session::where('course_id', $request->course_id)->delete();
-
-        foreach ($request->date as $key => $value) {
-            Session::insert([
-                'date' => $request->date[$key],
-                'startHour' => $request->startHour[$key],
-                'endHour' => $request->endHour[$key],
-                'course_id' => $request->course_id,
-            ]);
+        if(Session::where('course_id', $request->course_id)->delete()) {
+            foreach ($request->date as $key => $value) {
+                Session::insert([
+                    'date' => $request->date[$key],
+                    'startHour' => $request->startHour[$key],
+                    'endHour' => $request->endHour[$key],
+                    'course_id' => $request->course_id,
+                ]);
+            }
+            Alert::toast('Agenda Actualizada correctamente', 'success');
+            return redirect()->route('admin.course.index');
         }
-        Alert::toast('Agenda Actualizada correctamente', 'success');
+        Alert::toast('Oops... ha ocurrido un error al intentar actualizar la agenda', 'error');
         return redirect()->route('admin.course.index');
     }
     public function getSessions($id) {
