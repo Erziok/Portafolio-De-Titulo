@@ -37,6 +37,7 @@ class ServicioController extends Controller
         if (isset($_GET['filter'])) {
             $datos = Service::where('type_id', e($request->filter))
             ->with('user')
+            ->latest()
             ->get()
             ->paginate(Config::get('petsafe-web-config.paginateServicesBy'));
 

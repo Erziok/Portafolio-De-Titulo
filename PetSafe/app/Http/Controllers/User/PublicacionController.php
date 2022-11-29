@@ -36,6 +36,7 @@ class PublicacionController extends Controller
             $datos = Publication::where('category_id', e($request->filter))
             ->with('user')
             ->withCount(['comment', 'favourite'])
+            ->latest()
             ->get()
             ->paginate(Config::get('petsafe-web-config.paginatePublicationsBy'));
 

@@ -52,7 +52,7 @@ class FormularioMascotaController extends Controller
         $publicationImage->move($imageUpload, $imageName);
 
         $animal = Animal::create([
-            'breed'=> $request->breed,
+            'breed_id'=> $request->breed,
             'specie'=> $request->specie,
             'gender'=> $request->gender,
             'name'=> $request->name,

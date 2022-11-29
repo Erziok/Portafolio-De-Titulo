@@ -71,6 +71,9 @@ Route::get('/detalle-servicio/{id}', [\App\Http\Controllers\User\DetalleServicio
 
 Route::get('/medicamentos', [\App\Http\Controllers\User\MedicamentosController::class, 'index'])
     ->name('medicamentos');
+
+Route::get('/detalle-curso/{id}', [\App\Http\Controllers\User\DetalleCursoController::class, 'index'])
+    ->name('detalle-curso');
     
 
 // Routes that need authentication
