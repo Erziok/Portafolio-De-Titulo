@@ -11,54 +11,15 @@
 <body>
     <header class="my-5 mb-5">
         <div class="container px-lg-5">
-            
             {{-- New Service button --}}
             <div class="new-publication-section ">
                 <div class="new-publication-container">
                     <div class="new-publication-item">
-                        @if ($serviciosPendientes)
+                        <a href="{{ route('formulario-servicio') }}">
                             <div class="new-publication-box text-center">
                                 <i class="fa-solid fa-plus"></i> Nuevo Servicio
-                            </div> 
-                        @else
-                            <a href="{{ route('formulario-servicio') }}">
-                                <div class="new-publication-box text-center">
-                                    <i class="fa-solid fa-plus"></i> Nuevo Servicio
-                                </div>  
-                            </a>
-                        @endif
-                    </div>
-                </div>
-            </div>
-            <div class="p-1 rounded-3 text-center">
-                <div class="m-2 m-lg-3 search-bar-container">
-                    <div class="search-bar">
-                        <div class="select-box" id="select">
-                            <div class="search-wrapper">
-                                <span id="select-text">Buscar Por</span>
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </div>
-                            <ul id="list">
-                                <form action="{{ route('service-filter') }}" method="GET" id="filter-form">
-                                    <input type="text" id="filter-input" class="d-none" name="filter">
-                                </form>
-                                <li class="options" value="4">Negocio</li>
-                                <li class="options" value="3">Pyme</li>
-                                <li class="options" value="2">Farmacia</li>
-                                <li class="options" value="1">Veterinaria</li>
-                            </ul>
-                        </div>
-                        <div class="input-box">
-                            <form action="{{ route('service-search') }}" method="GET" id="search-form">
-                                @if (!empty($valor))
-                                    <input type="text" placeholder="" id="search-inpt" value="{{ $valor }}" name="field">
-                                @else
-                                    <input type="text" placeholder="" id="search-inpt" name="field">
-                                @endif
-                                <i class="fa-solid fa-xmark remove-search-field" id="remove-search-field"></i>
-                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                            </form>
-                        </div>
+                            </div>  
+                        </a>
                     </div>
                 </div>
             </div>

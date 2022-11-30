@@ -5,43 +5,54 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\SearchRequest;
 use App\Models\Publication;
+use App\Models\Service;
 use App\Models\User;
+use Illuminate\Support\Facades\Config;
 
 class PerfilController extends Controller
 {
     public function index()
     {
-        //$datos = Publication::with(['user', 'favourite'])->withCount(['comment', 'favourite'])->where('user_id', auth() -> id())->get()->paginate(1); 
-        $datos = User::with(['publication', 'favourite', 'role'])->withCount(['publication', 'favourite'])->where('id', auth() -> id())->get()->paginate(1);
-        return view('user.perfil', compact('datos'));
-    }
-
-    public function search(SearchRequest $request) {
-        $valor = preg_replace("/[^A-Za-z0-9 ]/", '', $request->field);
-        if (isset($_GET['field'])) {
-            $datos = Publication::where('description', 'like','%'.e($valor).'%')
-            ->orWhere('title', 'like', '%' . e($valor) . '%')
-            ->with('user')->withCount('comment')
-            ->get()
-            ->paginate(10); 
-
-            $datos->appends($request->all());
-            return view('user.publicaciones', compact('datos', 'valor'));
-        } else {
-            return redirect()->route('publicaciones'); 
+        $datos = User::withCount([
+            'publication' => function ($q) {
+                $q->where('active', '<', 2);
+            }, 
+            'favourite',
+            'service' => function ($q) {
+                $q->where('active', '<', 2);
+            }
+        ])
+        ->where('id', auth()->id())
+        ->get()
+        ->paginate(Config::get('petsafe-web-config.paginateServicesBy'));
+        
+        $serviciosPendientes = Service::where('user_id', auth()->id())->where('active', 3)->first();
+        if (!empty($serviciosPendientes)) {
+            $mensajeRevision = "Recientemente has ingresado un servicio y este está pendiente de confirmación. Por el momento, no podrás crear nuevos servicios, pero una vez tu solicitud sea aprobada serás libre de publicarlos.";
+            return view('user.perfil', compact('datos', 'mensajeRevision'));
         }
+        $serviciosRechazados = Service::where('user_id', auth()->id())->where('active', 4)->first();
+        if(!empty($serviciosRechazados)) {
+            $serviciosRechazados->update(['active'=>5]);
+            $mensajeRechazo = "Recientemente has ingresado un servicio el cual fue rechazado tras la revisión de nuestro equipo. De todas formas, puedes volver a intentarlo siendo mas cuidadoso con el contenido que ingresas a PetSafe.";
+            return view('user.perfil', compact('datos', 'mensajeRechazo'));
+        }
+        return view('user.perfil', compact('datos'));
     }
 
     public function myPublications()
     {
-        $datos = Publication::with(['user', 'favourite'])->withCount(['comment', 'favourite'])->where('user_id', auth() -> id())->get()->paginate(10); 
+        $datos = Publication::with(['user', 'favourite'])->withCount(['comment', 'favourite'])->where('user_id', auth() -> id())->where('active','<',2)->get()->paginate(Config::get('petsafe-web-config.paginateServicesBy')); 
         return view('user.mis-publicaciones', compact('datos'));
     }
-
+    public function myServices()
+    {
+        $datos = Service::with(['user'])->where('user_id', auth()->id())->latest()->get()->where('active','<',2)->paginate(Config::get('petsafe-web-config.paginateServicesBy'));
+        return view('user.mis-servicios', compact('datos'));
+    }
     public function myFavourites()
     {
-        //$datos = Publication::with(['user', 'favourite'])->withCount(['comment', 'favourite'])->where('user_id', auth() -> id() && !empty('favourite'))->get()->paginate(10);
-        $datos = Publication::with(['user', 'favourite'])->withCount(['comment', 'favourite'])->whereRelation('favourite', 'user_id', auth() -> id())->get()->paginate(10);
+        $datos = Publication::with(['user', 'favourite'])->withCount(['comment', 'favourite'])->whereRelation('favourite', 'user_id', auth() -> id())->get()->paginate(Config::get('petsafe-web-config.paginateServicesBy'));
         return view('user.mis-favoritos', compact('datos'));
     }
 }

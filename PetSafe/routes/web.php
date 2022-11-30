@@ -57,15 +57,6 @@ Route::get('/curso-adiestramiento', [\App\Http\Controllers\User\CursoController:
 Route::get('/operativos-veterinarios', [\App\Http\Controllers\User\OperativosController::class, 'index'])
     ->name('operativos-veterinarios');
 
-Route::get('/perfil', [\App\Http\Controllers\User\PerfilController::class, 'index'])
-    ->name('perfil');
-
-Route::get('/mis-publicaciones', [\App\Http\Controllers\User\PerfilController::class, 'myPublications'])
-    ->name('mis-publicaciones');
-
-Route::get('/mis-favoritos', [\App\Http\Controllers\User\PerfilController::class, 'myFavourites'])
-    ->name('mis-favoritos');
-
 Route::get('/detalle-servicio/{id}', [\App\Http\Controllers\User\DetalleServicioController::class, 'index'])
     ->name('detalle-servicio');
 
@@ -74,6 +65,18 @@ Route::get('/medicamentos', [\App\Http\Controllers\User\MedicamentosController::
 
 // Routes that need authentication
 Route::group(['middleware'=>'auth'] , function(){
+    Route::get('/perfil', [\App\Http\Controllers\User\PerfilController::class, 'index'])
+    ->name('perfil');
+
+    Route::get('/mis-publicaciones', [\App\Http\Controllers\User\PerfilController::class, 'myPublications'])
+        ->name('mis-publicaciones');
+
+    Route::get('/mis-favoritos', [\App\Http\Controllers\User\PerfilController::class, 'myFavourites'])
+        ->name('mis-favoritos');
+        
+    Route::get('/mis-servicios', [\App\Http\Controllers\User\PerfilController::class, 'myServices'])
+        ->name('mis-servicios');
+
     Route::get('/formulario-mascota', [\App\Http\Controllers\User\FormularioMascotaController::class, 'index'])
     ->name('formulario-mascota');
 

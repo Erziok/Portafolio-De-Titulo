@@ -102,6 +102,10 @@
                         <i class="fa-solid fa-earth-americas"></i>
                         <span>Web</span>
                     </a>
+                    <a href="{{ route('admin.association.index') }}" class="{{ Request::is('admin/associations/requests') ? 'active' : '' }}">
+                        <i class="fa-solid fa-handshake"></i>
+                        <span>Solicitudes</span>
+                    </a>
                 </nav>
                 <footer class="footer"><br>
                     <h1>PetSafe<small>©</small></h1>

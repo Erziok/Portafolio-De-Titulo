@@ -12,7 +12,10 @@ class Role extends Model
     use SoftDeletes;
 
     public const is_admin = 1;
-    public const is_user = [2, 3];
+    public const is_neighbour = 2;
+    public const is_partner = 3;
+   
+
 
     protected $fillable = [
         'role',

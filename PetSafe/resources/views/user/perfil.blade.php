@@ -10,6 +10,18 @@
         <div class="row">
             <div class="col-lg-12 mb-4 mb-sm-5">
                 <div class="card card-style1 border-0">
+                    @if (isset($mensajeRevision))
+                        <div class="alert alert-warning alert-dismissible fade show mt-4 mb-1" role="alert">
+                            <strong>Atención.</strong> <?php echo $mensajeRevision ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+                    @if (isset($mensajeRechazo))
+                        <div class="alert alert-warning alert-dismissible fade show mt-4 mb-1" role="alert">
+                            <strong>Atención.</strong> <?php echo $mensajeRechazo ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
                     <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
                         <div class="row align-items-center">
                             <div class="col-lg-6 mb-4 mb-lg-0">
@@ -61,7 +73,6 @@
                         <div class="card-body">
                           <h5 class="card-title">Publicaciones</h5>
                           <h6 class="card-subtitle mb-2 text-muted">{{$datos[0]->publication_count}} realizadas</h6>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                           @if (($datos[0]->publication_count) != 0)
                             <a href="{{ route('mis-publicaciones')}}" class="btn publications-btn btn-sm" role="button" aria-disabled="true">Ver publicaciones</a>
                           @else
@@ -74,11 +85,26 @@
                         <div class="card-body">
                           <h5 class="card-title">Favoritos</h5>
                           <h6 class="card-subtitle mb-2 text-muted">{{$datos[0]->favourite_count}} guardadas</h6>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                           @if (($datos[0]->favourite_count) != 0)
                             <a href="{{ route('mis-favoritos')}}" class="btn favourites-btn btn-sm" role="button" aria-disabled="true">Ver favoritos</a>
                           @else
                             <a href="#" class="btn favourites-btn btn-sm disabled" role="button" aria-disabled="true">Ver favoritos</a>
+                          @endif
+                        </div>
+                    </div>
+                    <div class="card" style="width: 20rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">Servicios</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">{{$datos[0]->service_count}} publicados</h6>
+                          @if (($datos[0]->service_count) != 0)
+                            <a href="{{ route('mis-servicios')}}" class="btn favourites-btn btn-sm" role="button" aria-disabled="true">Ver Servicios</a>
+                          @else
+                            <a href="#" class="btn favourites-btn btn-sm disabled" role="button" aria-disabled="true">Ver Servicios</a>
+                          @endif
+                          @if (isset($mensajeRevision))
+                            <a href="#" class="btn btn-secondary btn-sm disabled" role="button" aria-disabled="true">Publicar servicio</a>
+                          @else
+                            <a href="{{ route('formulario-servicio') }}" class="btn btn-secondary btn-sm" role="button" aria-disabled="true">Publicar servicio</a>
                           @endif
                         </div>
                     </div>

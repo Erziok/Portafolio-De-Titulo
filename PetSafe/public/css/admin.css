@@ -18,6 +18,9 @@
   --c-text-secondary: var(--c-gray-200);
   --c-text-tertiary: var(--c-gray-500);
 }
+.card {
+  aspect-ratio: auto !important;
+}
 
 .f-size-sm {
   font-size: .9rem !important;
@@ -821,11 +824,11 @@ a {
 .app-body-main-content table tbody div:last-child {
   margin-left: 4px;
 }
-.app-body-main-content table tbody .img-box {
+.app-body-main-content .img-box {
   width: 100%;
   height: 100%;
 }
-.app-body-main-content table tbody .img-box img{
+.app-body-main-content .img-box img{
   width: 100%;
   height: 60px;
   border-radius: 4px;
