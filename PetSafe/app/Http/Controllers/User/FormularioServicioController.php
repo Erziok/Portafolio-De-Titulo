@@ -12,6 +12,9 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class FormularioServicioController extends Controller
 {
+    public function __construct(){
+        $this->middleware('isBeingApproved');
+    }
     public function index()
     {
         $types = Type::all();
@@ -20,6 +23,10 @@ class FormularioServicioController extends Controller
 
     public function registerService(FormularioServicioRequest $request)
     {
+        $statusService = 1;
+        if (auth()->user()->role_id == 2) {
+            $statusService = 3;
+        }
 
         $fileRoute = 'images/services_img/';
         $userImage = $request -> file('photo');
@@ -37,7 +44,7 @@ class FormularioServicioController extends Controller
             'email' => $request->email,
             'description' => $request->description,
             'photo'=> $imageUpload.$imageName,
-            'active'=> $request->input('active', 1),
+            'active'=> $statusService,
             'type_id' => $request->type_id,
             'user_id' => Auth::user()->id,
         ]);

@@ -65,4 +65,14 @@ Route::group(['middleware' => 'validateAdmin', 'prefix' => '/admin', 'as' => 'ad
 
     Route::post('/web', [App\Http\Controllers\Admin\WebController::class, 'store'])
         ->name('web.index.store'); 
+
+    //asociaciones
+    Route::get('/associations/requests', [\App\Http\Controllers\Admin\AssociationController::class, 'index'])
+        ->name('association.index');
+    Route::get('/associations/requests/approve/{service}/{user}', [\App\Http\Controllers\Admin\AssociationController::class, 'approveRequest'])
+        ->name('association.approve');
+    Route::get('/associations/requests/deny/{service}', [\App\Http\Controllers\Admin\AssociationController::class, 'denyRequest'])
+        ->name('association.deny');
+    Route::get('/associations/requests/{id}', [\App\Http\Controllers\Admin\AssociationController::class, 'getRequests'])
+        ->name('association.getRequests');
 });

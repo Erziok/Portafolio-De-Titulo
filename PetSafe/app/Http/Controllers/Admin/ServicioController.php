@@ -23,7 +23,7 @@ class ServicioController extends Controller
      */
     public function index()
     {
-        $services = Service::with(['user', 'type', 'schedule'])->get();
+        $services = Service::with(['user', 'type', 'schedule'])->where('active', '<', '3')->get();
         return view('admin.servicios.index', compact('services'));
     }
 

@@ -29,9 +29,6 @@ class Service extends Model
     public function type() {
         return $this->belongsTo(Type::class, 'type_id');
     }
-    public function medicine() {
-        return $this->hasMany(Medicine::class, 'service_id', 'id');
-    }
     public function schedule() {
         return $this->hasMany(Schedule::class, 'service_id', 'id');
     }
