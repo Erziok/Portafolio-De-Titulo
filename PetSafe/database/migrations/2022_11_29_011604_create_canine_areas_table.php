@@ -19,7 +19,7 @@ return new class extends Migration
             $table->longText('comment');
             $table->string('url');
             $table->string('photo');
-            $table->tinyInteger('active')->default('2');
+            $table->tinyInteger('active')->default('1');
             $table->foreignId('benefit_id')->nullable(true)->constrained();
             $table->timestamps();
             $table->softDeletes();
