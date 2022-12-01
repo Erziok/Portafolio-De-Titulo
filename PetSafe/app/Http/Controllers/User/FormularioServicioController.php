@@ -8,6 +8,7 @@ use App\Models\Schedule;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\User\FormularioServicioRequest;
+use App\Models\ServiceType;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class FormularioServicioController extends Controller
@@ -17,7 +18,7 @@ class FormularioServicioController extends Controller
     }
     public function index()
     {
-        $types = Type::all();
+        $types = ServiceType::all();
         return view('user.formulario-servicio')->with(compact('types'));
     }
 
@@ -45,7 +46,7 @@ class FormularioServicioController extends Controller
             'description' => $request->description,
             'photo'=> $imageUpload.$imageName,
             'active'=> $statusService,
-            'type_id' => $request->type_id,
+            'service_type_id' => $request->service_type_id,
             'user_id' => Auth::user()->id,
         ]);
 

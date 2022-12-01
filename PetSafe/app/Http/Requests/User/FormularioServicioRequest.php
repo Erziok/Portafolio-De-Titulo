@@ -29,7 +29,7 @@ class FormularioServicioRequest extends FormRequest
             'phone' => 'required',
             'email' => 'required | email',
             'description' => 'required',
-            'type_id' => 'required',
+            'service_type_id' => 'required',
         ];
     }
 }
