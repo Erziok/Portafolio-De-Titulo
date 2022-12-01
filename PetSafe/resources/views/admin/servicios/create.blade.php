@@ -46,14 +46,14 @@
             </div>
             <div class="form-group mt-3">
                 <label for="">Tipo de Servicio</label>
-                <select name="type_id" id="" class="form-control type_id" aria-label="Default select example">
+                <select name="service_type_id" id="" class="form-control type_id" aria-label="Default select example">
                     @forelse ($types as $type)
                         <option value="{{ $type->id }}"> {{ $type->type }} </option>
                     @empty
                         <option selected disabled>No hay tipos disponibles.</option>
                     @endforelse
                 </select>
-                @error('type_id')
+                @error('service_type_id')
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>

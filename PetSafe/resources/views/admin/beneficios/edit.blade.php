@@ -56,10 +56,27 @@
                         <option value="{{ $user->id }}">{{ $user->firstname.' '. $user->lastname}}</option>
                     @endforeach
                 </select>
-            </div>
-            @error('user_id')
+                @error('user_id')
                     <small class="text-danger">{{ $message }}</small>
-            @enderror
+                @enderror
+            </div>
+            <div class="form-group mt-3">
+                <label for="">Tipo de Beneficio</label>
+                <select name="benefit_type_id" id="" class="form-control type_id" aria-label="Default select example">
+                    @forelse ($types as $type)
+                        @if ($benefit->benefit_type_id == $type->id)
+                            <option value="{{ $type->id }}" selected> {{ $type->type }} </option>
+                        @else
+                            <option value="{{ $type->id }}"> {{ $type->type }} </option>
+                        @endif
+                    @empty
+                        <option selected disabled>No hay tipos disponibles.</option>
+                    @endforelse
+                </select>
+                @error('benefit_type_id')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
+            </div>
             <div class="form-group mt-3">
                 <input type="submit" class="form-control btn btn-primary">
             </div>

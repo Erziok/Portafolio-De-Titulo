@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Benefit;
 
 class ZonasController extends Controller
 {
     public function index()
     {
-        return view('user.zonas');
+        $beneficio = Benefit::with('canineArea')->where('benefit_type_id', 3)->first();
+        return view('user.zonas', compact('beneficio'));
     }
 }

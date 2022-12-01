@@ -27,7 +27,8 @@ class ActualizarBeneficioRequest extends FormRequest
             'name' => 'required',
             'description' => 'required',
             'active' => 'required',
-            'user_id' => 'required'
+            'user_id' => 'required',
+            'benefit_type_id' => 'required'
         ];
     }
 }

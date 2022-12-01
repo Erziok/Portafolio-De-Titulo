@@ -7,6 +7,7 @@ use App\Models\Benefit;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Benefit\ActualizarBeneficioRequest;
 use App\Http\Requests\Admin\Benefit\GuardarBeneficioRequest;
+use App\Models\BenefitType;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class BenefitController extends Controller
@@ -18,7 +19,7 @@ class BenefitController extends Controller
      */
     public function index()
     {
-        $benefits = Benefit::with(['user'])->get();
+        $benefits = Benefit::with(['user', 'type'])->get();
         return view('admin.beneficios.index', compact('benefits'));
     }
 
@@ -30,7 +31,8 @@ class BenefitController extends Controller
     public function create()
     {
         $users = User::all();
-        return view('admin.beneficios.create', compact('users'));
+        $types = BenefitType::all();
+        return view('admin.beneficios.create', compact('users', 'types'));
     }
 
     /**
@@ -69,7 +71,8 @@ class BenefitController extends Controller
     public function edit(Benefit $benefit)
     {
         $users = User::all();
-        return view('admin.beneficios.edit', compact('benefit', 'users'));
+        $types = BenefitType::all();
+        return view('admin.beneficios.edit', compact('benefit', 'users', 'types'));
     }
 
     /**

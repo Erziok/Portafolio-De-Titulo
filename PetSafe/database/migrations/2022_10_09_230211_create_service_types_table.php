@@ -14,18 +14,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('types', function (Blueprint $table) {
+        Schema::create('service_types', function (Blueprint $table) {
             $table->id();
             $table->string('type', 100);
             $table->timestamps();
             $table->softDeletes();
         });
 
-        DB::table('types')->insert([     
-            ['type' => 'Veterinaria'],     
-            ['type' => 'Farmacia'], 
+        DB::table('service_types')->insert([      
             ['type' => 'Pyme'],
-            ['type' => 'Negocio'],
+            ['type' => 'Empresa'],
         ]);
     }
 

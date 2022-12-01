@@ -26,7 +26,8 @@ class GuardarBeneficioRequest extends FormRequest
         return [
             'name' => 'required',
             'description' => 'required',
-            'active' => 'required'
+            'active' => 'required',
+            'benefit_type_id' => 'required'
         ];
     }
 }

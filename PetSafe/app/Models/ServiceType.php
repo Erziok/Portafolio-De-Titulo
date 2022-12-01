@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Type extends Model
+class ServiceType extends Model
 {
     use HasFactory;
     use SoftDeletes;
@@ -15,6 +15,6 @@ class Type extends Model
         'type',
     ];
     public function service() {
-        return $this->hasMany(Service::class, 'type_id');
+        return $this->hasMany(Service::class, 'service_type_id');
     }
 }

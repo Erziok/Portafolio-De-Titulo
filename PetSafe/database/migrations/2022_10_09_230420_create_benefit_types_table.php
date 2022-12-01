@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -13,17 +14,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('canine_areas', function (Blueprint $table) {
+        Schema::create('benefit_types', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->longText('comment');
-            $table->string('url');
-            $table->string('photo');
-            $table->tinyInteger('active')->default('2');
-            $table->foreignId('benefit_id')->nullable(true)->constrained();
+            $table->string('type', 100);
             $table->timestamps();
             $table->softDeletes();
         });
+        
+        DB::table('benefit_types')->insert([     
+            ['type' => 'veterinaria'],     
+            ['type' => 'farmacia'], 
+            ['type' => 'zonas caninas'],
+            ['type' => 'curso municipal'],
+        ]);
     }
 
     /**
@@ -33,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('canine_areas');
+        Schema::dropIfExists('benefit_types');
     }
 };
