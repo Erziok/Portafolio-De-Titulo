@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Http\\Controllers\\Admin\\AssociationController' => $baseDir . '/app/Http/Controllers/Admin/AssociationController.php',
     'App\\Http\\Controllers\\Admin\\BenefitController' => $baseDir . '/app/Http/Controllers/Admin/BenefitController.php',
     'App\\Http\\Controllers\\Admin\\CanineAreas' => $baseDir . '/app/Http/Controllers/Admin/CanineAreas.php',
     'App\\Http\\Controllers\\Admin\\CourseController' => $baseDir . '/app/Http/Controllers/Admin/CourseController.php',
@@ -27,7 +28,6 @@ return array(
     'App\\Http\\Controllers\\User\\DetallePublicacionController' => $baseDir . '/app/Http/Controllers/User/DetallePublicacionController.php',
     'App\\Http\\Controllers\\User\\DetalleServicioController' => $baseDir . '/app/Http/Controllers/User/DetalleServicioController.php',
     'App\\Http\\Controllers\\User\\EditarUsuarioController' => $baseDir . '/app/Http/Controllers/User/EditarUsuarioController.php',
-    'App\\Http\\Controllers\\User\\FarmaciaController' => $baseDir . '/app/Http/Controllers/User/FarmaciaController.php',
     'App\\Http\\Controllers\\User\\FormularioMascotaController' => $baseDir . '/app/Http/Controllers/User/FormularioMascotaController.php',
     'App\\Http\\Controllers\\User\\FormularioServicioController' => $baseDir . '/app/Http/Controllers/User/FormularioServicioController.php',
     'App\\Http\\Controllers\\User\\HomeController' => $baseDir . '/app/Http/Controllers/User/HomeController.php',
@@ -50,6 +50,7 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\ValidateSignature' => $baseDir . '/app/Http/Middleware/ValidateSignature.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+    'App\\Http\\Middleware\\isBeingApproved' => $baseDir . '/app/Http/Middleware/isBeingApproved.php',
     'App\\Http\\Middleware\\validateAdmin' => $baseDir . '/app/Http/Middleware/validateAdmin.php',
     'App\\Http\\Requests\\Admin\\Benefit\\ActualizarBeneficioRequest' => $baseDir . '/app/Http/Requests/Admin/Benefit/ActualizarBeneficioRequest.php',
     'App\\Http\\Requests\\Admin\\Benefit\\GuardarBeneficioRequest' => $baseDir . '/app/Http/Requests/Admin/Benefit/GuardarBeneficioRequest.php',

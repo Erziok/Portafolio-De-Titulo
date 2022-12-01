@@ -20,6 +20,7 @@ return new class extends Migration
             $table->longText('description');
             $table->tinyInteger('active');
             $table->foreignId('user_id')->nullable(true)->constrained();
+            $table->foreignId('benefit_type_id')->nullable(true)->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,15 +29,18 @@ return new class extends Migration
             ['name' => 'Veterinaria Municipal',
              'description' => 'Veterinarias bajo el funcionamiento de la municipalidad',
              'active' => 1,
+             'benefit_type_id' => 1,
             ],   
 
             ['name' => 'Curso municipal',
              'description' => 'Cursos gestionados por la municipalidad',
              'active' => 1,
+             'benefit_type_id' => 4,
             ], 
             ['name' => 'Procedimiento clinico',
              'description' => 'Procedimientos clinicos organizados por la municipalidad',
              'active' => 1,
+             'benefit_type_id' => 1,
             ],
         ]);
     }

@@ -19,7 +19,7 @@ class Service extends Model
         'description',
         'photo',
         'active',
-        'type_id',
+        'service_type_id',
         'user_id',
     ];
 
@@ -27,7 +27,7 @@ class Service extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
     public function type() {
-        return $this->belongsTo(Type::class, 'type_id');
+        return $this->belongsTo(ServiceType::class, 'service_type_id');
     }
     public function schedule() {
         return $this->hasMany(Schedule::class, 'service_id', 'id');

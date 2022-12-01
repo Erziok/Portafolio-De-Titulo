@@ -29,7 +29,7 @@ class ActualizarServicioRequest extends FormRequest
             'phone'=>'required',
             'email'=>'required',
             'description'=>'required',
-            'type_id'=>'required',
+            'service_type_id'=>'required',
         ];
     }
 }

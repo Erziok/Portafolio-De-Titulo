@@ -18,6 +18,7 @@
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Descripción</th>
+                <th>Tipo</th>
                 <th>Estado</th>
                 <th>Usuario</th>
                 <th>Acciones</th>
@@ -29,6 +30,7 @@
                     <td>{{ $benefit->id }}</td>
                     <td>{{ $benefit->name }}</td>
                     <td>{{ Str::limit($benefit->description, 75) }}</td>
+                    <td>{{ $benefit->type->type }}</td>
                     {{ displayStatus($benefit->active) }}
                     @if ($benefit->user_id == null )
                         <td>No asignado</td>
@@ -57,6 +59,7 @@
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Descripción</th>
+                <th>Tipo</th>
                 <th>Estado</th>
                 <th>Usuario</th>
                 <th>Acciones</th>

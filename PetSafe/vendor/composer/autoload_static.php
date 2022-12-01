@@ -526,6 +526,7 @@ class ComposerStaticInita448aa85606bec998049df7325f731c3
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\Admin\\AssociationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AssociationController.php',
         'App\\Http\\Controllers\\Admin\\BenefitController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/BenefitController.php',
         'App\\Http\\Controllers\\Admin\\CanineAreas' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CanineAreas.php',
         'App\\Http\\Controllers\\Admin\\CourseController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CourseController.php',
@@ -545,7 +546,6 @@ class ComposerStaticInita448aa85606bec998049df7325f731c3
         'App\\Http\\Controllers\\User\\DetallePublicacionController' => __DIR__ . '/../..' . '/app/Http/Controllers/User/DetallePublicacionController.php',
         'App\\Http\\Controllers\\User\\DetalleServicioController' => __DIR__ . '/../..' . '/app/Http/Controllers/User/DetalleServicioController.php',
         'App\\Http\\Controllers\\User\\EditarUsuarioController' => __DIR__ . '/../..' . '/app/Http/Controllers/User/EditarUsuarioController.php',
-        'App\\Http\\Controllers\\User\\FarmaciaController' => __DIR__ . '/../..' . '/app/Http/Controllers/User/FarmaciaController.php',
         'App\\Http\\Controllers\\User\\FormularioMascotaController' => __DIR__ . '/../..' . '/app/Http/Controllers/User/FormularioMascotaController.php',
         'App\\Http\\Controllers\\User\\FormularioServicioController' => __DIR__ . '/../..' . '/app/Http/Controllers/User/FormularioServicioController.php',
         'App\\Http\\Controllers\\User\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/User/HomeController.php',
@@ -568,6 +568,7 @@ class ComposerStaticInita448aa85606bec998049df7325f731c3
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Middleware\\isBeingApproved' => __DIR__ . '/../..' . '/app/Http/Middleware/isBeingApproved.php',
         'App\\Http\\Middleware\\validateAdmin' => __DIR__ . '/../..' . '/app/Http/Middleware/validateAdmin.php',
         'App\\Http\\Requests\\Admin\\Benefit\\ActualizarBeneficioRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/Benefit/ActualizarBeneficioRequest.php',
         'App\\Http\\Requests\\Admin\\Benefit\\GuardarBeneficioRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/Benefit/GuardarBeneficioRequest.php',

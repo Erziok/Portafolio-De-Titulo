@@ -23,7 +23,7 @@ return new class extends Migration
             $table->tinyInteger('active');
             $table->string('photo');
             $table->foreignId('user_id')->nullable(true)->constrained();
-            $table->foreignId('type_id')->nullable(true)->constrained();
+            $table->foreignId('service_type_id')->nullable(true)->constrained();
             $table->timestamps();
             $table->softDeletes();
         });

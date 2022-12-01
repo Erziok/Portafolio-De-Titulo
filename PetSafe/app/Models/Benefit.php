@@ -16,6 +16,7 @@ class Benefit extends Model
         'description',
         'active',
         'user_id',
+        'benefit_type_id',
     ];
 
     public function user() {
@@ -35,5 +36,8 @@ class Benefit extends Model
     }
     public function canineArea() {
         return $this->hasMany(CanineArea::class, 'benefit_id', 'id');
+    }
+    public function type() {
+        return $this->belongsTo(BenefitType::class, 'benefit_type_id');
     }
 }

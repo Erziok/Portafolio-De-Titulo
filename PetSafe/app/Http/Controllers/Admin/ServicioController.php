@@ -12,6 +12,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\Admin\Service\GuardarServicioRequest;
 use App\Http\Requests\Admin\Service\ActualizarServicioRequest;
 use App\Http\Requests\admin\service\GuardarHorariosRequest;
+use App\Models\ServiceType;
 use Illuminate\Support\Facades\File;
 
 class ServicioController extends Controller
@@ -34,7 +35,7 @@ class ServicioController extends Controller
      */
     public function create()
     {
-        $types = Type::all();
+        $types = ServiceType::all();
         return view('admin.servicios.create', compact('types'));
     }
 
@@ -55,7 +56,7 @@ class ServicioController extends Controller
         $serviceImage->move($imageUpload, $imageName);
 
         // Creating a new service in DB 
-        if(Service::create($request->only(['name', 'address', 'phone', 'email', 'description', 'type_id', 'user_id']) + ["photo" => $imageUpload.$imageName, 'user_id' => auth()->id(), 'active' => 2])){
+        if(Service::create($request->only(['name', 'address', 'phone', 'email', 'description', 'service_type_id', 'user_id']) + ["photo" => $imageUpload.$imageName, 'user_id' => auth()->id(), 'active' => 2])){
             Alert::toast('Servicio guardado correctamente', 'success');
             return redirect()->route('admin.service.index')->with('message', 'El servicio se activará automaticamente cuando se añada una agenda.');
         }
@@ -82,7 +83,7 @@ class ServicioController extends Controller
      */
     public function edit(Service $service)
     {
-        $types = Type::all();
+        $types = ServiceType::all();
         return view('admin.servicios.edit', compact('service','types'));
     }
 
@@ -107,7 +108,7 @@ class ServicioController extends Controller
             $serviceImage->move($imageUpload, $imageName);
 
             // Creating a new service in DB 
-            if($service->update($request->only(['name', 'address', 'phone', 'email', 'description', 'type_id', 'user_id']) + ["photo" => $imageUpload.$imageName, 'user_id' => auth()->id(), 'active' => 2])){
+            if($service->update($request->only(['name', 'address', 'phone', 'email', 'description', 'service_type_id', 'user_id']) + ["photo" => $imageUpload.$imageName, 'user_id' => auth()->id(), 'active' => 2])){
                 Alert::toast('Servicio guardado correctamente', 'success');
                 return redirect()->route('admin.service.index');
             }
@@ -116,7 +117,7 @@ class ServicioController extends Controller
 
         }
         // Creating a new service in DB 
-        if($service->update($request->only(['name', 'address', 'phone', 'email', 'description', 'type_id', 'user_id']) + ['user_id' => auth()->id(), 'active' => 2])){
+        if($service->update($request->only(['name', 'address', 'phone', 'email', 'description', 'service_type_id', 'user_id']) + ['user_id' => auth()->id(), 'active' => 2])){
             Alert::toast('Servicio guardado correctamente', 'success');
             return redirect()->route('admin.service.index');
         }

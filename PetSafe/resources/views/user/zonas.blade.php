@@ -8,27 +8,29 @@
         <div class="container px-lg-5">
             <div class="p-4 p-lg-5 content rounded-3">
                 <div class="m-4 m-lg-5">
-                    <h1 class="display-5 fw-bold text-center">Zonas caninas</h1><br>
+                    <h1 class="display-5 fw-bold text-center">{{ $beneficio->name }}</h1><br>
                     <p class="fs-6">
-                        La iniciativa fomenta la tenencia responsable de mascotas, dentro de la comuna de 
-                        San Bernardo, abriendo espacios de esparcimiento para sus perros. Estos están en 
-                        constante mejora, de acuerdo con sus necesidades. Los parque y plazas serán infirmadas 
-                        por esta sección y se irán agregando más para que todos los vecinos puedan disfrutar 
-                        de un rato de paseo en el parque con nuevos amigos.
-                    </p><br>
-                    <p class="fs-6">
-                        <b>Recuerda:</b> En estos caniles, los perros pueden correr sin correa, jugar libremente, 
-                        sociabilizando entre ellos, sin molestar a niños o adultos que sólo disfrutan del parque 
-                        o plaza.
-                    </p><br>
-                    <h3 class="fw-bold text-left">Plaza Colón</h2><br>
-                    <p class="fs-6">
-                        Horario: desde las 9:00 hasta las 12:00 y desde las 17:00 hast las 21:00 hrs
-                    </p><br>
-                    <p class="fs-6">
-                        Mapa del perímetro Zona Canina.
+                        {{$beneficio->description}}
                     </p>
-                    <img src="{{ asset('images/zona_colon.png') }}" alt="" class="maps">
+                    @forelse ($beneficio->canineArea as $area)
+                        <div class="card w-100 p-0 mt-3 mb-3">
+                            <div class="card-header">
+                                <h3 class="fw-bold text-left">{{$area->title}}</h2>
+                            </div>
+                            <div class="card-body">
+                                <p class="fs-6">
+                                    {{$area->comment}}
+                                </p><br>
+                                <p class="fs-6">
+                                    Esta es una imagen referencial del mapa, si quieres tener una vista más completa has click en la imagen.
+                                </p>
+                                <a href="{{ $area->url }}" target="_blank"><img src="{{ asset($area->photo) }}" alt="" class="maps"></a> 
+                            </div>
+                        </div>
+                    @empty
+                        <h2>Oops, al parecer aún no hay ninguna zona canina registrada.</h2>
+                    @endforelse
+                    
                 </div>
             </div>
         </div>

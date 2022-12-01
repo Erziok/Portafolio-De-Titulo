@@ -30,7 +30,7 @@ class GuardarServicioRequest extends FormRequest
             'email'=>'required',
             'description'=>'required',
             'photo' => 'required',
-            'type_id'=>'required',
+            'service_type_id'=>'required',
         ];
     }
 }
