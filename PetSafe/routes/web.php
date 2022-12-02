@@ -45,6 +45,9 @@ Route::get('/publicaciones', [\App\Http\Controllers\User\PublicacionController::
 Route::get('/detalle-publicacion/{id}', [\App\Http\Controllers\User\DetallePublicacionController::class, 'index'])
     ->name('detalle');
 
+Route::delete('/detalle-publicacion/{object}', [\App\Http\Controllers\User\DetallePublicacionController::class, 'destroy'])
+    ->name('publicacion.delete');
+
 Route::get('/zonas-caninas', [\App\Http\Controllers\User\ZonasController::class, 'index'])
     ->name('zonas-caninas');
 
@@ -59,6 +62,9 @@ Route::get('/operativos-veterinarios', [\App\Http\Controllers\User\OperativosCon
 
 Route::get('/detalle-servicio/{id}', [\App\Http\Controllers\User\DetalleServicioController::class, 'index'])
     ->name('detalle-servicio');
+
+Route::delete('/detalle-servicio/{service}', [\App\Http\Controllers\User\DetalleServicioController::class, 'destroy'])
+    ->name('servicio.delete');
 
 Route::get('/medicamentos', [\App\Http\Controllers\User\MedicamentosController::class, 'index'])
     ->name('medicamentos');
