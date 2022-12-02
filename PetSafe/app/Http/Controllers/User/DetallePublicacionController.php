@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\User\ComentarioRequest;
 use App\Models\Comment;
 use App\Models\Publication;
+use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\User\ComentarioRequest;
 
 class DetallePublicacionController extends Controller
 {
@@ -24,5 +25,15 @@ class DetallePublicacionController extends Controller
     {
         Comment::create($request->validated() + ['publication_id' => $object->id, 'user_id'=>auth()->id(), 'comment_id' => $comment->id]);
         return redirect()->back();
+    }
+
+    public function destroy(Publication $object)
+    {
+        if ($object->delete()) {
+            Alert::toast('Publicación eliminada correctamente', 'success');
+        } else {
+            Alert::toast('Oops... No se ha podido eliminar la publicación', 'error');    
+        }
+        return redirect()->route('publicaciones');
     }
 }

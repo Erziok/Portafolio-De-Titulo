@@ -11,7 +11,7 @@ let errors = {
     phone: true,
     email: true,
     description: true,
-    type_id: true,
+    service_type_id: true,
     photo: true,
 }
 
@@ -188,7 +188,7 @@ showError = (check, box, boxInput) => {
 }
 
 submitController = () => {
-    if(errors.name || errors.address || errors.phone || errors.email || errors.description || errors.type_id || errors.photo){
+    if(errors.name || errors.address || errors.phone || errors.email || errors.description || errors.service_type_id || errors.photo){
         // console.log("Hay un error")
     }
     else{
