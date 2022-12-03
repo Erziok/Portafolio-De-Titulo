@@ -21,12 +21,12 @@
                 <div class="menu-publicacion">
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                     <ul class="menu">
-                        <li><button href="">Editar</button></li>
+                        <li><a href="">Editar</a></li>
                         <li>
-                            <form action="{{ route('publicacion.delete', $object) }}" method="POST">
+                            <form id="deletePublication" action="{{ route('publicacion.delete', $object) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" onclick="return confirm('Estás seguro?')">Eliminar</button>
+                                <a type="submit" onclick="return confirm('Estás seguro?'), document.getElementById('deletePublication').submit()">Eliminar</a>
                             </form>
                         </li>
                     </ul>
