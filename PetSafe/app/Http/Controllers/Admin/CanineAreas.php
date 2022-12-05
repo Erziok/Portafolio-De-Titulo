@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\CanineZones\ActualizarZonaRequest;
-use App\Http\Requests\Admin\CanineZones\GuardarZonaRequest;
 use App\Models\Benefit;
 use App\Models\CanineArea;
-use GuzzleHttp\Promise\Create;
+use App\Models\BenefitType;
 use Illuminate\Http\Request;
+use GuzzleHttp\Promise\Create;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\Admin\CanineZones\GuardarZonaRequest;
+use App\Http\Requests\Admin\CanineZones\ActualizarZonaRequest;
 
 class CanineAreas extends Controller
 {
@@ -32,7 +33,7 @@ class CanineAreas extends Controller
      */
     public function create()
     {
-        $benefits = Benefit::all();
+        $benefits = BenefitType::all();
         return view('admin.zonas.create', compact('benefits'));
     }
 
@@ -73,7 +74,7 @@ class CanineAreas extends Controller
      */
     public function edit(CanineArea $canineArea)
     {
-        $benefits = Benefit::all();
+        $benefits = BenefitType::all();
         return view('admin.zonas.edit', compact('benefits', 'canineArea'));
     }
 
