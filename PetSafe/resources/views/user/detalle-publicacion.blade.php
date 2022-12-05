@@ -23,10 +23,10 @@
                     <ul class="menu">
                         <li><a href="{{ route('formulario-mascota.edit', ['publication'=>$object,'animal'=> $object->animal]) }}">Editar</a></li>
                         <li>
-                            <form action="{{ route('publicacion.delete', $object) }}" method="POST">
+                            <form id="deletePublication" action="{{ route('publicacion.delete', $object) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" onclick="return confirm('¿Estás seguro?')">Eliminar</button>
+                                <a type="submit" onclick="return confirm('Estás seguro?'), document.getElementById('deletePublication').submit()">Eliminar</a>
                             </form>
                         </li>
                     </ul>
