@@ -21,12 +21,12 @@
                 <div class="menu-publicacion">
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                     <ul class="menu">
-                        <li><button href="">Editar</button></li>
+                        <li><a href="{{ route('formulario-mascota.edit', ['publication'=>$object,'animal'=> $object->animal]) }}">Editar</a></li>
                         <li>
                             <form action="{{ route('publicacion.delete', $object) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" onclick="return confirm('Estás seguro?')">Eliminar</button>
+                                <button type="submit" onclick="return confirm('¿Estás seguro?')">Eliminar</button>
                             </form>
                         </li>
                     </ul>

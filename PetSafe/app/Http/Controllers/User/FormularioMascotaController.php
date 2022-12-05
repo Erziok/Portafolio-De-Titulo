@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\EditarMascotaRequest;
 use App\Http\Requests\User\FormularioMascotaRequest;
 use App\Models\Animal;
 use App\Models\Specie;
@@ -10,6 +11,7 @@ use App\Models\Breed;
 use App\Models\Category;
 use App\Models\Publication;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class FormularioMascotaController extends Controller
@@ -70,6 +72,40 @@ class FormularioMascotaController extends Controller
             'category_id'=> $request->category,
         ]);
         Alert::toast('Publicación creada correctamente', 'success');
+        return redirect()->route('publicaciones');
+    }
+
+    public function editPet(Publication $publication, Animal $animal)
+    {
+        $this->authorize('publication.tasks', $publication);
+        $categories = Category::all();
+        $species = Specie::all();
+        return view('user.editar-publicacion', compact('publication', 'categories', 'animal', 'species'));
+    }
+
+    public function update(EditarMascotaRequest $request, Publication $publication, Animal $animal)
+    {
+        //$this->authorize('publication.tasks', $publication);
+        if ($request->hasFile('photo')) {
+            $fileRoute = "images/publications/";
+            $publicationImage = $request->file('photo');
+            $imageName = time().'-'.$publicationImage->getClientOriginalName();
+            //Eliminacion e inserción
+            File::delete($publication->photo);
+
+            $imageUpload = $fileRoute;
+            $publicationImage->move($imageUpload, $imageName);
+
+            $animal->update($request->only(['name','breed_id', 'gender']));
+            $publication->update($request->only(['title', 'category_id', 'incidentDate', 'description']) + ['photo'=> $imageUpload.$imageName, 'user_id'=>auth()->id(), 'animal_id'=>$animal->id]);
+
+            Alert::toast('Publicación actualizada correctamente', 'success');
+            return redirect()->route('publicaciones');
+        }
+        $animal->update($request->only(['name','breed_id', 'gender']));
+        $publication->update($request->only(['title', 'category_id', 'incidentDate', 'description']) + ['user_id'=>auth()->id(), 'animal_id'=>$animal->id]);
+        
+        Alert::toast('Publicación actualizada correctamente', 'success');
         return redirect()->route('publicaciones');
     }
 }
