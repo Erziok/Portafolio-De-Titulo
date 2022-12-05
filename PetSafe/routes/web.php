@@ -93,9 +93,16 @@ Route::group(['middleware'=>'auth'] , function(){
     Route::get('/formulario-mascota/{id}', [\App\Http\Controllers\User\FormularioMascotaController::class, 'getBreeds'])
         ->name('formulario-mascota.breeds');
 
+    Route::get('/editar-publicacion/{publication}/{animal}', [\App\Http\Controllers\User\FormularioMascotaController::class, 'editPet'])
+        ->name('formulario-mascota.edit');
+    
+    Route::post('/editar-publicacion/{publication}/{animal}', [\App\Http\Controllers\User\FormularioMascotaController::class, 'update'])
+        ->name('formulario-mascota.update');
+
     Route::get('/formulario-servicio', [\App\Http\Controllers\User\FormularioServicioController::class, 'index'])
     ->name('formulario-servicio');
 
+    
 
     Route::get('/editar-usuario', [\App\Http\Controllers\User\EditarUsuarioController::class, 'index'])
     ->name('editar-usuario');
