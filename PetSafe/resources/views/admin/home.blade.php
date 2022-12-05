@@ -67,9 +67,17 @@
         <div class="lasts">
             <div class="lasts">
                 <dl class="lasts-details">
-                    <div>
-                        <dt>texto</dt>
-                        <dd>Descripcion</dd>
+                    {{-- @forelse ($solicitudes as $solicitud)
+                        <div>
+                            <dt>{{ $solicitud->name }}</dt>
+                            <dd>{{ $solicitud->description }}</dd>
+                        </div>
+                    @empty
+                        
+                    @endforelse --}}
+                    {{-- <div>
+                        <dt>{{ $serviceRequest }}</dt>
+                        <dd>{{ $serviceRequest->description }}</dd>
                     </div>
                     <div>
                         <dt>texto</dt>
@@ -78,10 +86,28 @@
                     <div>
                         <dt>texto</dt>
                         <dd>Descripcion</dd>
-                    </div>
+                    </div> --}}
+
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Fecha de solicitud</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($solicitudes as $solicitud)
+                            <tr>
+                                <th scope="row">{{$solicitud->name}}</th>
+                                <td>{{ Str::limit($solicitud->description, 75) }}</td>  
+                                <td>{{ $solicitud->created_at }}</td> 
+                            </tr>
+                        @endforeach
+                    </table>
                 </dl>
                 <div class="lasts-show">
-                    <a href="">
+                    <a href="{{ route('admin.association.index') }}">
                         <i class="fa-solid fa-arrow-right-long"></i>
                         <dd>Ver Más</dd>
                     </a>

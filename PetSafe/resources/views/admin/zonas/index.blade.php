@@ -30,7 +30,7 @@
                 <td>{{ $canineArea->id }}</td>
                 <td>{{ $canineArea->title }}</td>
                 <td>{{ Str::limit($canineArea->comment, 75) }}</td>
-                <td><a href="{{ '//' . $canineArea->url }}" target="_blank"> Ver Mapa <i class="fa-solid fa-location-dot"></i></a></td>
+                <td><a href="{{ $canineArea->url }}" target="_blank"> Ver Mapa <i class="fa-solid fa-location-dot"></i></a></td>
                 <td><div class="img-box"><img src="{{ asset($canineArea->photo) }}"></div></td>
                 {{ displayStatus($canineArea->active) }}
                 <td>
