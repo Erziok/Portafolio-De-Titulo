@@ -4,7 +4,7 @@ namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FormularioServicioRequest extends FormRequest
+class EditarServicioRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -30,7 +30,6 @@ class FormularioServicioRequest extends FormRequest
             'email' => 'required | email',
             'description' => 'required',
             'service_type_id' => 'required',
-            'photo' => 'required'
         ];
     }
 }

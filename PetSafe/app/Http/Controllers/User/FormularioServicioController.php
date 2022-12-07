@@ -8,6 +8,7 @@ use App\Models\Schedule;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\User\FormularioServicioRequest;
+use App\Http\Requests\User\EditarServicioRequest;
 use App\Models\ServiceType;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
@@ -91,7 +92,7 @@ class FormularioServicioController extends Controller
         return view('user.editar-servicio', compact('service', 'schedules', 'types'));
     }
 
-    public function updateService(FormularioServicioRequest $request, Service $service)
+    public function updateService(EditarServicioRequest $request, Service $service)
     {
         // Parte de armado... quizas... solo quizas
 
