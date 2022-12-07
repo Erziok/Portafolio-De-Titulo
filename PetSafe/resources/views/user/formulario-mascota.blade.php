@@ -17,7 +17,6 @@
     <form action="{{ route('formulario-mascota.create') }}" method="POST" id="form" enctype="multipart/form-data">
         @csrf
         <div class="row">
-
             <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-text">
                 <div class="input-component">
                     <input class="c-text-black" id="title" type="text" name="title" placeholder="Título" autocomplete="off">
@@ -120,14 +119,12 @@
                     <strong style="color: darkred">{{ $message }}</strong>
                 @enderror
             </div>
-
         </div>
         <div class="btn-component">
             <button class="btn-default" type="submit">Crear Publicación</button>
         </div>
     </form>
 </div>
-
 
 @endsection
 

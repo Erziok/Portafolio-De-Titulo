@@ -104,6 +104,9 @@ class PublicacionController extends Controller
 
             $animal->update($request->only(['name','breed_id', 'gender']));
             $publication->update($request->only(['title', 'category_id', 'incidentDate', 'description', 'active']) + ['photo'=> $imageUpload.$imageName, 'user_id'=>auth()->id(), 'animal_id'=>$animal->id]);
+
+            Alert::toast('Publicación actualizada correctamente', 'success');
+            return redirect()->route('admin.publication.index');
         }
         $animal->update($request->only(['name','breed_id', 'gender']));
         $publication->update($request->only(['title', 'category_id', 'incidentDate', 'description', 'active']) + ['user_id'=>auth()->id(), 'animal_id'=>$animal->id]);

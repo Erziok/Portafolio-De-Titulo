@@ -21,8 +21,14 @@
                 <div class="menu-publicacion">
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                     <ul class="menu">
-                        <li><a href="">Editar</a></li>
-                        <li><a href="">Eliminar</a></li>
+                        <li><a href="{{ route('formulario-mascota.edit', ['publication'=>$object,'animal'=> $object->animal]) }}">Editar</a></li>
+                        <li>
+                            <form id="deletePublication" action="{{ route('publicacion.delete', $object) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <a type="submit" onclick="return confirm('Estás seguro?'), document.getElementById('deletePublication').submit()">Eliminar</a>
+                            </form>
+                        </li>
                     </ul>
                 </div>
                 @endcan
