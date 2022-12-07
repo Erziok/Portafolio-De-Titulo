@@ -14,7 +14,8 @@ class HomeController extends Controller
         $countPublications = Publication::where('active', 1)->count();
         $countServices = Service::where('active', 1)->count();
         $countUsers = User::where('active', 1)->count();
+        $solicitudes = Service::with(['type', 'user'])->where('active', 3)->latest()->take(5)->get(); // Take only the latest 5 request
 
-        return view('admin.home', compact('countPublications', 'countServices', 'countUsers'));
+        return view('admin.home', compact('countPublications', 'countServices', 'countUsers', 'solicitudes'));
     }
 }

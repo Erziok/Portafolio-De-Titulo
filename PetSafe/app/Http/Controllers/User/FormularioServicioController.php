@@ -77,6 +77,9 @@ class FormularioServicioController extends Controller
             ]);
         }
         Alert::toast('Servicio creado correctamente', 'success');
+        if ($statusService == 3) {
+            return redirect()->route('perfil');
+        }
         return redirect()->route('servicios');
     }
 

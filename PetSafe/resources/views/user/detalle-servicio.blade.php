@@ -22,10 +22,10 @@
                     <ul class="menu">
                         <li><a href="{{ route('formulario-servicio.edit', $service) }}">Editar</a></li>
                         <li>
-                            <form action="{{ route('servicio.delete', $service) }}" method="POST">
+                            <form id="deleteService" action="{{ route('servicio.delete', $service) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" onclick="return confirm('Estás seguro?')">Eliminar</button>
+                                <a type="submit" onclick="return confirm('Estás seguro?'), document.getElementById('deleteService').submit()">Eliminar</a>
                             </form>
                         </li>
                     </ul>
