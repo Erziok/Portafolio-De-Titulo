@@ -9,7 +9,8 @@ class ZonasController extends Controller
 {
     public function index()
     {
-        $beneficio = Benefit::with('canineArea')->where('benefit_type_id', 3)->where('active','<',2)->first();
-        return view('user.zonas', compact('beneficio'));
+        $beneficio = Benefit::where('benefit_type_id', 3)->where('active','<',2)->first();
+        $zonas = $beneficio->canineArea()->paginate(10);
+        return view('user.zonas', compact('beneficio', 'zonas'));
     }
 }

@@ -3,62 +3,75 @@
 @section('content')
 
 <div class="app-body-main-content">
+    <div class="section-title mb-5 mt-2">    
+        <h1 class="f-size-lg">Crear Zona Canina</h1>
+        <div class="hline"></div>
+    </div>
     <div class="form-box">
         <form action="{{ route('admin.canineArea.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="form-group mt-3">
-                <label for="">Titulo</label>
-                <input type="text" name="title" id="" class="form-control">
-                @error('title')
-                    <small class="text-danger">{{ $message }}</small>
-                @enderror
+
+            <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-text mt-4">
+                <div class="input-component">
+                    <input class="c-text-black" id="title" type="text" name="title" placeholder="Titulo" autocomplete="off">
+                    <label for="title">Titulo</label>
+                    @error('title')
+                        <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                    @enderror
+                </div>
             </div>
-            <div class="form-group mt-3">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-text mt-4">
                 <label for="">Comentario</label>
-                <textarea class="form-control" name="comment" id="" cols="30" rows="5"></textarea>
+                <textarea class="form-control input-text-area-component shadow-none" name="comment" id="" cols="30" rows="4"></textarea>
                 @error('comment')
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
-            <div class="form-group mt-3">
-                <label for="">Enlace</label>
-                <input type="text" name="url" id="" class="form-control">
-                @error('url')
-                    <small class="text-danger">{{ $message }}</small>
-                @enderror
+
+            <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-text mt-4">
+                <div class="input-component">
+                    <input class="c-text-black" id="url" type="text" name="url" placeholder="Enlace" autocomplete="off">
+                    <label for="url">Enlace</label>
+                    @error('url')
+                        <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                    @enderror
+                </div>
             </div>
-            <div class="form-group mt-3">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-text mt-4">
                 <label for="">Foto</label>
-                <input type="file" name="photo" id="" class="form-control">
+                <input type="file" name="photo" id="" class="form-control input-file-component shadow-none">
                 @error('photo')
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
-            <div class="form-group mt-3">
-                <label for="">Estado</label>
-                <select name="active" class="form-control active" aria-label="Default select example">
+            <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-select mt-4">
+                <label class="form-label" for="form3Example1q">Estado</label>
+                <select class="form-select input-select-component shadow-none" name="active" id="active">
+                    <option selected disabled>Seleccionar...</option>
                     <option value="1">Activo</option>
                     <option value="2">Inactiva</option>
                 </select>
                 @error('active')
-                    <small class="text-danger">{{ $message }}</small>
+                    <strong style="color: darkred">{{ $message }}</strong>
                 @enderror
             </div>
-            <div class="form-group mt-3">
-                <label for="">Beneficios</label>
-                <select name="benefit_id" id="" class="form-control benefit_id" aria-label="Default select example">
-                    @forelse ($benefits as $benefit)
-                        <option value="{{ $benefit->id }}"> {{ $benefit->name }} </option>
-                    @empty
-                        <option selected disabled>No hay beneficios disponibles.</option>
-                    @endforelse
+            <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-text mt-4">
+                <label for="">Beneficio</label>
+                <select name="benefit_id" class="form-select benefit_id input-select-component shadow-none" aria-label="Default select example">
+                    <option selected disabled>Seleccionar...</option>
+                    @foreach ($benefits as $benefit)
+                        <option value="{{ $benefit->id }}">{{ $benefit->name }}</option>
+                    @endforeach
                 </select>
                 @error('benefit_id')
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
-            <div class="form-group mt-3">
-                <input type="submit" class="form-control btn btn-primary">
+            
+            <div class="btn-component mt-5">
+                <button class="btn-default" type="submit">Crear Medicamento</button>
             </div>
         </form>
     </div>

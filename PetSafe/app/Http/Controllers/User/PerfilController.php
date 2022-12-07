@@ -27,8 +27,9 @@ class PerfilController extends Controller
         ->paginate(Config::get('petsafe-web-config.paginateServicesBy'));
         
         $serviciosPendientes = Service::where('user_id', auth()->id())->where('active', 3)->first();
+        
         if (!empty($serviciosPendientes)) {
-            $mensajeRevision = "Recientemente has ingresado un servicio y este está pendiente de confirmación. Por el momento, no podrás crear nuevos servicios, pero una vez tu solicitud sea aprobada serás libre de publicarlos.";
+            $mensajeRevision = "Recientemente has ingresado un servicio y este está pendiente de confirmación. Por el momento, no podrás crear nuevos servicios hasta que se tome una decisión respecto a tu solicitud.";
             return view('user.perfil', compact('datos', 'mensajeRevision'));
         }
         $serviciosRechazados = Service::where('user_id', auth()->id())->where('active', 4)->first();
@@ -47,8 +48,12 @@ class PerfilController extends Controller
     }
     public function myServices()
     {
+        $serviciosPendientes = false;
+        if (sizeOf(Service::where('user_id', auth()->id())->where('active', 3)->get()) >= 1) {
+            $serviciosPendientes = true;
+        }
         $datos = Service::with(['user'])->where('user_id', auth()->id())->latest()->get()->where('active','<',2)->paginate(Config::get('petsafe-web-config.paginateServicesBy'));
-        return view('user.mis-servicios', compact('datos'));
+        return view('user.mis-servicios', compact('datos', 'serviciosPendientes'));
     }
     public function myFavourites()
     {

@@ -3,10 +3,11 @@
     @section('content')
 
     <header class="py-5">
-        <div class="container px-lg-5">
-            <div class="p-4 p-lg-5 content rounded-3">
-                <div class="m-4 m-lg-5">
-                    <h1 class="display-6 fw-bold text-center">Ordenanza Municipal</h1><br>
+        <div class="info-container">
+            <div class="p-2 rounded-3">
+                <div class="m-3">
+                    <h1 class="mt-3 display-6 fw-bold c-text-black f-size-xl">Ordenanza Municipal</h1>
+                    <div class="hline mb-5"></div>
                     <p class="fs-6">
                         Actualmente la Municipalidad de San Bernardo cuenta con esta página web para 
                         cubrir en todo ámbito las necesidades, derechos u deberes que los vecinos deben 
@@ -24,5 +25,5 @@
             </div>
         </div>
     </header>
-
+    <div class="pt-4 pb-5"></div>
     @endsection

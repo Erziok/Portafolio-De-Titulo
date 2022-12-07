@@ -1,15 +1,12 @@
 .publication-section {
-    width: 80%;
+    width: 90%;
     max-width: 1100px;
     margin: auto;
-    background: rgb(238, 238, 238);
+    box-shadow: 0px 0px 12px rgba(0,0,0,.05);
     border-radius: 10px;
     padding: 20px 25px;
     margin-top: 50px;
-    margin-bottom: 50px;
-    -webkit-box-shadow: 1px 1px 17px -3px rgba(0,0,0,0.8);
-    -moz-box-shadow: 1px 1px 17px -3px rgba(0,0,0,0.8);
-    box-shadow: 1px 1px 17px -3px rgba(0,0,0,0.15);
+    margin-bottom: 269px;
 }
 
 

@@ -4,59 +4,79 @@
 
 @section('content')
 <div class="app-body-main-content">
-    <div class="header-publication">
-        <div class="section-title mb-5 mt-2">    
-            <h1 class="f-size-lg">Configuraciónes de la Web</h1>
-            <div class="hline"></div>
-        </div>
+
+    <div class="section-title mb-5 mt-2">    
+        <h1 class="f-size-lg">Configuraciónes de la Web</h1>
+        <div class="hline"></div>
     </div>
+
     <form action="" method="POST">
         @csrf
-        <div class="form-group mb-3">
-            <label for="">Nombre de la Página</label>
-            <input type="text" name="pageName" class="form-control" value="{{ Config::get('petsafe-web-config.pageName'); }}">
-            @error('pageName')
-                <small class="text-danger">{{ $message }}</small>
-            @enderror
+
+        <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-text mt-4">
+            <div class="input-component">
+                <input class="c-text-black" id="pageName" type="text" name="pageName" placeholder="Nombre de la Página" autocomplete="off" value="{{ Config::get('petsafe-web-config.pageName') }}">
+                <label for="pageName">Nombre de la Página</label>
+                @error('pageName')
+                    <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                @enderror
+            </div>
         </div>
-        <div class="form-group mb-3">
-            <label for="">Correo Oficial</label>
-            <input type="text" name="officialMail" class="form-control" value="{{ Config::get('petsafe-web-config.officialMail'); }}">
-            @error('officialMail')
-                <small class="text-danger">{{ $message }}</small>
-            @enderror
+
+        <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-text mt-4">
+            <div class="input-component">
+                <input class="c-text-black" id="officialMail" type="email" name="officialMail" placeholder="Correo Oficial" autocomplete="off" value="{{ Config::get('petsafe-web-config.officialMail') }}">
+                <label for="officialMail">Correo Oficial</label>
+                @error('officialMail')
+                    <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                @enderror
+            </div>
         </div>
-        <div class="form-group mb-3">
-            <label for="">Correo Denuncias</label>
-            <input type="text" name="complaintsMail" class="form-control" value="{{ Config::get('petsafe-web-config.complaintsMail'); }}">
-            @error('complaintsMail')
-                <small class="text-danger">{{ $message }}</small>
-            @enderror
+
+
+        <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-text mt-4">
+            <div class="input-component">
+                <input class="c-text-black" id="complaintsMail" type="email" name="complaintsMail" placeholder="Correo Denuncias" autocomplete="off" value="{{ Config::get('petsafe-web-config.complaintsMail') }}">
+                <label for="complaintsMail">Correo Denuncias</label>
+                @error('complaintsMail')
+                    <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                @enderror
+            </div>
         </div>
-        <div class="form-group mb-3">
-            <label for="">Número de contacto</label>
-            <input type="text" name="contactNumber" class="form-control" value="{{ Config::get('petsafe-web-config.contactNumber'); }}">
-            @error('contactNumber')
-                <small class="text-danger">{{ $message }}</small>
-            @enderror
+
+        <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-text mt-4">
+            <div class="input-component">
+                <input class="c-text-black" id="contactNumber" type="text" name="contactNumber" placeholder="Correo Denuncias" autocomplete="off" value="{{ Config::get('petsafe-web-config.contactNumber') }}">
+                <label for="contactNumber">Número de contacto</label>
+                @error('contactNumber')
+                    <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                @enderror
+            </div>
         </div>
-        <div class="form-group mb-3">
-            <label for="">Paginación de Publicaciones</label>
-            <input type="text" name="paginatePublicationsBy" class="form-control" value="{{ Config::get('petsafe-web-config.paginatePublicationsBy'); }}">
-            @error('paginatePublicationsBy')
-                <small class="text-danger">{{ $message }}</small>
-            @enderror
+
+        <div class="col-lg-6 col-md-6 col-sm-12 form-box form-box-text mt-4">
+            <div class="input-component">
+                <input class="c-text-black" id="paginatePublicationsBy" type="text" name="paginatePublicationsBy" placeholder="Paginación de Publicaciones" autocomplete="off" value="{{ Config::get('petsafe-web-config.paginatePublicationsBy') }}">
+                <label for="paginatePublicationsBy">Paginación de Publicaciones</label>
+                @error('paginatePublicationsBy')
+                    <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                @enderror
+            </div>
         </div>
-        <div class="form-group mb-3">
-            <label for="">Paginación de Servicios</label>
-            <input type="text" name="paginateServicesBy" class="form-control" value="{{ Config::get('petsafe-web-config.paginateServicesBy'); }}">
-            @error('paginateServicesBy')
-                <small class="text-danger">{{ $message }}</small>
-            @enderror
+
+        <div class="col-lg-6 col-md-6 col-sm-12 form-box form-box-text mt-4">
+            <div class="input-component">
+                <input class="c-text-black" id="paginateServicesBy" type="text" name="paginateServicesBy" placeholder="Paginación de Servicios" autocomplete="off" value="{{ Config::get('petsafe-web-config.paginateServicesBy') }}">
+                <label for="paginateServicesBy">Paginación de Servicios</label>
+                @error('paginateServicesBy')
+                    <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                @enderror
+            </div>
         </div>
-        <div class="form-group mb-3">
-            <label for="">Modo Mantenimiento</label>
-            <select name="maintenanceMode" class="form-control" id="">
+
+        <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-select mt-4">
+            <label class="form-label" for="maintenanceMode">Modo Mantenimiento</label>
+            <select class="form-select input-select-component shadow-none" name="maintenanceMode" id="maintenanceMode">
                 @if (!empty(Config::get('petsafe-web-config.paginateServicesBy')) && Config::get('petsafe-web-config.paginateServicesBy') == 2)
                     <option value="1">Desactivado</option>
                     <option value="2" selected>Activado</option>
@@ -66,10 +86,13 @@
                 @endif
             </select>
             @error('maintenanceMode')
-                <small class="text-danger">{{ $message }}</small>
+                <strong style="color: darkred">{{ $message }}</strong>
             @enderror
         </div>
-        <button class="btn btn-primary">Guardar Configuración</button>
+
+        <div class="btn-component mt-4 mb-3">
+            <button class="btn-default" type="submit">Guardar Configuración</button>
+        </div>
     </form>
 </div>
 @endsection
