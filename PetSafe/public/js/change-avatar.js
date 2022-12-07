@@ -1,8 +1,11 @@
-const form = document.getElementById("form")
-const avatar = document.getElementById("customFile2")
+let btnChangeAvatar = document.getElementById('btn-change-avatar');
+let inptFileAvatar = document.getElementById('customFile2');
+let avatarForm = document.getElementById('avatar-form');
 
-avatar.addEventListener('change', (event) => {
-
-    form.submit()
-
-})
+btnChangeAvatar.addEventListener('click', (event)=> {
+    event.preventDefault();
+    inptFileAvatar.click();
+    inptFileAvatar.addEventListener('change', function(){
+        avatarForm.submit();
+    });
+});

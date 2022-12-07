@@ -6,87 +6,90 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ Config::get('petsafe-web-config.pageName') }} | Registrarse</title>
     <!-- Style sheets -->
+    <link href="{{ asset('css/components.css?v=').time() }}" rel="stylesheet" >
     <link href="{{ asset('css/styles.css?v=').time() }}" rel="stylesheet" >
     <!-- Bootstrap CDN (CSS only) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 <body>
 
-    <section class="h-100 h-custom">
-        <div class="container py-5 h-100">
+    <section class="auth-section">
+        <div class="container">
           <form action="{{ route('register.create') }}" method="POST" id="form">
             @csrf
-            <div class="row d-flex justify-content-center align-items-center h-100">
-              <div class="col-lg-8 col-xl-6">
-                <div class="card rounded-3" style="background-color: #f0f0f0;">
-                  <!-- <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp"
-                    class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
-                    alt="Sample photo"> -->
-                  <div class="card-body p-4 p-md-5">
-                    <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Datos de registro</h3>
-        
-        
-                      <div class="form-outline mb-2 form-box">
-                        <label class="form-label" for="form3Example1q">Nombre</label>
-                        <input type="text" id="firstname" class="form-control" placeholder="Nombre" name="firstname"/>
-                        <small class="error-text">Introduce un nombre válido (mínimo 3 carácteres / solo letras)</small>
-                        @error('name')
-                          <strong>{{ $message }}</strong>
-                        @enderror
+            <div class="register-box d-flex justify-content-center align-items-center">
+              <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+                <div class="shadow-box">
+                  <div class="p-5">
+                    <div class="title-box mb-5">
+                      <h3 class="f-size-lg c-text-black">Datos de registro</h3>
+                      <div class="hline"></div>
+                    </div>
+                    <div class="row justify-content-between">
+                      <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="input-component form-box">
+                          <input class="c-text-black" id="firstname" type="text" name="firstname" placeholder="Nombre" autocomplete="off">
+                          <label for="firstname">Nombre</label>
+                          <small class="error-text mt-2">Introduce un nombre válido (mínimo 3 carácteres / solo letras)</small>
+                          @error('name')
+                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                          @enderror
+                        </div>
                       </div>
-    
-                      <div class="form-outline mb-2 form-box">
-                        <label class="form-label" for="form3Example1q">Apellido</label>
-                        <input type="text" id="lastname" class="form-control" placeholder="Apellido" name="lastname"/>
-                        <small class="error-text">Introduce un apellido válido (mínimo 3 carácteres / solo letras)</small>
-                        @error('lastname')
-                          <strong>{{ $message }}</strong>
-                        @enderror
+                      <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="input-component form-box">
+                          <input class="c-text-black" id="lastname" type="text" name="lastname" placeholder="Apellido" autocomplete="off">
+                          <label for="lastname">Apellido</label>
+                          <small class="error-text">Introduce un apellido válido (mínimo 3 carácteres / solo letras)</small>
+                          @error('lastname')
+                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                          @enderror
+                        </div>
                       </div>
-    
-                      <div class="form-outline mb-2 form-box">
-                        <label class="form-label" for="form3Example1q">Correo electrónico</label>
-                        <input type="text" id="mail" class="form-control" placeholder="EJ: ejemplo@gmail.com" name="email"/>
-                        <small class="error-text">Introduce un email válido</small>
-                        @error('email')
-                          <strong>{{ $message }}</strong>
-                        @enderror
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="input-component form-box">
+                          <input class="c-text-black" id="mail" type="text" name="email" placeholder="Correo" autocomplete="off">
+                          <label for="mail">Correo</label>
+                          <small class="error-text">Introduce un email válido</small>
+                          @error('email')
+                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                          @enderror
+                        </div>
                       </div>
-    
-                      <div class="form-outline mb-2 form-box">
-                        <label class="form-label" for="form3Example1q">Run</label>
-                        <input type="text" id="run" class="form-control" placeholder="EJ: 19844544-4" name="run"/>
-                        <small class="error-text">Introduce un rut válido</small>
-                        @error('rut')
-                          <strong>{{ $message }}</strong>
-                        @enderror
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="input-component form-box">
+                          <input class="c-text-black" id="run" type="text" name="run" placeholder="Rut" autocomplete="off">
+                          <label for="run">Rut</label>
+                          <small class="error-text">Introduce un rut válido</small>
+                          @error('run')
+                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                          @enderror
+                        </div>
                       </div>
-    
-                      <div class="form-outline mb-2 form-box">
-                        <label class="form-label" for="form3Example1q">Contraseña</label>
-                        <input type="password" id="password" class="form-control" placeholder="Contraseña" name="password"/>
-                        <small class="error-text">Introduce una contraseña válida (mínimo 6 carácteres)</small>
-                        @error('password')
-                          <strong>{{ $message }}</strong>
-                        @enderror
+                      <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="input-component form-box">
+                          <input class="c-text-black" id="password" type="password" name="password" placeholder="Contraseña" autocomplete="off">
+                          <label for="run">Contraseña</label>
+                          <small class="error-text">Introduce una contraseña válida (mínimo 6 carácteres)</small>
+                          @error('password')
+                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                          @enderror
+                        </div>
                       </div>
-    
-                      <div class="form-outline mb-2 form-box">
-                        <label class="form-label" for="form3Example1q">Repita su contraseña</label>
-                        <input type="password" id="password2" class="form-control" placeholder="Repita su contraseña"/ name="password2">
-                        <small class="error-text">Las contraseñas no coinciden</small>
-                        @error('password2')
-                          <strong>{{ $message }}</strong>
-                        @enderror
+                      <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="input-component form-box">
+                          <input class="c-text-black" id="password2" type="password" name="password2" placeholder="Repetir Contraseña" autocomplete="off">
+                          <label for="password2">Repetir Contraseña</label>
+                          <small class="error-text">Las contraseñas no coinciden</small>
+                          @error('password2')
+                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                          @enderror
+                        </div>
                       </div>
-          
-                      {{-- <button type="submit" class="btn btn-primary" id="submit-btn" >Registrarse</button> --}}
-                      <button type="submit" class="register-btn" id="submit-btn">Registrarse</button>
-                      <p class="warnings" id="warnings"></p>
-                      <p>¿Ya tienes cuenta? <a href="{{ route('login') }}">Inicia sesión</a></p>
-        
-                    <div class="salida"></div>
-        
+                    </div>
+                    <div class="btn-component mt-4">
+                      <button class="btn-default f-size-sm">Registrarse</button>
+                    </div>
                   </div>
                 </div>
               </div>

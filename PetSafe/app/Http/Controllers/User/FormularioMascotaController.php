@@ -54,7 +54,7 @@ class FormularioMascotaController extends Controller
         $publicationImage->move($imageUpload, $imageName);
 
         $animal = Animal::create([
-            'breed_id'=> $request->breed,
+            'breed_id'=> $request->breed_id,
             'specie'=> $request->specie,
             'gender'=> $request->gender,
             'name'=> $request->name,
@@ -69,7 +69,7 @@ class FormularioMascotaController extends Controller
             // 'image'=> $request->image,
             'user_id' => Auth::user()->id,
             'animal_id' => $animal->id,
-            'category_id'=> $request->category,
+            'category_id'=> $request->category_id,
         ]);
         Alert::toast('Publicación creada correctamente', 'success');
         return redirect()->route('publicaciones');

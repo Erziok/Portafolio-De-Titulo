@@ -8,9 +8,9 @@ let errors = {
     title: true,
     name: true,
     specie: true,
-    breed: true,
+    breed_id: true,
     gender: true,
-    category: true,
+    category_id: true,
     description: true,
     incidentDate: true,
     photo: true,
@@ -35,7 +35,7 @@ document.querySelectorAll('.form-box-text').forEach((box) => {
 
 // Select
 document.querySelectorAll('.form-box-select').forEach((box) => {
-    const boxInput = box.querySelector('select');
+     const boxInput = box.querySelector('select');
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -132,7 +132,7 @@ validateInput = (box, boxInput) => {
 
     }
 
-    if(boxInput.name == 'breed'){
+    if(boxInput.name == 'breed_id'){
 
         if(boxInput.value == ''){
             showError(true, box, boxInput);
@@ -154,7 +154,7 @@ validateInput = (box, boxInput) => {
 
     }
 
-    if(boxInput.name == 'category'){
+    if(boxInput.name == 'category_id'){
 
         if(boxInput.value == ''){
             showError(true, box, boxInput);
@@ -214,11 +214,10 @@ showError = (check, box, boxInput) => {
 }
 
 submitController = () => {
-    if(errors.title || errors.name || errors.specie || errors.breed || errors.gender || errors.category || errors.description || errors.incidentDate || errors.photo){
-        console.log("Hay un error")
+    if(errors.title || errors.name || errors.specie || errors.breed_id || errors.gender || errors.category_id || errors.description || errors.incidentDate || errors.photo){
+
     }
     else{
-        // console.log("Todo ok")
         form.submit();
     }
 }

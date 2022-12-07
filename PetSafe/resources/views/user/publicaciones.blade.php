@@ -3,6 +3,7 @@
 @section('title') Publicaciones @endsection
 @section('CSS')
     <link rel="stylesheet" href="{{ asset('/css/publicacion.css') }}">
+    <script src="{{ asset('js/scrollreveal.js') }}"></script>
 @endsection
 @section('content')
 
@@ -11,17 +12,15 @@
         <div class="container px-lg-5">
             
             {{-- New Publication button --}}
-            <div class="new-publication-section ">
-                <div class="new-publication-container">
-                    <div class="new-publication-item">
-                        <a href="{{ route('formulario-mascota') }}">
-                            <div class="new-publication-box text-center">
-                                <i class="fa-solid fa-plus"></i> Nueva Publicación
-                            </div>  
-                        </a>
+            <div class="text-center mb-3">
+                <div class="btn-component">
+                    <div class="btn-wrapper">
+                        <a href="{{ route('formulario-mascota') }}" class="btn-action">Nueva Publicación</a>
+                        <span><i class="fa-solid fa-plus"></i></span>
                     </div>
-                </div>
+                </div>    
             </div>
+            
             <div class="p-1 rounded-3 text-center">
                 <div class="m-2 m-lg-3 search-bar-container">
                     <div class="search-bar">
@@ -32,7 +31,7 @@
                             </div>
                             <ul id="list">
                                 <form action="{{ route('filter') }}" method="GET" id="filter-form">
-                                    <input type="text" id="filter-input" class="d-none" name="filter">
+                                    <input autocomplete="off" type="text" id="filter-input" class="d-none" name="filter">
                                 </form>
                                 <li class="options" value="2">Mascotas Perdidas</li>
                                 <li class="options" value="3">Mascotas Encontradas</li>
@@ -47,7 +46,7 @@
                                     <input type="text" placeholder="" id="search-inpt" name="field">
                                 @endif
                                 <i class="fa-solid fa-xmark remove-search-field" id="remove-search-field"></i>
-                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </form>
                         </div>
                     </div>
@@ -62,22 +61,24 @@
                     @forelse ($datos as $dato)
                         <!--publication item-->
                         <div class="publication-box row">
+                            <div class="publication-overlay">
+                            </div>
                             <div class="image-box col-lg-4">
                                 <a href="{{ route('detalle', $dato->id) }}"><img src="{{ asset($dato->photo) }}" alt=""></a>
                             </div>
                             <div class="content-box col-lg-8">
                                 <div class="details mb-3">
                                     <div class="left">
-                                        <div class="item date"><i class="fa-solid fa-calendar"></i> {{ $dato->incidentDate }} </div>
+                                        <div class="item date"><i class="fa-solid fa-calendar"></i> {{ dateToFormat_ES($dato->incidentDate); }} </div>
                                         <div class="item author"><i class="fa-solid fa-user"></i> {{ $dato->user->firstname }} </div>
                                         <div class="item comments"><i class="fa-solid fa-message"></i> {{ $dato->comment_count }} </div>
-                                        <div class="item favs"><i class="fa-solid fa-heart"></i> {{ $dato->favourite_count }} </div>
+                                        <div class="item favs d-flex align-items-center"><i class="fa-solid fa-heart"></i><div class="fav-counter"> {{$dato->favourite_count }}</div></div>
                                     </div>
                                     <div class="right">
                                         <div class="add-fav">
                                             <label>
-                                                <input type="checkbox" class="add-favorite-btn" name="" style="display: none;">
                                                 @if (auth()->check())
+                                                    <input type="checkbox" class="add-favorite-btn" name="" style="display: none;">
                                                     @php $find = false; @endphp
                                                     @foreach($dato->favourite as $favourite)
                                                         @if (auth()->id() == $favourite->user_id && $favourite->publication_id == $dato->id)
@@ -132,6 +133,8 @@
 
     @section('JS')
         <script src="{{ asset('/js/publicacion.js') }}"></script>
+        <script src="https://cdn.lordicon.com/fudrjiwc.js"></script>
+        <script src="{{ asset('js/components.js') }}"></script>
     @endsection
 
 </body>

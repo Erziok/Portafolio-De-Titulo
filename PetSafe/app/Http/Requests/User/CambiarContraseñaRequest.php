@@ -26,6 +26,7 @@ class CambiarContraseñaRequest extends FormRequest
         return [
             'actual_password'=> 'required',
             'password'=> 'required | min: 6 | same:confirm_password',
+            'confirm_password' => 'required'
         ];
     }
 }

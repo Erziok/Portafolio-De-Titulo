@@ -6,15 +6,16 @@
 
 <header class="py-5">
     <div class="container px-lg-5">
-        <div class="p-4 p-lg-5 content rounded-3">
-            <div class="m-4 m-lg-5">
-                <h1 class="display-5 fw-bold text-center">Crematorio</h1><br>
+        <div class="p-2 info-container">
+            <div class="m-3">
+                <h1 class="mt-3 display-6 fw-bold c-text-black f-size-xl">Servicio de Cremación</h1>
+                <div class="hline mb-5"></div>
                 <p class="fs-6">
                     Los vecinos pueden optar a la incineración de sus mascotas para luego llevarlas con ellos.
                     Los encargados de esto son empresas externas a la Municipalidad y solo entregamos 
                     la información para una elección respetuosa con el momento.
                 </p><br>
-                <p class="fs-4 fw-bold">
+                <p class="fs-4 fw-bold f-size-lg c-text-purple-1">
                     Cremación Individual
                 </p>
                 <p class="fs-6">
@@ -51,5 +52,6 @@
         </div>
     </div>
 </header>
+<div class="pt-4 pb-5"></div>
 
 @endsection

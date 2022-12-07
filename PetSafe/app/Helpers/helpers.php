@@ -22,7 +22,7 @@ function displaySelectedServiceSchedule($array) {
         </div>
         <div class="accion">
             <p>Hora Inicio</p>
-            <select class="select-hour-start" id="lunes-inicio" name="startHour[]">';
+            <select class="select-hour-start" id="'.$array['day'].'-inicio" name="startHour[]">';
     for ($i=0; $i < sizeof($startHours); $i++) { 
         if ($array['startHour'] == $startHours[$i]) {
             echo '<option value="'. $startHours[$i]. '" selected>'.$startHours[$i].'</option>';
@@ -33,7 +33,7 @@ function displaySelectedServiceSchedule($array) {
     echo 
            '</select>
             <p>Hora Final</p>
-            <select class="select-hour-end" id="lunes-fin" name="endHour[]">';
+            <select class="select-hour-end" id="'.$array['day'].'-fin" name="endHour[]">';
     for ($i=0; $i < sizeof($endHours); $i++) { 
         if ($array['endHour'] == $endHours[$i]) {
             echo '<option value="'. $endHours[$i]. '" selected>'.$endHours[$i].'</option>';
@@ -61,7 +61,7 @@ function displayDefaultServiceSchedule($value) {
         </div>
         <div class="accion">
             <p>Hora Inicio</p>
-            <select class="select-hour-start" id="lunes-inicio" name="startHour[]">
+            <select class="select-hour-start" id="'.$value.'-inicio" name="startHour[]">
             <option value="" selected></option>';
     for ($i=0; $i < sizeof($startHours); $i++) { 
         echo '<option value="'. $startHours[$i]. '">'.$startHours[$i].'</option>';
@@ -69,7 +69,7 @@ function displayDefaultServiceSchedule($value) {
     echo 
            '</select>
             <p>Hora Final</p>
-            <select class="select-hour-end" id="lunes-fin" name="endHour[]">
+            <select class="select-hour-end" id="'.$value.'-fin" name="endHour[]">
             <option value="" selected></option>';
     for ($i=0; $i < sizeof($endHours); $i++) { 
         echo '<option value="'. $endHours[$i]. '">'.$endHours[$i].'</option>';
@@ -78,4 +78,9 @@ function displayDefaultServiceSchedule($value) {
 '           </select>
         </div>
     </div>';
+}
+
+function dateToFormat_ES($date){
+    $newDate = date("d/m/Y", strtotime($date));
+    return $newDate;
 }

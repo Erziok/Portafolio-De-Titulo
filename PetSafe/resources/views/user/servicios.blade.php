@@ -4,6 +4,7 @@
 
 @section('CSS')
     <link rel="stylesheet" href="{{ asset('/css/servicio.css') }}">
+    <script src="{{ asset('js/scrollreveal.js') }}"></script>
 @endsection
 @section('content')
 
@@ -13,22 +14,15 @@
         <div class="container px-lg-5">
             
             {{-- New Service button --}}
-            <div class="new-publication-section ">
-                <div class="new-publication-container">
-                    <div class="new-publication-item">
-                        @if ($serviciosPendientes)
-                            <div class="new-publication-box text-center">
-                                <i class="fa-solid fa-plus"></i> Nuevo Servicio
-                            </div> 
-                        @else
-                            <a href="{{ route('formulario-servicio') }}">
-                                <div class="new-publication-box text-center">
-                                    <i class="fa-solid fa-plus"></i> Nuevo Servicio
-                                </div>  
-                            </a>
+            <div class="text-center mb-3">
+                <div class="btn-component">
+                    <div class="btn-wrapper">
+                        @if (!$serviciosPendientes)
+                            <a href="{{ route('formulario-servicio') }}" class="btn-action">Nuevo Servicio</a>
+                            <span><i class="fa-solid fa-plus"></i></span>                       
                         @endif
                     </div>
-                </div>
+                </div>    
             </div>
             <div class="p-1 rounded-3 text-center">
                 <div class="m-2 m-lg-3 search-bar-container">
@@ -40,7 +34,7 @@
                             </div>
                             <ul id="list">
                                 <form action="{{ route('service-filter') }}" method="GET" id="filter-form">
-                                    <input type="text" id="filter-input" class="d-none" name="filter">
+                                    <input type="text" autocomplete="off" id="filter-input" class="d-none" name="filter">
                                 </form>
                                 <li class="options" value="4">Negocio</li>
                                 <li class="options" value="3">Pyme</li>
@@ -77,7 +71,7 @@
                             <div class="content-box col-lg-8">
                                 <div class="details mb-3">
                                     <div class="left">
-                                        <div class="item date"><i class="fa-solid fa-calendar"></i> {{ $dato->created_at->toDateString() }} </div>
+                                        <div class="item date"><i class="fa-solid fa-calendar"></i> {{ dateToFormat_ES($dato->created_at->toDateString());}} </div>
                                         <div class="item author"><i class="fa-solid fa-user"></i> {{ $dato->user->firstname }} </div>
                                         <div class="item email"><i class="fa-solid fa-envelope"></i> {{ $dato->email }} </div>
                                     </div>
@@ -116,6 +110,7 @@
 
     @section('JS')
         <script src="{{ asset('/js/servicio.js') }}"></script>
+        <script src="{{ asset('js/components.js') }}"></script>
     @endsection
 
 </body>

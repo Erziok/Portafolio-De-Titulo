@@ -3,41 +3,52 @@
 @section('content')
 
 <div class="app-body-main-content">
+    <div class="section-title mb-5 mt-2">    
+        <h1 class="f-size-lg">Editar Zona Canina</h1>
+        <div class="hline"></div>
+    </div>
     <div class="form-box">
         <form action="{{ route('admin.canineArea.update', $canineArea) }}" method="POST" enctype="multipart/form-data">
             @method('PUT')
             @csrf
-            <div class="form-group mt-3">
-                <label for="">Titulo</label>
-                <input type="text" name="title" id="" class="form-control" value="{{ $canineArea -> title }}">
-                @error('title')
-                    <small class="text-danger">{{ $message }}</small>
-                @enderror
+            <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-text mt-4">
+                <div class="input-component">
+                    <input class="c-text-black" id="title" type="text" name="title" placeholder="Titulo" autocomplete="off" value="{{ $canineArea->title }}">
+                    <label for="title">Titulo</label>
+                    @error('title')
+                        <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                    @enderror
+                </div>
             </div>
-            <div class="form-group mt-3">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-text mt-4">
                 <label for="">Comentario</label>
-                <textarea class="form-control" name="comment" id="" cols="30" rows="5">{{ $canineArea -> comment}}</textarea>
+                <textarea class="form-control input-text-area-component shadow-none" name="comment" id="" cols="30" rows="4">{{ $canineArea->comment }}</textarea>
                 @error('comment')
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
-            <div class="form-group mt-3">
-                <label for="">Enlace</label>
-                <input type="text" name="url" id="" class="form-control" value="{{ $canineArea -> url }}">
-                @error('url')
-                    <small class="text-danger">{{ $message }}</small>
-                @enderror
+
+            <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-text mt-4">
+                <div class="input-component">
+                    <input class="c-text-black" id="url" type="text" name="url" placeholder="Enlace" autocomplete="off" value="{{ $canineArea -> url }}">
+                    <label for="url">Enlace</label>
+                    @error('url')
+                        <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                    @enderror
+                </div>
             </div>
-            <div class="form-group mt-3">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-text mt-4">
                 <label for="">Foto</label>
-                <input type="file" name="photo" id="" class="form-control">
+                <input type="file" name="photo" id="" class="form-control input-file-component shadow-none">
                 @error('photo')
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
-            <div class="form-group mt-3">
-                <label for="">Estado</label>
-                <select name="active" class="form-control active" aria-label="Default select example">
+            <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-select mt-4">
+                <label class="form-label" for="form3Example1q">Estado</label>
+                <select class="form-select input-select-component shadow-none" name="active" id="active">
                     @if ($canineArea->active == 1)
                         <option value="1" selected>Activo</option>
                         <option value="2">Inactiva</option>
@@ -47,28 +58,30 @@
                     @endif
                 </select>
                 @error('active')
-                    <small class="text-danger">{{ $message }}</small>
+                    <strong style="color: darkred">{{ $message }}</strong>
                 @enderror
             </div>
-            <div class="form-group mt-3">
-                <label for="">Beneficios</label>
-                <select name="benefit_id" id="" class="form-control benefit_id" aria-label="Default select example">
+            <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-text mt-4">
+                <label for="">Beneficio</label>
+                <select name="benefit_id" class="form-select benefit_id input-select-component shadow-none" aria-label="Default select example">
+                    <option selected disabled>Seleccionar...</option>
                     @forelse ($benefits as $benefit)
-                        @if ($benefit->id == $canineArea->benefit_id)
+                        @if ($canineArea->benefit_id == $benefit->id)
                             <option value="{{ $benefit->id }}" selected> {{ $benefit->name }} </option>
                         @else
                             <option value="{{ $benefit->id }}"> {{ $benefit->name }} </option>
                         @endif
                     @empty
-                        <option selected disabled>No hay beneficios disponibles.</option>
+                        <option selected disabled>No hay roles disponibles.</option>
                     @endforelse
                 </select>
                 @error('benefit_id')
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
-            <div class="form-group mt-3">
-                <input type="submit" class="form-control btn btn-primary">
+            
+            <div class="btn-component mt-5">
+                <button class="btn-default" type="submit">Actualizar Medicamento</button>
             </div>
         </form>
     </div>

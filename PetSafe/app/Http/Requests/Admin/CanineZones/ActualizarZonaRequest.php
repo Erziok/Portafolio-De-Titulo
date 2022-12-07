@@ -27,7 +27,6 @@ class ActualizarZonaRequest extends FormRequest
             'title'=>'required',
             'comment'=>'required',
             'url'=>'required',
-            'photo'=>'required',
             'benefit_id'=>'required',
             'active'=>'required',
         ];

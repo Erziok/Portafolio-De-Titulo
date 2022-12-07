@@ -3,78 +3,104 @@
 @section('content')
 
 <div class="app-body-main-content">
+    <div class="section-title mb-5 mt-2">    
+        <h1 class="f-size-lg">Crear Medicamento</h1>
+        <div class="hline"></div>
+    </div>
     <div class="form-box">
         <form action="{{ route('admin.medicine.store') }}" method="POST">
             @csrf
-            <div class="form-group mt-3">
-                <label for="">Nombre</label>
-                <input type="text" name="name" id="name" class="form-control">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 form-box form-box-text mt-4">
+                    <div class="input-component">
+                        <input class="c-text-black" id="name" type="text" name="name" placeholder="Nombre" autocomplete="off">
+                        <label for="name">Nombre</label>
+                        @error('name')
+                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 form-box form-box-text mt-4">
+                    <div class="input-component">
+                        <input class="c-text-black" id="activeSubstance" type="text" name="activeSubstance" placeholder="Principio activo" autocomplete="off">
+                        <label for="activeSubstance">Principio activo</label>
+                        @error('activeSubstance')
+                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 form-box form-box-text mt-4">
+                    <div class="input-component">
+                        <input class="c-text-black" id="function" type="text" name="function" placeholder="Función" autocomplete="off">
+                        <label for="function">Función</label>
+                        @error('function')
+                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 form-box form-box-text mt-4">
+                    <div class="input-component">
+                        <input class="c-text-black" id="implementation" type="text" name="implementation" placeholder="Aplicación" autocomplete="off">
+                        <label for="implementation">Aplicación</label>
+                        @error('implementation')
+                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 form-box form-box-text mt-4">
+                    <div class="input-component">
+                        <input class="c-text-black" id="laboratory" type="text" name="laboratory" placeholder="Laboratorio" autocomplete="off">
+                        <label for="laboratory">Laboratorio</label>
+                        @error('laboratory')
+                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 form-box form-box-text mt-4">
+                    <div class="input-component">
+                        <input class="c-text-black" id="specie" type="text" name="specie" placeholder="Especie" autocomplete="off">
+                        <label for="specie">Especie</label>
+                        @error('specie')
+                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 form-box form-box-text mt-4">
+                    <div class="input-component">
+                        <input class="c-text-black" id="price" type="number" name="price" placeholder="Precio" autocomplete="off">
+                        <label for="price">Precio</label>
+                        @error('price')
+                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 form-box form-box-text mt-4">
+                    <div class="input-component">
+                        <input class="c-text-black" id="discount" type="text" name="discount" placeholder="Descuento" autocomplete="off">
+                        <label for="discount">Descuento</label>
+                        @error('discount')
+                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                        @enderror
+                    </div>
+                </div>
             </div>
-            @error('name')
-                    <small class="text-danger">{{ $message }}</small>
-            @enderror
-            <div class="form-group mt-3">
-                <label for="">Principio activo</label>
-                <input type="text" name="activeSubstance" id="activeSubstance" class="form-control">
-            </div>
-            @error('activeSubstance')
-                    <small class="text-danger">{{ $message }}</small>
-            @enderror
-            <div class="form-group mt-3">
-                <label for="">Función</label>
-                <input type="text" name="function" id="function" class="form-control">
-            </div>
-            @error('function')
-                    <small class="text-danger">{{ $message }}</small>
-            @enderror
-            <div class="form-group mt-3">
-                <label for="">Aplicación</label>
-                <input type="text" name="implementation" id="implementation" class="form-control">
-            </div>
-            @error('implementation')
-                    <small class="text-danger">{{ $message }}</small>
-            @enderror
-            <div class="form-group mt-3">
-                <label for="">Laboratorio</label>
-                <input type="text" name="laboratory" id="laboratory" class="form-control">
-            </div>
-            @error('laboratory')
-                    <small class="text-danger">{{ $message }}</small>
-            @enderror
-            <div class="form-group mt-3">
-                <label for="">Especie</label>
-                <input type="text" name="specie" id="specie" class="form-control">
-            </div>
-            @error('specie')
-                    <small class="text-danger">{{ $message }}</small>
-            @enderror
-            <div class="form-group mt-3">
-                <label for="">Precio</label>
-                <input type="number" name="price" id="price" class="form-control">
-            </div>
-            @error('price')
-                    <small class="text-danger">{{ $message }}</small>
-            @enderror
-            <div class="form-group mt-3">
-                <label for="">Descuento</label>
-                <input type="text" name="discount" id="discount" class="form-control">
-            </div>
-            @error('discount')
-                    <small class="text-danger">{{ $message }}</small>
-            @enderror
-            <div class="form-group mt-3">
+
+            <div class="col-lg-6 col-md-6 col-sm-12 form-box form-box-text mt-4">
                 <label for="">Beneficio</label>
-                <select name="benefit_id" class="form-control benefit_id" aria-label="Default select example">
+                <select name="benefit_id" class="form-select benefit_id input-select-component shadow-none" aria-label="Default select example">
                     @foreach ($benefits as $benefit)
                         <option value="{{ $benefit->id }}">{{ $benefit->name }}</option>
                     @endforeach
                 </select>
-            </div>
-            @error('benefit_id')
+                @error('benefit_id')
                     <small class="text-danger">{{ $message }}</small>
-            @enderror
-            <div class="form-group mt-3">
-                <input type="submit" class="form-control btn btn-primary">
+                @enderror
+            </div>
+            
+
+            <div class="btn-component mt-5">
+                <button class="btn-default" type="submit">Crear Medicamento</button>
             </div>
         </form>
     </div>

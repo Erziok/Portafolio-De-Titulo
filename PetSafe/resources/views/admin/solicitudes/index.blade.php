@@ -9,6 +9,10 @@
 
 @section('content')
 <div class="app-body-main-content">
+    <div class="section-title mb-5 mt-2">    
+        <h1 class="f-size-lg">Solicitudes de Socio</h1>
+        <div class="hline"></div>
+    </div>
     <table id="tabla-servicios" class="table table-striped" style="width:100%">
         <thead>
             <tr>
@@ -25,11 +29,17 @@
                     <td>{{ $counter++ }}</td>
                     <td>Solicitud para registrar una cuenta como socio y permitir subir servicios. El servicio seleccionado llamado <b>"{{$solicitud->name}}"</b> es de tipo <b>{{$solicitud->type->type}}.</b></td>
                     <td>
-                        <button class="ver-detalles-solicitud btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-detalle-solicitud" data-service="{{ $solicitud->id }}">Ver detalle</button>
+                        <button class="ver-detalles-solicitud btn-simple-component" data-bs-toggle="modal" data-bs-target="#modal-detalle-solicitud" data-service="{{ $solicitud->id }}">Ver detalle <i class="fa-solid fa-circle-info"></i></button>
                     </td>
                     <td>
-                        <a href="{{ route('admin.association.approve', ['service'=>$solicitud,'user'=>$solicitud->user]) }}" class="btn btn-success btn-sm">Aprobar</a>
-                        <a href="{{ route('admin.association.deny', $solicitud) }}" class="btn btn-danger btn-sm">Rechazar</a>
+                        <div class="acciones-box">
+                            <div class="box-aprobar">
+                                <a href="{{ route('admin.association.approve', ['service'=>$solicitud,'user'=>$solicitud->user]) }}"><button><i class="fa-solid fa-file-circle-check"></i></button></a>
+                            </div>
+                            <div class="box-eliminar">
+                                <a href="{{ route('admin.association.deny', $solicitud) }}"><button><i class="fa-solid fa-file-circle-xmark"></i></button></a>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             @endforeach

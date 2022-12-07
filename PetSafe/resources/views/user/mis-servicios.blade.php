@@ -4,6 +4,7 @@
 
 @section('CSS')
     <link rel="stylesheet" href="{{ asset('/css/servicio.css') }}">
+    <script src="{{ asset('js/scrollreveal.js') }}"></script>
 @endsection
 @section('content')
 
@@ -12,16 +13,15 @@
     <header class="my-5 mb-5">
         <div class="container px-lg-5">
             {{-- New Service button --}}
-            <div class="new-publication-section ">
-                <div class="new-publication-container">
-                    <div class="new-publication-item">
-                        <a href="{{ route('formulario-servicio') }}">
-                            <div class="new-publication-box text-center">
-                                <i class="fa-solid fa-plus"></i> Nuevo Servicio
-                            </div>  
-                        </a>
+            <div class="text-center mb-3">
+                <div class="btn-component">
+                    <div class="btn-wrapper">
+                        @if (!$serviciosPendientes)
+                            <a href="{{ route('formulario-servicio') }}" class="btn-action">Nuevo Servicio</a>
+                            <span><i class="fa-solid fa-plus"></i></span>                       
+                        @endif
                     </div>
-                </div>
+                </div>    
             </div>
         </div>
     </header>
@@ -77,6 +77,7 @@
 
     @section('JS')
         <script src="{{ asset('/js/servicio.js') }}"></script>
+        <script src="{{ asset('js/components.js') }}"></script>
     @endsection
 
 </body>

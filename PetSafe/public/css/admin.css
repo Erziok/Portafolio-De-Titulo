@@ -816,10 +816,7 @@ a {
 }
 
 .app-body-main-content table tbody div button{
-  width: 30px;
-  height: 30px;
   text-align: center;
-  font-size: 1rem;
 }
 .app-body-main-content table tbody div:last-child {
   margin-left: 4px;
@@ -833,19 +830,6 @@ a {
   height: 60px;
   border-radius: 4px;
   object-fit: cover;
-}
-
-.app-body-main-content table tbody .box-editar button{
-  background: #f7a40c !important;
-  color: #fff;
-  border: none;
-  border-radius: 2px;
-}
-.app-body-main-content table tbody .box-eliminar button{
-  background: #ef3620 !important;
-  color: #fff;
-  border: none;
-  border-radius: 2px;
 }
 
 .app-body-main-content iframe {
