@@ -1,5 +1,3 @@
-
-
 const form = document.getElementById("form")
 const submitButton = document.getElementById("submit-btn")
 
@@ -11,7 +9,7 @@ let errors = {
     phone: true,
     email: true,
     description: true,
-    type_id: true,
+    service_type_id: true,
     photo: true,
 }
 
@@ -24,7 +22,7 @@ const phoneRegex = /^(\+?56)?(\s?)(0?9)(\s?)[98765432]\d{7}$/ // Chilean number 
 // Input text
 document.querySelectorAll('.form-box-text').forEach((box) => {
     const boxInput = box.querySelector('input');
-    
+
     form.addEventListener('submit', (event) => {
         event.preventDefault();
         validateInput(box, boxInput)
@@ -46,6 +44,7 @@ document.querySelectorAll('.form-box-textarea').forEach((box) => {
 });
 
 // Select
+
 document.querySelectorAll('.form-box-select').forEach((box) => {
     const boxInput = box.querySelector('select');
 
@@ -58,18 +57,42 @@ document.querySelectorAll('.form-box-select').forEach((box) => {
 
 });
 
-// Checkbox
-document.querySelectorAll('.select-checkbox').forEach((box) => {
-    const boxInput = box.querySelector('checkbox');
+// Checkbox Schedule
+let checkBoxIds = getCheckBoxIds();
 
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-    
-        validateInput(box, boxInput) 
+function getCheckBoxIds() {
+    let checkboxs = [];
+    document.querySelectorAll('.select-item .select-checkbox').forEach((box) => {
+        checkboxs.push(box.id);
+    });
+    return checkboxs;
+}
 
-    })
+function getSelectScheduleIds(checkBoxIds) {
+    let selectIds = [];
+    for (let i = 0; i < checkBoxIds.length; i++) {
+        if (document.getElementById(checkBoxIds[i]).checked == true) {
+            selectIds.push(checkBoxIds[i].concat('-inicio'));
+            selectIds.push(checkBoxIds[i].concat('-fin'));   
+        }
+    }
+    return selectIds;
+}
 
-});
+function validateSelectSchedule(array) {
+    let emptyField = 0; // sin errores
+
+    if (array.length != 0) {
+        array.forEach(value => {
+            if (document.getElementById(value).value === '' || document.getElementById(value).value === null) {
+                emptyField = 1; // error en los dias seleccionados
+            }
+        });
+    } else {
+        emptyField = 2; // sin dias seleccionados
+    }
+    return emptyField
+}
 
 // Input file
 document.querySelectorAll('.form-box-file').forEach((box) => {
@@ -86,7 +109,6 @@ document.querySelectorAll('.form-box-file').forEach((box) => {
 
 
 validateInput = (box, boxInput) => {
-
     if(boxInput.value == ''){
         showError(true, box, boxInput);
     }else{
@@ -149,7 +171,7 @@ validateInput = (box, boxInput) => {
 
     }
 
-    if(boxInput.name == 'type'){
+    if(boxInput.name == 'service_type_id'){
 
         if(boxInput.value == ''){
             showError(true, box, boxInput);
@@ -188,15 +210,22 @@ showError = (check, box, boxInput) => {
 }
 
 submitController = () => {
-    if(errors.name || errors.address || errors.phone || errors.email || errors.description || errors.type_id || errors.photo){
-        // console.log("Hay un error")
+    let scheduleError = document.getElementById('schedule-error');
+    scheduleError.style.display="none";
+    if(errors.name || errors.address || errors.phone || errors.email || errors.description || errors.service_type_id || errors.photo){
+    }
+    else if (validateSelectSchedule(getSelectScheduleIds(checkBoxIds)) == 1) {
+        scheduleError.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Tienes que asignarles un horario a los días seleccionados';
+        scheduleError.style.display="block";
+    } else if (validateSelectSchedule(getSelectScheduleIds(checkBoxIds)) == 2){
+        scheduleError.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Tines que definir tus días laborales';
+        scheduleError.style.display="block";
     }
     else{
         // console.log("Todo ok")
         form.submit();
     }
 }
-
 
 
 

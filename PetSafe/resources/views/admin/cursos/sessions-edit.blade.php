@@ -7,6 +7,10 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <div class="app-body-main-content">
+    <div class="section-title mb-5 mt-2">    
+        <h1 class="f-size-lg">Editar Sesiones del Curso</h1>
+        <div class="hline"></div>
+    </div>
     <div class="form-box">
         <form action="{{ route('admin.course.update-sessions') }}" method="POST" id="form-store-sessions">
             @method('PUT')

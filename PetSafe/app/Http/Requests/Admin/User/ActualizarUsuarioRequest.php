@@ -29,6 +29,7 @@ class ActualizarUsuarioRequest extends FormRequest
             'lastname'=>'required | alpha',
             'email'=>'required',
             'role_id'=>'required',
+            'active'=>'required'
         ];
     }
 }

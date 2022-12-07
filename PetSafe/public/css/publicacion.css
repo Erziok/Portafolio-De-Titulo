@@ -50,6 +50,7 @@ body {
     max-height: 0;
     overflow: hidden;
     transition: max-height .5s;
+    z-index: 100000;
     padding: 0;
     text-align: start;
     -webkit-box-shadow: 1px 1px 17px -3px rgba(0,0,0,0.8);
@@ -60,6 +61,10 @@ body {
 .select-box ul li {
     padding: 10px 20px;
     cursor: pointer;
+}
+.select-box ul li:hover {
+    background: #85a1fc;
+    color: #fbfbfb;
 }
 .select-box i {
     font-size: .8rem;
@@ -72,7 +77,7 @@ body {
     border: none;
     position: absolute;
     right: 10px;
-    top: 6px;
+    height: 100%;
     color: #725cfa;
     font-size: 1.1rem;
 }
@@ -90,13 +95,34 @@ body {
 }
 
 /*publicaciones*/
+.publication-overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.publication-overlay.active {
+    display: flex !important;
+}
+
+.publication-overlay lord-icon {
+    position: absolute;
+}
+
 .publication-box {
+    position: relative;
     background: #ffff;
     width: 98%;
     margin: 30px auto !important;
     -webkit-box-shadow: 1px 1px 17px -3px rgba(0,0,0,0.8);
     -moz-box-shadow: 1px 1px 17px -3px rgba(0,0,0,0.8);
     box-shadow: 1px 1px 17px -3px rgba(0,0,0,0.15);
+    overflow-wrap: break-word;
 }
 .publication-box .image-box {
     padding: 0;
@@ -140,6 +166,10 @@ body {
     display: block;
 }
 
+.fav-counter {
+    margin-left: 3px !important;
+}
+
 .publication-box .content-box .details .right .add-fav i.active {
     display: block !important;
 }
@@ -148,14 +178,14 @@ body {
 }
 .publication-box .content-box .show-more {
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 10px 15px;
     background: #725cfa;
-    border-radius: 4px;
+    border-radius: 2px;
     color: #fff;
+    transition: .3s;
 }
-
-.search-wrapper i {
-
+.publication-box .content-box .show-more:hover {
+    background: #85a1fc;
 }
 
 /* New publication button */

@@ -6,9 +6,10 @@
 
 <header class="py-5">
     <div class="container px-lg-5">
-        <div class="p-4 p-lg-5 content rounded-3">
-            <div class="m-4 m-lg-5">
-                <h1 class="display-6 fw-bold text-center">Denuncia maltrato</h1><br>
+        <div class="p-2 info-container">
+            <div class="m-3">
+                <h1 class="mt-3 display-6 fw-bold c-text-black f-size-xl">Denuncia maltrato</h1>
+                <div class="hline mb-5"></div>
                 <p class="fs-6">
                     La ley considera maltrato o crueldad animal cualquier acción u omisión, ocasional 
                     o reiterada, que injustificadamente cause daño, dolor o sufrimiento a un animal.
@@ -63,6 +64,6 @@
             </div>
         </div>
     </div>
+<div class="py-5"></div>
 </header>
-
 @endsection

@@ -17,12 +17,7 @@
     border: 1px solid rgba(0,0,0,.125);
     border-radius: 0.25rem;
 }
-/*
-section {
-    padding: 120px 0;
-    overflow: hidden;
-    background: #fff;
-}*/
+
 .mb-2-3, .my-2-3 {
     margin-bottom: 2.3rem;
 }
@@ -149,8 +144,6 @@ section {
 /* Change avatar button */
 
 .change-avatar-btn {
-    display: flex;
-    justify-content: center;
     background-color: #725cfa;
 }
 
@@ -167,4 +160,20 @@ section {
     width: 50%;
     height: 281px;
     object-fit: cover;
+}
+
+.container-profile {
+    margin: auto;
+    max-width: 1100px;
+    width: 90%;
+}
+.profile-avatar-box .avatar-box img{
+    width: 100%;
+}
+.profile-info-item {
+    width: 22rem;
+    background: var(--c-white);
+    padding: 20px;
+    box-shadow: 0px 0px 12px rgba(0,0,0,.05);
+    margin: 5px;
 }

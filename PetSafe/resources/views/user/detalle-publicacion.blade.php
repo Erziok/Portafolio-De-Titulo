@@ -14,7 +14,7 @@
             @foreach ($objects as $object)
             <div class="header-publication">
                 <div class="section-title mb-5 mt-2">    
-                    <h1>{{ $object->title }}</h1>
+                    <h1 class="c-text-black">{{ $object->title }}</h1>
                     <div class="hline"></div>
                 </div>
                 @can('publication.tasks', $object)
@@ -56,23 +56,21 @@
                 </div>
                 <div class="description-section col-lg-4">
                     <div class="detail-subtitle">
-                        <h2><b>{{ $object->animal->name }}</b></h2>
+                        <h2 class="c-text-black"><b>{{ $object->animal->name }}</b></h2>
                     </div>
-                    <hr>
                     <div class="detail-description" id="detail-description">
                         {{ $object->description }}
                     </div><br>
-                    <hr>
-                    <h2><b>Datos</b></h2>
+                    <h2 class="c-text-black"><b>Datos</b></h2>
                     <div class="detail-breed" id="detail-breed">
-                        <b>Raza:</b> {{ $object->animal->breed->breed }}
+                        <b class="c-text-black">Raza:</b> {{ $object->animal->breed->breed }}
                     </div>
                     <div class="detail-gender" id="detail-gender">
-                        <b>Genero:</b> {{ $object->animal->gender }}
+                        <b class="c-text-black">Genero:</b> {{ $object->animal->gender }}
                     </div>
                     @if ($object->category_id == 2 || $object->category_id == 3)
                         <div class="detail-date" id="detail-date">
-                            <b>Fecha del suceso:</b> {{ $object->incidentDate }}
+                            <b class="c-text-black">Fecha del suceso:</b> {{ $object->incidentDate }}
                         </div>
                     @endif
                     <div class="show-more-box">
@@ -146,10 +144,10 @@
                                     <div class="comentar-publicacion responder-comentario mt-3">
                                         @if (auth()->check())
                                             <div class="avatar">
-                                                @if (empty($reply->user->avatar))
+                                                @if (empty(auth()->user()->avatar))
                                                     <img src="{{ asset('images/placeholder-user.jpg') }}" alt="img">
                                                 @else
-                                                    <img src="{{ asset($reply->user->avatar) }}" alt="img">
+                                                    <img src="{{ asset(auth()->user()->avatar) }}" alt="img">
                                                 @endif
                                             </div>
                                             <form action="{{ route('detalle.responder', ['object'=> $object, 'comment'=> $comment]) }}" method="post" class="comentar-comentario">
@@ -172,10 +170,10 @@
                     <div class="comentar-publicacion mt-3">
                         @if (auth()->check())
                             <div class="avatar">
-                                @if (empty($reply->user->avatar))
+                                @if (empty(auth()->user()->avatar))
                                     <img src="{{ asset('images/placeholder-user.jpg') }}" alt="img">
                                 @else
-                                    <img src="{{ asset($reply->user->avatar) }}" alt="img">
+                                    <img src="{{ asset(auth()->user()->avatar) }}" alt="img">
                                 @endif
                             </div>
                             <form action="{{ route('detalle.comentar', $object) }}" method="post" class="comentar-comentario">

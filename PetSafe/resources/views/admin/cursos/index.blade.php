@@ -9,14 +9,19 @@
 
 @section('content')
 <div class="app-body-main-content">
+    <div class="section-title mb-5 mt-2">    
+        <h1 class="f-size-lg">Cursos Municipales</h1>
+        <div class="hline"></div>
+    </div>
     @if (Session::has('message'))
         <div class="alert alert-warning alert-dismissible fade show mt-4 mb-1" role="alert">
             <strong>Recuerde</strong>, {{ Session::get('message') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-    <div class="box-agregar mt-3">
-        <a href="{{ route('admin.course.create') }}"><button>Añadir Nuevo <i class="fa-solid fa-plus"></i></button></a>
+
+    <div class="btn-component">
+        <a href="{{ route('admin.course.create') }}" class="btn-simple-component">Añadir Nuevo <i class="fa-solid fa-plus"></i></a>
     </div>
     <table id="tabla-cursos" class="table table-striped" style="width:100%">
         <thead>
@@ -38,9 +43,9 @@
                     <td>{{ $course->id }}</td>
                     <td>{{ $course->name }}</td>
                     <td>{{ $course->phone }}</td>
-                    <td>{{ Str::limit($course->description, 75) }}</td>
-                    <td>{{ Str::limit($course->objectives, 75) }}</td>
-                    <td>{{ $course->materials }}</td>
+                    <td>{{ Str::limit($course->description, 25) }}</td>
+                    <td>{{ Str::limit($course->objectives, 25) }}</td>
+                    <td>{{ Str::limit($course->materials, 25) }}</td>
                     {{ displayStatus($course->active) }}
                     @if (count($course->session) == 0)
                         <td>
@@ -61,13 +66,13 @@
                     <td>
                         <div class="acciones-box">
                             <div class="box-editar">
-                                <a href="{{ route('admin.course.edit', $course) }}"><button><i class="fa-solid fa-pencil"></i></button></a>
+                                <a href="{{ route('admin.course.edit', $course) }}"><button data-bs-toggle="tooltip" data-bs-placement="top" title="Editar"><i class="fa-solid fa-pencil"></i></button></a>
                             </div>
                             <div class="box-eliminar">
-                                <form action="{{ route('admin.course.destroy', $course) }}" method="POST">
+                                <form action="{{ route('admin.course.destroy', $course) }}" method="POST" class="formulario-eliminar">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" onclick="return confirm('Are you sure?')"><i class="fa-solid fa-trash"></i></button>
+                                    <button type="submit" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar"><i class="fa-solid fa-trash"></i></button>
                                 </form>
                             </div>
                         </div>

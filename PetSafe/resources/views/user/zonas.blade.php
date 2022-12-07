@@ -2,30 +2,36 @@
 
 @section('title') Zonas Caninas @endsection
 
+@section('CSS')
+    <link rel="stylesheet" href="{{ asset('css/publicacion.css') }}">
+    <script src="{{ asset('js/scrollreveal.js') }}"></script>
+@endsection
+
 @section('content')
 
     <header class="py-5">
-        <div class="container px-lg-5">
-            <div class="p-4 p-lg-5 content rounded-3">
-                <div class="m-4 m-lg-5">
+        <div class="container">
+            <div class="p-4 info-container">
+                <div class="">
                     @if (!empty($beneficio))
-                        <h1 class="display-5 fw-bold text-center">{{ $beneficio->name }}</h1><br>
+                        <h1 class="mt-3 display-6 fw-bold c-text-black f-size-xl">{{ $beneficio->name }}</h1>
+                        <div class="hline mb-5"></div>
                         <p class="fs-6">
                             {{$beneficio->description}}
                         </p>
-                        @forelse ($beneficio->canineArea as $area)
-                            <div class="card w-100 p-0 mt-3 mb-3">
+                        @forelse ($zonas as $zona)
+                            <div class="publication-box">
                                 <div class="card-header">
-                                    <h3 class="fw-bold text-left">{{$area->title}}</h2>
+                                    <h3 class="fw-bold text-left c-text-black">{{$zona->title}}</h2>
                                 </div>
                                 <div class="card-body">
                                     <p class="fs-6">
-                                        {{$area->comment}}
-                                    </p><br>
-                                    <p class="fs-6">
-                                        Esta es una imagen referencial del mapa, si quieres tener una vista más completa has click en la imagen.
+                                        {{$zona->comment}}
                                     </p>
-                                    <a href="{{ $area->url }}" target="_blank"><img src="{{ asset($area->photo) }}" alt="" class="maps"></a> 
+                                    <p class="f-size-sm mt-3 c-text-gray-2">
+                                        <i class="fa-solid fa-circle-info"></i> Esta es una imagen referencial del mapa, si quieres tener una vista más completa has click en la imagen.
+                                    </p>
+                                    <a href="{{ $zona->url }}" target="_blank"><img src="{{ asset($zona->photo) }}" alt="" class="maps"></a> 
                                 </div>
                             </div>
                         @empty
@@ -38,6 +44,22 @@
             </div>
         </div>
     </header>
+    @if ($zonas->hasPages())
+        <div class="mt-4 mb-5">
+            <div class="info-container p-2">
+                <div class="p-1 p-lg-1 bg-light rounded-3 text-center">
+                    <div class="m-2 m-lg-3">
+                        {{ $zonas->onEachSide(5)->links() }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    @else
+        <div class="pt-4 pb-5"></div>
+    @endif
+@endsection
 
-    @endsection
+@section('JS')
+    <script src="{{ asset('js/components.js') }}"></script>
+@endsection
 

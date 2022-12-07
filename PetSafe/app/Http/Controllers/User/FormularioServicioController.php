@@ -74,7 +74,11 @@ class FormularioServicioController extends Controller
                 'service_id' => $service->id,
             ]);
         }
-        Alert::toast('Servicio creado correctamente', 'success');
+        if($statusService == 1){
+            Alert::toast('Servicio creado correctamente', 'success');
+        } else {
+            Alert::toast('Se ha creado una solicitud para aprobar tu servicio', 'info');
+        }
         return redirect()->route('servicios');
     }
 }

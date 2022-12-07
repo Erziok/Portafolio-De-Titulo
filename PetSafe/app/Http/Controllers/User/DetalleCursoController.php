@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Models\Benefit;
 use App\Models\Course;
 use Illuminate\Http\Request;
 

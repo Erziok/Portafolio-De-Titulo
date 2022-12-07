@@ -1,6 +1,6 @@
 const base_url = document.getElementsByName('base-url')[0].getAttribute('content');
 const specie = document.getElementById('specie');
-const breed = document.getElementById('breed');
+const breed = document.getElementById('breed_id');
 
 specie.addEventListener('change', function() {
     $.ajax({
