@@ -102,7 +102,11 @@ Route::group(['middleware'=>'auth'] , function(){
     Route::get('/formulario-servicio', [\App\Http\Controllers\User\FormularioServicioController::class, 'index'])
     ->name('formulario-servicio');
 
-    
+    Route::get('/editar-servicio/{service}', [\App\Http\Controllers\User\FormularioServicioController::class, 'editService'])
+    ->name('formulario-servicio.edit');
+
+    Route::put('/editar-servicio/{service}', [\App\Http\Controllers\User\FormularioServicioController::class, 'updateService'])
+    ->name('formulario-servicio.update');
 
     Route::get('/editar-usuario', [\App\Http\Controllers\User\EditarUsuarioController::class, 'index'])
     ->name('editar-usuario');

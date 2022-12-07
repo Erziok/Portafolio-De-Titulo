@@ -20,7 +20,7 @@
                 <div class="menu-publicacion">
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                     <ul class="menu">
-                        <li><a href="">Editar</a></li>
+                        <li><a href="{{ route('formulario-servicio.edit', $service) }}">Editar</a></li>
                         <li>
                             <form action="{{ route('servicio.delete', $service) }}" method="POST">
                                 @csrf
