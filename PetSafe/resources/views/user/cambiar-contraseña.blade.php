@@ -23,9 +23,9 @@
                 <div class="input-component">
                     <input class="c-text-black" id="actual_password" type="password" name="actual_password" placeholder="Contraseña actual" autocomplete="off">
                     <label for="actual_password">Contraseña actual</label>
-                    <small class="error-text mt-2">No puede dejar este campo en blanco</small>
+                    <small class="error-text mt-2"><i class="fa-solid fa-circle-exclamation"></i> No puede dejar este campo en blanco</small>
                     @error('actual_password')
-                        <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                        <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                     @enderror
                 </div>
             </div>
@@ -34,9 +34,9 @@
                 <div class="input-component">
                     <input class="c-text-black" id="password" type="password" name="password" placeholder="Nueva contraseña" autocomplete="off">
                     <label for="password">Nueva contraseña</label>
-                    <small class="error-text mt-2">Ingrese una contraseña válida (mínimo 6 carácteres)</small>
+                    <small class="error-text mt-2"><i class="fa-solid fa-circle-exclamation"></i> Ingrese una contraseña válida (mínimo 6 carácteres)</small>
                     @error('password')
-                        <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                        <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                     @enderror
                 </div>
             </div>
@@ -44,9 +44,9 @@
                 <div class="input-component">
                     <input class="c-text-black" id="confirm_password" type="password" name="confirm_password" placeholder="Repita la contraseña" autocomplete="off">
                     <label for="confirm_password">Repita la contraseña</label>
-                    <small class="error-text">Las contraseñas no coinciden</small>
+                    <small class="error-text"><i class="fa-solid fa-circle-exclamation"></i> Las contraseñas no coinciden</small>
                     @error('confirm_password')
-                        <strong style="color: darkred">{{ $message }}</strong>
+                        <strong style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</strong>
                     @enderror
                 </div>
             </div>

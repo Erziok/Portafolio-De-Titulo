@@ -20,9 +20,9 @@
                 <div class="input-component">
                     <input class="c-text-black" id="firstname" type="text" name="firstname" placeholder="Nombre" autocomplete="off" value="{{ Auth::user()->firstname }}">
                     <label for="firstname">Nombre</label>
-                    <small class="error-text mt-2">Introduce un nombre válido (mínimo 3 carácteres / solo letras)</small>
+                    <small class="error-text mt-2"><i class="fa-solid fa-circle-exclamation"></i> Introduce un nombre válido (mínimo 3 carácteres / solo letras)</small>
                     @error('email')
-                        <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                        <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                     @enderror
                 </div>
             </div>
@@ -31,9 +31,9 @@
                 <div class="input-component">
                     <input class="c-text-black" id="lastname" type="text" name="lastname" placeholder="Apellido" autocomplete="off" value="{{ Auth::user()->lastname }}">
                     <label for="lastname">Apellido</label>
-                    <small class="error-text mt-2">Introduce un apellido válido (mínimo 3 carácteres / solo letras)</small>
+                    <small class="error-text mt-2"><i class="fa-solid fa-circle-exclamation"></i> Introduce un apellido válido (mínimo 3 carácteres / solo letras)</small>
                     @error('email')
-                        <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                        <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                     @enderror
                 </div>
             </div>

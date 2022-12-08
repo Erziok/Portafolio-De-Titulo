@@ -21,9 +21,9 @@
                 <div class="input-component">
                     <input class="c-text-black" id="title" type="text" name="title" placeholder="Título" autocomplete="off">
                     <label for="title">Título</label>
-                    <small class="error-text mt-2">Ingrese un título correcto (mínimo 5 carácteres)</small>
+                    <small class="error-text mt-2"><i class="fa-solid fa-circle-exclamation"></i> Ingrese un título correcto (mínimo 5 carácteres)</small>
                     @error('title')
-                        <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                        <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                     @enderror
                 </div>
             </div>
@@ -32,9 +32,9 @@
                 <div class="input-component">
                     <input class="c-text-black" id="petname" type="text" name="name" placeholder="Nombre" autocomplete="off">
                     <label for="petname">Nombre</label>
-                    <small class="error-text mt-2">Ingrese un nombre correcto (mínimo 3 carácteres / solo letras)</small>
+                    <small class="error-text mt-2"><i class="fa-solid fa-circle-exclamation"></i> Ingrese un nombre correcto (mínimo 3 carácteres / solo letras)</small>
                     @error('name')
-                        <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                        <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                     @enderror
                 </div>
             </div>
@@ -47,9 +47,9 @@
                         <option value="{{ $specie->id }}">{{ $specie->specie }}</option>
                     @endforeach
                 </select>
-                <small class="error-text">Seleccione una opción válida</small>
+                <small class="error-text"><i class="fa-solid fa-circle-exclamation"></i> Seleccione una opción válida</small>
                 @error('specie')
-                <strong style="color: darkred">{{ $message }}</strong>
+                <strong style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</strong>
                 @enderror
             </div>
 
@@ -58,9 +58,9 @@
                 <select class="form-select breed" name="breed_id" id="breed_id">
                     <option value="" disabled selected>Seleccione una especie primero</option> 
                 </select>
-                <small class="error-text">Seleccione una opción válida</small>
+                <small class="error-text"><i class="fa-solid fa-circle-exclamation"></i> Seleccione una opción válida</small>
                 @error('breed_id')
-                <strong style="color: darkred">{{ $message }}</strong>
+                <strong style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</strong>
                 @enderror
             </div>
 
@@ -71,9 +71,9 @@
                     <option value="Macho">Macho</option>
                     <option value="Hembra">Hembra</option>
                 </select>
-                <small class="error-text">Seleccione una opción válida</small>
+                <small class="error-text"><i class="fa-solid fa-circle-exclamation"></i> Seleccione una opción válida</small>
                 @error('gender')
-                <strong style="color: darkred">{{ $message }}</strong>
+                <strong style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</strong>
                 @enderror
             </div>
 
@@ -85,18 +85,18 @@
                         <option value="{{ $category->id }}">{{ $category->category }}</option>
                     @endforeach
                 </select>
-                <small class="error-text">Seleccione una opción válida</small>
+                <small class="error-text"><i class="fa-solid fa-circle-exclamation"></i> Seleccione una opción válida</small>
                 @error('category_id')
-                <strong style="color: darkred">{{ $message }}</strong>
+                <strong style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</strong>
                 @enderror
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 form-box form-box-date">
                 <label class="form-label" for="form3Example1q">Fecha del incidente</label>
                 <input type="date" id="incidentDate" 
                 class="form-control shadow-none input-date-component" name="incidentDate" max="<?php echo date("Y-m-d"); ?>" onkeydown="return false"></input>
-                <small class="error-text">Seleccione una fecha correcta</small>
+                <small class="error-text"><i class="fa-solid fa-circle-exclamation"></i> Seleccione una fecha correcta</small>
                 @error('incidentDate')
-                    <strong style="color: darkred">{{ $message }}</strong>
+                    <strong style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</strong>
                 @enderror
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-textarea">
@@ -104,9 +104,9 @@
                 <textarea type="textarea" id="description" 
                 class="form-control input-text-area-component shadow-none" placeholder="Ingrese aquí los detalles de su publicación" 
                 name="description" rows="5"></textarea>
-                <small class="error-text">Ingrese una descripción correcta (mínimo 10 carácteres)</small>
+                <small class="error-text"><i class="fa-solid fa-circle-exclamation"></i> Ingrese una descripción correcta (mínimo 10 carácteres)</small>
                 @error('description')
-                    <strong style="color: darkred">{{ $message }}</strong>
+                    <strong style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</strong>
                 @enderror
             </div>
 
@@ -114,9 +114,9 @@
                 <label class="form-label" for="form3Example1q">Ingrese una fotografía</label><br>
                 <input type="file" id="photo" class="form-control input-file-component shadow-none" 
                 placeholder="" name="photo"/>
-                <small class="error-text">Ingrese un archivo válido</small>
+                <small class="error-text"><i class="fa-solid fa-circle-exclamation"></i> Ingrese un archivo válido</small>
                 @error('photo')
-                    <strong style="color: darkred">{{ $message }}</strong>
+                    <strong style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</strong>
                 @enderror
             </div>
         </div>

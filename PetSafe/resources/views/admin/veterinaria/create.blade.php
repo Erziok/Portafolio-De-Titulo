@@ -15,7 +15,7 @@
                         <input class="c-text-black" id="name" type="text" name="name" placeholder="Nombre del Procedimiento" autocomplete="off">
                         <label for="name">Procedimiento</label>
                         @error('name')
-                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                            <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                         @enderror
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                     <label for="">Descripción</label>
                     <textarea class="form-control input-text-area-component shadow-none" name="description" id="" cols="30" rows="4"></textarea>
                     @error('description')
-                        <small class="text-danger">{{ $message }}</small>
+                        <small class="text-danger"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                     @enderror
                 </div>
 
@@ -32,7 +32,7 @@
                         <input class="c-text-black" id="email" type="email" name="email" placeholder="Email" autocomplete="off">
                         <label for="run">Email</label>
                         @error('email')
-                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                            <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                         @enderror
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                         <input class="c-text-black" id="phone" type="email" name="phone" placeholder="Número de contacto" autocomplete="off">
                         <label for="run">Número de contacto</label>
                         @error('phone')
-                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                            <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                         @enderror
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                         @endforelse
                     </select>
                     @error('benefit_id')
-                        <strong style="color: darkred">{{ $message }}</strong>
+                        <strong style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</strong>
                     @enderror
                 </div>
             </div>

@@ -18,7 +18,7 @@
                 <input class="c-text-black" id="pageName" type="text" name="pageName" placeholder="Nombre de la Página" autocomplete="off" value="{{ Config::get('petsafe-web-config.pageName') }}">
                 <label for="pageName">Nombre de la Página</label>
                 @error('pageName')
-                    <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                    <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                 @enderror
             </div>
         </div>
@@ -28,7 +28,7 @@
                 <input class="c-text-black" id="officialMail" type="email" name="officialMail" placeholder="Correo Oficial" autocomplete="off" value="{{ Config::get('petsafe-web-config.officialMail') }}">
                 <label for="officialMail">Correo Oficial</label>
                 @error('officialMail')
-                    <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                    <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                 @enderror
             </div>
         </div>
@@ -39,7 +39,7 @@
                 <input class="c-text-black" id="complaintsMail" type="email" name="complaintsMail" placeholder="Correo Denuncias" autocomplete="off" value="{{ Config::get('petsafe-web-config.complaintsMail') }}">
                 <label for="complaintsMail">Correo Denuncias</label>
                 @error('complaintsMail')
-                    <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                    <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                 @enderror
             </div>
         </div>
@@ -49,7 +49,7 @@
                 <input class="c-text-black" id="contactNumber" type="text" name="contactNumber" placeholder="Correo Denuncias" autocomplete="off" value="{{ Config::get('petsafe-web-config.contactNumber') }}">
                 <label for="contactNumber">Número de contacto</label>
                 @error('contactNumber')
-                    <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                    <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                 @enderror
             </div>
         </div>
@@ -59,7 +59,7 @@
                 <input class="c-text-black" id="paginatePublicationsBy" type="text" name="paginatePublicationsBy" placeholder="Paginación de Publicaciones" autocomplete="off" value="{{ Config::get('petsafe-web-config.paginatePublicationsBy') }}">
                 <label for="paginatePublicationsBy">Paginación de Publicaciones</label>
                 @error('paginatePublicationsBy')
-                    <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                    <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                 @enderror
             </div>
         </div>
@@ -69,7 +69,7 @@
                 <input class="c-text-black" id="paginateServicesBy" type="text" name="paginateServicesBy" placeholder="Paginación de Servicios" autocomplete="off" value="{{ Config::get('petsafe-web-config.paginateServicesBy') }}">
                 <label for="paginateServicesBy">Paginación de Servicios</label>
                 @error('paginateServicesBy')
-                    <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                    <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                 @enderror
             </div>
         </div>
@@ -86,7 +86,7 @@
                 @endif
             </select>
             @error('maintenanceMode')
-                <strong style="color: darkred">{{ $message }}</strong>
+                <strong style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</strong>
             @enderror
         </div>
 

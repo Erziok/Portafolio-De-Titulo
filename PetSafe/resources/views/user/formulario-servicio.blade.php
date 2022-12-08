@@ -24,9 +24,9 @@
                         <div class="input-component">
                             <input class="c-text-black" id="petname" type="text" name="name" placeholder="Nombre" autocomplete="off">
                             <label for="petname">Nombre</label>
-                            <small class="error-text mt-2">Ingrese un nombre correcto (mínimo 3 carácteres / solo letras)</small>
+                            <small class="error-text mt-2"><i class="fa-solid fa-circle-exclamation"></i> Ingrese un nombre correcto (mínimo 3 carácteres / solo letras)</small>
                             @error('name')
-                                <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                                <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                             @enderror
                         </div>
                     </div>
@@ -35,9 +35,9 @@
                         <div class="input-component">
                             <input class="c-text-black" id="address" type="text" name="address" placeholder="Dirección" autocomplete="off">
                             <label for="address">Dirección</label>
-                            <small class="error-text mt-2">Ingrese al menos 5 carácteres</small>
+                            <small class="error-text mt-2"><i class="fa-solid fa-circle-exclamation"></i> Ingrese al menos 5 carácteres</small>
                             @error('address')
-                                <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                                <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                             @enderror
                         </div>
                     </div>
@@ -46,9 +46,9 @@
                         <div class="input-component">
                             <input class="c-text-black" id="phone" type="text" name="phone" placeholder="Número de Teléfono" autocomplete="off">
                             <label for="phone">Número de Teléfono</label>
-                            <small class="error-text mt-2">Ingrese un número válido</small>
+                            <small class="error-text mt-2"><i class="fa-solid fa-circle-exclamation"></i> Ingrese un número válido</small>
                             @error('phone')
-                                <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                                <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                             @enderror
                         </div>
                     </div>
@@ -57,9 +57,9 @@
                         <div class="input-component">
                             <input class="c-text-black" id="email" type="email" name="email" placeholder="Email" autocomplete="off">
                             <label for="email">Email</label>
-                            <small class="error-text mt-2">Ingrese un email válido</small>
+                            <small class="error-text mt-2"><i class="fa-solid fa-circle-exclamation"></i> Ingrese un email válido</small>
                             @error('email')
-                                <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                                <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                             @enderror
                         </div>
                     </div>                    
@@ -69,9 +69,9 @@
                         <textarea type="textarea" id="description" 
                         class="form-control descripcion input-text-area-component shadow-none" placeholder="Ingrese aquí los detalles de su publicación" 
                         name="description" rows="5"></textarea>
-                        <small class="error-text">Ingrese al menos 10 carácteres</small>
+                        <small class="error-text"><i class="fa-solid fa-circle-exclamation"></i> Ingrese al menos 10 carácteres</small>
                         @error('description')
-                          <strong style="color: darkred">{{ $message }}</strong>
+                          <strong style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</strong>
                         @enderror
                     </div>
 
@@ -83,9 +83,9 @@
                                 <option value="{{ $type->id }}">{{ $type->type }}</option>
                             @endforeach
                         </select>
-                        <small class="error-text mt-2">Seleccione una opción válida</small>
+                        <small class="error-text mt-2"><i class="fa-solid fa-circle-exclamation"></i> Seleccione una opción válida</small>
                         @error('service_type_id')
-                            <strong style="color: darkred">{{ $message }}</strong>
+                            <strong style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</strong>
                         @enderror
                     </div>        
 
@@ -93,9 +93,9 @@
                         <label class="form-label" for="form3Example1q">Ingrese una fotografía</label><br>
                         <input type="file" id="photo" class="form-control input-file-component shadow-none" 
                         placeholder="" name="photo"/>
-                        <small class="error-text">Ingrese un archivo válido</small>
+                        <small class="error-text"><i class="fa-solid fa-circle-exclamation"></i> Ingrese un archivo válido</small>
                         @error('photo')
-                          <strong style="color: darkred">{{ $message }}</strong>
+                          <strong style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</strong>
                         @enderror
                     </div>
 
