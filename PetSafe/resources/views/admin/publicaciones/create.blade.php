@@ -68,7 +68,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 form-box form-box-select">
                     <label class="form-label" for="form3Example1q">Sexo</label>
                     <select class="form-select gender input-select-component shadow-none" name="gender" id="gender">
-                        <option value="" disabled selected>Seleccione un genero</option>
+                        <option value="" disabled selected>Seleccione un género</option>
                         <option value="Macho">Macho</option>
                         <option value="Hembra">Hembra</option>
                     </select>

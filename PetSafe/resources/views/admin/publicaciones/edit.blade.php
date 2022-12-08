@@ -87,8 +87,10 @@
                         @foreach ($categories as $category)
                             @if ($category->id == $publication->category_id)
                                 <option value="{{ $category->id }}" selected>{{ $category->category }}</option>
+                            @else
+                                <option value="{{ $category->id }}">{{ $category->category }}</option>
                             @endif
-                            <option value="{{ $category->id }}">{{ $category->category }}</option>
+                            
                         @endforeach
                     </select>
                     <small class="error-text"><i class="fa-solid fa-circle-exclamation"></i>Seleccione una opción válida</small>
