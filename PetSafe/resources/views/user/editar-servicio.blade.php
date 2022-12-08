@@ -202,7 +202,7 @@
     @endsection
 
 @section('JS')
-<script src="{{ asset('js/validate-service.js') }}"></script>
+<script src="{{ asset('js/validate-edit-service.js') }}"></script>
 <script src="{{ asset('js/select-schedules.js') }}"></script>
 <script src="{{ asset('js/select-hours.js') }}"></script>
 @endsection

@@ -148,5 +148,5 @@
     });
 </script>
 <script src="{{ asset('js/select-publication.js?v=').time() }}"></script>
-<script src="{{ asset('js/validate-publication.js?v=').time() }}"></script>
+<script src="{{ asset('js/validate-edit-publication.js?v=').time() }}"></script>
 @endsection

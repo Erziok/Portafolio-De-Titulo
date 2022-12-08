@@ -78,7 +78,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-12 form-box form-box-select">
                         <label class="form-label" for="service_type_id">Tipo de servicio</label>
                         <select class="form-select input-select-component shadow-none" name="service_type_id" id="service_type_id">
-                            <option selected disabled>Seleccione...</option>
+                            <option value="" selected disabled>Seleccione...</option>
                             @foreach ($types as $type)
                                 <option value="{{ $type->id }}">{{ $type->type }}</option>
                             @endforeach
