@@ -63,7 +63,7 @@
             </div>
 
             <div class="btn-component mt-5">
-                <button class="btn-default" type="submit">Crear usuario</button>
+                <button class="btn-default" type="submit">Crear procedimiento</button>
             </div>
         </form>
     </div>

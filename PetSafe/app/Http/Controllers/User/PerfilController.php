@@ -57,7 +57,8 @@ class PerfilController extends Controller
     }
     public function myFavourites()
     {
-        $datos = Publication::with(['user', 'favourite'])->withCount(['comment', 'favourite'])->whereRelation('favourite', 'user_id', auth() -> id())->get()->paginate(Config::get('petsafe-web-config.paginateServicesBy'));
+        $datos = Publication::with(['user', 'favourite'])->where('active','<',2)->withCount(['comment', 'favourite'])->whereRelation('favourite', 'user_id', auth() -> id())->get()->paginate(Config::get('petsafe-web-config.paginateServicesBy'));
+        // dd($datos->toArray());
         return view('user.mis-favoritos', compact('datos'));
     }
 }

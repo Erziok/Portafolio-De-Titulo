@@ -74,7 +74,7 @@
             </div>
             
             <div class="btn-component mt-5">
-                <button class="btn-default" type="submit">Crear Medicamento</button>
+                <button class="btn-default" type="submit">Crear zona canina</button>
             </div>
         </form>
     </div>
