@@ -42,6 +42,9 @@
             <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-text mt-4">
                 <label for="">Foto</label>
                 <input type="file" name="photo" id="" class="form-control input-file-component shadow-none">
+                @if(Session::has('file_error'))
+                    <strong class="mt-2 mb-4" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ Session::get('file_error') }}</strong>
+                @endif
                 @error('photo')
                     <small class="text-danger"><i class="fa-solid fa-circle-exclamation"></i>{{ $message }}</small>
                 @enderror

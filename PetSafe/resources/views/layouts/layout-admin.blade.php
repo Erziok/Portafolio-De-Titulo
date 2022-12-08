@@ -107,8 +107,16 @@
                         <i class="fa-solid fa-handshake"></i>
                         <span>Solicitudes</span>
                     </a>
+                    <br>
                 </nav>
-                <footer class="footer"><br>
+                <footer class="footer">
+                    <div class="navigation border-0">
+                        <a href="{{ route('home') }}">
+                            <i class="fa-solid fa-globe"></i>
+                            <span>Ir a PetSafe</span>
+                        </a>
+                    </div>
+                    <br>
                     <h1>PetSafe<small>©</small></h1>
                     <div>
                         PetSafe ©<br />

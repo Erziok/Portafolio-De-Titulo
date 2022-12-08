@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\User\ActualizarUsuarioRequest;
 use App\Http\Requests\Admin\User\GuardarUsuarioRequest;
 use App\Models\Role;
 use App\Models\User;
+use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
@@ -41,11 +42,34 @@ class UserController extends Controller
      */
     public function store(GuardarUsuarioRequest $request)
     {
+
+        if ($request->hasFile('avatar')) {
+            $allowedExtensions = ['PNG', 'png', 'jpg','JPG', 'jpeg', 'JPEG'];
+            if(!in_array($request->file('avatar')->getClientOriginalExtension(), $allowedExtensions)) {
+                return redirect()->back()->with('file_error', 'Tipo de archivo no permitido.');
+            }
+            $fileRoute = 'images/avatars/';
+            $userImage = $request -> file('avatar');
+    
+            $imageName = time().'-'.$userImage->getClientOriginalName();
+            $imageUpload = $fileRoute;
+    
+            $userImage->move($imageUpload, $imageName);
+
+            if(User::create($request->only(['firstname', 'lastname', 'email', 'run', 'active', 'role_id']) + ["avatar"=>$imageUpload.$imageName])) {
+                Alert::toast('Usuario creado correctamente', 'success');
+            }else {
+                Alert::toast('Oops... No se ha podido guardar el usuario', 'error'); 
+            }
+        }
+
         if(User::create($request->validated())) {
             Alert::toast('Usuario creado correctamente', 'success');
         }else {
             Alert::toast('Oops... No se ha podido guardar el usuario', 'error'); 
-        }
+        }        
+       
+        
         return redirect()->route('admin.user.index');
     }
 
@@ -81,6 +105,30 @@ class UserController extends Controller
      */
     public function update(ActualizarUsuarioRequest $request, User $user)
     {
+        if ($request->hasFile('avatar')) {
+            $allowedExtensions = ['PNG', 'png', 'jpg','JPG', 'jpeg', 'JPEG'];
+            if(!in_array($request->file('avatar')->getClientOriginalExtension(), $allowedExtensions)) {
+                return redirect()->back()->with('file_error', 'Tipo de archivo no permitido.');
+            }
+            $fileRoute = 'images/avatars/';
+            $userImage = $request -> file('avatar');
+    
+            $imageName = time().'-'.$userImage->getClientOriginalName();
+            $imageUpload = $fileRoute;
+            
+            //Eliminacion e inserción
+            if (!empty($user->avatar)) {
+                File::delete($user->avatar);
+            }
+            $userImage->move($imageUpload, $imageName);
+
+            if($user->update($request->only(['firstname', 'lastname', 'email', 'run', 'active', 'role_id']) + ["avatar"=>$imageUpload.$imageName])) {
+                Alert::toast('Usuario creado correctamente', 'success');
+            }else {
+                Alert::toast('Oops... No se ha podido guardar el usuario', 'error'); 
+            }
+        }
+
         if ($user->update($request->validated())) {
             Alert::toast('Usuario actualizado correctamente', 'success');
         } else {

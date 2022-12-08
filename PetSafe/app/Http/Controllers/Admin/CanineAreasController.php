@@ -45,6 +45,11 @@ class CanineAreasController extends Controller
      */
     public function store(GuardarZonaRequest $request)
     {
+        $allowedExtensions = ['PNG', 'png', 'jpg','JPG', 'jpeg', 'JPEG'];
+        if(!in_array($request->file('photo')->getClientOriginalExtension(), $allowedExtensions)) {
+            return redirect()->back()->with('file_error', 'Tipo de archivo no permitido.');
+        }
+
         $fileRoute = "images/canine-areas/";
         $areaImage = $request -> file('photo');
         $imageName = time().'-'.$areaImage->getClientOriginalName();
@@ -88,6 +93,10 @@ class CanineAreasController extends Controller
     public function update(ActualizarZonaRequest $request, CanineArea $canineArea)
     {
         if ($request->hasFile('photo')) {
+            $allowedExtensions = ['PNG', 'png', 'jpg','JPG', 'jpeg', 'JPEG'];
+            if(!in_array($request->file('photo')->getClientOriginalExtension(), $allowedExtensions)) {
+                return redirect()->back()->with('file_error', 'Tipo de archivo no permitido.');
+            }
             $fileRoute = "images/canine-areas/";
             $areaImage = $request -> file('photo');
             $imageName = time().'-'.$areaImage->getClientOriginalName();

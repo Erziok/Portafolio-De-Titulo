@@ -41,6 +41,12 @@ class FormularioMascotaController extends Controller
         // $publicationFolder = 'publication-'.$nextId->id+1 .'/';
 
         //this is the variable for the route of photos
+
+        $allowedExtensions = ['PNG', 'png', 'jpg','JPG', 'jpeg', 'JPEG'];
+        if(!in_array($request->file('photo')->getClientOriginalExtension(), $allowedExtensions)) {
+            return redirect()->back()->with('file_error', 'Tipo de archivo no permitido.');
+        }
+
         $fileRoute = "images/publications/";
         $publicationImage = $request -> file('photo');
 
@@ -87,6 +93,10 @@ class FormularioMascotaController extends Controller
     {
         //$this->authorize('publication.tasks', $publication);
         if ($request->hasFile('photo')) {
+            $allowedExtensions = ['PNG', 'png', 'jpg','JPG', 'jpeg', 'JPEG'];
+            if(!in_array($request->file('photo')->getClientOriginalExtension(), $allowedExtensions)) {
+                return redirect()->back()->with('file_error', 'Tipo de archivo no permitido.');
+            }
             $fileRoute = "images/publications/";
             $publicationImage = $request->file('photo');
             $imageName = time().'-'.$publicationImage->getClientOriginalName();

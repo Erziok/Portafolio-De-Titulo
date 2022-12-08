@@ -137,6 +137,9 @@
                     <input type="file" id="photo" class="form-control input-file-component shadow-none" 
                     placeholder="" name="photo"/>
                     <small class="error-text"><i class="fa-solid fa-circle-exclamation"></i>Ingrese un archivo válido</small>
+                    @if(Session::has('file_error'))
+                        <strong class="mt-2 mb-4" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ Session::get('file_error') }}</strong>
+                    @endif
                     @error('photo')
                         <strong style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i>{{ $message }}</strong>
                     @enderror
