@@ -27,11 +27,12 @@ class EditarMascotaRequest extends FormRequest
             'title' => 'required',
             'name' => 'required',
             'specie' => 'required',
-            'breed' => 'required',
+            'breed_id' => 'required',
             'gender' => 'required',
-            'category' => 'required',
+            'category_id' => 'required',
             'description' => 'required',
             'incidentDate' => 'required',
         ];
+        
     }
 }
