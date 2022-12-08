@@ -120,7 +120,7 @@ showError = (check, box, boxInput) => {
 }
 
 submitController = () => {
-    if(errors.firstname || errors.lastname || errors.email || errors.rut || errors.password || errors.password2){
+    if(errors.firstname || errors.lastname || errors.email || errors.run || errors.password || errors.password2){
         console.log("Hay un error")
     }
     else{

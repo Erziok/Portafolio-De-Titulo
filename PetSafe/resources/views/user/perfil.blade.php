@@ -32,6 +32,9 @@
                         <img src="{{ asset($datos[0]->avatar) }}" alt="...">
                     </div>
                 @endif
+                @if(Session::has('file_error'))
+                        <strong class="mt-2 mb-4" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ Session::get('file_error') }}</strong>
+                @endif
                 {{-- Change avatar form --}}
                 <form action="{{ route('cambiar-avatar.update') }}" method="POST" id="avatar-form" enctype="multipart/form-data">
                     @csrf
