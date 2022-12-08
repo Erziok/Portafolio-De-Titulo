@@ -16,7 +16,7 @@
                         <input class="c-text-black" id="run" type="text" name="run" placeholder="Rut" autocomplete="off">
                         <label for="run">Rut</label>
                         @error('run')
-                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                            <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                         @enderror
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                         <input class="c-text-black" id="firstname" type="text" name="firstname" placeholder="Nombre" autocomplete="off">
                         <label for="firstname">Nombre</label>
                         @error('firstname')
-                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                            <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                         @enderror
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                         <input class="c-text-black" id="lastname" type="text" name="lastname" placeholder="Apellido" autocomplete="off">
                         <label for="firstname">Apellido</label>
                         @error('lastname')
-                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                            <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                         @enderror
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                         <input class="c-text-black" id="email" type="email" name="email" placeholder="Email" autocomplete="off">
                         <label for="run">Email</label>
                         @error('email')
-                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                            <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                         @enderror
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                         <input class="c-text-black" id="password" type="password" name="password" placeholder="Contraseña" autocomplete="off">
                         <label for="run">Contraseña</label>
                         @error('password')
-                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                            <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                         @enderror
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                         @endforelse
                     </select>
                     @error('role_id')
-                        <strong style="color: darkred">{{ $message }}</strong>
+                        <strong style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</strong>
                     @enderror
                 </div>
 
@@ -85,7 +85,7 @@
                         <option value="2">Inactiva</option>
                     </select>
                     @error('active')
-                        <strong style="color: darkred">{{ $message }}</strong>
+                        <strong style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</strong>
                     @enderror
                 </div>
                 

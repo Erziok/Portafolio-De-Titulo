@@ -16,7 +16,7 @@
                     <input class="c-text-black" id="title" type="text" name="title" placeholder="Titulo" autocomplete="off" value="{{ $canineArea->title }}">
                     <label for="title">Titulo</label>
                     @error('title')
-                        <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                        <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i>{{ $message }}</small>
                     @enderror
                 </div>
             </div>
@@ -25,7 +25,7 @@
                 <label for="">Comentario</label>
                 <textarea class="form-control input-text-area-component shadow-none" name="comment" id="" cols="30" rows="4">{{ $canineArea->comment }}</textarea>
                 @error('comment')
-                    <small class="text-danger">{{ $message }}</small>
+                    <small class="text-danger"><i class="fa-solid fa-circle-exclamation"></i>{{ $message }}</small>
                 @enderror
             </div>
 
@@ -34,7 +34,7 @@
                     <input class="c-text-black" id="url" type="text" name="url" placeholder="Enlace" autocomplete="off" value="{{ $canineArea -> url }}">
                     <label for="url">Enlace</label>
                     @error('url')
-                        <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                        <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i>{{ $message }}</small>
                     @enderror
                 </div>
             </div>
@@ -43,7 +43,7 @@
                 <label for="">Foto</label>
                 <input type="file" name="photo" id="" class="form-control input-file-component shadow-none">
                 @error('photo')
-                    <small class="text-danger">{{ $message }}</small>
+                    <small class="text-danger"><i class="fa-solid fa-circle-exclamation"></i>{{ $message }}</small>
                 @enderror
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-select mt-4">
@@ -58,7 +58,7 @@
                     @endif
                 </select>
                 @error('active')
-                    <strong style="color: darkred">{{ $message }}</strong>
+                    <strong style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i>{{ $message }}</strong>
                 @enderror
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-text mt-4">
@@ -76,7 +76,7 @@
                     @endforelse
                 </select>
                 @error('benefit_id')
-                    <small class="text-danger">{{ $message }}</small>
+                    <small class="text-danger"><i class="fa-solid fa-circle-exclamation"></i>{{ $message }}</small>
                 @enderror
             </div>
             

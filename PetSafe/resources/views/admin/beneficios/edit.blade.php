@@ -23,7 +23,7 @@
                         <input class="c-text-black" id="name" type="text" name="name" placeholder="Nombre" autocomplete="off" value="{{ $benefit->name }}">
                         <label for="name">Nombre</label>
                         @error('name')
-                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                            <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                         @enderror
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                     <label for="descriptions">Descripción</label>
                     <textarea class="form-control input-text-area-component shadow-none" name="description" id="descriptions" cols="30" rows="4">{{ $benefit->description }}</textarea>
                     @error('description')
-                        <small class="text-danger mt-2">{{ $message }}</small>
+                        <small class="text-danger mt-2"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                     @enderror
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 form-box form-box-select mt-4">
@@ -46,7 +46,7 @@
                         @endif
                     </select>
                     @error('active')
-                        <strong style="color: darkred">{{ $message }}</strong>
+                        <strong style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</strong>
                     @enderror
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 form-box form-box-text mt-4">
@@ -63,7 +63,7 @@
                         @endforelse
                     </select>
                     @error('benefit_type_id')
-                        <small class="text-danger">{{ $message }}</small>
+                        <small class="text-danger"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                     @enderror
                 </div>
 
@@ -81,7 +81,7 @@
                         @endforelse
                     </select>
                     @error('user_id')
-                        <small class="text-danger">{{ $message }}</small>
+                        <small class="text-danger"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                     @enderror
                 </div>
             </div>

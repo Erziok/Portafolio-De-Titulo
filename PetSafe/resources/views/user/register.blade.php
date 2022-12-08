@@ -30,9 +30,9 @@
                         <div class="input-component form-box">
                           <input class="c-text-black" id="firstname" type="text" name="firstname" placeholder="Nombre" autocomplete="off">
                           <label for="firstname">Nombre</label>
-                          <small class="error-text mt-2">Introduce un nombre válido (mínimo 3 carácteres / solo letras)</small>
+                          <small class="error-text mt-2"><i class="fa-solid fa-circle-exclamation"></i> Introduce un nombre válido (mínimo 3 carácteres / solo letras)</small>
                           @error('name')
-                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                            <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                           @enderror
                         </div>
                       </div>
@@ -40,9 +40,9 @@
                         <div class="input-component form-box">
                           <input class="c-text-black" id="lastname" type="text" name="lastname" placeholder="Apellido" autocomplete="off">
                           <label for="lastname">Apellido</label>
-                          <small class="error-text">Introduce un apellido válido (mínimo 3 carácteres / solo letras)</small>
+                          <small class="error-text"><i class="fa-solid fa-circle-exclamation"></i> Introduce un apellido válido (mínimo 3 carácteres / solo letras)</small>
                           @error('lastname')
-                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                            <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                           @enderror
                         </div>
                       </div>
@@ -50,9 +50,9 @@
                         <div class="input-component form-box">
                           <input class="c-text-black" id="mail" type="text" name="email" placeholder="Correo" autocomplete="off">
                           <label for="mail">Correo</label>
-                          <small class="error-text">Introduce un email válido</small>
+                          <small class="error-text"><i class="fa-solid fa-circle-exclamation"></i> Introduce un email válido</small>
                           @error('email')
-                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                            <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                           @enderror
                         </div>
                       </div>
@@ -60,9 +60,9 @@
                         <div class="input-component form-box">
                           <input class="c-text-black" id="run" type="text" name="run" placeholder="Rut" autocomplete="off">
                           <label for="run">Rut</label>
-                          <small class="error-text">Introduce un rut válido</small>
+                          <small class="error-text"><i class="fa-solid fa-circle-exclamation"></i> Introduce un rut válido</small>
                           @error('run')
-                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                            <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                           @enderror
                         </div>
                       </div>
@@ -70,9 +70,9 @@
                         <div class="input-component form-box">
                           <input class="c-text-black" id="password" type="password" name="password" placeholder="Contraseña" autocomplete="off">
                           <label for="run">Contraseña</label>
-                          <small class="error-text">Introduce una contraseña válida (mínimo 6 carácteres)</small>
+                          <small class="error-text"><i class="fa-solid fa-circle-exclamation"></i> Introduce una contraseña válida (mínimo 6 carácteres)</small>
                           @error('password')
-                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                            <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                           @enderror
                         </div>
                       </div>
@@ -80,9 +80,9 @@
                         <div class="input-component form-box">
                           <input class="c-text-black" id="password2" type="password" name="password2" placeholder="Repetir Contraseña" autocomplete="off">
                           <label for="password2">Repetir Contraseña</label>
-                          <small class="error-text">Las contraseñas no coinciden</small>
+                          <small class="error-text"><i class="fa-solid fa-circle-exclamation"></i> Las contraseñas no coinciden</small>
                           @error('password2')
-                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                            <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                           @enderror
                         </div>
                       </div>

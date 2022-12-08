@@ -326,3 +326,19 @@ hr {
 .box-aprobar button:hover {
     opacity: .6;
 }
+
+.box-por-defecto button {
+    background: var(--c-purple-2) !important;
+    color: #fff;
+    border: none;
+    transition: .3s;
+    border-radius: 2px;
+    min-width: max-content;
+    width: 35px;
+    height: 35px;
+    font-size: 1.1rem;
+}
+
+.box-por-defecto button:hover {
+    opacity: .6;
+}

@@ -51,16 +51,23 @@
                     {{ displayStatus($service->active) }}
                     @if (count($service->schedule) == 0)
                         <td>
-                            <a href="{{ route('admin.service.create-schedules', $service->id) }}" class="btn btn-primary">
-                                Añadir Horario
-                            </a>
+                            <div class="btn-component">
+                                <a href="{{ route('admin.service.create-schedules', $service->id) }}" class="btn-simple-component">Añadir Horario <i class="fa-regular fa-calendar-plus"></i></a>
+                            </div>
                         </td>
                     @else
                         <td>
-                            <button type="button" class="btn btn-primary ver-detalles-horario" data-bs-toggle="modal" data-bs-target="#modal-con-horarios" data-service="{{ $service->id }}">
-                                Ver Detalles
-                            </button>
-                            <a href="{{ route('admin.service.edit-schedules', $service->id) }}" class="btn btn-warning text-light"><i class="fa-regular fa-pen-to-square"></i></a>
+                            <div class="acciones-box">
+                                <div class="btn-component">
+                                    <button type="button" class="btn-simple-component ver-detalles-horario" data-bs-toggle="modal" data-bs-target="#modal-con-horarios" data-service="{{ $service->id }}">
+                                        Ver Detalles
+                                        <i class="fa-regular fa-calendar"></i>
+                                    </button>
+                                </div>
+                                <div class="box-editar">
+                                    <a href="{{ route('admin.service.edit-schedules', $service->id) }}"><button  data-bs-toggle="tooltip" data-bs-placement="top" title="Editar Agenda"><i class="fa-regular fa-pen-to-square"></i></button></a>
+                                </div>
+                            </div>
                         </td>
                     @endif
                     <td>

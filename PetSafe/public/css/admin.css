@@ -820,6 +820,7 @@ a {
 }
 .app-body-main-content table tbody div:last-child {
   margin-left: 4px;
+  display: flex;
 }
 .app-body-main-content .img-box {
   width: 100%;

@@ -17,7 +17,7 @@
                         <input class="c-text-black" id="name" type="text" name="name" placeholder="Nombre" autocomplete="off" value="{{ $course->name }}" >
                         <label for="name">Nombre</label>
                         @error('name')
-                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                            <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                         @enderror
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                         <input class="c-text-black" id="phone" type="text" name="phone" placeholder="Teléfono" autocomplete="off" value="{{ $course->phone }}" >
                         <label for="phone">Teléfono</label>
                         @error('phone')
-                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                            <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                         @enderror
                     </div>
                 </div>
@@ -34,21 +34,21 @@
                     <label for="">Descripción</label>
                     <textarea class="form-control input-text-area-component shadow-none" name="description" id="" cols="30" rows="4">{{ $course->description }}</textarea>
                     @error('description')
-                        <small class="text-danger">{{ $message }}</small>
+                        <small class="text-danger"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                     @enderror
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-text mt-4">
                     <label for="">Objetivos</label>
                     <textarea class="form-control input-text-area-component shadow-none" name="objectives" id="" cols="30" rows="4">{{ $course->objectives }}</textarea>
                     @error('objectives')
-                        <small class="text-danger">{{ $message }}</small>
+                        <small class="text-danger"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                     @enderror
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-text mt-4">
                     <label for="">Materiales</label>
                     <textarea class="form-control input-text-area-component shadow-none" name="materials" id="" cols="30" rows="4">{{ $course->materials }}</textarea>
                     @error('materials')
-                        <small class="text-danger">{{ $message }}</small>
+                        <small class="text-danger"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                     @enderror
                 </div>
 
@@ -66,7 +66,7 @@
                         @endforelse
                     </select>
                     @error('benefit_id')
-                        <small class="text-danger">{{ $message }}</small>
+                        <small class="text-danger"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                     @enderror
                 </div>
             </div>

@@ -17,7 +17,7 @@
                         <input class="c-text-black" id="run" type="text" name="run" placeholder="Rut" autocomplete="off" value="{{ $user->run }}">
                         <label for="run">Rut</label>
                         @error('run')
-                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                            <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                         @enderror
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                         <input class="c-text-black" id="firstname" type="text" name="firstname" placeholder="Nombre" autocomplete="off" value="{{ $user->firstname }}">
                         <label for="firstname">Nombre</label>
                         @error('firstname')
-                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                            <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                         @enderror
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                         <input class="c-text-black" id="lastname" type="text" name="lastname" placeholder="Apellido" autocomplete="off" value="{{ $user->lastname }}" >
                         <label for="firstname">Apellido</label>
                         @error('lastname')
-                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                            <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                         @enderror
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                         <input class="c-text-black" id="email" type="email" name="email" placeholder="Email" autocomplete="off" value="{{ $user->email }}">
                         <label for="run">Email</label>
                         @error('email')
-                            <small class="mt-2" style="color: darkred">{{ $message }}</small>
+                            <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
                         @enderror
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                         @endforelse
                     </select>
                     @error('role_id')
-                        <strong style="color: darkred">{{ $message }}</strong>
+                        <strong style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</strong>
                     @enderror
                 </div>
 
@@ -85,7 +85,7 @@
                         @endif
                     </select>
                     @error('active')
-                        <strong style="color: darkred">{{ $message }}</strong>
+                        <strong style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</strong>
                     @enderror
                 </div>
 
