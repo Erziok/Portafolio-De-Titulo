@@ -34,10 +34,10 @@
                     <td>
                         <div class="acciones-box">
                             <div class="box-aprobar">
-                                <a href="{{ route('admin.association.approve', ['service'=>$solicitud,'user'=>$solicitud->user]) }}"><button><i class="fa-solid fa-file-circle-check"></i></button></a>
+                                <a href="{{ route('admin.association.approve', ['service'=>$solicitud,'user'=>$solicitud->user]) }}"><button  data-bs-toggle="tooltip" data-bs-placement="top" title="Aprobar"><i class="fa-solid fa-file-circle-check"></i></button></a>
                             </div>
                             <div class="box-eliminar">
-                                <a href="{{ route('admin.association.deny', $solicitud) }}"><button><i class="fa-solid fa-file-circle-xmark"></i></button></a>
+                                <a href="{{ route('admin.association.deny', $solicitud) }}"><button  data-bs-toggle="tooltip" data-bs-placement="top" title="Rechazar"><i class="fa-solid fa-file-circle-xmark"></i></button></a>
                             </div>
                         </div>
                     </td>
