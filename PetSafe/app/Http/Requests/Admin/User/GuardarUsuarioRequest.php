@@ -29,7 +29,6 @@ class GuardarUsuarioRequest extends FormRequest
             'lastname'=>'required | alpha',
             'email'=>'required',
             'active'=>'required',
-            'password'=>'required',
             'role_id'=>'required',
         ];
     }

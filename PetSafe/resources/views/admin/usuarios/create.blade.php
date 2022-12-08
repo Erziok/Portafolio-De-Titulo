@@ -61,6 +61,9 @@
                         <label for="">Avatar</label>
                         <input type="file" name="avatar" id="" class="form-control input-file-component shadow-none">
                     </div>
+                    @if(Session::has('file_error'))
+                        <strong class="mt-2 mb-4" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ Session::get('file_error') }}</strong>
+                    @endif
                 </div>
 
                 <div class="col-lg-6 col-md-6 col-sm-12 form-box form-box-select mt-4">
