@@ -53,7 +53,7 @@ Route::group(['middleware' => 'validateAdmin', 'prefix' => '/admin', 'as' => 'ad
 
     Route::resource('clinicalProcedure', App\Http\Controllers\Admin\VeterinariaController::class);
 
-    Route::resource('canineArea', \App\Http\Controllers\Admin\CanineAreas::class);
+    Route::resource('canineArea', \App\Http\Controllers\Admin\CanineAreasController::class);
 
     Route::resource('benefit', App\Http\Controllers\Admin\BenefitController::class);
 

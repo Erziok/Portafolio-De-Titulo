@@ -13,7 +13,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\Admin\CanineZones\GuardarZonaRequest;
 use App\Http\Requests\Admin\CanineZones\ActualizarZonaRequest;
 
-class CanineAreas extends Controller
+class CanineAreasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -33,7 +33,7 @@ class CanineAreas extends Controller
      */
     public function create()
     {
-        $benefits = BenefitType::all();
+        $benefits = Benefit::all();
         return view('admin.zonas.create', compact('benefits'));
     }
 
@@ -74,7 +74,7 @@ class CanineAreas extends Controller
      */
     public function edit(CanineArea $canineArea)
     {
-        $benefits = BenefitType::all();
+        $benefits = Benefit::all();
         return view('admin.zonas.edit', compact('benefits', 'canineArea'));
     }
 

@@ -37,10 +37,15 @@ return new class extends Migration
              'active' => 1,
              'benefit_type_id' => 4,
             ], 
-            ['name' => 'Procedimiento clinico',
-             'description' => 'Procedimientos clinicos organizados por la municipalidad',
+            ['name' => 'Farmacia municipal',
+             'description' => 'Farmacias bajo el funcionamiento de la municipalidad',
              'active' => 1,
              'benefit_type_id' => 1,
+            ],
+            ['name' => 'Zonas caninas de San Bernardo',
+             'description' => 'Zonas caninas organizadas por la municipalidad',
+             'active' => 1,
+             'benefit_type_id' => 3,
             ],
         ]);
     }
