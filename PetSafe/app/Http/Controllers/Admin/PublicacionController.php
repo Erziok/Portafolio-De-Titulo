@@ -46,6 +46,11 @@ class PublicacionController extends Controller
      */
     public function store(GuardarPublicacionRequest $request)
     {
+        $allowedExtensions = ['PNG', 'png', 'jpg','JPG', 'jpeg', 'JPEG'];
+        if(!in_array($request->file('photo')->getClientOriginalExtension(), $allowedExtensions)) {
+            return redirect()->back()->with('file_error', 'Tipo de archivo no permitido.');
+        }
+
         $fileRoute = "images/publications/";
         $publicationImage = $request->file('photo');
         $imageName = time().'-'.$publicationImage->getClientOriginalName();
@@ -93,6 +98,12 @@ class PublicacionController extends Controller
     public function update(ActualizarPublicacionRequest $request, Publication $publication, Animal $animal)
     {
         if ($request->hasFile('photo')) {
+            
+            $allowedExtensions = ['PNG', 'png', 'jpg','JPG', 'jpeg', 'JPEG'];
+            if(!in_array($request->file('photo')->getClientOriginalExtension(), $allowedExtensions)) {
+                return redirect()->back()->with('file_error', 'Tipo de archivo no permitido.');
+            }
+
             $fileRoute = "images/publications/";
             $publicationImage = $request->file('photo');
             $imageName = time().'-'.$publicationImage->getClientOriginalName();

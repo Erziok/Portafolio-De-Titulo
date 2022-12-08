@@ -47,6 +47,11 @@ class ServicioController extends Controller
      */
     public function store(GuardarServicioRequest $request)
     {
+        $allowedExtensions = ['PNG', 'png', 'jpg','JPG', 'jpeg', 'JPEG'];
+        if(!in_array($request->file('photo')->getClientOriginalExtension(), $allowedExtensions)) {
+            return redirect()->back()->with('file_error', 'Tipo de archivo no permitido.');
+        }
+
         $fileRoute = 'images/services_img/';
         $serviceImage = $request -> file('photo');
 
@@ -97,6 +102,10 @@ class ServicioController extends Controller
     public function update(ActualizarServicioRequest $request, Service $service)
     {
         if ($request->hasFile('photo')) {
+            $allowedExtensions = ['PNG', 'png', 'jpg','JPG', 'jpeg', 'JPEG'];
+            if(!in_array($request->file('photo')->getClientOriginalExtension(), $allowedExtensions)) {
+                return redirect()->back()->with('file_error', 'Tipo de archivo no permitido.');
+            }
             $fileRoute = 'images/services_img/';
             $serviceImage = $request -> file('photo');
             $imageName = time().'-'.$serviceImage->getClientOriginalName();

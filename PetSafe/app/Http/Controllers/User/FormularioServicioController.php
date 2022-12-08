@@ -32,6 +32,11 @@ class FormularioServicioController extends Controller
             $statusService = 3;
         }
 
+        $allowedExtensions = ['PNG', 'png', 'jpg','JPG', 'jpeg', 'JPEG'];
+        if(!in_array($request->file('photo')->getClientOriginalExtension(), $allowedExtensions)) {
+            return redirect()->back()->with('file_error', 'Tipo de archivo no permitido.');
+        }
+
         $fileRoute = 'images/services_img/';
         $userImage = $request -> file('photo');
 
@@ -100,6 +105,12 @@ class FormularioServicioController extends Controller
 
         // Actualizar servicio
         if ($request->hasFile('photo')) {
+
+            $allowedExtensions = ['PNG', 'png', 'jpg','JPG', 'jpeg', 'JPEG'];
+            if(!in_array($request->file('photo')->getClientOriginalExtension(), $allowedExtensions)) {
+                return redirect()->back()->with('file_error', 'Tipo de archivo no permitido.');
+            }
+            
             $fileRoute = 'images/services_img/';
             $serviceImage = $request -> file('photo');
             $imageName = time().'-'.$serviceImage->getClientOriginalName();
