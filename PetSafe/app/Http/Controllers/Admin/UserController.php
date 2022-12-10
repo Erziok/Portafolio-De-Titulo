@@ -61,6 +61,7 @@ class UserController extends Controller
             }else {
                 Alert::toast('Oops... No se ha podido guardar el usuario', 'error'); 
             }
+            return redirect()->route('admin.user.index');
         }
 
         if(User::create($request->validated())) {
@@ -68,8 +69,6 @@ class UserController extends Controller
         }else {
             Alert::toast('Oops... No se ha podido guardar el usuario', 'error'); 
         }        
-       
-        
         return redirect()->route('admin.user.index');
     }
 
@@ -127,6 +126,8 @@ class UserController extends Controller
             }else {
                 Alert::toast('Oops... No se ha podido guardar el usuario', 'error'); 
             }
+            return redirect()->route('admin.user.index');
+
         }
 
         if ($user->update($request->validated())) {
