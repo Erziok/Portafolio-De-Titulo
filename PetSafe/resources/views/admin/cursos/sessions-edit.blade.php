@@ -22,13 +22,13 @@
                     <div class="box-calendar">
                         <div class="calendar-header mb-3">
                             <div class="box-prev-month">
-                                <button class="btn-calendar-month" onclick="previous()"><i class="fa-solid fa-chevron-left"></i></button>
+                                <button type="button" class="btn-calendar-month" onclick="previous()"><i class="fa-solid fa-chevron-left"></i></button>
                             </div>
                             <div class="calendar-title">
                                 <h3 class="f-size-md" id="monthAndYear"></h3>
                             </div>
                             <div class="box-next-month">
-                                <button class="btn-calendar-month" onclick="next()"><i class="fa-solid fa-chevron-right"></i></button>
+                                <button type="button" class="btn-calendar-month" onclick="next()"><i class="fa-solid fa-chevron-right"></i></button>
                             </div>
                         </div>
                         <table class="table table-responsive-sm m-0 text-center" id="calendar">
