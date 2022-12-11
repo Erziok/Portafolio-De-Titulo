@@ -40,7 +40,7 @@ return new class extends Migration
             ['name' => 'Farmacia municipal',
              'description' => 'Farmacias bajo el funcionamiento de la municipalidad',
              'active' => 1,
-             'benefit_type_id' => 1,
+             'benefit_type_id' => 2,
             ],
             ['name' => 'Zonas caninas de San Bernardo',
              'description' => 'Zonas caninas organizadas por la municipalidad',
