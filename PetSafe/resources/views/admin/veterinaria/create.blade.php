@@ -39,7 +39,7 @@
 
                 <div class="col-lg-12 col-md-12 col-sm-12 form-box form-box-text mt-4">
                     <div class="input-component">
-                        <input class="c-text-black" id="phone" type="email" name="phone" placeholder="Número de contacto" autocomplete="off">
+                        <input class="c-text-black" id="phone" name="phone" placeholder="Número de contacto" autocomplete="off">
                         <label for="run">Número de contacto</label>
                         @error('phone')
                             <small class="mt-2" style="color: darkred"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</small>
